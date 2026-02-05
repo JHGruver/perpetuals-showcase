@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpetuals - The Infrastructure for Tomorrow's Markets</title>
+  <meta name="description" content="Perpetuals.com - Pioneers of tokenized securities. Complete exchange infrastructure for the next generation of regulated digital finance.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="../../src/assets/images/logos/logo.svg" as="image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 168 168'%3E%3Cg transform='translate(0,28)'%3E%3Cpath fill='%23fd8800' d='M0 55.7c0 9.6 2.3 18.5 6.8 26.5 6.3 11.7 16.6 20.7 29 25.5 12.4 4.7 26 4.9 38.5.5 3.2-1.1 6.3-2.6 9.3-4.3 8.4-4.9 15.5-11.9 20.4-20.4 1-1.8 3.4-2.4 5.2-1.4s2.4 3.4 1.4 5.2c-4.7 8.2-11.2 15.2-18.9 20.5 6.1 2.3 12.8 3.6 19.7 3.6 30.8 0 55.7-24.9 55.7-55.7 0-13.3-4.7-26.1-13.3-36.2-.7-.8-1.4-1.5-2.1-2.3-.6-.6-1.2-1.3-1.9-1.9C141.7 7.6 131.3 2.5 120.1.7c-2.7-.4-5.4-.7-8.1-.7-10.4-.1-20.7 2.7-29.7 8.2C71 15.1 62.6 25.9 58.5 38.5c-.6 2-2.8 3.1-4.8 2.4-2-.6-3.1-2.8-2.4-4.8C55.5 22.9 64.1 11.5 75.5 3.6 69.3 1.3 62.7 0 55.8 0 25.2 0 .4 24.6 0 55c0 .2 0 .5 0 .7z'/%3E%3C/g%3E%3C/svg%3E">
+  <script>!function(){var l=document.querySelector('link[rel="icon"]');if(l){var n=l.cloneNode();n.href=l.href;l.parentNode.removeChild(l);document.head.appendChild(n)}}()</script>
+</head>
+<body>
+  <!-- Loading Screen Container -->
+  <div id="loading-screen"></div>
+
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="logo" title="Back to Showcase">
+        <svg class="logo-icon" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+        </svg>
+        <span>Perpetuals</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="./index.html" class="active">Home</a>
+        <a href="../features-rebuild/index.html">Features</a>
+        <a href="../competitive-analysis/index.html">Analysis</a>
+        <a href="../design-system/index.html">Design System</a>
+        <a href="../product-vision/index.html">Vision</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+        <a href="#demo" class="btn btn-primary">Open Demo</a>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- ========================================
+         SECTION 1: HERO EXPERIENCE
+         "The Universe of Digital Finance"
+    ======================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-background">
+        <canvas id="particle-canvas"></canvas>
+        <div class="gradient-mesh"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>NASDAQ: PDC</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line">The Infrastructure for</span>
+          <span class="title-line title-gradient">Tomorrow's Markets</span>
+        </h1>
+
+        <p class="hero-subtitle">Pioneers of tokenized securities. Complete exchange infrastructure for the next generation of regulated digital finance.</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value" data-count="2400000000" data-prefix="$" data-suffix="+">$0</span>
+            <span class="stat-label">Daily Volume</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value" data-count="11700000000" data-suffix="+">0</span>
+            <span class="stat-label">Trades Analyzed</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-value" data-count="99.99" data-suffix="%">0</span>
+            <span class="stat-label">Uptime SLA</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span>Explore Platform</span>
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#demo" class="btn btn-secondary btn-lg">Open Demo Account</a>
+        </div>
+
+        <div class="scroll-indicator">
+          <span>Scroll to discover</span>
+          <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="7 13 12 18 17 13"></polyline>
+            <polyline points="7 6 12 11 17 6"></polyline>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: VALUE PROPOSITION
+         "Three Pillars"
+    ======================================== -->
+    <section class="value-props" id="value">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why Perpetuals</span>
+          <h2 class="section-title split-text">What Sets Us Apart</h2>
+        </div>
+
+        <div class="props-grid">
+          <article class="prop-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="prop-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M24 4L6 14v20l18 10 18-10V14L24 4z"/>
+                <path d="M24 24v20"/>
+                <path d="M6 14l18 10 18-10"/>
+                <path d="M12 17v14"/>
+                <path d="M36 17v14"/>
+              </svg>
+            </div>
+            <h3 class="prop-title">Regulated & Compliant</h3>
+            <p class="prop-description">Full compliance with MiFID II, MiCA, DORA, EMIR, and GDPR. Operating across 15+ jurisdictions with institutional-grade licensing.</p>
+            <ul class="prop-features">
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                MiFID II Licensed
+              </li>
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                MiCA Ready
+              </li>
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                DORA Compliant
+              </li>
+            </ul>
+          </article>
+
+          <article class="prop-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="prop-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="24" cy="24" r="20"/>
+                <path d="M24 12v12l8 4"/>
+                <circle cx="24" cy="24" r="4"/>
+              </svg>
+            </div>
+            <h3 class="prop-title">Lightning Fast</h3>
+            <p class="prop-description">Sub-millisecond latency with our custom matching engine. Co-located at Equinix FR2 Frankfurt for maximum performance.</p>
+            <ul class="prop-features">
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                &lt;1ms Latency
+              </li>
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                2M Orders/sec
+              </li>
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Equinix FR2
+              </li>
+            </ul>
+          </article>
+
+          <article class="prop-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="prop-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="8" y="8" width="32" height="32" rx="4"/>
+                <path d="M16 16h16"/>
+                <path d="M16 24h16"/>
+                <path d="M16 32h8"/>
+                <circle cx="36" cy="32" r="8" fill="currentColor" opacity="0.1"/>
+                <path d="M32 32l4 4 6-6"/>
+              </svg>
+            </div>
+            <h3 class="prop-title">Quantum Secure</h3>
+            <p class="prop-description">Post-quantum cryptographic standards protecting your assets. Future-proof security with hardware-secured cold storage.</p>
+            <ul class="prop-features">
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Post-Quantum Crypto
+              </li>
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Cold Storage
+              </li>
+              <li>
+                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                24/7 Monitoring
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 3: BRAND ECOSYSTEM
+         "The Perpetuals Family"
+    ======================================== -->
+    <section class="brands" id="brands">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Ecosystem</span>
+          <h2 class="section-title">Our Brands</h2>
+        </div>
+
+        <div class="brands-carousel">
+          <div class="brand-tabs">
+            <button class="brand-tab active" data-brand="perpetuals">
+              <span>Perpetuals</span>
+            </button>
+            <button class="brand-tab" data-brand="barriers">
+              <span>Barriers</span>
+            </button>
+            <button class="brand-tab" data-brand="ledgera">
+              <span>Ledgera</span>
+            </button>
+            <button class="brand-tab" data-brand="upside">
+              <span>Upside Only</span>
+            </button>
+          </div>
+
+          <div class="brand-content">
+            <article class="brand-panel active" data-brand="perpetuals">
+              <div class="brand-info">
+                <div class="brand-logo">
+                  <svg viewBox="0 0 120 40" fill="currentColor">
+                    <rect width="40" height="40" rx="8" fill="url(#brand-gradient)"/>
+                    <text x="48" y="28" font-family="Space Grotesk" font-weight="700" font-size="20">Perpetuals</text>
+                  </svg>
+                </div>
+                <h3 class="brand-title">Core Trading Platform</h3>
+                <p class="brand-description">The complete exchange infrastructure powering institutional digital asset markets. From matching engine to settlement, custody to compliance.</p>
+                <a href="#" class="btn btn-secondary">Visit Platform
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <div class="brand-visual">
+                <div class="platform-preview">
+                  <div class="preview-header">
+                    <div class="preview-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="preview-title">Kronos X Dashboard</span>
+                  </div>
+                  <div class="preview-content">
+                    <div class="preview-chart"></div>
+                    <div class="preview-orders">
+                      <div class="order-row"></div>
+                      <div class="order-row"></div>
+                      <div class="order-row"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="brand-panel" data-brand="barriers">
+              <div class="brand-info">
+                <h3 class="brand-title">Structured Products</h3>
+                <p class="brand-description">Create and trade barrier options and structured products with institutional-grade risk management and real-time pricing.</p>
+                <a href="#" class="btn btn-secondary">Learn More
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <div class="brand-visual">
+                <div class="barriers-preview"></div>
+              </div>
+            </article>
+
+            <article class="brand-panel" data-brand="ledgera">
+              <div class="brand-info">
+                <h3 class="brand-title">Digital Asset Settlement</h3>
+                <p class="brand-description">Secure, compliant settlement infrastructure for tokenized securities. Real-time clearing with multi-chain support.</p>
+                <a href="#" class="btn btn-secondary">Explore Ledgera
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <div class="brand-visual">
+                <div class="ledgera-preview"></div>
+              </div>
+            </article>
+
+            <article class="brand-panel" data-brand="upside">
+              <div class="brand-info">
+                <h3 class="brand-title">Retail Trading App</h3>
+                <p class="brand-description">Consumer-friendly access to institutional-grade markets. Simple interface, powerful execution.</p>
+                <a href="#" class="btn btn-secondary">Get the App
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+              <div class="brand-visual">
+                <div class="upside-preview"></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 4: LIVE STATISTICS
+         "Real-Time Pulse"
+    ======================================== -->
+    <section class="statistics" id="stats">
+      <div class="stats-background">
+        <div class="stats-grid-pattern"></div>
+        <div class="stats-glow"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header section-header-light">
+          <span class="section-label">Performance</span>
+          <h2 class="section-title">World-Class Technology</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="fade-up">
+            <div class="stat-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="24" height="24" rx="4"/>
+                <path d="M8 20l4-4 4 4 8-8"/>
+              </svg>
+            </div>
+            <span class="stat-number" data-count="11700000000" data-suffix="+">0</span>
+            <span class="stat-name">Trades Analyzed</span>
+            <span class="stat-detail">+2.3M today</span>
+          </div>
+
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="16" cy="16" r="12"/>
+                <path d="M16 8v8l4 4"/>
+              </svg>
+            </div>
+            <span class="stat-number">&lt;1<span class="stat-unit">ms</span></span>
+            <span class="stat-name">Latency</span>
+            <span class="stat-detail">Industry leading</span>
+          </div>
+
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="16" cy="16" r="12"/>
+                <path d="M12 16h8"/>
+                <path d="M16 12v8"/>
+              </svg>
+            </div>
+            <span class="stat-number">24/7</span>
+            <span class="stat-name">Trading</span>
+            <span class="stat-detail">No downtime</span>
+          </div>
+
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 4l12 6v12l-12 6-12-6V10l12-6z"/>
+                <path d="M16 16v10"/>
+                <path d="M4 10l12 6 12-6"/>
+              </svg>
+            </div>
+            <span class="stat-number">99.99<span class="stat-unit">%</span></span>
+            <span class="stat-name">SLA</span>
+            <span class="stat-detail">Guaranteed uptime</span>
+          </div>
+
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="stat-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 4v24"/>
+                <path d="M8 12h4v12H8z"/>
+                <path d="M20 8h4v16h-4z"/>
+              </svg>
+            </div>
+            <span class="stat-number" data-count="2400000000" data-prefix="$">$0</span>
+            <span class="stat-name">Daily Volume</span>
+            <span class="stat-detail">Peak capacity</span>
+          </div>
+
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="stat-icon">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="16" cy="16" r="12"/>
+                <path d="M16 10v6l4 2"/>
+                <path d="M10 20l2 2"/>
+                <path d="M20 20l2 2"/>
+              </svg>
+            </div>
+            <span class="stat-number">15<span class="stat-unit">+</span></span>
+            <span class="stat-name">Licenses</span>
+            <span class="stat-detail">Global coverage</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 5: SERVICES DEEP DIVE
+         "Layered Architecture"
+    ======================================== -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Solutions</span>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">Complete infrastructure for institutional digital finance</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card service-card-featured" data-aos="fade-up">
+            <div class="service-badge">Flagship</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="8" width="40" height="32" rx="4"/>
+                <path d="M4 16h40"/>
+                <path d="M12 24h8"/>
+                <path d="M12 30h12"/>
+                <path d="M28 22v12"/>
+                <path d="M34 26v8"/>
+                <path d="M40 24v6"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Kronos X</h3>
+            <p class="service-description">Complete exchange infrastructure including matching engine, settlement, custody, and compliance monitoring.</p>
+            <ul class="service-features">
+              <li>Matching Engine</li>
+              <li>Settlement System</li>
+              <li>Custody Solution</li>
+              <li>Compliance Suite</li>
+            </ul>
+            <a href="../features-rebuild/index.html" class="service-link">
+              <span>Explore Kronos X</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="24" cy="24" r="20"/>
+                <path d="M24 12v12l8 4"/>
+                <circle cx="24" cy="24" r="8" stroke-dasharray="4 2"/>
+              </svg>
+            </div>
+            <h3 class="service-title">BayesShield</h3>
+            <p class="service-description">AI-powered market surveillance detecting manipulation patterns in real-time.</p>
+            <a href="#" class="service-link">
+              <span>Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 4v8"/>
+                <path d="M24 36v8"/>
+                <path d="M4 24h8"/>
+                <path d="M36 24h8"/>
+                <rect x="12" y="12" width="24" height="24" rx="4"/>
+                <path d="M18 24h12"/>
+                <path d="M24 18v12"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Vault</h3>
+            <p class="service-description">Quantum-resistant cold storage with multi-signature authorization and insurance coverage.</p>
+            <a href="#" class="service-link">
+              <span>Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="16" cy="16" r="8"/>
+                <circle cx="32" cy="16" r="8"/>
+                <circle cx="24" cy="32" r="8"/>
+                <path d="M16 24v0"/>
+                <path d="M32 24v0"/>
+                <path d="M20 20l4 4"/>
+                <path d="M28 20l-4 4"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Ledgera</h3>
+            <p class="service-description">Real-time settlement infrastructure for tokenized securities with multi-chain support.</p>
+            <a href="#" class="service-link">
+              <span>Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="8" y="8" width="32" height="32" rx="4"/>
+                <path d="M16 20h16"/>
+                <path d="M16 28h8"/>
+                <circle cx="34" cy="34" r="10" fill="#0a0a0a" stroke="currentColor"/>
+                <path d="M30 34l3 3 5-5"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Compliance Suite</h3>
+            <p class="service-description">Automated regulatory reporting, KYC/AML, and transaction monitoring across jurisdictions.</p>
+            <a href="#" class="service-link">
+              <span>Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+
+          <article class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M8 12h32"/>
+                <path d="M8 24h32"/>
+                <path d="M8 36h32"/>
+                <circle cx="16" cy="12" r="4"/>
+                <circle cx="32" cy="24" r="4"/>
+                <circle cx="24" cy="36" r="4"/>
+              </svg>
+            </div>
+            <h3 class="service-title">API Platform</h3>
+            <p class="service-description">REST and WebSocket APIs for seamless integration with your existing systems.</p>
+            <a href="#" class="service-link">
+              <span>View Docs</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 6: TRUST INDICATORS
+         "Trusted By"
+    ======================================== -->
+    <section class="trust" id="trust">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Trust</span>
+          <h2 class="section-title">Customers & Partners</h2>
+        </div>
+
+        <div class="partner-ticker">
+          <div class="ticker-track">
+            <div class="ticker-item">
+              <span class="partner-name">Backpack Exchange</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">MTF</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">Equinix</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">GUDS</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">BaFin Licensed</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">Backpack Exchange</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">MTF</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">Equinix</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">GUDS</span>
+            </div>
+            <div class="ticker-item">
+              <span class="partner-name">BaFin Licensed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-section">
+          <h3 class="media-title">As Featured In</h3>
+          <div class="media-grid">
+            <a href="#" class="media-logo" title="CoinDesk">
+              <span>CoinDesk</span>
+            </a>
+            <a href="#" class="media-logo" title="Business Insider">
+              <span>Business Insider</span>
+            </a>
+            <a href="#" class="media-logo" title="Investing.com">
+              <span>Investing.com</span>
+            </a>
+            <a href="#" class="media-logo" title="Manager Magazin">
+              <span>Manager Magazin</span>
+            </a>
+            <a href="#" class="media-logo" title="Handelsblatt">
+              <span>Handelsblatt</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 7: CALL TO ACTION
+         "Join the Future"
+    ======================================== -->
+    <section class="cta" id="contact">
+      <div class="cta-background">
+        <div class="cta-gradient"></div>
+        <div class="cta-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Transform Your Trading Infrastructure?</h2>
+          <p class="cta-subtitle">Join the institutions already building on Perpetuals. Schedule a demo or speak with our team.</p>
+
+          <div class="cta-actions">
+            <a href="#demo" class="btn btn-primary btn-lg">
+              <span>Open Demo Account</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-secondary btn-lg">Contact Sales</a>
+          </div>
+
+          <div class="cta-contact">
+            <span>or call</span>
+            <a href="tel:+15416687401" class="cta-phone">+1 (541) 668-7401</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+            </svg>
+            <span>Perpetuals</span>
+          </a>
+          <p class="footer-tagline">The Infrastructure for Tomorrow's Markets</p>
+          <p class="footer-legal">NASDAQ: PDC</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#">Kronos X</a></li>
+              <li><a href="#">BayesShield</a></li>
+              <li><a href="#">Vault</a></li>
+              <li><a href="#">Ledgera</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">API Reference</a></li>
+              <li><a href="#">Status</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Licenses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2024 Perpetuals Group AG. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    // ============================================
+    // LOADING SCREEN (inlined for file:// compatibility)
+    // ============================================
+    class LoadingScreen{constructor(e={}){this.options={minDuration:2500,onComplete:null,...e},this.element=null,this.tickerData=this.generateTickerData(),this.startTime=Date.now(),this.init()}generateTickerData(){return[{symbol:"BTC",price:67842.5,change:2.34},{symbol:"ETH",price:3456.78,change:1.89},{symbol:"PDC",price:124.56,change:5.67},{symbol:"SOL",price:178.92,change:-.45},{symbol:"AVAX",price:42.18,change:3.21},{symbol:"LINK",price:18.76,change:1.12},{symbol:"DOT",price:8.94,change:-1.23},{symbol:"MATIC",price:.89,change:4.56}]}init(){this.createDOM(),this.startAnimations(),this.simulateLoading()}createDOM(){this.element=document.createElement("div"),this.element.className="loading-screen",this.element.innerHTML=`<div class="loading-content"><div class="loading-logo"><svg class="logo-icon" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/></svg><span class="logo-text">Perpetuals</span></div><div class="profit-chart"><svg class="chart-svg" viewBox="0 0 300 100" preserveAspectRatio="none"><defs><linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fd8800" stop-opacity="0.3"/><stop offset="100%" stop-color="#fd8800" stop-opacity="0"/></linearGradient><linearGradient id="line-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#fd8800"/><stop offset="100%" stop-color="#130d90"/></linearGradient></defs><path class="chart-area" fill="url(#chart-gradient)"/><path class="chart-line" fill="none" stroke="url(#line-gradient)" stroke-width="2"/></svg><div class="chart-metrics"><div class="metric"><span class="metric-label">Daily Volume</span><span class="metric-value" data-target="2400000000">$0</span></div><div class="metric"><span class="metric-label">Trades Analyzed</span><span class="metric-value" data-target="11700000000">0</span></div><div class="metric positive"><span class="metric-label">Uptime</span><span class="metric-value">99.99%</span></div></div></div><div class="ticker-container"><div class="ticker-track">${this.renderTickerItems()}${this.renderTickerItems()}</div></div><div class="loading-progress"><div class="progress-bar"><div class="progress-fill"></div></div><span class="progress-text">Initializing secure connection...</span></div></div><div class="loading-grid">${Array(20).fill('<div class="grid-line"></div>').join("")}</div><div class="loading-particles">${Array(30).fill('<div class="particle"></div>').join("")}</div>`,document.body.prepend(this.element),this.injectStyles()}renderTickerItems(){return this.tickerData.map(e=>`<div class="ticker-item"><span class="ticker-symbol">${e.symbol}</span><span class="ticker-price">$${e.price.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})}</span><span class="ticker-change ${e.change>=0?"positive":"negative"}"><svg class="change-arrow" viewBox="0 0 12 12" fill="currentColor">${e.change>=0?'<path d="M6 2L11 8H1L6 2Z"/>':'<path d="M6 10L1 4H11L6 10Z"/>'}</svg>${Math.abs(e.change).toFixed(2)}%</span></div>`).join("")}injectStyles(){if(document.getElementById("loading-screen-styles"))return;const e=document.createElement("style");e.id="loading-screen-styles",e.textContent=`.loading-screen{position:fixed;inset:0;z-index:10000;background:#0a0a0a;display:flex;align-items:center;justify-content:center;overflow:hidden}.loading-screen.fade-out{animation:fadeOut .6s ease-out forwards}@keyframes fadeOut{to{opacity:0;visibility:hidden}}.loading-content{position:relative;z-index:2;width:100%;max-width:600px;padding:2rem;text-align:center}.loading-logo{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3rem;animation:logoFadeIn .8s ease-out}@keyframes logoFadeIn{from{opacity:0;transform:translateY(-20px)}}.logo-icon{width:48px;height:48px}.logo-text{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:#fff;letter-spacing:-.02em}.profit-chart{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem;margin-bottom:2rem;animation:chartFadeIn .8s ease-out .2s both}@keyframes chartFadeIn{from{opacity:0;transform:translateY(20px)}}.chart-svg{width:100%;height:80px;margin-bottom:1rem}.chart-line{stroke-dasharray:1000;stroke-dashoffset:1000;animation:drawLine 2s ease-out .5s forwards}.chart-area{opacity:0;animation:fadeIn .5s ease-out 1.5s forwards}@keyframes drawLine{to{stroke-dashoffset:0}}@keyframes fadeIn{to{opacity:1}}.chart-metrics{display:flex;justify-content:space-around;gap:1rem}.metric{text-align:center}.metric-label{display:block;font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}.metric-value{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:600;color:#fff}.metric.positive .metric-value{color:#33c15e}.ticker-container{overflow:hidden;background:rgba(255,255,255,.02);border-radius:8px;padding:.75rem 0;margin-bottom:2rem;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)}.ticker-track{display:flex;gap:2rem;animation:tickerScroll 20s linear infinite}@keyframes tickerScroll{to{transform:translateX(-50%)}}.ticker-item{display:flex;align-items:center;gap:.75rem;flex-shrink:0;padding:0 1rem}.ticker-symbol{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:.9rem}.ticker-price{font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,.7);font-size:.85rem}.ticker-change{display:flex;align-items:center;gap:.25rem;font-family:'JetBrains Mono',monospace;font-size:.8rem}.ticker-change.positive{color:#33c15e}.ticker-change.negative{color:#FF3D00}.change-arrow{width:10px;height:10px}.loading-progress{animation:progressFadeIn .5s ease-out .4s both}@keyframes progressFadeIn{from{opacity:0}}.progress-bar{height:3px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;margin-bottom:1rem}.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#fd8800,#130d90);border-radius:3px;transition:width .3s ease-out}.progress-text{font-size:.8rem;color:rgba(255,255,255,.5)}.loading-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(20,1fr);opacity:.03;pointer-events:none}.grid-line{border-right:1px solid #fff;height:100%}.loading-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}.particle{position:absolute;width:4px;height:4px;background:#fd8800;border-radius:50%;opacity:0;animation:particleFloat 4s ease-in-out infinite}${Array(30).fill(null).map((_,i)=>`.particle:nth-child(${i+1}){left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*4}s;animation-duration:${3+Math.random()*2}s;background:${Math.random()>.5?"#fd8800":"#130d90"}}`).join("")}@keyframes particleFloat{0%,100%{opacity:0;transform:translateY(0) scale(0)}50%{opacity:.6;transform:translateY(-50px) scale(1)}}@media(max-width:640px){.loading-content{padding:1rem}.logo-text{font-size:1.5rem}.chart-metrics{flex-direction:column;gap:.75rem}.ticker-item{padding:0 .5rem}}`,document.head.appendChild(e)}startAnimations(){setTimeout(()=>this.generateChartPath(),100),setTimeout(()=>this.animateMetrics(),800),this.updateProgressText()}generateChartPath(){const e=this.element.querySelector(".chart-line"),t=this.element.querySelector(".chart-area"),a=300,n=100,r=[];let s=70;for(let e=0;e<=a;e+=10)s=Math.max(10,Math.min(90,s+(Math.random()-.4)*15)),r.push({x:e,y:n-s});const o=r.map((e,t)=>0===t?`M ${e.x} ${e.y}`:`L ${e.x} ${e.y}`).join(" ");e.setAttribute("d",o),t.setAttribute("d",`${o} L ${a} ${n} L 0 ${n} Z`)}animateMetrics(){this.element.querySelectorAll(".metric-value[data-target]").forEach(e=>{const t=parseInt(e.dataset.target),a=2e3,n=Date.now(),r=e.textContent.startsWith("$");!function s(){const o=Date.now()-n,i=Math.min(o/a,1),l=Math.floor(t*(1-Math.pow(1-i,3)));e.textContent=r?"$"+l.toLocaleString("en-US"):l.toLocaleString("en-US"),i<1&&requestAnimationFrame(s)}()})}updateProgressText(){const e=["Initializing secure connection...","Connecting to trading network...","Verifying compliance protocols...","Loading market data...","Synchronizing ledger state...","Ready"],t=this.element.querySelector(".progress-text");let a=0;const n=setInterval(()=>{++a<e.length?t.textContent=e[a]:clearInterval(n)},500)}simulateLoading(){const e=this.element.querySelector(".progress-fill");let t=0;const a=setInterval(()=>{(t+=15*Math.random())>=100?(t=100,e.style.width="100%",clearInterval(a),setTimeout(()=>this.complete(),Math.max(0,this.options.minDuration-(Date.now()-this.startTime)))):e.style.width=`${t}%`},100)}complete(){this.element.classList.add("fade-out"),setTimeout(()=>{this.element.remove(),document.body.style.overflow="",this.options.onComplete&&this.options.onComplete()},600)}}
+
+    new LoadingScreen({
+      minDuration: 2500,
+      onComplete: () => {
+        document.body.classList.add('loaded');
+        initAnimations();
+      }
+    });
+
+    // ============================================
+    // PARTICLE ANIMATION
+    // ============================================
+    function initParticles() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouse = { x: null, y: null };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 1;
+          this.speedX = (Math.random() - 0.5) * 0.5;
+          this.speedY = (Math.random() - 0.5) * 0.5;
+          this.opacity = Math.random() * 0.5 + 0.2;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          // Mouse interaction
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 150) {
+              const force = (150 - distance) / 150;
+              this.x -= dx * force * 0.02;
+              this.y -= dy * force * 0.02;
+            }
+          }
+
+          // Wrap around edges
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.y < 0) this.y = canvas.height;
+          if (this.y > canvas.height) this.y = 0;
+        }
+
+        draw() {
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 15000));
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 120) {
+              ctx.strokeStyle = `rgba(0, 102, 255, ${0.15 * (1 - distance / 120)})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+
+        drawConnections();
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', init);
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      init();
+      animate();
+    }
+
+    // ============================================
+    // COUNTER ANIMATION
+    // ============================================
+    function animateCounter(element) {
+      const target = parseFloat(element.dataset.count);
+      const prefix = element.dataset.prefix || '';
+      const suffix = element.dataset.suffix || '';
+      const duration = 2000;
+      const start = Date.now();
+
+      function update() {
+        const elapsed = Date.now() - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        let current = target * eased;
+
+        if (target >= 1000000000) {
+          element.textContent = prefix + (current / 1000000000).toFixed(1) + 'B' + suffix;
+        } else if (target >= 1000000) {
+          element.textContent = prefix + (current / 1000000).toFixed(1) + 'M' + suffix;
+        } else if (target >= 1000) {
+          element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+        } else if (target < 100) {
+          element.textContent = prefix + current.toFixed(2) + suffix;
+        } else {
+          element.textContent = prefix + Math.floor(current) + suffix;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      update();
+    }
+
+    // ============================================
+    // SCROLL ANIMATIONS
+    // ============================================
+    function initAnimations() {
+      initParticles();
+
+      // Intersection Observer for fade-up animations
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('aos-animate');
+
+            // Trigger counter animation
+            const counter = entry.target.querySelector('[data-count]');
+            if (counter && !counter.classList.contains('counted')) {
+              counter.classList.add('counted');
+              animateCounter(counter);
+            }
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+
+      // Counter observer for hero and stat sections
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            entry.target.classList.add('counted');
+            animateCounter(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    }
+
+    // ============================================
+    // BRAND TABS
+    // ============================================
+    document.querySelectorAll('.brand-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const brand = tab.dataset.brand;
+
+        // Update tabs
+        document.querySelectorAll('.brand-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Update panels
+        document.querySelectorAll('.brand-panel').forEach(p => p.classList.remove('active'));
+        document.querySelector(`.brand-panel[data-brand="${brand}"]`)?.classList.add('active');
+      });
+    });
+
+    // ============================================
+    // SMOOTH SCROLL
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // ============================================
+    let lastScroll = 0;
+    const header = document.querySelector('.site-header');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = 'none';
+      }
+
+      lastScroll = currentScroll;
+    });
+  </script>
+</body>
+</html>

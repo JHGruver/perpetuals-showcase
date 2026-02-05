@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kronos X - Complete Exchange Infrastructure | Perpetuals</title>
+  <meta name="description" content="The complete exchange infrastructure for the next generation of regulated digital finance. Matching engine, settlement, custody, and compliance - all in one platform.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 168 168'%3E%3Cg transform='translate(0,28)'%3E%3Cpath fill='%23fd8800' d='M0 55.7c0 9.6 2.3 18.5 6.8 26.5 6.3 11.7 16.6 20.7 29 25.5 12.4 4.7 26 4.9 38.5.5 3.2-1.1 6.3-2.6 9.3-4.3 8.4-4.9 15.5-11.9 20.4-20.4 1-1.8 3.4-2.4 5.2-1.4s2.4 3.4 1.4 5.2c-4.7 8.2-11.2 15.2-18.9 20.5 6.1 2.3 12.8 3.6 19.7 3.6 30.8 0 55.7-24.9 55.7-55.7 0-13.3-4.7-26.1-13.3-36.2-.7-.8-1.4-1.5-2.1-2.3-.6-.6-1.2-1.3-1.9-1.9C141.7 7.6 131.3 2.5 120.1.7c-2.7-.4-5.4-.7-8.1-.7-10.4-.1-20.7 2.7-29.7 8.2C71 15.1 62.6 25.9 58.5 38.5c-.6 2-2.8 3.1-4.8 2.4-2-.6-3.1-2.8-2.4-4.8C55.5 22.9 64.1 11.5 75.5 3.6 69.3 1.3 62.7 0 55.8 0 25.2 0 .4 24.6 0 55c0 .2 0 .5 0 .7z'/%3E%3C/g%3E%3C/svg%3E">
+  <script>!function(){var l=document.querySelector('link[rel="icon"]');if(l){var n=l.cloneNode();n.href=l.href;l.parentNode.removeChild(l);document.head.appendChild(n)}}()</script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen"></div>
+
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+        </svg>
+        <span>Perpetuals</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="../homepage-rebuild/index.html">Home</a>
+        <a href="./index.html" class="active">Features</a>
+        <a href="../competitive-analysis/index.html">Analysis</a>
+        <a href="../design-system/index.html">Design System</a>
+        <a href="../product-vision/index.html">Vision</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+        <a href="#demo" class="btn btn-primary">Open Demo</a>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- ========================================
+         SECTION 1: PLATFORM HERO
+         "The Command Center"
+    ======================================== -->
+    <section class="hero">
+      <div class="hero-background">
+        <div class="gradient-mesh"></div>
+        <div class="grid-overlay"></div>
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <span>Flagship Product</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line">Kronos X</span>
+          <span class="title-line title-small">Complete Exchange Infrastructure</span>
+        </h1>
+
+        <p class="hero-subtitle">The modular platform powering the next generation of regulated digital asset markets. From matching engine to settlement, custody to compliance.</p>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span>Schedule Demo</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#architecture" class="btn btn-secondary btn-lg">View Architecture</a>
+        </div>
+
+        <!-- Platform Visual -->
+        <div class="platform-visual">
+          <div class="platform-diagram">
+            <div class="module module-gateway" data-label="Gateway">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18"/>
+                <path d="M9 21V9"/>
+              </svg>
+            </div>
+            <div class="module module-core" data-label="Matching Engine">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="module module-margin" data-label="Margin System">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20"/>
+                <path d="M8 10h4v8H8z"/>
+                <path d="M16 6h-4v12h4z"/>
+              </svg>
+            </div>
+            <div class="module module-settlement" data-label="Settlement">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="8" width="18" height="12" rx="2"/>
+                <path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2"/>
+              </svg>
+            </div>
+            <div class="connector connector-1"></div>
+            <div class="connector connector-2"></div>
+            <div class="connector connector-3"></div>
+            <div class="data-flow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: FEATURE GRID
+         "Capability Cards"
+    ======================================== -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Platform Capabilities</span>
+          <h2 class="section-title">Everything You Need to Launch</h2>
+          <p class="section-subtitle">Modular components that work together seamlessly</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Large feature card -->
+          <article class="feature-card feature-card-lg" data-aos="fade-up">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="4" width="40" height="40" rx="4"/>
+                <circle cx="24" cy="24" r="12"/>
+                <path d="M24 16v8l6 3"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">High-Performance Matching Engine</h3>
+            <p class="feature-description">Process over 2 million orders per second with sub-millisecond latency. Built for institutional-grade performance.</p>
+            <div class="feature-stats">
+              <div class="feature-stat">
+                <span class="stat-value">2M+</span>
+                <span class="stat-label">Orders/sec</span>
+              </div>
+              <div class="feature-stat">
+                <span class="stat-value">&lt;1ms</span>
+                <span class="stat-label">Latency</span>
+              </div>
+              <div class="feature-stat">
+                <span class="stat-value">99.99%</span>
+                <span class="stat-label">Uptime</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Regular cards -->
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 4v8"/>
+                <path d="M24 36v8"/>
+                <path d="M4 24h8"/>
+                <path d="M36 24h8"/>
+                <rect x="12" y="12" width="24" height="24" rx="4"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Multi-Wallet Architecture</h3>
+            <p class="feature-description">Self-custody solution with hardware-secured cold storage and multi-signature authorization.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="24" cy="24" r="20"/>
+                <path d="M24 12v12"/>
+                <path d="M18 36h12"/>
+                <circle cx="24" cy="24" r="4"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Equinix FR2 Co-location</h3>
+            <p class="feature-description">Co-located with Eurex at Frankfurt's premier data center for minimal latency.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="8" y="8" width="32" height="32" rx="4"/>
+                <path d="M16 20h16"/>
+                <path d="M16 28h8"/>
+                <circle cx="34" cy="34" r="8"/>
+                <path d="M30 34l3 3 5-5"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">24/7 Trading</h3>
+            <p class="feature-description">Never miss an opportunity. Trade around the clock with no scheduled downtime.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M8 12h32"/>
+                <path d="M8 24h32"/>
+                <path d="M8 36h32"/>
+                <circle cx="16" cy="12" r="4"/>
+                <circle cx="32" cy="24" r="4"/>
+                <circle cx="24" cy="36" r="4"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Unified Dashboard</h3>
+            <p class="feature-description">Single pane of glass for all operations, risk management, and compliance monitoring.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="16" cy="16" r="8"/>
+                <circle cx="32" cy="16" r="8"/>
+                <circle cx="24" cy="32" r="8"/>
+                <path d="M20 20l4 4"/>
+                <path d="M28 20l-4 4"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Multi-Layer Support</h3>
+            <p class="feature-description">Native support for Ethereum, Solana, and other Layer 1 and Layer 2 networks.</p>
+          </article>
+
+          <article class="feature-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 4L6 14v20l18 10 18-10V14L24 4z"/>
+                <path d="M24 24v20"/>
+                <path d="M6 14l18 10 18-10"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Regulation Ready</h3>
+            <p class="feature-description">Pre-built compliance for MiFID II, MiCA, DORA, EMIR, and GDPR requirements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 3: ARCHITECTURE DIAGRAM
+         "Under the Hood"
+    ======================================== -->
+    <section class="architecture" id="architecture">
+      <div class="container">
+        <div class="section-header section-header-light">
+          <span class="section-label">Technical Deep Dive</span>
+          <h2 class="section-title">System Architecture</h2>
+          <p class="section-subtitle">Built for scalability, security, and compliance</p>
+        </div>
+
+        <div class="arch-diagram">
+          <div class="arch-layer arch-layer-top">
+            <div class="arch-item" data-tooltip="REST & WebSocket APIs">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <path d="M22 6l-10 7L2 6"/>
+              </svg>
+              <span>API Gateway</span>
+            </div>
+            <div class="arch-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="arch-layer arch-layer-middle">
+            <div class="arch-item" data-tooltip="Order matching & execution">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+              <span>Matching Engine</span>
+            </div>
+            <div class="arch-item" data-tooltip="Risk calculation & margin">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20"/>
+                <path d="M8 10h4v8H8z"/>
+                <path d="M16 6h-4v12h4z"/>
+              </svg>
+              <span>Risk Engine</span>
+            </div>
+            <div class="arch-item" data-tooltip="Market surveillance AI">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <span>BayesShield</span>
+            </div>
+          </div>
+
+          <div class="arch-layer arch-layer-bottom">
+            <div class="arch-item" data-tooltip="Trade settlement & clearing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="8" width="18" height="12" rx="2"/>
+                <path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2"/>
+              </svg>
+              <span>Settlement</span>
+            </div>
+            <div class="arch-item" data-tooltip="Secure asset storage">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
+              <span>Vault</span>
+            </div>
+            <div class="arch-item" data-tooltip="Distributed ledger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M2 10h20"/>
+                <path d="M12 4v16"/>
+              </svg>
+              <span>Ledgera</span>
+            </div>
+          </div>
+
+          <div class="arch-connections">
+            <svg class="connection-lines" viewBox="0 0 800 300">
+              <defs>
+                <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#fd8800"/>
+                  <stop offset="100%" stop-color="#130d90"/>
+                </linearGradient>
+              </defs>
+              <path class="connection-line" d="M400 50 L400 100" stroke="url(#line-grad)" stroke-width="2" fill="none"/>
+              <path class="connection-line" d="M200 150 L400 150 L600 150" stroke="url(#line-grad)" stroke-width="2" fill="none"/>
+              <path class="connection-line" d="M200 150 L200 250" stroke="url(#line-grad)" stroke-width="2" fill="none"/>
+              <path class="connection-line" d="M400 150 L400 250" stroke="url(#line-grad)" stroke-width="2" fill="none"/>
+              <path class="connection-line" d="M600 150 L600 250" stroke="url(#line-grad)" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="arch-legend">
+          <div class="legend-item">
+            <span class="legend-color" style="background: #fd8800;"></span>
+            <span>Core Services</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color" style="background: #33c15e;"></span>
+            <span>Security Layer</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color" style="background: #FF9800;"></span>
+            <span>Data Flow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 4: COMPLIANCE
+         "Built for Compliance"
+    ======================================== -->
+    <section class="compliance" id="compliance">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Regulatory Excellence</span>
+          <h2 class="section-title">Built for Compliance</h2>
+          <p class="section-subtitle">Pre-configured for institutional requirements across jurisdictions</p>
+        </div>
+
+        <div class="compliance-grid">
+          <div class="compliance-card" data-aos="fade-up">
+            <div class="compliance-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 4L6 14v20l18 10 18-10V14L24 4z"/>
+                <path d="M24 24v20"/>
+                <path d="M6 14l18 10 18-10"/>
+              </svg>
+            </div>
+            <h3>Regulation Ready</h3>
+            <ul class="compliance-list">
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                MiFID II Licensed
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                MiCA Compliant
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                DORA Ready
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                EMIR Reporting
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                GDPR Compliant
+              </li>
+            </ul>
+          </div>
+
+          <div class="compliance-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="compliance-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="8" y="8" width="32" height="32" rx="4"/>
+                <path d="M16 16h16"/>
+                <path d="M16 24h16"/>
+                <path d="M16 32h8"/>
+              </svg>
+            </div>
+            <h3>Fault Tolerant</h3>
+            <ul class="compliance-list">
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Redundant Systems
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Error Correction
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Real-time Monitoring
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Auto Failover
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                99.99% SLA
+              </li>
+            </ul>
+          </div>
+
+          <div class="compliance-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="compliance-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="8" y="16" width="32" height="24" rx="2"/>
+                <path d="M16 16V12a8 8 0 1116 0v4"/>
+                <circle cx="24" cy="28" r="4"/>
+                <path d="M24 32v4"/>
+              </svg>
+            </div>
+            <h3>Quantum Secure</h3>
+            <ul class="compliance-list">
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Post-Quantum Crypto
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                HSM Protected
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Multi-Sig Auth
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Cold Storage
+              </li>
+              <li>
+                <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                SOC 2 Type II
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 5: TESTIMONIALS
+         "Leadership Voices"
+    ======================================== -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Client Success</span>
+          <h2 class="section-title">Trusted by Industry Leaders</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card" data-aos="fade-up">
+            <div class="quote-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <p class="quote-text">"Kronos X has transformed our ability to offer institutional-grade services. The compliance features alone saved us months of development."</p>
+            <footer class="quote-author">
+              <div class="author-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="5"/>
+                  <path d="M20 21a8 8 0 00-16 0"/>
+                </svg>
+              </div>
+              <div class="author-info">
+                <cite class="author-name">Michael Chen</cite>
+                <span class="author-title">CTO, Digital Exchange Partners</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="quote-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <p class="quote-text">"The sub-millisecond latency and 99.99% uptime have exceeded our expectations. Our institutional clients notice the difference."</p>
+            <footer class="quote-author">
+              <div class="author-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="5"/>
+                  <path d="M20 21a8 8 0 00-16 0"/>
+                </svg>
+              </div>
+              <div class="author-info">
+                <cite class="author-name">Sarah Martinez</cite>
+                <span class="author-title">Head of Trading, Alpha Capital</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="quote-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+            <p class="quote-text">"BayesShield's AI surveillance gives us confidence that we're meeting regulatory requirements while protecting our users."</p>
+            <footer class="quote-author">
+              <div class="author-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="5"/>
+                  <path d="M20 21a8 8 0 00-16 0"/>
+                </svg>
+              </div>
+              <div class="author-info">
+                <cite class="author-name">Dr. James Wilson</cite>
+                <span class="author-title">Chief Compliance Officer, SecureTrade</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 6: GETTING STARTED
+         "Your Path Forward"
+    ======================================== -->
+    <section class="getting-started" id="getting-started">
+      <div class="container">
+        <div class="section-header section-header-light">
+          <span class="section-label">Launch Your Exchange</span>
+          <h2 class="section-title">Get Started in 3 Steps</h2>
+        </div>
+
+        <div class="steps-container">
+          <div class="steps-progress">
+            <div class="progress-line"></div>
+            <div class="progress-fill"></div>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card" data-aos="fade-up">
+              <div class="step-number">1</div>
+              <div class="step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Platform Overview</h3>
+              <p class="step-description">Schedule a demo to see how Kronos X can power your exchange with our modular infrastructure.</p>
+              <a href="#demo" class="step-link">
+                Schedule Demo
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </article>
+
+            <article class="step-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="step-number">2</div>
+              <div class="step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <h3 class="step-title">Dedicated Assistance</h3>
+              <p class="step-description">Our integration team provides 24/7 support throughout your onboarding journey.</p>
+              <a href="#contact" class="step-link">
+                Contact Team
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </article>
+
+            <article class="step-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-number">3</div>
+              <div class="step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                </svg>
+              </div>
+              <h3 class="step-title">API Integration</h3>
+              <p class="step-description">Access comprehensive REST and WebSocket APIs with detailed documentation and SDKs.</p>
+              <a href="#" class="step-link">
+                View Documentation
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta" id="demo">
+      <div class="cta-background">
+        <div class="cta-gradient"></div>
+        <div class="cta-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Launch Your Exchange?</h2>
+          <p class="cta-subtitle">Join the institutions building on Kronos X. Schedule a demo with our team today.</p>
+
+          <div class="cta-actions">
+            <a href="#" class="btn btn-primary btn-lg">
+              <span>Schedule Demo</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-secondary btn-lg">Contact Sales</a>
+          </div>
+
+          <div class="cta-contact">
+            <span>or call</span>
+            <a href="tel:+15416687401" class="cta-phone">+1 (541) 668-7401</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 168 112" fill="none">
+              <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+            </svg>
+            <span>Perpetuals</span>
+          </a>
+          <p class="footer-tagline">The Infrastructure for Tomorrow's Markets</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#">Kronos X</a></li>
+              <li><a href="#">BayesShield</a></li>
+              <li><a href="#">Vault</a></li>
+              <li><a href="#">Ledgera</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">API Reference</a></li>
+              <li><a href="#">Status</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2024 Perpetuals Group AG. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    class LoadingScreen{constructor(e={}){this.options={minDuration:2500,onComplete:null,...e},this.element=null,this.tickerData=this.generateTickerData(),this.startTime=Date.now(),this.init()}generateTickerData(){return[{symbol:"BTC",price:67842.5,change:2.34},{symbol:"ETH",price:3456.78,change:1.89},{symbol:"PDC",price:124.56,change:5.67},{symbol:"SOL",price:178.92,change:-.45},{symbol:"AVAX",price:42.18,change:3.21},{symbol:"LINK",price:18.76,change:1.12},{symbol:"DOT",price:8.94,change:-1.23},{symbol:"MATIC",price:.89,change:4.56}]}init(){this.createDOM(),this.startAnimations(),this.simulateLoading()}createDOM(){this.element=document.createElement("div"),this.element.className="loading-screen",this.element.innerHTML=`<div class="loading-content"><div class="loading-logo"><svg class="logo-icon" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/></svg><span class="logo-text">Perpetuals</span></div><div class="profit-chart"><svg class="chart-svg" viewBox="0 0 300 100" preserveAspectRatio="none"><defs><linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fd8800" stop-opacity="0.3"/><stop offset="100%" stop-color="#fd8800" stop-opacity="0"/></linearGradient><linearGradient id="line-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#fd8800"/><stop offset="100%" stop-color="#130d90"/></linearGradient></defs><path class="chart-area" fill="url(#chart-gradient)"/><path class="chart-line" fill="none" stroke="url(#line-gradient)" stroke-width="2"/></svg><div class="chart-metrics"><div class="metric"><span class="metric-label">Daily Volume</span><span class="metric-value" data-target="2400000000">$0</span></div><div class="metric"><span class="metric-label">Trades Analyzed</span><span class="metric-value" data-target="11700000000">0</span></div><div class="metric positive"><span class="metric-label">Uptime</span><span class="metric-value">99.99%</span></div></div></div><div class="ticker-container"><div class="ticker-track">${this.renderTickerItems()}${this.renderTickerItems()}</div></div><div class="loading-progress"><div class="progress-bar"><div class="progress-fill"></div></div><span class="progress-text">Initializing secure connection...</span></div></div><div class="loading-grid">${Array(20).fill('<div class="grid-line"></div>').join("")}</div><div class="loading-particles">${Array(30).fill('<div class="particle"></div>').join("")}</div>`,document.body.prepend(this.element),this.injectStyles()}renderTickerItems(){return this.tickerData.map(e=>`<div class="ticker-item"><span class="ticker-symbol">${e.symbol}</span><span class="ticker-price">$${e.price.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})}</span><span class="ticker-change ${e.change>=0?"positive":"negative"}"><svg class="change-arrow" viewBox="0 0 12 12" fill="currentColor">${e.change>=0?'<path d="M6 2L11 8H1L6 2Z"/>':'<path d="M6 10L1 4H11L6 10Z"/>'}</svg>${Math.abs(e.change).toFixed(2)}%</span></div>`).join("")}injectStyles(){if(document.getElementById("loading-screen-styles"))return;const e=document.createElement("style");e.id="loading-screen-styles",e.textContent=`.loading-screen{position:fixed;inset:0;z-index:10000;background:#0a0a0a;display:flex;align-items:center;justify-content:center;overflow:hidden}.loading-screen.fade-out{animation:fadeOut .6s ease-out forwards}@keyframes fadeOut{to{opacity:0;visibility:hidden}}.loading-content{position:relative;z-index:2;width:100%;max-width:600px;padding:2rem;text-align:center}.loading-logo{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3rem;animation:logoFadeIn .8s ease-out}@keyframes logoFadeIn{from{opacity:0;transform:translateY(-20px)}}.logo-icon{width:48px;height:48px}.logo-text{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:#fff;letter-spacing:-.02em}.profit-chart{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.5rem;margin-bottom:2rem;animation:chartFadeIn .8s ease-out .2s both}@keyframes chartFadeIn{from{opacity:0;transform:translateY(20px)}}.chart-svg{width:100%;height:80px;margin-bottom:1rem}.chart-line{stroke-dasharray:1000;stroke-dashoffset:1000;animation:drawLine 2s ease-out .5s forwards}.chart-area{opacity:0;animation:fadeIn .5s ease-out 1.5s forwards}@keyframes drawLine{to{stroke-dashoffset:0}}@keyframes fadeIn{to{opacity:1}}.chart-metrics{display:flex;justify-content:space-around;gap:1rem}.metric{text-align:center}.metric-label{display:block;font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}.metric-value{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:600;color:#fff}.metric.positive .metric-value{color:#33c15e}.ticker-container{overflow:hidden;background:rgba(255,255,255,.02);border-radius:8px;padding:.75rem 0;margin-bottom:2rem;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent)}.ticker-track{display:flex;gap:2rem;animation:tickerScroll 20s linear infinite}@keyframes tickerScroll{to{transform:translateX(-50%)}}.ticker-item{display:flex;align-items:center;gap:.75rem;flex-shrink:0;padding:0 1rem}.ticker-symbol{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:.9rem}.ticker-price{font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,.7);font-size:.85rem}.ticker-change{display:flex;align-items:center;gap:.25rem;font-family:'JetBrains Mono',monospace;font-size:.8rem}.ticker-change.positive{color:#33c15e}.ticker-change.negative{color:#FF3D00}.change-arrow{width:10px;height:10px}.loading-progress{animation:progressFadeIn .5s ease-out .4s both}@keyframes progressFadeIn{from{opacity:0}}.progress-bar{height:3px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;margin-bottom:1rem}.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#fd8800,#130d90);border-radius:3px;transition:width .3s ease-out}.progress-text{font-size:.8rem;color:rgba(255,255,255,.5)}.loading-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(20,1fr);opacity:.03;pointer-events:none}.grid-line{border-right:1px solid #fff;height:100%}.loading-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}.particle{position:absolute;width:4px;height:4px;background:#fd8800;border-radius:50%;opacity:0;animation:particleFloat 4s ease-in-out infinite}${Array(30).fill(null).map((_,i)=>`.particle:nth-child(${i+1}){left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*4}s;animation-duration:${3+Math.random()*2}s;background:${Math.random()>.5?"#fd8800":"#130d90"}}`).join("")}@keyframes particleFloat{0%,100%{opacity:0;transform:translateY(0) scale(0)}50%{opacity:.6;transform:translateY(-50px) scale(1)}}@media(max-width:640px){.loading-content{padding:1rem}.logo-text{font-size:1.5rem}.chart-metrics{flex-direction:column;gap:.75rem}.ticker-item{padding:0 .5rem}}`,document.head.appendChild(e)}startAnimations(){setTimeout(()=>this.generateChartPath(),100),setTimeout(()=>this.animateMetrics(),800),this.updateProgressText()}generateChartPath(){const e=this.element.querySelector(".chart-line"),t=this.element.querySelector(".chart-area"),a=300,n=100,r=[];let s=70;for(let e=0;e<=a;e+=10)s=Math.max(10,Math.min(90,s+(Math.random()-.4)*15)),r.push({x:e,y:n-s});const o=r.map((e,t)=>0===t?`M ${e.x} ${e.y}`:`L ${e.x} ${e.y}`).join(" ");e.setAttribute("d",o),t.setAttribute("d",`${o} L ${a} ${n} L 0 ${n} Z`)}animateMetrics(){this.element.querySelectorAll(".metric-value[data-target]").forEach(e=>{const t=parseInt(e.dataset.target),a=2e3,n=Date.now(),r=e.textContent.startsWith("$");!function s(){const o=Date.now()-n,i=Math.min(o/a,1),l=Math.floor(t*(1-Math.pow(1-i,3)));e.textContent=r?"$"+l.toLocaleString("en-US"):l.toLocaleString("en-US"),i<1&&requestAnimationFrame(s)}()})}updateProgressText(){const e=["Initializing secure connection...","Connecting to trading network...","Verifying compliance protocols...","Loading market data...","Synchronizing ledger state...","Ready"],t=this.element.querySelector(".progress-text");let a=0;const n=setInterval(()=>{++a<e.length?t.textContent=e[a]:clearInterval(n)},500)}simulateLoading(){const e=this.element.querySelector(".progress-fill");let t=0;const a=setInterval(()=>{(t+=15*Math.random())>=100?(t=100,e.style.width="100%",clearInterval(a),setTimeout(()=>this.complete(),Math.max(0,this.options.minDuration-(Date.now()-this.startTime)))):e.style.width=`${t}%`},100)}complete(){this.element.classList.add("fade-out"),setTimeout(()=>{this.element.remove(),document.body.style.overflow="",this.options.onComplete&&this.options.onComplete()},600)}}
+
+    new LoadingScreen({
+      minDuration: 2000,
+      onComplete: () => {
+        document.body.classList.add('loaded');
+        initAnimations();
+      }
+    });
+
+    function initAnimations() {
+      // Intersection Observer for animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('aos-animate');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+
+      // Platform diagram animation
+      animatePlatformDiagram();
+    }
+
+    function animatePlatformDiagram() {
+      const modules = document.querySelectorAll('.module');
+      modules.forEach((module, i) => {
+        setTimeout(() => {
+          module.classList.add('visible');
+        }, i * 200);
+      });
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

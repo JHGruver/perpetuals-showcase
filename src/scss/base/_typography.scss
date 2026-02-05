@@ -1,0 +1,169 @@
+// ============================================
+// TYPOGRAPHY BASE STYLES
+// ============================================
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $color-primary-black;
+  background-color: $color-primary-white;
+}
+
+// Headings
+h1, .h1 {
+  @include heading-xl;
+  margin-bottom: $spacing-lg;
+}
+
+h2, .h2 {
+  @include heading-lg;
+  margin-bottom: $spacing-lg;
+}
+
+h3, .h3 {
+  @include heading-md;
+  margin-bottom: $spacing-md;
+}
+
+h4, .h4 {
+  @include heading-sm;
+  margin-bottom: $spacing-md;
+}
+
+h5, .h5 {
+  font-family: $font-secondary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-sm;
+}
+
+h6, .h6 {
+  font-family: $font-secondary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-sm;
+}
+
+// Paragraph styles
+p {
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.lead {
+  @include body-lg;
+  color: $color-medium-gray;
+}
+
+.small {
+  @include body-sm;
+}
+
+// Links
+a {
+  color: $color-accent-blue;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-blue-light;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-xl;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid $color-accent-blue;
+  padding-left: $spacing-lg;
+  margin: $spacing-xl 0;
+  font-style: italic;
+  color: $color-medium-gray;
+
+  cite {
+    display: block;
+    margin-top: $spacing-sm;
+    font-style: normal;
+    font-weight: $font-weight-semibold;
+    color: $color-primary-black;
+  }
+}
+
+// Code
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  background: $color-light-gray;
+  padding: 0.2em 0.4em;
+  border-radius: $radius-sm;
+}
+
+pre {
+  font-family: $font-mono;
+  background: $color-dark-charcoal;
+  color: $color-primary-white;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  margin-bottom: $spacing-lg;
+
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Selection
+::selection {
+  background: rgba($color-accent-blue, 0.2);
+  color: $color-primary-black;
+}
+
+// Label/Overline
+.label,
+.overline {
+  @include label;
+  color: $color-medium-gray;
+}
+
+// Gradient text utility
+.gradient-text {
+  @include gradient-text($gradient-accent);
+}
+
+// Text alignment utilities
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Text color utilities
+.text-muted { color: $color-medium-gray; }
+.text-primary { color: $color-primary-black; }
+.text-white { color: $color-primary-white; }
+.text-accent { color: $color-accent-blue; }

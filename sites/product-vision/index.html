@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpetuals | Product Vision 2030</title>
+  <meta name="description" content="Exploring the future of decentralized derivatives trading - A product vision for Perpetuals.com">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 168 168'%3E%3Cg transform='translate(0,28)'%3E%3Cpath fill='%23fd8800' d='M0 55.7c0 9.6 2.3 18.5 6.8 26.5 6.3 11.7 16.6 20.7 29 25.5 12.4 4.7 26 4.9 38.5.5 3.2-1.1 6.3-2.6 9.3-4.3 8.4-4.9 15.5-11.9 20.4-20.4 1-1.8 3.4-2.4 5.2-1.4s2.4 3.4 1.4 5.2c-4.7 8.2-11.2 15.2-18.9 20.5 6.1 2.3 12.8 3.6 19.7 3.6 30.8 0 55.7-24.9 55.7-55.7 0-13.3-4.7-26.1-13.3-36.2-.7-.8-1.4-1.5-2.1-2.3-.6-.6-1.2-1.3-1.9-1.9C141.7 7.6 131.3 2.5 120.1.7c-2.7-.4-5.4-.7-8.1-.7-10.4-.1-20.7 2.7-29.7 8.2C71 15.1 62.6 25.9 58.5 38.5c-.6 2-2.8 3.1-4.8 2.4-2-.6-3.1-2.8-2.4-4.8C55.5 22.9 64.1 11.5 75.5 3.6 69.3 1.3 62.7 0 55.8 0 25.2 0 .4 24.6 0 55c0 .2 0 .5 0 .7z'/%3E%3C/g%3E%3C/svg%3E">
+  <script>!function(){var l=document.querySelector('link[rel="icon"]');if(l){var n=l.cloneNode();n.href=l.href;l.parentNode.removeChild(l);document.head.appendChild(n)}}()</script>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <svg width="64" height="64" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+        </svg>
+      </div>
+      <div class="loader-text">Initializing Vision</div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="loader-progress"></div>
+      </div>
+      <div class="loader-year">2030</div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <svg width="32" height="32" viewBox="0 0 168 112" fill="none">
+        <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+      </svg>
+      <span>Perpetuals</span>
+    </div>
+    <div class="nav-links">
+      <a href="#vision">Vision</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#future">Future</a>
+    </div>
+    <div class="nav-year">
+      <span class="year-label">Vision</span>
+      <span class="year-value">2030</span>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>Product Vision Document</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">The Future of</span>
+        <span class="title-line gradient-text">Derivatives Trading</span>
+      </h1>
+      <p class="hero-subtitle">A strategic vision for how Perpetuals.com will transform global financial markets through decentralized innovation, institutional-grade infrastructure, and radical accessibility.</p>
+      <div class="hero-scroll">
+        <span>Scroll to explore</span>
+        <div class="scroll-indicator">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14"></path>
+            <path d="M19 12l-7 7-7-7"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">$50T</span>
+        <span class="stat-label">Market Opportunity</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">1B</span>
+        <span class="stat-label">Potential Users</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">100+</span>
+        <span class="stat-label">Countries</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Statement -->
+  <section class="vision" id="vision">
+    <div class="container">
+      <div class="vision-header">
+        <span class="section-label">01 / Vision</span>
+        <h2 class="section-title">Our North Star</h2>
+      </div>
+      <div class="vision-content">
+        <blockquote class="vision-quote">
+          <p>"To democratize access to sophisticated financial instruments, enabling anyone, anywhere to participate in global markets with the same tools and protections as institutional investors."</p>
+        </blockquote>
+        <div class="vision-details">
+          <div class="vision-point">
+            <div class="point-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3>Global by Design</h3>
+            <p>Breaking down geographic barriers to create truly borderless financial markets accessible to everyone.</p>
+          </div>
+          <div class="vision-point">
+            <div class="point-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Trust Through Transparency</h3>
+            <p>Building confidence through verifiable on-chain operations and regulatory compliance.</p>
+          </div>
+          <div class="vision-point">
+            <div class="point-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3>Performance Without Compromise</h3>
+            <p>Institutional-grade infrastructure delivering sub-millisecond execution at any scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Pillars -->
+  <section class="pillars" id="pillars">
+    <div class="container">
+      <div class="pillars-header">
+        <span class="section-label">02 / Strategic Pillars</span>
+        <h2 class="section-title">Four Pillars of Transformation</h2>
+        <p class="section-desc">Our product strategy rests on four interconnected pillars, each essential to achieving our vision of democratized finance.</p>
+      </div>
+      <div class="pillars-grid">
+        <article class="pillar-card" data-pillar="1">
+          <div class="pillar-number">01</div>
+          <div class="pillar-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
+          <h3>Radical Simplicity</h3>
+          <p>Complex financial instruments should not require complex interfaces. We're reimagining how users interact with derivatives.</p>
+          <ul class="pillar-points">
+            <li>One-click trading for perpetual futures</li>
+            <li>AI-powered position recommendations</li>
+            <li>Natural language order entry</li>
+            <li>Progressive disclosure of complexity</li>
+          </ul>
+          <div class="pillar-metric">
+            <span class="metric-value">90%</span>
+            <span class="metric-label">Reduction in time-to-first-trade</span>
+          </div>
+        </article>
+
+        <article class="pillar-card" data-pillar="2">
+          <div class="pillar-number">02</div>
+          <div class="pillar-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3>Institutional Trust</h3>
+          <p>Enterprise-grade security and compliance that meets the requirements of the most demanding institutional investors.</p>
+          <ul class="pillar-points">
+            <li>Multi-jurisdiction regulatory compliance</li>
+            <li>SOC 2 Type II certification</li>
+            <li>Insurance-backed custody solutions</li>
+            <li>Real-time proof of reserves</li>
+          </ul>
+          <div class="pillar-metric">
+            <span class="metric-value">$10B+</span>
+            <span class="metric-label">Insurance coverage target</span>
+          </div>
+        </article>
+
+        <article class="pillar-card" data-pillar="3">
+          <div class="pillar-number">03</div>
+          <div class="pillar-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <h3>Infinite Scale</h3>
+          <p>Infrastructure designed to handle global trading volume with consistent performance regardless of market conditions.</p>
+          <ul class="pillar-points">
+            <li>Distributed matching engine architecture</li>
+            <li>Layer 2 settlement optimization</li>
+            <li>Geographic redundancy across continents</li>
+            <li>Zero-downtime deployments</li>
+          </ul>
+          <div class="pillar-metric">
+            <span class="metric-value">1M+</span>
+            <span class="metric-label">Orders per second capacity</span>
+          </div>
+        </article>
+
+        <article class="pillar-card" data-pillar="4">
+          <div class="pillar-number">04</div>
+          <div class="pillar-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </div>
+          <h3>Open Ecosystem</h3>
+          <p>A platform that grows stronger through community contribution and third-party innovation.</p>
+          <ul class="pillar-points">
+            <li>Public API with GraphQL and REST</li>
+            <li>Developer SDK and documentation</li>
+            <li>Revenue sharing for integrations</li>
+            <li>Open-source core components</li>
+          </ul>
+          <div class="pillar-metric">
+            <span class="metric-value">10K+</span>
+            <span class="metric-label">Active developers target</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Timeline -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="timeline-header">
+        <span class="section-label">03 / Roadmap</span>
+        <h2 class="section-title">The Path Forward</h2>
+        <p class="section-desc">Our strategic milestones from today to 2030, building towards complete market transformation.</p>
+      </div>
+      <div class="timeline-track">
+        <div class="timeline-line"></div>
+        <div class="timeline-items">
+          <article class="timeline-item" data-year="2024">
+            <div class="timeline-marker">
+              <span class="marker-year">2024</span>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-phase">Foundation</span>
+              <h3>Platform Launch</h3>
+              <ul>
+                <li>Core perpetual futures trading</li>
+                <li>Initial exchange listing</li>
+                <li>Mobile app release</li>
+                <li>First institutional partnerships</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-year="2025">
+            <div class="timeline-marker">
+              <span class="marker-year">2025</span>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-phase">Expansion</span>
+              <h3>Market Growth</h3>
+              <ul>
+                <li>Options trading launch</li>
+                <li>European regulatory approval</li>
+                <li>Advanced API ecosystem</li>
+                <li>Cross-margin portfolios</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-year="2026">
+            <div class="timeline-marker">
+              <span class="marker-year">2026</span>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-phase">Innovation</span>
+              <h3>Next-Gen Features</h3>
+              <ul>
+                <li>AI trading assistant launch</li>
+                <li>Social trading platform</li>
+                <li>Tokenized real-world assets</li>
+                <li>Decentralized governance</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item" data-year="2028">
+            <div class="timeline-marker">
+              <span class="marker-year">2028</span>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-phase">Scale</span>
+              <h3>Global Dominance</h3>
+              <ul>
+                <li>100+ country availability</li>
+                <li>Prime brokerage services</li>
+                <li>Institutional custody</li>
+                <li>Traditional asset integration</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item featured" data-year="2030">
+            <div class="timeline-marker">
+              <span class="marker-year">2030</span>
+            </div>
+            <div class="timeline-content">
+              <span class="timeline-phase">Vision Realized</span>
+              <h3>The New Standard</h3>
+              <ul>
+                <li>$50T+ daily volume</li>
+                <li>1 billion users worldwide</li>
+                <li>Fully decentralized operations</li>
+                <li>Industry-defining innovation</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Features -->
+  <section class="future" id="future">
+    <div class="container">
+      <div class="future-header">
+        <span class="section-label">04 / Future</span>
+        <h2 class="section-title">What We're Building</h2>
+        <p class="section-desc">Groundbreaking features that will redefine what's possible in derivatives trading.</p>
+      </div>
+      <div class="future-grid">
+        <article class="future-card large">
+          <div class="future-visual">
+            <div class="ai-orb">
+              <div class="orb-ring"></div>
+              <div class="orb-ring"></div>
+              <div class="orb-ring"></div>
+              <div class="orb-core"></div>
+            </div>
+          </div>
+          <div class="future-content">
+            <span class="future-badge">Coming 2026</span>
+            <h3>Athena AI Trading Assistant</h3>
+            <p>An AI companion that learns your trading style, suggests optimal strategies, and can execute complex multi-leg trades through natural conversation.</p>
+            <ul class="future-features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Personalized strategy recommendations
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Risk-aware position sizing
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Market sentiment analysis
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Conversational order execution
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="future-card">
+          <div class="future-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <span class="future-badge">Coming 2026</span>
+          <h3>Social Trading</h3>
+          <p>Follow top traders, copy their strategies automatically, and build your own community of followers.</p>
+        </article>
+
+        <article class="future-card">
+          <div class="future-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <span class="future-badge">Coming 2027</span>
+          <h3>Portfolio Margining</h3>
+          <p>Unified margin across all positions, maximizing capital efficiency for sophisticated traders.</p>
+        </article>
+
+        <article class="future-card">
+          <div class="future-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 12h8"></path>
+              <path d="M12 8v8"></path>
+            </svg>
+          </div>
+          <span class="future-badge">Coming 2027</span>
+          <h3>Real-World Assets</h3>
+          <p>Trade tokenized commodities, real estate, and traditional securities alongside crypto derivatives.</p>
+        </article>
+
+        <article class="future-card">
+          <div class="future-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+              <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+              <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <span class="future-badge">Coming 2028</span>
+          <h3>Decentralized Governance</h3>
+          <p>Community-driven decision making through token-based voting on platform features and policies.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Build the Future?</h2>
+        <p>Join us in transforming global financial markets. We're looking for exceptional talent to turn this vision into reality.</p>
+        <div class="cta-actions">
+          <a href="../homepage-rebuild/index.html" class="btn btn-primary">
+            <span>Explore Platform</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a href="../features-rebuild/index.html" class="btn btn-secondary">
+            <span>View Features</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <div class="vision-orb">
+          <div class="orb-layer"></div>
+          <div class="orb-layer"></div>
+          <div class="orb-layer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <svg width="40" height="40" viewBox="0 0 168 112" fill="none">
+            <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+          </svg>
+          <div>
+            <span class="brand-name">Perpetuals</span>
+            <span class="brand-tagline">Product Vision 2030</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="../homepage-rebuild/index.html">Homepage</a>
+          <a href="../features-rebuild/index.html">Features</a>
+          <a href="../design-system/index.html">Design System</a>
+        </div>
+        <div class="footer-meta">
+          <p>Prepared for the second round interview</p>
+          <p>with Aaron Rudder, CPO</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Loading Animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const loader = document.getElementById('loader');
+      const loaderProgress = document.getElementById('loader-progress');
+      let progress = 0;
+
+      const loadingInterval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(loadingInterval);
+          setTimeout(() => {
+            loader.classList.add('loaded');
+            document.body.classList.add('loaded');
+          }, 300);
+        }
+        loaderProgress.style.width = progress + '%';
+      }, 100);
+    });
+
+    // Scroll Progress
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+    });
+
+    // Navigation Background
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Hero Canvas Animation
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null };
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+      particles = [];
+      const numParticles = Math.floor((canvas.width * canvas.height) / 15000);
+      for (let i = 0; i < numParticles; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.5 + 0.2
+        });
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p, i) => {
+        // Update position
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap around edges
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        ctx.fill();
+
+        // Connect nearby particles
+        particles.slice(i + 1).forEach(p2 => {
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist / 120)})`;
+            ctx.stroke();
+          }
+        });
+
+        // Mouse interaction
+        if (mouse.x && mouse.y) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            const force = (150 - dist) / 150;
+            p.x += dx * force * 0.02;
+            p.y += dy * force * 0.02;
+          }
+        }
+      });
+
+      requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      createParticles();
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    resizeCanvas();
+    createParticles();
+    drawParticles();
+
+    // Intersection Observer for Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.vision-point, .pillar-card, .timeline-item, .future-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

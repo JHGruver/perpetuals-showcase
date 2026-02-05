@@ -1,0 +1,159 @@
+// ============================================
+// BUTTON COMPONENTS
+// ============================================
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Base button
+.btn {
+  @include button-base;
+}
+
+// Primary button
+.btn-primary {
+  @include button-primary;
+}
+
+// Secondary button
+.btn-secondary {
+  @include button-secondary;
+}
+
+// Accent/CTA button
+.btn-accent {
+  @include button-accent;
+}
+
+// Ghost button
+.btn-ghost {
+  @include button-base;
+  background: transparent;
+  color: var(--color-text);
+
+  &:hover:not(:disabled) {
+    background: rgba($color-primary-black, 0.05);
+  }
+}
+
+// Icon button
+.btn-icon {
+  @include button-base;
+  padding: $spacing-md;
+  border-radius: $radius-full;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-xs;
+}
+
+.btn-lg {
+  padding: $spacing-lg $spacing-2xl;
+  font-size: $font-size-base;
+}
+
+// Full width button
+.btn-full {
+  width: 100%;
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  gap: $spacing-sm;
+
+  &.btn-group-vertical {
+    flex-direction: column;
+  }
+}
+
+// Animated button with arrow
+.btn-arrow {
+  @include button-primary;
+
+  .arrow {
+    display: inline-block;
+    transition: transform $transition-base;
+  }
+
+  &:hover .arrow {
+    transform: translateX(4px);
+  }
+}
+
+// Magnetic button (for JS enhancement)
+.btn-magnetic {
+  @include button-primary;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.2), transparent 50%);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Glow button
+.btn-glow {
+  @include button-base;
+  background: $color-primary-black;
+  color: $color-primary-white;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: $gradient-accent;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity $transition-base;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+// Text link button
+.btn-link {
+  @include button-base;
+  padding: 0;
+  color: $color-accent-blue;
+  background: transparent;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform $transition-base;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}

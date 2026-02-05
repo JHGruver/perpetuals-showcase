@@ -1,0 +1,234 @@
+// ============================================
+// GLOBAL BASE STYLES
+// ============================================
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Root CSS Custom Properties (for runtime theming)
+:root {
+  // Colors
+  --color-primary: #{$color-primary-black};
+  --color-background: #{$color-primary-white};
+  --color-surface: #{$color-light-gray};
+  --color-accent: #{$color-accent-blue};
+  --color-text: #{$color-primary-black};
+  --color-text-muted: #{$color-medium-gray};
+
+  // Spacing
+  --container-padding: #{$container-padding};
+  --section-spacing: #{$spacing-4xl};
+
+  // Transitions
+  --transition-base: #{$transition-base};
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #{$color-primary-white};
+    --color-background: #{$color-dark-charcoal};
+    --color-surface: #{$color-primary-black};
+    --color-text: #{$color-primary-white};
+    --color-text-muted: #{$color-border-gray};
+  }
+}
+
+// Manual dark mode class
+.dark-mode {
+  --color-primary: #{$color-primary-white};
+  --color-background: #{$color-dark-charcoal};
+  --color-surface: #{$color-primary-black};
+  --color-text: #{$color-primary-white};
+  --color-text-muted: #{$color-border-gray};
+}
+
+// Body
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+// Main content wrapper
+main {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+// Container
+.container {
+  @include container;
+}
+
+.container-narrow {
+  @include container;
+  max-width: 960px;
+}
+
+.container-wide {
+  @include container;
+  max-width: 1600px;
+}
+
+.container-full {
+  width: 100%;
+  padding-inline: $container-padding;
+}
+
+// Sections
+section {
+  padding-block: var(--section-spacing);
+}
+
+.section-sm {
+  padding-block: $spacing-2xl;
+}
+
+.section-lg {
+  padding-block: $spacing-5xl;
+}
+
+// Images
+img {
+  height: auto;
+}
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// Visibility utilities
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  @include visually-hidden;
+}
+
+// Display utilities
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+
+// Flexbox utilities
+.flex-center { @include flex-center; }
+.flex-between { @include flex-between; }
+.flex-start { @include flex-start; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+
+// Gap utilities
+.gap-xs { gap: $spacing-xs; }
+.gap-sm { gap: $spacing-sm; }
+.gap-md { gap: $spacing-md; }
+.gap-lg { gap: $spacing-lg; }
+.gap-xl { gap: $spacing-xl; }
+.gap-2xl { gap: $spacing-2xl; }
+
+// Spacing utilities
+@each $name, $value in (
+  'xs': $spacing-xs,
+  'sm': $spacing-sm,
+  'md': $spacing-md,
+  'lg': $spacing-lg,
+  'xl': $spacing-xl,
+  '2xl': $spacing-2xl,
+  '3xl': $spacing-3xl,
+  '4xl': $spacing-4xl
+) {
+  .mt-#{$name} { margin-top: $value; }
+  .mb-#{$name} { margin-bottom: $value; }
+  .ml-#{$name} { margin-left: $value; }
+  .mr-#{$name} { margin-right: $value; }
+  .mx-#{$name} { margin-inline: $value; }
+  .my-#{$name} { margin-block: $value; }
+
+  .pt-#{$name} { padding-top: $value; }
+  .pb-#{$name} { padding-bottom: $value; }
+  .pl-#{$name} { padding-left: $value; }
+  .pr-#{$name} { padding-right: $value; }
+  .px-#{$name} { padding-inline: $value; }
+  .py-#{$name} { padding-block: $value; }
+}
+
+// Width utilities
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.max-w-full { max-width: 100%; }
+
+// Height utilities
+.h-full { height: 100%; }
+.h-screen { height: 100vh; height: 100dvh; }
+.min-h-screen { min-height: 100vh; min-height: 100dvh; }
+
+// Position utilities
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+// Z-index utilities
+.z-0 { z-index: $z-base; }
+.z-10 { z-index: $z-above; }
+.z-50 { z-index: $z-dropdown; }
+.z-100 { z-index: $z-sticky; }
+
+// Overflow utilities
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+
+// Border radius utilities
+.rounded-none { border-radius: $radius-none; }
+.rounded-sm { border-radius: $radius-sm; }
+.rounded { border-radius: $radius-md; }
+.rounded-lg { border-radius: $radius-lg; }
+.rounded-xl { border-radius: $radius-xl; }
+.rounded-2xl { border-radius: $radius-2xl; }
+.rounded-full { border-radius: $radius-full; }
+
+// Shadow utilities
+.shadow-none { box-shadow: none; }
+.shadow-sm { box-shadow: $shadow-sm; }
+.shadow { box-shadow: $shadow-md; }
+.shadow-lg { box-shadow: $shadow-lg; }
+.shadow-xl { box-shadow: $shadow-xl; }
+.shadow-2xl { box-shadow: $shadow-2xl; }
+
+// Cursor utilities
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+// Pointer events
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+// User select
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }

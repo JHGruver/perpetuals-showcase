@@ -1,0 +1,32 @@
+// ============================================
+// PERPETUALS MAIN STYLESHEET
+// ============================================
+
+// Utils (loaded first for variables and mixins)
+@use 'utils/variables' as *;
+@use 'utils/mixins' as *;
+
+// Vendors (third-party resets and libs)
+@use 'vendors/reset';
+@use 'vendors/fonts';
+
+// Base styles
+@use 'base/typography';
+@use 'base/global';
+
+// Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/navigation';
+@use 'components/forms';
+@use 'components/particles';
+@use 'components/parallax';
+@use 'components/loading-screen';
+
+// Layouts
+@use 'layouts/header';
+@use 'layouts/footer';
+@use 'layouts/grid';
+@use 'layouts/sections';
+
+// Page-specific styles will be imported per-site

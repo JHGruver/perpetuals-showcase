@@ -1,0 +1,129 @@
+// ============================================
+// HEADER LAYOUTS
+// ============================================
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.header {
+  position: relative;
+  z-index: $z-sticky;
+}
+
+.header-main {
+  @include container;
+  padding-block: $spacing-md;
+}
+
+// Transparent header (for hero sections)
+.header-transparent {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+
+  .nav-link {
+    color: $color-primary-white;
+
+    &:hover,
+    &.active {
+      color: $color-accent-blue;
+    }
+  }
+
+  .nav-brand {
+    color: $color-primary-white;
+  }
+
+  .nav-mobile-toggle span {
+    background: $color-primary-white;
+  }
+}
+
+// Fixed header
+.header-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--color-background);
+  box-shadow: $shadow-sm;
+}
+
+// Header with announcement bar
+.header-with-announcement {
+  .announcement-bar {
+    background: $color-dark-charcoal;
+    color: $color-primary-white;
+    padding: $spacing-sm 0;
+    text-align: center;
+    font-size: $font-size-sm;
+
+    a {
+      color: $color-accent-blue;
+      font-weight: $font-weight-semibold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Mega menu header
+.header-mega {
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-background);
+    box-shadow: $shadow-xl;
+    padding: $spacing-2xl 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all $transition-base;
+
+    .nav-dropdown:hover & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  .mega-menu-content {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-xl;
+  }
+
+  .mega-menu-section {
+    h4 {
+      @include label;
+      color: $color-medium-gray;
+      margin-bottom: $spacing-md;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: $spacing-sm;
+    }
+
+    a {
+      display: block;
+      padding: $spacing-xs 0;
+      color: var(--color-text);
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-accent-blue;
+      }
+    }
+  }
+}

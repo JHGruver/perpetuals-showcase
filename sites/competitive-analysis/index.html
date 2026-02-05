@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competitive Landscape Analysis - Trading Platform Design</title>
+  <meta name="description" content="Comprehensive design analysis of trading platforms: Robinhood, TD Ameritrade, Schwab, Fidelity, and more.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 168 168'%3E%3Cg transform='translate(0,28)'%3E%3Cpath fill='%23fd8800' d='M0 55.7c0 9.6 2.3 18.5 6.8 26.5 6.3 11.7 16.6 20.7 29 25.5 12.4 4.7 26 4.9 38.5.5 3.2-1.1 6.3-2.6 9.3-4.3 8.4-4.9 15.5-11.9 20.4-20.4 1-1.8 3.4-2.4 5.2-1.4s2.4 3.4 1.4 5.2c-4.7 8.2-11.2 15.2-18.9 20.5 6.1 2.3 12.8 3.6 19.7 3.6 30.8 0 55.7-24.9 55.7-55.7 0-13.3-4.7-26.1-13.3-36.2-.7-.8-1.4-1.5-2.1-2.3-.6-.6-1.2-1.3-1.9-1.9C141.7 7.6 131.3 2.5 120.1.7c-2.7-.4-5.4-.7-8.1-.7-10.4-.1-20.7 2.7-29.7 8.2C71 15.1 62.6 25.9 58.5 38.5c-.6 2-2.8 3.1-4.8 2.4-2-.6-3.1-2.8-2.4-4.8C55.5 22.9 64.1 11.5 75.5 3.6 69.3 1.3 62.7 0 55.8 0 25.2 0 .4 24.6 0 55c0 .2 0 .5 0 .7z'/%3E%3C/g%3E%3C/svg%3E">
+  <script>!function(){var l=document.querySelector('link[rel="icon"]');if(l){var n=l.cloneNode();n.href=l.href;l.parentNode.removeChild(l);document.head.appendChild(n)}}()</script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="../index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 168 112" fill="none">
+          <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+        </svg>
+        Perpetuals Showcase
+      </a>
+      <div class="nav-links">
+        <a href="../homepage-rebuild/index.html">Homepage</a>
+        <a href="../features-rebuild/index.html">Features</a>
+        <a href="./index.html" class="active">Analysis</a>
+        <a href="../design-system/index.html">Design System</a>
+        <a href="../product-vision/index.html">Vision</a>
+      </div>
+      <button class="mobile-menu" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <span class="label">Research Report</span>
+        <h1>Competitive Landscape & Design Analysis</h1>
+        <p class="lead">How the world's leading trading platforms design for trust, simplicity, and intentional friction.</p>
+        <div class="hero-meta">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> February 2024</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Jacob Gruver</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> v1.0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section id="findings" class="findings">
+      <div class="container">
+        <h2>Key Findings</h2>
+        <div class="findings-grid">
+          <div class="finding-card">
+            <div class="finding-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12" y2="18"/>
+              </svg>
+            </div>
+            <h3>Mobile-first is mandatory</h3>
+            <p>Web platform must feel as fluid as native apps</p>
+          </div>
+          <div class="finding-card">
+            <div class="finding-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Trust through visibility</h3>
+            <p>Show compliance badges and security indicators</p>
+          </div>
+          <div class="finding-card">
+            <div class="finding-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                <line x1="15" y1="9" x2="15.01" y2="9"/>
+              </svg>
+            </div>
+            <h3>Gamification needs balance</h3>
+            <p>Professional positioning demands intentional friction</p>
+          </div>
+          <div class="finding-card">
+            <div class="finding-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <h3>Customization expected</h3>
+            <p>Power users need configurable workspaces</p>
+          </div>
+          <div class="finding-card">
+            <div class="finding-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+            </div>
+            <h3>Accessibility is required</h3>
+            <p>WCAG AA compliance prevents litigation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Position Map -->
+    <section id="market-map" class="market-map">
+      <div class="container">
+        <h2>Market Positioning Map</h2>
+        <div class="map-container">
+          <div class="map-visual">
+            <div class="axis-label top">COMPLEXITY</div>
+            <div class="axis-label bottom">SIMPLICITY</div>
+            <div class="axis-label left">RETAIL</div>
+            <div class="axis-label right">INSTITUTIONAL</div>
+
+            <div class="platform-dot" style="top: 15%; left: 20%;" data-name="Bloomberg Terminal">
+              <span class="dot"></span>
+              <span class="label">Bloomberg</span>
+            </div>
+            <div class="platform-dot" style="top: 15%; left: 75%;" data-name="Interactive Brokers">
+              <span class="dot"></span>
+              <span class="label">IBKR</span>
+            </div>
+            <div class="platform-dot" style="top: 30%; left: 25%;" data-name="thinkorswim">
+              <span class="dot"></span>
+              <span class="label">thinkorswim</span>
+            </div>
+            <div class="platform-dot" style="top: 30%; left: 70%;" data-name="Kraken Pro">
+              <span class="dot"></span>
+              <span class="label">Kraken Pro</span>
+            </div>
+            <div class="platform-dot" style="top: 55%; left: 20%;" data-name="Webull">
+              <span class="dot"></span>
+              <span class="label">Webull</span>
+            </div>
+            <div class="platform-dot" style="top: 70%; left: 15%;" data-name="Robinhood">
+              <span class="dot"></span>
+              <span class="label">Robinhood</span>
+            </div>
+            <div class="platform-dot" style="top: 65%; left: 60%;" data-name="Coinbase">
+              <span class="dot"></span>
+              <span class="label">Coinbase</span>
+            </div>
+            <div class="platform-dot" style="top: 80%; left: 25%;" data-name="Fidelity Mobile">
+              <span class="dot"></span>
+              <span class="label">Fidelity</span>
+            </div>
+            <div class="platform-dot highlight" style="top: 75%; left: 72%;" data-name="Perpetuals.com (Target)">
+              <span class="dot"></span>
+              <span class="label">Perpetuals.com</span>
+            </div>
+          </div>
+        </div>
+        <p class="map-caption">Perpetuals.com targets the unique intersection: institutional-grade infrastructure with consumer-friendly UX</p>
+      </div>
+    </section>
+
+    <!-- Platform Analysis -->
+    <section id="platforms" class="platforms">
+      <div class="container">
+        <h2>Platform Analysis</h2>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+          <button class="tab active" data-category="consumer">Consumer Platforms</button>
+          <button class="tab" data-category="professional">Professional Platforms</button>
+          <button class="tab" data-category="crypto">Crypto Platforms</button>
+        </div>
+
+        <!-- Consumer Platforms -->
+        <div class="platform-grid" data-category="consumer">
+          <!-- Robinhood -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon robinhood">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <h3>Robinhood</h3>
+              <span class="platform-badge consumer">Consumer</span>
+            </div>
+            <p class="philosophy">"Democratize finance through simplicity"</p>
+            <div class="platform-details">
+              <h4>Key Design Elements</h4>
+              <ul>
+                <li><strong>Clean Dashboard:</strong> High-level portfolio view, minimal data</li>
+                <li><strong>Swipe-to-Trade:</strong> Single gesture execution (controversial)</li>
+                <li><strong>Green/Red Indicators:</strong> Clear profit/loss signals</li>
+                <li><strong>Bottom Navigation:</strong> Thumb-zone accessibility</li>
+              </ul>
+              <h4>Design Lessons</h4>
+              <div class="lessons">
+                <span class="positive">Typography hierarchy makes data scannable</span>
+                <span class="positive">Whitespace reduces decision anxiety</span>
+                <span class="negative">Over-simplified UI hides risks</span>
+                <span class="negative">Gamification faces regulatory scrutiny</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- E*Trade -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon etrade">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <h3>E*Trade Pro</h3>
+              <span class="platform-badge consumer">Consumer</span>
+            </div>
+            <p class="philosophy">"Professional power with consumer accessibility"</p>
+            <div class="platform-details">
+              <h4>Key Design Elements</h4>
+              <ul>
+                <li><strong>Multi-Workspace:</strong> 6 custom workspaces, 20 tools each</li>
+                <li><strong>Multi-Monitor:</strong> 120+ charts across displays</li>
+                <li><strong>Level II Quotes:</strong> Deep market visibility</li>
+                <li><strong>Quick Orders:</strong> Streamlined execution</li>
+              </ul>
+              <h4>Design Lessons</h4>
+              <div class="lessons">
+                <span class="positive">Modular workspace scales beginner to pro</span>
+                <span class="positive">Morgan Stanley branding adds credibility</span>
+                <span class="negative">Feature density can overwhelm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fidelity -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon fidelity">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M2 12h20"/>
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+              </div>
+              <h3>Fidelity</h3>
+              <span class="platform-badge consumer">Consumer</span>
+            </div>
+            <p class="philosophy">"Comprehensive investing for everyone"</p>
+            <div class="platform-details">
+              <h4>Key Design Elements</h4>
+              <ul>
+                <li><strong>Dual Navigation:</strong> Standard vs Classic modes</li>
+                <li><strong>Quick Trade Tickets:</strong> Symbol-to-trade shortcut</li>
+                <li><strong>Research Integration:</strong> Embedded analysis tools</li>
+                <li><strong>Paper Trading:</strong> Risk-free practice mode</li>
+              </ul>
+              <h4>App Ratings</h4>
+              <div class="ratings">
+                <span>iOS: 4.8/5</span>
+                <span>Android: 4.3/5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schwab -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon schwab">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <h3>Charles Schwab</h3>
+              <span class="platform-badge consumer">Consumer</span>
+            </div>
+            <p class="philosophy">"Trusted partner for every investor"</p>
+            <div class="platform-details">
+              <h4>2025 Enhancements</h4>
+              <ul>
+                <li><strong>Extended Hours:</strong> Toggle between pricing modes</li>
+                <li><strong>15+ Data Points:</strong> EPS Growth, ROE, Revenue</li>
+                <li><strong>Multi-Leg Options:</strong> Complex strategy support</li>
+                <li><strong>Research:</strong> CFRA, Morningstar, Reuters integration</li>
+              </ul>
+              <h4>Scale</h4>
+              <div class="stats">
+                <span class="stat">7M+ daily trades</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Platforms -->
+        <div class="platform-grid hidden" data-category="professional">
+          <!-- thinkorswim -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon tos">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <h3>thinkorswim</h3>
+              <span class="platform-badge pro">Professional</span>
+            </div>
+            <p class="philosophy">"Everything a professional needs"</p>
+            <div class="platform-details">
+              <h4>Key Design Elements</h4>
+              <ul>
+                <li><strong>thinkScript:</strong> Proprietary programming language</li>
+                <li><strong>Probability Lab:</strong> Options analysis tool</li>
+                <li><strong>Multi-Market:</strong> Stocks, options, futures, forex</li>
+                <li><strong>Paper Money:</strong> Full-featured simulation</li>
+              </ul>
+              <h4>Recognition</h4>
+              <div class="awards">
+                <span>#1 Desktop Platform (10+ years)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- IBKR -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon ibkr">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <path d="M3 9h18"/>
+                  <path d="M9 21V9"/>
+                </svg>
+              </div>
+              <h3>Interactive Brokers</h3>
+              <span class="platform-badge pro">Professional</span>
+            </div>
+            <p class="philosophy">"Professional power, intuitive experience"</p>
+            <div class="platform-details">
+              <h4>2024 Redesign</h4>
+              <ul>
+                <li><strong>Fresh UI:</strong> Built from scratch for modern standards</li>
+                <li><strong>Option Lattice:</strong> New options visualization</li>
+                <li><strong>MultiSort:</strong> Advanced filtering capabilities</li>
+                <li><strong>10 Languages:</strong> Global accessibility</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bloomberg -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon bloomberg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="2"/>
+                  <path d="M7 7h10v10H7z"/>
+                  <line x1="12" y1="2" x2="12" y2="7"/>
+                  <line x1="12" y1="17" x2="12" y2="22"/>
+                  <line x1="2" y1="12" x2="7" y2="12"/>
+                  <line x1="17" y1="12" x2="22" y2="12"/>
+                </svg>
+              </div>
+              <h3>Bloomberg Terminal</h3>
+              <span class="platform-badge pro">Professional</span>
+            </div>
+            <p class="philosophy">"Efficiency over aesthetics"</p>
+            <div class="platform-details">
+              <h4>Design Principles</h4>
+              <ul>
+                <li><strong>Four-Panel Layout:</strong> Simultaneous market views</li>
+                <li><strong>Keyboard-First:</strong> Speed over mouse navigation</li>
+                <li><strong>Information Density:</strong> Maximum data per pixel</li>
+                <li><strong>Stability:</strong> Familiarity valued over modernization</li>
+              </ul>
+              <h4>Design Lessons</h4>
+              <div class="lessons">
+                <span class="positive">Efficiency trumps beauty for professionals</span>
+                <span class="positive">Stability builds trust</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crypto Platforms -->
+        <div class="platform-grid hidden" data-category="crypto">
+          <!-- Coinbase -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon coinbase">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M9 12h6"/>
+                  <path d="M12 9v6"/>
+                </svg>
+              </div>
+              <h3>Coinbase</h3>
+              <span class="platform-badge crypto">Crypto</span>
+            </div>
+            <p class="philosophy">"The trusted on-ramp to crypto"</p>
+            <div class="platform-details">
+              <h4>Key Design Elements</h4>
+              <ul>
+                <li><strong>Mobile-First:</strong> Swipe navigation, biometric login</li>
+                <li><strong>Verification Transparency:</strong> Explains KYC requirements</li>
+                <li><strong>98% Cold Storage:</strong> Highlighted security feature</li>
+                <li><strong>Simple/Advanced Toggle:</strong> Dual interface modes</li>
+              </ul>
+              <h4>Trust Indicators</h4>
+              <div class="trust">
+                <span>Regulatory licensing (US, EU)</span>
+                <span>Insurance coverage displayed</span>
+                <span>Audited reserves</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kraken -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon kraken">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 3v18"/>
+                  <path d="M5 8l7-5 7 5"/>
+                  <path d="M5 16l7 5 7-5"/>
+                </svg>
+              </div>
+              <h3>Kraken Pro</h3>
+              <span class="platform-badge crypto">Crypto</span>
+            </div>
+            <p class="philosophy">"Built for professional crypto traders"</p>
+            <div class="platform-details">
+              <h4>Key Design Elements</h4>
+              <ul>
+                <li><strong>Widget-Based Layout:</strong> Customizable panels</li>
+                <li><strong>TradingView Charts:</strong> Industry-standard charting</li>
+                <li><strong>4-Market Comparison:</strong> Simultaneous analysis</li>
+                <li><strong>Order Visualization:</strong> Chart-integrated orders</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Binance -->
+          <div class="platform-card">
+            <div class="platform-header">
+              <div class="platform-icon binance">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 22 12 12 22 2 12"/>
+                  <polygon points="12 6 17 12 12 18 7 12"/>
+                </svg>
+              </div>
+              <h3>Binance</h3>
+              <span class="platform-badge crypto">Crypto</span>
+            </div>
+            <p class="philosophy">"Everything crypto, for everyone"</p>
+            <div class="platform-details">
+              <h4>Design Approach</h4>
+              <ul>
+                <li>Clean mobile interface</li>
+                <li>Beginner-friendly defaults</li>
+                <li>Advanced trading via "Pro" mode</li>
+                <li>Extensive feature set</li>
+              </ul>
+              <h4>Design Lessons</h4>
+              <div class="lessons">
+                <span class="positive">Clean design despite feature density</span>
+                <span class="negative">Regulatory concerns affect trust</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Patterns -->
+    <section id="patterns" class="patterns">
+      <div class="container">
+        <h2>Universal Design Patterns</h2>
+
+        <div class="patterns-grid">
+          <!-- Information Hierarchy -->
+          <div class="pattern-card">
+            <div class="pattern-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h18v18H3z"/>
+                <path d="M3 9h18"/>
+                <path d="M3 15h18"/>
+              </svg>
+            </div>
+            <h3>Information Hierarchy</h3>
+            <div class="hierarchy-visual">
+              <div class="h-level primary">PRIMARY: Portfolio Value / P&L</div>
+              <div class="h-level secondary">SECONDARY: Position Details / Charts</div>
+              <div class="h-level tertiary">TERTIARY: News / Research / Settings</div>
+            </div>
+            <ul>
+              <li>Large typography for critical numbers</li>
+              <li>Color coding (green/red) for direction</li>
+              <li>Whitespace separates clusters</li>
+              <li>Progressive disclosure for details</li>
+            </ul>
+          </div>
+
+          <!-- Navigation -->
+          <div class="pattern-card">
+            <div class="pattern-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 18h18"/>
+                <circle cx="6" cy="20" r="1"/>
+                <circle cx="12" cy="20" r="1"/>
+                <circle cx="18" cy="20" r="1"/>
+              </svg>
+            </div>
+            <h3>Navigation Architecture</h3>
+            <div class="nav-visual">
+              <div class="nav-item active">Home</div>
+              <div class="nav-item">Watchlist</div>
+              <div class="nav-item highlight">Trade</div>
+              <div class="nav-item">Portfolio</div>
+              <div class="nav-item">More</div>
+            </div>
+            <ul>
+              <li>4-5 primary destinations</li>
+              <li>Active state indication</li>
+              <li>Thumb-zone placement</li>
+              <li>Trade action always accessible</li>
+            </ul>
+          </div>
+
+          <!-- Color Systems -->
+          <div class="pattern-card">
+            <div class="pattern-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2v10l7 7"/>
+              </svg>
+            </div>
+            <h3>Color Systems</h3>
+            <div class="color-meanings">
+              <div class="color-row">
+                <span class="color-swatch green"></span>
+                <span>Profit / Buy / Positive</span>
+              </div>
+              <div class="color-row">
+                <span class="color-swatch red"></span>
+                <span>Loss / Sell / Negative</span>
+              </div>
+              <div class="color-row">
+                <span class="color-swatch blue"></span>
+                <span>Neutral / Info / Links</span>
+              </div>
+              <div class="color-row">
+                <span class="color-swatch gray"></span>
+                <span>Disabled / Secondary</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Typography -->
+          <div class="pattern-card">
+            <div class="pattern-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="4 7 4 4 20 4 20 7"/>
+                <line x1="9" y1="20" x2="15" y2="20"/>
+                <line x1="12" y1="4" x2="12" y2="20"/>
+              </svg>
+            </div>
+            <h3>Typography Patterns</h3>
+            <div class="type-scale">
+              <div class="type-row hero-type">$124,567.89</div>
+              <div class="type-row header-type">Section Headers</div>
+              <div class="type-row body-type">Body text content</div>
+              <div class="type-row caption-type">Labels and captions</div>
+            </div>
+          </div>
+
+          <!-- Data Visualization -->
+          <div class="pattern-card">
+            <div class="pattern-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v18h18"/>
+                <path d="M7 16l4-8 4 4 6-8"/>
+              </svg>
+            </div>
+            <h3>Data Visualization</h3>
+            <ul>
+              <li><strong>Candlestick:</strong> All professional platforms</li>
+              <li><strong>Line:</strong> Robinhood default (simple)</li>
+              <li><strong>Depth:</strong> IBKR, Kraken, Binance</li>
+              <li><strong>Heat Map:</strong> thinkorswim</li>
+              <li><strong>Sparklines:</strong> Fidelity, Schwab</li>
+            </ul>
+          </div>
+
+          <!-- Loading States -->
+          <div class="pattern-card">
+            <div class="pattern-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>Loading & Feedback</h3>
+            <ul>
+              <li><strong>Loading:</strong> Skeleton screens with shimmer</li>
+              <li><strong>Processing:</strong> "Securing your transaction..."</li>
+              <li><strong>Success:</strong> Check animation + summary</li>
+              <li><strong>Error:</strong> Clear message + action buttons</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intentional Friction -->
+    <section id="friction" class="friction">
+      <div class="container">
+        <h2>Intentional Friction & Trust Design</h2>
+
+        <div class="friction-intro">
+          <p>Modern fintech faces a fundamental tension: users want frictionless experiences, but security requires appropriate friction, and regulations mandate certain friction points.</p>
+        </div>
+
+        <div class="friction-spectrum">
+          <h3>The Friction Spectrum</h3>
+          <div class="spectrum-visual">
+            <div class="spectrum-bar">
+              <div class="spectrum-section remove">
+                <h4>Remove Friction</h4>
+                <ul>
+                  <li>Browse products</li>
+                  <li>View portfolio</li>
+                  <li>Read research</li>
+                  <li>Price alerts</li>
+                </ul>
+              </div>
+              <div class="spectrum-section balance">
+                <h4>Balance</h4>
+                <ul>
+                  <li>Authentication</li>
+                  <li>Order confirmation</li>
+                  <li>Risk warnings</li>
+                  <li>2FA challenges</li>
+                </ul>
+              </div>
+              <div class="spectrum-section add">
+                <h4>Add Friction</h4>
+                <ul>
+                  <li>Large transfers</li>
+                  <li>Account changes</li>
+                  <li>Withdrawal</li>
+                  <li>Password reset</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-patterns">
+          <h3>Trust-Building Patterns</h3>
+          <div class="trust-grid">
+            <div class="trust-card">
+              <div class="trust-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <h4>Visible Security</h4>
+              <ul>
+                <li>Lock icons near sensitive fields</li>
+                <li>HTTPS/Security badges</li>
+                <li>Compliance logos (MiFID, SEC)</li>
+                <li>Insurance mentions</li>
+              </ul>
+            </div>
+            <div class="trust-card">
+              <div class="trust-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <h4>Confirmation Layers</h4>
+              <ul>
+                <li>Select action (Buy/Sell)</li>
+                <li>Enter amount</li>
+                <li>Review order summary</li>
+                <li>Confirm (swipe/hold/PIN)</li>
+                <li>Confirmation + Receipt</li>
+              </ul>
+            </div>
+            <div class="trust-card">
+              <div class="trust-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <h4>Risk Communication</h4>
+              <ul>
+                <li>Appear at decision point</li>
+                <li>Clear, non-technical language</li>
+                <li>Actionable context</li>
+                <li>Reserve for genuine risks</li>
+              </ul>
+            </div>
+            <div class="trust-card">
+              <div class="trust-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+              </div>
+              <h4>Process Transparency</h4>
+              <ul>
+                <li>Explain KYC requirements</li>
+                <li>Show transaction times</li>
+                <li>Display fees before confirm</li>
+                <li>Clarify data usage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section id="accessibility" class="accessibility">
+      <div class="container">
+        <h2>Accessibility & Compliance</h2>
+
+        <div class="compliance-grid">
+          <div class="compliance-card">
+            <h3>Regulatory Landscape</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Region</th>
+                  <th>Regulation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>EU</td><td>European Accessibility Act (EAA)</td></tr>
+                <tr><td>US</td><td>ADA / Section 508</td></tr>
+                <tr><td>UK</td><td>Equality Act 2010</td></tr>
+                <tr><td>Global</td><td>WCAG 2.1/2.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="compliance-card">
+            <h3>Compliance Levels</h3>
+            <div class="levels">
+              <div class="level">
+                <span class="level-name">Level A</span>
+                <span class="level-desc">Minimum (insufficient)</span>
+              </div>
+              <div class="level recommended">
+                <span class="level-name">Level AA</span>
+                <span class="level-desc">Industry Standard</span>
+              </div>
+              <div class="level">
+                <span class="level-name">Level AAA</span>
+                <span class="level-desc">Aspirational</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="compliance-card full-width">
+            <h3>Key Requirements</h3>
+            <div class="requirements-grid">
+              <div class="requirement">
+                <h4>Visual</h4>
+                <ul>
+                  <li>4.5:1 contrast ratio minimum</li>
+                  <li>Support 200% zoom</li>
+                  <li>Alt text for all images</li>
+                  <li>Don't rely solely on color</li>
+                </ul>
+              </div>
+              <div class="requirement">
+                <h4>Motor</h4>
+                <ul>
+                  <li>Full keyboard navigation</li>
+                  <li>44x44px minimum touch targets</li>
+                  <li>Adjustable time limits</li>
+                  <li>Confirmation for irreversible actions</li>
+                </ul>
+              </div>
+              <div class="requirement">
+                <h4>Cognitive</h4>
+                <ul>
+                  <li>Consistent navigation location</li>
+                  <li>Clear, descriptive labels</li>
+                  <li>Specific error messages</li>
+                  <li>Contextual help available</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="compliance-card warning">
+            <h3>Litigation Risk</h3>
+            <blockquote>
+              "57% of financial services professionals reported involvement in legal action related to digital accessibility in the past year alone."
+              <cite>— State of Digital Accessibility Report</cite>
+            </blockquote>
+            <div class="penalties">
+              <span>Up to 10% of revenue (EU)</span>
+              <span>Per-violation fines (US)</span>
+              <span>Class action liability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section id="recommendations" class="recommendations">
+      <div class="container">
+        <h2>Recommendations for Perpetuals.com</h2>
+
+        <div class="position-card">
+          <h3>Unique Market Position</h3>
+          <div class="position-attributes">
+            <div class="attribute">
+              <span class="more">More regulated</span>
+              <span class="than">than typical crypto exchanges</span>
+            </div>
+            <div class="attribute">
+              <span class="more">More sophisticated</span>
+              <span class="than">than consumer trading apps</span>
+            </div>
+            <div class="attribute">
+              <span class="more">More accessible</span>
+              <span class="than">than Bloomberg Terminal</span>
+            </div>
+            <div class="attribute">
+              <span class="more">More institutional</span>
+              <span class="than">than Robinhood/Webull</span>
+            </div>
+          </div>
+          <p class="position-summary">"Professional-grade infrastructure with modern UX"</p>
+        </div>
+
+        <div class="recommendations-grid">
+          <div class="rec-category immediate">
+            <h3>Immediate Priorities</h3>
+            <div class="rec-cards">
+              <div class="rec-card">
+                <span class="rec-number">1</span>
+                <h4>Visual Design System</h4>
+                <ul>
+                  <li>Typography scale (Inter + Space Grotesk)</li>
+                  <li>Color system with accessibility</li>
+                  <li>Component library with docs</li>
+                  <li>Dark mode as first-class option</li>
+                </ul>
+              </div>
+              <div class="rec-card">
+                <span class="rec-number">2</span>
+                <h4>Trust-First Homepage</h4>
+                <ul>
+                  <li>Regulatory badges above fold</li>
+                  <li>Real-time statistics</li>
+                  <li>Institutional partnerships</li>
+                  <li>Security architecture visual</li>
+                </ul>
+              </div>
+              <div class="rec-card">
+                <span class="rec-number">3</span>
+                <h4>Feature Page</h4>
+                <ul>
+                  <li>Interactive architecture explorer</li>
+                  <li>Animated data flow</li>
+                  <li>Compliance checklist</li>
+                  <li>API documentation teaser</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="rec-category medium">
+            <h3>Medium-Term Initiatives</h3>
+            <div class="rec-cards">
+              <div class="rec-card">
+                <span class="rec-number">4</span>
+                <h4>Accessibility Audit</h4>
+                <ul>
+                  <li>WCAG 2.1 AA compliance review</li>
+                  <li>Screen reader testing</li>
+                  <li>Keyboard navigation verification</li>
+                  <li>Color contrast validation</li>
+                </ul>
+              </div>
+              <div class="rec-card">
+                <span class="rec-number">5</span>
+                <h4>Performance</h4>
+                <ul>
+                  <li>LCP &lt; 2.5s</li>
+                  <li>FID &lt; 100ms</li>
+                  <li>CLS &lt; 0.1</li>
+                  <li>Mobile-first budget</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="rec-category strategic">
+            <h3>Strategic Considerations</h3>
+            <div class="rec-cards">
+              <div class="rec-card">
+                <span class="rec-number">6</span>
+                <h4>Competitive Positioning</h4>
+                <ul>
+                  <li>"Institutional infrastructure, modern experience"</li>
+                  <li>Regulatory advantage over offshore</li>
+                  <li>Technical superiority (Equinix, sub-ms)</li>
+                  <li>Full-stack vs point solutions</li>
+                </ul>
+              </div>
+              <div class="rec-card">
+                <span class="rec-number">7</span>
+                <h4>Demo Experience</h4>
+                <ul>
+                  <li>Frictionless demo creation</li>
+                  <li>Sandbox trading environment</li>
+                  <li>API playground for devs</li>
+                  <li>Guided product tours</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section id="sources" class="sources">
+      <div class="container">
+        <h2>Sources</h2>
+        <div class="sources-grid">
+          <div class="source-category">
+            <h3>Platform Research</h3>
+            <ul>
+              <li>Robinhood UX/UI Design - LinkedIn</li>
+              <li>Robinhood UI Secrets - Itexus</li>
+              <li>thinkorswim Mobile Design - David Stoy</li>
+              <li>Schwab Trading Enhancements 2025</li>
+              <li>E*Trade Power Pro Launch</li>
+              <li>IBKR Desktop Launch</li>
+              <li>Fidelity Mobile Features</li>
+              <li>Kraken Pro Interface Guide</li>
+              <li>Bloomberg Terminal Innovation</li>
+            </ul>
+          </div>
+          <div class="source-category">
+            <h3>Design Best Practices</h3>
+            <ul>
+              <li>Fintech UX Design Principles 2025</li>
+              <li>Top 10 Fintech UX Practices 2026</li>
+              <li>Fintech Design Guide - Trust Patterns</li>
+              <li>Fintech UX Trust Patterns - Phenomenon</li>
+              <li>Anatomy of Trust in Fintech UX</li>
+            </ul>
+          </div>
+          <div class="source-category">
+            <h3>Accessibility & Compliance</h3>
+            <ul>
+              <li>WCAG Guide for Financial Services</li>
+              <li>Accessibility Testing in Fintech</li>
+              <li>Accessible Fintech Design</li>
+              <li>ADA Banking Requirements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Prepared for Perpetuals.com Interview Showcase by Jacob Gruver</p>
+    </div>
+  </footer>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #fd8800;
+      --primary-dark: #d97300;
+      --success: #33c15e;
+      --danger: #ff3d00;
+      --warning: #ffad45;
+      --dark: #292929;
+      --gray-900: #2d2d2d;
+      --gray-700: #4a4a4a;
+      --gray-500: #696969;
+      --gray-300: #a0a0a0;
+      --gray-100: #e9e9e9;
+      --light: #fafafa;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-100);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .logo svg {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+      color: var(--white);
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .label {
+      display: inline-block;
+      background: rgba(253,136,0,0.2);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero .lead {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Key Findings */
+    .findings {
+      padding: 4rem 0;
+      background: var(--white);
+    }
+
+    .findings h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .finding-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--gray-100);
+      transition: all 0.3s ease;
+    }
+
+    .finding-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .finding-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), #130d90);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: var(--white);
+    }
+
+    .finding-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .finding-card p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    /* Market Map */
+    .market-map {
+      padding: 4rem 0;
+      background: var(--light);
+    }
+
+    .market-map h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .map-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .map-visual {
+      position: relative;
+      background: var(--white);
+      border: 2px solid var(--gray-100);
+      border-radius: 16px;
+      height: 500px;
+      padding: 2rem;
+    }
+
+    .axis-label {
+      position: absolute;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-500);
+    }
+
+    .axis-label.top { top: 1rem; left: 50%; transform: translateX(-50%); }
+    .axis-label.bottom { bottom: 1rem; left: 50%; transform: translateX(-50%); }
+    .axis-label.left { left: 1rem; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+    .axis-label.right { right: 1rem; top: 50%; transform: translateY(-50%) rotate(90deg); }
+
+    .platform-dot {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .platform-dot .dot {
+      width: 12px;
+      height: 12px;
+      background: var(--gray-500);
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .platform-dot .label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      background: var(--white);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .platform-dot.highlight .dot {
+      width: 16px;
+      height: 16px;
+      background: var(--primary);
+      animation: pulse 2s infinite;
+    }
+
+    .platform-dot.highlight .label {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(253,136,0,0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(253,136,0,0); }
+    }
+
+    .map-caption {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    /* Platform Analysis */
+    .platforms {
+      padding: 4rem 0;
+      background: var(--white);
+    }
+
+    .platforms h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 0.75rem 1.5rem;
+      background: var(--light);
+      border: 1px solid var(--gray-100);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .platform-grid.hidden {
+      display: none;
+    }
+
+    .platform-card {
+      background: var(--light);
+      border: 1px solid var(--gray-100);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .platform-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-color: var(--primary);
+    }
+
+    .platform-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .platform-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .platform-icon.robinhood { background: linear-gradient(135deg, #00C805, #00a004); }
+    .platform-icon.etrade { background: linear-gradient(135deg, #5D2B91, #4a2275); }
+    .platform-icon.fidelity { background: linear-gradient(135deg, #4A9546, #3a7a38); }
+    .platform-icon.schwab { background: linear-gradient(135deg, #00A3E0, #0082b3); }
+    .platform-icon.tos { background: linear-gradient(135deg, #33c15e, #2a9e4d); }
+    .platform-icon.ibkr { background: linear-gradient(135deg, #D12732, #a71f28); }
+    .platform-icon.bloomberg { background: linear-gradient(135deg, #000000, #333333); }
+    .platform-icon.coinbase { background: linear-gradient(135deg, #0052FF, #0041cc); }
+    .platform-icon.kraken { background: linear-gradient(135deg, #5741D9, #4634ad); }
+    .platform-icon.binance { background: linear-gradient(135deg, #F0B90B, #c09608); }
+
+    .platform-header h3 {
+      flex: 1;
+      font-size: 1.1rem;
+    }
+
+    .platform-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .platform-badge.consumer { background: #e3f2fd; color: #1976d2; }
+    .platform-badge.pro { background: #fce4ec; color: #c2185b; }
+    .platform-badge.crypto { background: #fff3e0; color: #e65100; }
+
+    .philosophy {
+      font-style: italic;
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .platform-details h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-500);
+      margin: 1rem 0 0.5rem;
+    }
+
+    .platform-details ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .platform-details li {
+      padding: 0.25rem 0;
+    }
+
+    .lessons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .lessons span {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .lessons .positive {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .lessons .positive::before { content: "+ "; font-weight: bold; }
+
+    .lessons .negative {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+    .lessons .negative::before { content: "- "; font-weight: bold; }
+
+    .ratings, .awards, .stats, .trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .ratings span, .awards span, .stats span, .trust span {
+      background: var(--white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      border: 1px solid var(--gray-100);
+    }
+
+    .stat {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Design Patterns */
+    .patterns {
+      padding: 4rem 0;
+      background: var(--light);
+    }
+
+    .patterns h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .patterns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pattern-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .pattern-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .pattern-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .pattern-card ul {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .pattern-card li {
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .pattern-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    /* Hierarchy Visual */
+    .hierarchy-visual {
+      margin-bottom: 1rem;
+    }
+
+    .h-level {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .h-level.primary {
+      background: linear-gradient(135deg, var(--primary), #130d90);
+      color: var(--white);
+    }
+
+    .h-level.secondary {
+      background: rgba(253,136,0,0.15);
+      color: var(--primary-dark);
+    }
+
+    .h-level.tertiary {
+      background: var(--gray-100);
+      color: var(--gray-700);
+    }
+
+    /* Nav Visual */
+    .nav-visual {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--gray-900);
+      padding: 0.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .nav-item {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.7rem;
+      color: var(--gray-300);
+      border-radius: 4px;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+    }
+
+    .nav-item.highlight {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Color Meanings */
+    .color-meanings {
+      margin-bottom: 1rem;
+    }
+
+    .color-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 0.85rem;
+    }
+
+    .color-swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+
+    .color-swatch.green { background: #33c15e; }
+    .color-swatch.red { background: #FF3D00; }
+    .color-swatch.blue { background: #fd8800; }
+    .color-swatch.gray { background: #696969; }
+
+    /* Type Scale */
+    .type-scale {
+      margin-bottom: 1rem;
+    }
+
+    .type-row {
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--gray-100);
+    }
+
+    .hero-type {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .header-type {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .body-type {
+      font-size: 1rem;
+    }
+
+    .caption-type {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+    }
+
+    /* Friction Section */
+    .friction {
+      padding: 4rem 0;
+      background: var(--white);
+    }
+
+    .friction h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .friction-intro {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      color: var(--gray-500);
+    }
+
+    .friction-spectrum {
+      margin-bottom: 3rem;
+    }
+
+    .friction-spectrum h3 {
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .spectrum-visual {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .spectrum-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .spectrum-section {
+      padding: 1.5rem;
+    }
+
+    .spectrum-section h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .spectrum-section ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .spectrum-section li {
+      padding: 0.2rem 0;
+    }
+
+    .spectrum-section.remove {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .spectrum-section.balance {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .spectrum-section.add {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+    .trust-patterns h3 {
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .trust-card {
+      background: var(--light);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .trust-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), #130d90);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .trust-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .trust-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .trust-card li {
+      padding: 0.2rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .trust-card li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Accessibility */
+    .accessibility {
+      padding: 4rem 0;
+      background: var(--light);
+    }
+
+    .accessibility h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .compliance-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .compliance-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .compliance-card.warning {
+      border-color: var(--danger);
+      background: #fff5f5;
+    }
+
+    .compliance-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .compliance-card table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .compliance-card th,
+    .compliance-card td {
+      padding: 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .compliance-card th {
+      font-weight: 600;
+      color: var(--gray-500);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .levels {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .level {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem;
+      background: var(--light);
+      border-radius: 8px;
+    }
+
+    .level.recommended {
+      background: linear-gradient(135deg, var(--primary), #130d90);
+      color: var(--white);
+    }
+
+    .level-name {
+      font-weight: 600;
+    }
+
+    .level-desc {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .requirement h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .requirement ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .requirement li {
+      padding: 0.2rem 0;
+    }
+
+    .compliance-card blockquote {
+      font-style: italic;
+      color: var(--gray-700);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .compliance-card cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    .penalties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .penalties span {
+      background: rgba(255,61,0,0.1);
+      color: var(--danger);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Recommendations */
+    .recommendations {
+      padding: 4rem 0;
+      background: var(--white);
+    }
+
+    .recommendations h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .position-card {
+      background: linear-gradient(135deg, var(--dark), var(--gray-900));
+      color: var(--white);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .position-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .position-attributes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .attribute {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .attribute .more {
+      font-weight: 600;
+      color: var(--success);
+    }
+
+    .attribute .than {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .position-summary {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .recommendations-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .rec-category h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid;
+    }
+
+    .rec-category.immediate h3 { border-color: var(--success); color: var(--success); }
+    .rec-category.medium h3 { border-color: var(--warning); color: #f57c00; }
+    .rec-category.strategic h3 { border-color: var(--primary); color: var(--primary); }
+
+    .rec-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .rec-card {
+      background: var(--light);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .rec-number {
+      position: absolute;
+      top: -12px;
+      left: 1rem;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .rec-card h4 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .rec-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .rec-card li {
+      padding: 0.25rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .rec-card li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Sources */
+    .sources {
+      padding: 4rem 0;
+      background: var(--light);
+    }
+
+    .sources h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .source-category {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .source-category h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .source-category ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .source-category li {
+      padding: 0.3rem 0;
+      color: var(--gray-500);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .map-visual {
+        height: 400px;
+      }
+
+      .platform-dot .label {
+        font-size: 0.6rem;
+      }
+
+      .spectrum-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .position-attributes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    // Tab switching for platform categories
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.dataset.category;
+
+        // Update active tab
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Show relevant grid
+        document.querySelectorAll('.platform-grid').forEach(grid => {
+          if (grid.dataset.category === category) {
+            grid.classList.remove('hidden');
+          } else {
+            grid.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

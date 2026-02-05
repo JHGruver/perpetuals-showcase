@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpetuals Design System | Atomic Components</title>
+  <meta name="description" content="Complete atomic design system for Perpetuals.com - from atoms to templates, built for scalable digital experiences.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 168 168'%3E%3Cg transform='translate(0,28)'%3E%3Cpath fill='%23fd8800' d='M0 55.7c0 9.6 2.3 18.5 6.8 26.5 6.3 11.7 16.6 20.7 29 25.5 12.4 4.7 26 4.9 38.5.5 3.2-1.1 6.3-2.6 9.3-4.3 8.4-4.9 15.5-11.9 20.4-20.4 1-1.8 3.4-2.4 5.2-1.4s2.4 3.4 1.4 5.2c-4.7 8.2-11.2 15.2-18.9 20.5 6.1 2.3 12.8 3.6 19.7 3.6 30.8 0 55.7-24.9 55.7-55.7 0-13.3-4.7-26.1-13.3-36.2-.7-.8-1.4-1.5-2.1-2.3-.6-.6-1.2-1.3-1.9-1.9C141.7 7.6 131.3 2.5 120.1.7c-2.7-.4-5.4-.7-8.1-.7-10.4-.1-20.7 2.7-29.7 8.2C71 15.1 62.6 25.9 58.5 38.5c-.6 2-2.8 3.1-4.8 2.4-2-.6-3.1-2.8-2.4-4.8C55.5 22.9 64.1 11.5 75.5 3.6 69.3 1.3 62.7 0 55.8 0 25.2 0 .4 24.6 0 55c0 .2 0 .5 0 .7z'/%3E%3C/g%3E%3C/svg%3E">
+  <script>!function(){var l=document.querySelector('link[rel="icon"]');if(l){var n=l.cloneNode();n.href=l.href;l.parentNode.removeChild(l);document.head.appendChild(n)}}()</script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <svg width="32" height="32" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+          </svg>
+          <div class="logo-text">
+            <h1>Design System</h1>
+            <span class="version">v1.0.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="M21 21l-4.35-4.35"></path>
+        </svg>
+        <input type="text" placeholder="Search components..." id="component-search">
+        <kbd>Ctrl+K</kbd>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <div class="nav-section">
+          <h2>Getting Started</h2>
+          <ul>
+            <li><a href="#overview" class="active" data-section="overview">Overview</a></li>
+            <li><a href="#installation" data-section="installation">Installation</a></li>
+            <li><a href="#principles" data-section="principles">Design Principles</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <h2>Foundation</h2>
+          <ul>
+            <li><a href="#colors" data-section="colors">Colors</a></li>
+            <li><a href="#typography" data-section="typography">Typography</a></li>
+            <li><a href="#spacing" data-section="spacing">Spacing</a></li>
+            <li><a href="#icons" data-section="icons">Icons</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <h2>Atoms</h2>
+          <ul>
+            <li><a href="#buttons" data-section="buttons">Buttons</a></li>
+            <li><a href="#inputs" data-section="inputs">Inputs</a></li>
+            <li><a href="#badges" data-section="badges">Badges</a></li>
+            <li><a href="#tags" data-section="tags">Tags</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <h2>Molecules</h2>
+          <ul>
+            <li><a href="#cards" data-section="cards">Cards</a></li>
+            <li><a href="#form-fields" data-section="form-fields">Form Fields</a></li>
+            <li><a href="#button-groups" data-section="button-groups">Button Groups</a></li>
+            <li><a href="#alerts" data-section="alerts">Alerts</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <h2>Organisms</h2>
+          <ul>
+            <li><a href="#header" data-section="header">Header</a></li>
+            <li><a href="#hero" data-section="hero">Hero</a></li>
+            <li><a href="#feature-grid" data-section="feature-grid">Feature Grid</a></li>
+            <li><a href="#footer" data-section="footer">Footer</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-section">
+          <h2>Templates</h2>
+          <ul>
+            <li><a href="#homepage-template" data-section="homepage-template">Homepage</a></li>
+            <li><a href="#features-template" data-section="features-template">Features</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../homepage-rebuild/index.html" class="sidebar-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          View Homepage
+        </a>
+        <a href="../features-rebuild/index.html" class="sidebar-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          View Features
+        </a>
+      </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <span class="mobile-title">Design System</span>
+      <button class="theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content" id="main-content">
+      <header class="content-header">
+        <div class="breadcrumbs" id="breadcrumbs">
+          <a href="#overview">Design System</a>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+          <span id="current-section">Overview</span>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <a href="https://github.com/perpetuals" class="btn-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <article class="content-body">
+        <!-- Overview Section -->
+        <section id="overview" class="doc-section active">
+          <h1>Perpetuals Design System</h1>
+          <p class="lead">A comprehensive design system built on atomic design principles, enabling consistent, scalable, and accessible digital experiences for Perpetuals.com.</p>
+
+          <div class="stats-bar">
+            <div class="stat-item">
+              <span class="stat-value">50+</span>
+              <span class="stat-label">Components</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">24</span>
+              <span class="stat-label">Color Tokens</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Accessible</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">2</span>
+              <span class="stat-label">Themes</span>
+            </div>
+          </div>
+
+          <div class="methodology-section">
+            <h2>Atomic Design Methodology</h2>
+            <p>This design system follows Brad Frost's Atomic Design methodology, organizing components into five distinct levels of complexity and reusability.</p>
+
+            <div class="methodology-grid">
+              <div class="method-card" data-level="atoms">
+                <div class="method-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <circle cx="12" cy="12" r="9"></circle>
+                  </svg>
+                </div>
+                <h3>Atoms</h3>
+                <p>The fundamental building blocks. Colors, typography, icons, buttons, and form inputs that can't be broken down further.</p>
+                <span class="method-count">16 components</span>
+              </div>
+
+              <div class="method-card" data-level="molecules">
+                <div class="method-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="12" r="3"></circle>
+                    <line x1="9" y1="12" x2="15" y2="12"></line>
+                  </svg>
+                </div>
+                <h3>Molecules</h3>
+                <p>Simple groups of atoms functioning together. Form fields, cards, search bars, and button groups.</p>
+                <span class="method-count">12 components</span>
+              </div>
+
+              <div class="method-card" data-level="organisms">
+                <div class="method-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                  </svg>
+                </div>
+                <h3>Organisms</h3>
+                <p>Complex UI sections composed of molecules and atoms. Headers, footers, hero sections, and feature grids.</p>
+                <span class="method-count">8 components</span>
+              </div>
+
+              <div class="method-card" data-level="templates">
+                <div class="method-icon">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <line x1="10" y1="9" x2="8" y2="9"></line>
+                  </svg>
+                </div>
+                <h3>Templates</h3>
+                <p>Page-level structures that arrange organisms. Homepage, features page, and article layouts.</p>
+                <span class="method-count">3 templates</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quick-start">
+            <h2>Quick Start</h2>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="copy-btn" data-copy="quick-start-code">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code id="quick-start-code">&lt;!-- Include the design system CSS --&gt;
+&lt;link rel="stylesheet" href="perpetuals-ds.css"&gt;
+
+&lt;!-- Use components with semantic classes --&gt;
+&lt;button class="btn btn-primary"&gt;
+  Get Started
+&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="doc-section">
+          <h1>Installation</h1>
+          <p class="lead">Get up and running with the Perpetuals Design System in minutes.</p>
+
+          <div class="install-options">
+            <div class="install-option">
+              <h3>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+                NPM
+              </h3>
+              <div class="code-block">
+                <div class="code-header">
+                  <span class="code-lang">Terminal</span>
+                  <button class="copy-btn" data-copy="npm-install">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code id="npm-install">npm install @perpetuals/design-system</code></pre>
+              </div>
+            </div>
+
+            <div class="install-option">
+              <h3>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+                CDN
+              </h3>
+              <div class="code-block">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span>
+                  <button class="copy-btn" data-copy="cdn-install">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code id="cdn-install">&lt;link rel="stylesheet" href="https://cdn.perpetuals.com/ds/v1/perpetuals-ds.min.css"&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="usage-section">
+            <h2>SCSS Import</h2>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">SCSS</span>
+                <button class="copy-btn" data-copy="scss-import">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code id="scss-import">// Import the entire design system
+@use '@perpetuals/design-system';
+
+// Or import individual modules
+@use '@perpetuals/design-system/tokens';
+@use '@perpetuals/design-system/components/buttons';
+@use '@perpetuals/design-system/components/cards';</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Design Principles Section -->
+        <section id="principles" class="doc-section">
+          <h1>Design Principles</h1>
+          <p class="lead">The foundational guidelines that shape every component and decision in our design system.</p>
+
+          <div class="principles-grid">
+            <div class="principle-card">
+              <div class="principle-number">01</div>
+              <h3>Clarity Over Cleverness</h3>
+              <p>Every element should have a clear purpose. We prioritize intuitive interfaces over complex interactions that require learning.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-number">02</div>
+              <h3>Consistency Breeds Trust</h3>
+              <p>Consistent patterns and behaviors create predictability. Users should feel confident in their interactions across all touchpoints.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-number">03</div>
+              <h3>Performance is a Feature</h3>
+              <p>Speed and responsiveness are not afterthoughts. Every component is optimized for performance from the start.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-number">04</div>
+              <h3>Accessibility by Default</h3>
+              <p>Inclusive design is not optional. Every component meets WCAG 2.1 AA standards and works with assistive technologies.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-number">05</div>
+              <h3>Progressive Enhancement</h3>
+              <p>Core functionality works everywhere. Enhanced experiences layer on top for modern browsers and devices.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-number">06</div>
+              <h3>Composable by Nature</h3>
+              <p>Components are designed to work together. Mix and match atoms to create molecules, organisms, and beyond.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Colors Section -->
+        <section id="colors" class="doc-section">
+          <h1>Colors</h1>
+          <p class="lead">A carefully crafted color palette designed for accessibility, hierarchy, and brand consistency.</p>
+
+          <div class="color-section">
+            <h2>Brand Colors</h2>
+            <p>The core colors that define the Perpetuals brand identity.</p>
+            <div class="color-palette">
+              <div class="color-card" style="--preview-color: #fd8800">
+                <div class="color-preview" style="background: #fd8800"></div>
+                <div class="color-info">
+                  <span class="color-name">Primary Orange</span>
+                  <code class="color-value">#FD8800</code>
+                  <code class="color-var">--color-primary</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #130d90">
+                <div class="color-preview" style="background: #130d90"></div>
+                <div class="color-info">
+                  <span class="color-name">Secondary Blue</span>
+                  <code class="color-value">#130D90</code>
+                  <code class="color-var">--color-secondary</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #ffad45">
+                <div class="color-preview" style="background: #ffad45"></div>
+                <div class="color-info">
+                  <span class="color-name">Orange Hover</span>
+                  <code class="color-value">#FFAD45</code>
+                  <code class="color-var">--color-primary-hover</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="color-section">
+            <h2>Status Colors</h2>
+            <p>Used for emphasis, feedback, and status indicators.</p>
+            <div class="color-palette">
+              <div class="color-card" style="--preview-color: #33c15e">
+                <div class="color-preview" style="background: #33c15e"></div>
+                <div class="color-info">
+                  <span class="color-name">Success Green</span>
+                  <code class="color-value">#33C15E</code>
+                  <code class="color-var">--color-success</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #ffad45">
+                <div class="color-preview" style="background: #ffad45"></div>
+                <div class="color-info">
+                  <span class="color-name">Warning</span>
+                  <code class="color-value">#FFAD45</code>
+                  <code class="color-var">--color-warning</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #ff3d00">
+                <div class="color-preview" style="background: #ff3d00"></div>
+                <div class="color-info">
+                  <span class="color-name">Error Red</span>
+                  <code class="color-value">#FF3D00</code>
+                  <code class="color-var">--color-error</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #130d90">
+                <div class="color-preview" style="background: #130d90"></div>
+                <div class="color-info">
+                  <span class="color-name">Info Blue</span>
+                  <code class="color-value">#130D90</code>
+                  <code class="color-var">--color-info</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="color-section">
+            <h2>Gray Scale</h2>
+            <p>Neutral colors for text, borders, and backgrounds.</p>
+            <div class="color-palette gray-scale">
+              <div class="color-card" style="--preview-color: #000">
+                <div class="color-preview" style="background: #000"></div>
+                <div class="color-info">
+                  <span class="color-name">Black</span>
+                  <code class="color-value">#000000</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #1d1c21">
+                <div class="color-preview" style="background: #1d1c21"></div>
+                <div class="color-info">
+                  <span class="color-name">Near Black</span>
+                  <code class="color-value">#1D1C21</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #292929">
+                <div class="color-preview" style="background: #292929"></div>
+                <div class="color-info">
+                  <span class="color-name">Dark Gray</span>
+                  <code class="color-value">#292929</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #696969">
+                <div class="color-preview" style="background: #696969"></div>
+                <div class="color-info">
+                  <span class="color-name">Gray</span>
+                  <code class="color-value">#696969</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #a0a0a0">
+                <div class="color-preview" style="background: #a0a0a0"></div>
+                <div class="color-info">
+                  <span class="color-name">Medium Gray</span>
+                  <code class="color-value">#A0A0A0</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #e9e9e9">
+                <div class="color-preview" style="background: #e9e9e9"></div>
+                <div class="color-info">
+                  <span class="color-name">Light Gray</span>
+                  <code class="color-value">#E9E9E9</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #fafafa">
+                <div class="color-preview" style="background: #fafafa; border: 1px solid #e9e9e9;"></div>
+                <div class="color-info">
+                  <span class="color-name">Off White</span>
+                  <code class="color-value">#FAFAFA</code>
+                </div>
+              </div>
+              <div class="color-card" style="--preview-color: #fff">
+                <div class="color-preview" style="background: #fff; border: 1px solid #e9e9e9;"></div>
+                <div class="color-info">
+                  <span class="color-name">White</span>
+                  <code class="color-value">#FFFFFF</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="color-section">
+            <h2>Gradients</h2>
+            <p>Brand gradients for premium elements, CTAs, and visual emphasis.</p>
+            <div class="gradient-preview">
+              <div class="gradient-swatch" style="background: linear-gradient(135deg, #fd8800 0%, #130d90 100%);"></div>
+              <div class="gradient-info">
+                <code>linear-gradient(135deg, #FD8800 0%, #130D90 100%)</code>
+                <code class="color-var">--gradient-primary</code>
+              </div>
+            </div>
+            <div class="gradient-preview" style="margin-top: 1rem;">
+              <div class="gradient-swatch" style="background: linear-gradient(135deg, #fd8800 0%, #ffad45 100%);"></div>
+              <div class="gradient-info">
+                <code>linear-gradient(135deg, #FD8800 0%, #FFAD45 100%)</code>
+                <code class="color-var">--gradient-accent</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section id="typography" class="doc-section">
+          <h1>Typography</h1>
+          <p class="lead">A typographic system built for clarity, hierarchy, and cross-platform consistency.</p>
+
+          <div class="type-section">
+            <h2>Font Families</h2>
+            <div class="font-showcase">
+              <div class="font-card">
+                <span class="font-sample font-display">Space Grotesk</span>
+                <span class="font-usage">Headings & Display</span>
+                <span class="font-weights">Weights: 400, 500, 600, 700</span>
+              </div>
+              <div class="font-card">
+                <span class="font-sample font-body">Inter</span>
+                <span class="font-usage">Body & UI Text</span>
+                <span class="font-weights">Weights: 300, 400, 500, 600, 700, 800</span>
+              </div>
+              <div class="font-card">
+                <span class="font-sample font-mono">JetBrains Mono</span>
+                <span class="font-usage">Code & Data</span>
+                <span class="font-weights">Weights: 400, 500</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="type-section">
+            <h2>Type Scale</h2>
+            <div class="type-scale">
+              <div class="type-specimen">
+                <span class="type-label">Display / 64px</span>
+                <span class="type-sample display">Trading Reimagined</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">H1 / 48px</span>
+                <span class="type-sample h1">The Future of Derivatives</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">H2 / 36px</span>
+                <span class="type-sample h2">Institutional-Grade Platform</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">H3 / 28px</span>
+                <span class="type-sample h3">Advanced Trading Tools</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">H4 / 22px</span>
+                <span class="type-sample h4">Secure Infrastructure</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">Body Large / 18px</span>
+                <span class="type-sample body-lg">Perpetuals.com provides enterprise-level trading infrastructure for the modern derivatives market.</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">Body / 16px</span>
+                <span class="type-sample body">Our platform handles millions of transactions daily with sub-millisecond execution times.</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">Body Small / 14px</span>
+                <span class="type-sample body-sm">All trading activities are subject to our terms of service and risk disclosures.</span>
+              </div>
+              <div class="type-specimen">
+                <span class="type-label">Caption / 12px</span>
+                <span class="type-sample caption">Last updated: February 2026</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Spacing Section -->
+        <section id="spacing" class="doc-section">
+          <h1>Spacing</h1>
+          <p class="lead">A consistent spacing system based on an 8px grid for harmonious layouts.</p>
+
+          <div class="spacing-scale">
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 4px; height: 4px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">2xs</span>
+                <code>4px</code>
+                <code class="spacing-var">--space-2xs</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 8px; height: 8px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">xs</span>
+                <code>8px</code>
+                <code class="spacing-var">--space-xs</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 12px; height: 12px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">sm</span>
+                <code>12px</code>
+                <code class="spacing-var">--space-sm</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 16px; height: 16px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">md</span>
+                <code>16px</code>
+                <code class="spacing-var">--space-md</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 24px; height: 24px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">lg</span>
+                <code>24px</code>
+                <code class="spacing-var">--space-lg</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 32px; height: 32px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">xl</span>
+                <code>32px</code>
+                <code class="spacing-var">--space-xl</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 48px; height: 48px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">2xl</span>
+                <code>48px</code>
+                <code class="spacing-var">--space-2xl</code>
+              </div>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual" style="width: 64px; height: 64px;"></div>
+              <div class="spacing-info">
+                <span class="spacing-name">3xl</span>
+                <code>64px</code>
+                <code class="spacing-var">--space-3xl</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Icons Section -->
+        <section id="icons" class="doc-section">
+          <h1>Icons</h1>
+          <p class="lead">SVG icons designed at 24x24 with 2px strokes for clarity and consistency.</p>
+
+          <div class="icon-guidelines">
+            <h2>Icon Guidelines</h2>
+            <ul class="guidelines-list">
+              <li>All icons are SVG-based for crisp rendering at any size</li>
+              <li>Default size: 24x24px with 2px stroke width</li>
+              <li>Use <code>currentColor</code> for stroke to inherit text color</li>
+              <li>Icons should be wrapped in accessible containers with aria-labels</li>
+            </ul>
+          </div>
+
+          <div class="icon-grid">
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span>Home</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+              </svg>
+              <span>Search</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>User</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              <span>Settings</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Notifications</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+              <span>Dashboard</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <span>Finance</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+              <span>Trending</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Security</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Speed</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Time</span>
+            </div>
+            <div class="icon-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Check</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Buttons Section -->
+        <section id="buttons" class="doc-section">
+          <h1>Buttons</h1>
+          <p class="lead">Interactive button components for actions, navigation, and form submissions.</p>
+
+          <div class="component-section">
+            <h2>Button Variants</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <button class="btn btn-primary">Primary</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-accent">Accent</button>
+                <button class="btn btn-ghost">Ghost</button>
+                <button class="btn btn-danger">Danger</button>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="copy-btn" data-copy="btn-variants">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code id="btn-variants">&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-accent"&gt;Accent&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Button Sizes</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <button class="btn btn-primary btn-sm">Small</button>
+                <button class="btn btn-primary">Medium</button>
+                <button class="btn btn-primary btn-lg">Large</button>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="copy-btn" data-copy="btn-sizes">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code id="btn-sizes">&lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Medium&lt;/button&gt;
+&lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Button with Icons</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <button class="btn btn-primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                  Get Started
+                </button>
+                <button class="btn btn-secondary">
+                  Learn More
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+                <button class="btn btn-icon-only" aria-label="Settings">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Button States</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <button class="btn btn-primary">Default</button>
+                <button class="btn btn-primary" disabled>Disabled</button>
+                <button class="btn btn-primary btn-loading">
+                  <span class="spinner"></span>
+                  Loading
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inputs Section -->
+        <section id="inputs" class="doc-section">
+          <h1>Inputs</h1>
+          <p class="lead">Form input components for collecting user data with built-in validation states.</p>
+
+          <div class="component-section">
+            <h2>Text Inputs</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <input type="text" class="input" placeholder="Default input">
+                <input type="text" class="input input-focus" placeholder="Focus state" value="Focused">
+                <input type="text" class="input input-error" placeholder="Error state" value="Invalid input">
+                <input type="text" class="input input-success" placeholder="Success state" value="Valid input">
+                <input type="text" class="input" placeholder="Disabled input" disabled>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="copy-btn" data-copy="input-states">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code id="input-states">&lt;input type="text" class="input" placeholder="Default"&gt;
+&lt;input type="text" class="input input-error" placeholder="Error"&gt;
+&lt;input type="text" class="input input-success" placeholder="Success"&gt;
+&lt;input type="text" class="input" disabled placeholder="Disabled"&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Input with Icon</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <div class="input-group">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                  </svg>
+                  <input type="text" class="input" placeholder="Search...">
+                </div>
+                <div class="input-group">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <input type="email" class="input" placeholder="Email address">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Textarea</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <textarea class="input textarea" placeholder="Enter your message..." rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Select</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <div class="select-wrapper">
+                  <select class="input select">
+                    <option value="">Select an option</option>
+                    <option value="btc">Bitcoin (BTC)</option>
+                    <option value="eth">Ethereum (ETH)</option>
+                    <option value="sol">Solana (SOL)</option>
+                  </select>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Badges Section -->
+        <section id="badges" class="doc-section">
+          <h1>Badges</h1>
+          <p class="lead">Small status indicators and labels for categorization and highlighting.</p>
+
+          <div class="component-section">
+            <h2>Badge Variants</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <span class="badge">Default</span>
+                <span class="badge badge-primary">Primary</span>
+                <span class="badge badge-success">Success</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-error">Error</span>
+                <span class="badge badge-info">Info</span>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="copy-btn" data-copy="badge-variants">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code id="badge-variants">&lt;span class="badge"&gt;Default&lt;/span&gt;
+&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge badge-error"&gt;Error&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Badge with Dot</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <span class="badge badge-dot badge-success">
+                  <span class="dot"></span>
+                  Online
+                </span>
+                <span class="badge badge-dot badge-warning">
+                  <span class="dot"></span>
+                  Pending
+                </span>
+                <span class="badge badge-dot badge-error">
+                  <span class="dot"></span>
+                  Offline
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tags Section -->
+        <section id="tags" class="doc-section">
+          <h1>Tags</h1>
+          <p class="lead">Interactive tags for filtering, categorization, and multi-select scenarios.</p>
+
+          <div class="component-section">
+            <h2>Tag Variants</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <span class="tag">Default</span>
+                <span class="tag tag-primary">Primary</span>
+                <span class="tag tag-removable">
+                  Removable
+                  <button class="tag-remove" aria-label="Remove tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </span>
+                <span class="tag tag-clickable">Clickable</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Tag Group</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <div class="tag-group">
+                  <span class="tag tag-selected">BTC</span>
+                  <span class="tag">ETH</span>
+                  <span class="tag">SOL</span>
+                  <span class="tag">AVAX</span>
+                  <span class="tag">DOT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cards Section -->
+        <section id="cards" class="doc-section">
+          <h1>Cards</h1>
+          <p class="lead">Container components for grouping related content and actions.</p>
+
+          <div class="component-section">
+            <h2>Basic Card</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-cards">
+                <div class="card">
+                  <div class="card-header">
+                    <h3>Card Title</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>This is a basic card component with a header and body content. Cards can contain any type of content.</p>
+                  </div>
+                  <div class="card-footer">
+                    <button class="btn btn-ghost btn-sm">Cancel</button>
+                    <button class="btn btn-primary btn-sm">Confirm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Feature Card</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-cards">
+                <div class="card card-feature">
+                  <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  </div>
+                  <h3>Lightning Fast</h3>
+                  <p>Sub-millisecond execution times with our optimized matching engine.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Stat Card</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-cards-row">
+                <div class="card card-stat">
+                  <span class="stat-label">Total Volume</span>
+                  <span class="stat-value">$2.4B</span>
+                  <span class="stat-change stat-up">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                      <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                    +12.5%
+                  </span>
+                </div>
+                <div class="card card-stat">
+                  <span class="stat-label">Active Users</span>
+                  <span class="stat-value">847K</span>
+                  <span class="stat-change stat-up">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                      <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                    +8.3%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Fields Section -->
+        <section id="form-fields" class="doc-section">
+          <h1>Form Fields</h1>
+          <p class="lead">Complete form field molecules combining labels, inputs, and helper text.</p>
+
+          <div class="component-section">
+            <h2>Form Field with Label</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <div class="form-field">
+                  <label class="form-label" for="email-field">Email Address</label>
+                  <input type="email" id="email-field" class="input" placeholder="you@example.com">
+                  <span class="form-hint">We'll never share your email with anyone.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Form Field with Error</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <div class="form-field form-field-error">
+                  <label class="form-label" for="password-field">Password</label>
+                  <input type="password" id="password-field" class="input input-error" value="123">
+                  <span class="form-error">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="8" x2="12" y2="12"></line>
+                      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    Password must be at least 8 characters.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Checkbox & Radio</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <label class="checkbox-field">
+                  <input type="checkbox" checked>
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-label">I agree to the terms and conditions</span>
+                </label>
+                <div class="radio-group">
+                  <label class="radio-field">
+                    <input type="radio" name="plan" checked>
+                    <span class="radio-custom"></span>
+                    <span class="radio-label">Basic Plan</span>
+                  </label>
+                  <label class="radio-field">
+                    <input type="radio" name="plan">
+                    <span class="radio-custom"></span>
+                    <span class="radio-label">Pro Plan</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Button Groups Section -->
+        <section id="button-groups" class="doc-section">
+          <h1>Button Groups</h1>
+          <p class="lead">Grouped buttons for related actions and segmented controls.</p>
+
+          <div class="component-section">
+            <h2>Basic Button Group</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <div class="btn-group">
+                  <button class="btn btn-secondary active">Day</button>
+                  <button class="btn btn-secondary">Week</button>
+                  <button class="btn btn-secondary">Month</button>
+                  <button class="btn btn-secondary">Year</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-section">
+            <h2>Segmented Control</h2>
+            <div class="component-preview">
+              <div class="preview-area">
+                <div class="segmented-control">
+                  <button class="segment active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="14" width="7" height="7"></rect>
+                      <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Grid
+                  </button>
+                  <button class="segment">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                    List
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Alerts Section -->
+        <section id="alerts" class="doc-section">
+          <h1>Alerts</h1>
+          <p class="lead">Notification components for system feedback and important messages.</p>
+
+          <div class="component-section">
+            <h2>Alert Variants</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-vertical">
+                <div class="alert alert-info">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                  <div class="alert-content">
+                    <strong>Information</strong>
+                    <p>This is an informational alert message.</p>
+                  </div>
+                </div>
+                <div class="alert alert-success">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <div class="alert-content">
+                    <strong>Success</strong>
+                    <p>Your transaction was completed successfully.</p>
+                  </div>
+                </div>
+                <div class="alert alert-warning">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                  <div class="alert-content">
+                    <strong>Warning</strong>
+                    <p>Please review your settings before proceeding.</p>
+                  </div>
+                </div>
+                <div class="alert alert-error">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <div class="alert-content">
+                    <strong>Error</strong>
+                    <p>An error occurred. Please try again.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Header Organism Section -->
+        <section id="header" class="doc-section">
+          <h1>Header</h1>
+          <p class="lead">The primary navigation organism for site-wide consistency.</p>
+
+          <div class="component-section">
+            <h2>Header Preview</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-full">
+                <header class="preview-header">
+                  <div class="header-logo">
+                    <svg width="32" height="32" viewBox="0 0 168 112" fill="none">
+                      <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+                    </svg>
+                    <span>Perpetuals</span>
+                  </div>
+                  <nav class="header-nav">
+                    <a href="#">Products</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">About</a>
+                  </nav>
+                  <div class="header-actions">
+                    <button class="btn btn-ghost btn-sm">Sign In</button>
+                    <button class="btn btn-primary btn-sm">Get Started</button>
+                  </div>
+                </header>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hero Organism Section -->
+        <section id="hero" class="doc-section">
+          <h1>Hero</h1>
+          <p class="lead">High-impact hero sections for landing pages and key entry points.</p>
+
+          <div class="component-section">
+            <h2>Hero Preview</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-full preview-hero">
+                <div class="preview-hero-content">
+                  <span class="hero-badge">New Release</span>
+                  <h1>Trade the Future</h1>
+                  <p>Institutional-grade perpetual futures trading platform with sub-millisecond execution.</p>
+                  <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg">Start Trading</button>
+                    <button class="btn btn-secondary btn-lg">Learn More</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature Grid Organism Section -->
+        <section id="feature-grid" class="doc-section">
+          <h1>Feature Grid</h1>
+          <p class="lead">Organized display of features and capabilities in a scannable grid format.</p>
+
+          <div class="component-section">
+            <h2>Feature Grid Preview</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-full">
+                <div class="preview-feature-grid">
+                  <div class="feature-item">
+                    <div class="feature-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                      </svg>
+                    </div>
+                    <h4>Lightning Speed</h4>
+                    <p>Sub-ms execution</p>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                    </div>
+                    <h4>Bank-Grade Security</h4>
+                    <p>SOC 2 certified</p>
+                  </div>
+                  <div class="feature-item">
+                    <div class="feature-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                    </div>
+                    <h4>Global Access</h4>
+                    <p>180+ countries</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer Organism Section -->
+        <section id="footer" class="doc-section">
+          <h1>Footer</h1>
+          <p class="lead">Site footer with navigation, legal links, and brand elements.</p>
+
+          <div class="component-section">
+            <h2>Footer Preview</h2>
+            <div class="component-preview">
+              <div class="preview-area preview-full">
+                <footer class="preview-footer">
+                  <div class="footer-grid">
+                    <div class="footer-brand">
+                      <svg width="32" height="32" viewBox="0 0 168 112" fill="none">
+                        <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+                      </svg>
+                      <p>Institutional-grade perpetual futures trading.</p>
+                    </div>
+                    <div class="footer-links">
+                      <h4>Products</h4>
+                      <a href="#">Kronos X</a>
+                      <a href="#">API</a>
+                      <a href="#">Enterprise</a>
+                    </div>
+                    <div class="footer-links">
+                      <h4>Company</h4>
+                      <a href="#">About</a>
+                      <a href="#">Careers</a>
+                      <a href="#">Press</a>
+                    </div>
+                    <div class="footer-links">
+                      <h4>Legal</h4>
+                      <a href="#">Terms</a>
+                      <a href="#">Privacy</a>
+                      <a href="#">Compliance</a>
+                    </div>
+                  </div>
+                  <div class="footer-bottom">
+                    <span>2026 Perpetuals.com. All rights reserved.</span>
+                  </div>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Homepage Template Section -->
+        <section id="homepage-template" class="doc-section">
+          <h1>Homepage Template</h1>
+          <p class="lead">Complete homepage layout combining header, hero, features, and footer organisms.</p>
+
+          <div class="template-preview">
+            <div class="template-diagram">
+              <div class="template-block" data-name="Header">
+                <span>Header</span>
+              </div>
+              <div class="template-block template-hero" data-name="Hero">
+                <span>Hero Section</span>
+              </div>
+              <div class="template-block" data-name="Value Props">
+                <span>Value Propositions</span>
+              </div>
+              <div class="template-block template-wide" data-name="Features">
+                <span>Feature Grid</span>
+              </div>
+              <div class="template-block" data-name="Stats">
+                <span>Statistics</span>
+              </div>
+              <div class="template-block" data-name="CTA">
+                <span>Call to Action</span>
+              </div>
+              <div class="template-block" data-name="Footer">
+                <span>Footer</span>
+              </div>
+            </div>
+            <a href="../homepage-rebuild/index.html" class="btn btn-primary" target="_blank">
+              View Live Template
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        <!-- Features Template Section -->
+        <section id="features-template" class="doc-section">
+          <h1>Features Template</h1>
+          <p class="lead">Product features page layout showcasing capabilities and specifications.</p>
+
+          <div class="template-preview">
+            <div class="template-diagram">
+              <div class="template-block" data-name="Header">
+                <span>Header</span>
+              </div>
+              <div class="template-block template-hero" data-name="Platform Hero">
+                <span>Platform Hero</span>
+              </div>
+              <div class="template-block template-wide" data-name="Feature Grid">
+                <span>Feature Grid (6 items)</span>
+              </div>
+              <div class="template-block" data-name="Architecture">
+                <span>Architecture Diagram</span>
+              </div>
+              <div class="template-block" data-name="Compliance">
+                <span>Compliance Section</span>
+              </div>
+              <div class="template-block" data-name="Testimonials">
+                <span>Testimonials</span>
+              </div>
+              <div class="template-block" data-name="Footer">
+                <span>Footer</span>
+              </div>
+            </div>
+            <a href="../features-rebuild/index.html" class="btn btn-primary" target="_blank">
+              View Live Template
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </section>
+      </article>
+
+      <!-- Footer -->
+      <footer class="content-footer">
+        <p>Perpetuals Design System v1.0.0</p>
+        <p>Built for the second round interview with Aaron Rudder, CPO</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Navigation functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.sidebar-nav a');
+      const sections = document.querySelectorAll('.doc-section');
+      const breadcrumb = document.getElementById('current-section');
+      const sidebar = document.getElementById('sidebar');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+
+      // Section navigation
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const sectionId = this.getAttribute('data-section');
+
+          // Update active states
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+
+          sections.forEach(s => s.classList.remove('active'));
+          document.getElementById(sectionId).classList.add('active');
+
+          // Update breadcrumb
+          breadcrumb.textContent = this.textContent;
+
+          // Close mobile menu
+          sidebar.classList.remove('open');
+
+          // Scroll to top
+          document.querySelector('.content').scrollTo(0, 0);
+        });
+      });
+
+      // Mobile menu toggle
+      mobileMenuBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+      });
+
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+      function toggleTheme() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+      }
+
+      themeToggle.addEventListener('click', toggleTheme);
+      themeToggleMobile.addEventListener('click', toggleTheme);
+
+      // Check for saved theme
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+      }
+
+      // Copy to clipboard functionality
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const codeId = this.getAttribute('data-copy');
+          const code = document.getElementById(codeId).textContent;
+          navigator.clipboard.writeText(code).then(() => {
+            const originalHTML = this.innerHTML;
+            this.innerHTML = `
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Copied!
+            `;
+            setTimeout(() => {
+              this.innerHTML = originalHTML;
+            }, 2000);
+          });
+        });
+      });
+
+      // Search functionality
+      const searchInput = document.getElementById('component-search');
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        navLinks.forEach(link => {
+          const text = link.textContent.toLowerCase();
+          const parent = link.closest('li');
+          if (text.includes(query)) {
+            parent.style.display = '';
+          } else {
+            parent.style.display = 'none';
+          }
+        });
+      });
+
+      // Keyboard shortcut for search
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+// ============================================
+// PERPETUALS.COM DESIGN TOKENS
+// Extracted from brand analysis
+// ============================================
+
+// ----- COLOR PALETTE -----
+// Primary Brand Colors
+$color-primary-black: #000000;
+$color-primary-white: #ffffff;
+$color-dark-charcoal: #1a1a1a;
+$color-light-gray: #f5f5f5;
+$color-medium-gray: #6b6b6b;
+$color-border-gray: #e0e0e0;
+
+// Accent Colors (Perpetuals brand colors)
+$color-accent-blue: #fd8800;
+$color-accent-blue-light: #ffad45;
+$color-accent-green: #33c15e;
+$color-accent-red: #ff3d00;
+$color-accent-gold: #ffc107;
+
+// Gradient Definitions
+$gradient-dark: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+$gradient-light: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+$gradient-accent: linear-gradient(135deg, #fd8800 0%, #130d90 100%);
+$gradient-hero: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.95) 100%);
+
+// ----- TYPOGRAPHY -----
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-secondary: 'Space Grotesk', 'Inter', sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+// Font Sizes (using fluid typography)
+$font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+$font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+$font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+$font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
+$font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+$font-size-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);
+$font-size-3xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+$font-size-4xl: clamp(2.5rem, 1.75rem + 3.75vw, 6rem);
+$font-size-hero: clamp(3rem, 2rem + 5vw, 8rem);
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Line Heights
+$line-height-tight: 1.1;
+$line-height-snug: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+$line-height-loose: 2;
+
+// Letter Spacing
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+
+// ----- SPACING -----
+$spacing-unit: 8px;
+$spacing-xs: calc($spacing-unit * 0.5);   // 4px
+$spacing-sm: $spacing-unit;                // 8px
+$spacing-md: calc($spacing-unit * 2);      // 16px
+$spacing-lg: calc($spacing-unit * 3);      // 24px
+$spacing-xl: calc($spacing-unit * 4);      // 32px
+$spacing-2xl: calc($spacing-unit * 6);     // 48px
+$spacing-3xl: calc($spacing-unit * 8);     // 64px
+$spacing-4xl: calc($spacing-unit * 12);    // 96px
+$spacing-5xl: calc($spacing-unit * 16);    // 128px
+
+// ----- LAYOUT -----
+$container-max-width: 1440px;
+$container-padding: clamp(1rem, 5vw, 4rem);
+$grid-gap: clamp(1rem, 3vw, 2rem);
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// ----- EFFECTS -----
+// Shadows
+$shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-glow: 0 0 35px rgba(253, 136, 0, 0.3);
+$shadow-glow-green: 0 0 35px rgba(51, 193, 94, 0.3);
+
+// Border Radius
+$radius-none: 0;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 24px;
+$radius-full: 9999px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 300ms ease;
+$transition-slow: 500ms ease;
+$transition-slower: 700ms ease;
+$transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+$transition-smooth: 600ms cubic-bezier(0.65, 0, 0.35, 1);
+
+// Z-Index Scale
+$z-below: -1;
+$z-base: 0;
+$z-above: 1;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-modal-backdrop: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-tooltip: 700;
+$z-toast: 800;
+
+// ----- ANIMATION -----
+$animation-duration-fast: 200ms;
+$animation-duration-base: 400ms;
+$animation-duration-slow: 800ms;
+$animation-duration-slower: 1200ms;
+
+// Easing Functions
+$ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+$ease-in-out-back: cubic-bezier(0.68, -0.55, 0.27, 1.55);

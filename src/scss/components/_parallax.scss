@@ -1,0 +1,288 @@
+// ============================================
+// PARALLAX EFFECT STYLES
+// For use with Locomotive Scroll, Lenis, or GSAP ScrollTrigger
+// ============================================
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Smooth scroll container
+[data-scroll-container] {
+  overflow: hidden;
+}
+
+// Parallax section wrapper
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+// Parallax background
+.parallax-bg {
+  position: absolute;
+  inset: -20%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($color-primary-black, 0.4);
+  }
+}
+
+// Parallax layers
+.parallax-layer {
+  position: absolute;
+  will-change: transform;
+
+  &.layer-back {
+    z-index: 1;
+  }
+
+  &.layer-mid {
+    z-index: 2;
+  }
+
+  &.layer-front {
+    z-index: 3;
+  }
+}
+
+// Content that stays fixed while scrolling
+.parallax-content {
+  position: relative;
+  z-index: 10;
+}
+
+// Sticky parallax section
+.parallax-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  @include flex-center;
+  overflow: hidden;
+
+  .sticky-content {
+    max-width: 800px;
+    text-align: center;
+  }
+}
+
+// Horizontal scroll section
+.horizontal-scroll {
+  position: relative;
+  height: 300vh; // Adjust based on content width
+
+  .horizontal-track {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .horizontal-slides {
+    display: flex;
+    gap: $spacing-xl;
+    will-change: transform;
+  }
+
+  .slide {
+    flex-shrink: 0;
+    width: 80vw;
+    max-width: 1200px;
+  }
+}
+
+// Scroll-triggered animations
+[data-scroll] {
+  opacity: 0;
+  transition: opacity $transition-slow, transform $transition-slow;
+}
+
+[data-scroll="in"] {
+  opacity: 1;
+}
+
+// Reveal animations
+.reveal-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity $animation-duration-slow $ease-out-expo,
+              transform $animation-duration-slow $ease-out-expo;
+
+  &.is-inview,
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-down {
+  opacity: 0;
+  transform: translateY(-60px);
+  transition: opacity $animation-duration-slow $ease-out-expo,
+              transform $animation-duration-slow $ease-out-expo;
+
+  &.is-inview,
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity $animation-duration-slow $ease-out-expo,
+              transform $animation-duration-slow $ease-out-expo;
+
+  &.is-inview,
+  &.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity $animation-duration-slow $ease-out-expo,
+              transform $animation-duration-slow $ease-out-expo;
+
+  &.is-inview,
+  &.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity $animation-duration-slow $ease-out-expo,
+              transform $animation-duration-slow $ease-out-back;
+
+  &.is-inview,
+  &.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-5deg) translateY(30px);
+  transition: opacity $animation-duration-slow $ease-out-expo,
+              transform $animation-duration-slow $ease-out-expo;
+
+  &.is-inview,
+  &.revealed {
+    opacity: 1;
+    transform: rotate(0) translateY(0);
+  }
+}
+
+// Stagger children animation
+.stagger-children {
+  > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity $animation-duration-base $ease-out-expo,
+                transform $animation-duration-base $ease-out-expo;
+  }
+
+  &.is-inview,
+  &.revealed {
+    > * {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{($i - 1) * 100}ms;
+        }
+      }
+    }
+  }
+}
+
+// Speed modifiers for Locomotive Scroll
+[data-scroll-speed="-1"] { --scroll-speed: -1; }
+[data-scroll-speed="-2"] { --scroll-speed: -2; }
+[data-scroll-speed="-3"] { --scroll-speed: -3; }
+[data-scroll-speed="1"] { --scroll-speed: 1; }
+[data-scroll-speed="2"] { --scroll-speed: 2; }
+[data-scroll-speed="3"] { --scroll-speed: 3; }
+
+// Pinned element
+.pinned-element {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Progress indicator
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: $color-border-gray;
+  z-index: $z-fixed;
+
+  .progress-bar {
+    height: 100%;
+    background: $gradient-accent;
+    width: 0%;
+    transition: width 100ms linear;
+  }
+}
+
+// Split text reveal (for use with Splitting.js)
+.split-text {
+  overflow: hidden;
+
+  .char,
+  .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity $animation-duration-base $ease-out-expo,
+                transform $animation-duration-base $ease-out-expo;
+  }
+
+  &.is-inview,
+  &.revealed {
+    .char,
+    .word {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 100 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{($i - 1) * 30}ms;
+        }
+      }
+    }
+  }
+}
+
+// Perspective container for 3D effects
+.perspective-container {
+  perspective: 1000px;
+  perspective-origin: center;
+}
+
+.parallax-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+}

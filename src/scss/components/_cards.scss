@@ -1,0 +1,290 @@
+// ============================================
+// CARD COMPONENTS
+// ============================================
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Base card
+.card {
+  @include card-base;
+}
+
+// Hover card
+.card-hover {
+  @include card-hover;
+}
+
+// Glass card
+.card-glass {
+  @include card-glass;
+}
+
+// Dark card
+.card-dark {
+  background: $color-dark-charcoal;
+  color: $color-primary-white;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+
+  .card-title {
+    color: $color-primary-white;
+  }
+
+  .card-text {
+    color: rgba($color-primary-white, 0.7);
+  }
+}
+
+// Outline card
+.card-outline {
+  background: transparent;
+  border: 1px solid $color-border-gray;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: $color-accent-blue;
+    box-shadow: $shadow-glow;
+  }
+}
+
+// Card with image
+.card-media {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: $spacing-xl;
+  }
+}
+
+// Card elements
+.card-header {
+  margin-bottom: $spacing-md;
+}
+
+.card-title {
+  @include heading-sm;
+  margin-bottom: $spacing-sm;
+}
+
+.card-subtitle {
+  @include label;
+  color: $color-accent-blue;
+  margin-bottom: $spacing-sm;
+}
+
+.card-text {
+  @include body-base;
+  color: $color-medium-gray;
+}
+
+.card-footer {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border-gray;
+}
+
+// Icon card
+.card-icon {
+  @include card-hover;
+  text-align: center;
+
+  .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-lg;
+    @include flex-center;
+    background: $gradient-accent;
+    border-radius: $radius-lg;
+
+    svg, img {
+      width: 32px;
+      height: 32px;
+      color: $color-primary-white;
+    }
+  }
+}
+
+// Stats card
+.card-stat {
+  @include card-base;
+  text-align: center;
+
+  .stat-value {
+    @include heading-lg;
+    @include gradient-text($gradient-accent);
+    margin-bottom: $spacing-xs;
+  }
+
+  .stat-label {
+    @include label;
+    color: $color-medium-gray;
+  }
+}
+
+// Feature card
+.card-feature {
+  @include card-hover;
+  display: flex;
+  gap: $spacing-lg;
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    @include flex-center;
+    background: $color-light-gray;
+    border-radius: $radius-md;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $color-accent-blue;
+    }
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  @include md {
+    flex-direction: column;
+    text-align: center;
+
+    .feature-icon {
+      margin: 0 auto;
+    }
+  }
+}
+
+// Testimonial card
+.card-testimonial {
+  @include card-base;
+  position: relative;
+  padding-top: $spacing-3xl;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: $spacing-lg;
+    left: $spacing-xl;
+    font-size: 4rem;
+    line-height: 1;
+    color: $color-accent-blue;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+  }
+
+  .testimonial-text {
+    @include body-lg;
+    font-style: italic;
+    margin-bottom: $spacing-lg;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: $radius-full;
+      object-fit: cover;
+    }
+
+    .author-name {
+      font-weight: $font-weight-semibold;
+    }
+
+    .author-title {
+      @include body-sm;
+      color: $color-medium-gray;
+    }
+  }
+}
+
+// Pricing card
+.card-pricing {
+  @include card-base;
+  text-align: center;
+
+  &.featured {
+    background: $color-dark-charcoal;
+    color: $color-primary-white;
+    transform: scale(1.05);
+
+    .price {
+      color: $color-primary-white;
+    }
+
+    .feature-list li::before {
+      color: $color-accent-green;
+    }
+  }
+
+  .plan-name {
+    @include label;
+    color: $color-accent-blue;
+    margin-bottom: $spacing-sm;
+  }
+
+  .price {
+    @include heading-lg;
+    margin-bottom: $spacing-xs;
+
+    .currency {
+      font-size: 0.5em;
+      vertical-align: super;
+    }
+
+    .period {
+      font-size: 0.3em;
+      font-weight: $font-weight-regular;
+      color: $color-medium-gray;
+    }
+  }
+
+  .feature-list {
+    text-align: left;
+    margin: $spacing-xl 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: $spacing-sm 0;
+      padding-left: $spacing-xl;
+      position: relative;
+
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: $color-accent-green;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+// Grid of cards
+.card-grid {
+  @include auto-grid(320px);
+}
+
+.card-grid-2 {
+  @include auto-grid(400px);
+}
+
+.card-grid-4 {
+  @include auto-grid(250px);
+}
