@@ -80,54 +80,102 @@
             <h3 class="panel-title">Market Positioning</h3>
             <div class="mini-map">
               <div class="mini-map-grid">
-                <span class="axis-label axis-top">Complex</span>
-                <span class="axis-label axis-bottom">Simple</span>
-                <span class="axis-label axis-left">Retail</span>
-                <span class="axis-label axis-right">Institutional</span>
+                <!-- Quadrant crosshairs -->
+                <span class="quad-line-h"></span>
+                <span class="quad-line-v"></span>
+
+                <!-- Open quadrant glow (bottom-right) -->
+                <span class="quad-glow"></span>
+
+                <!-- Axis endpoint labels -->
+                <span class="axis-end axis-end-top">Complex</span>
+                <span class="axis-end axis-end-bottom">Simple</span>
+                <span class="axis-end axis-end-left">Retail</span>
+                <span class="axis-end axis-end-right">Institutional</span>
+
+                <!-- Quadrant labels -->
+                <span class="quad-label quad-tl">Power Users</span>
+                <span class="quad-label quad-tr">Enterprise</span>
+                <span class="quad-label quad-bl">Consumer</span>
+                <span class="quad-label quad-br">The Opportunity
+                  <span class="quad-br-sub">No one here yet</span>
+                </span>
+
+                <!-- 9 Platforms Analyzed -->
                 <span class="map-dot dot-bloomberg">BBG
                   <span class="dot-tip">
-                    <svg class="tip-icon" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+                    <svg class="tip-icon" viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>
                     <strong>Bloomberg Terminal</strong>
                     <em>Keyboard-first. $24K/yr seat. The gold standard for institutional data.</em>
                   </span>
                 </span>
                 <span class="map-dot dot-ibkr">IBKR
                   <span class="dot-tip">
-                    <svg class="tip-icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 8h8M8 4v8"/></svg>
+                    <svg class="tip-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 8h8M8 4v8" stroke="currentColor" stroke-width="1.5"/></svg>
                     <strong>Interactive Brokers</strong>
                     <em>2024 redesign. 10 languages. Lowest margin rates in the industry.</em>
                   </span>
                 </span>
                 <span class="map-dot dot-tos">TOS
                   <span class="dot-tip">
-                    <svg class="tip-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 12L5 4l3 5 2-3 4 8H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                    <svg class="tip-icon" viewBox="0 0 16 16"><path d="M2 12L5 4l3 5 2-3 4 8H2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
                     <strong>thinkorswim (Schwab)</strong>
                     <em>#1 desktop platform 10+ years running. thinkScript custom studies.</em>
                   </span>
                 </span>
+                <span class="map-dot dot-schwab">SCH
+                  <span class="dot-tip">
+                    <svg class="tip-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5l2 2 3.5-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <strong>Charles Schwab</strong>
+                    <em>7M+ daily trades. Largest US retail broker by volume. The benchmark.</em>
+                  </span>
+                </span>
+                <span class="map-dot dot-fidelity">FID
+                  <span class="dot-tip">
+                    <svg class="tip-icon" viewBox="0 0 16 16"><path d="M2 3h12v9H2z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2 6h12" stroke="currentColor" stroke-width="1.3"/></svg>
+                    <strong>Fidelity</strong>
+                    <em>43M+ accounts. Zero-commission pioneer. Best research tools in retail.</em>
+                  </span>
+                </span>
+                <span class="map-dot dot-etrade">ET
+                  <span class="dot-tip">
+                    <svg class="tip-icon" viewBox="0 0 16 16"><path d="M3 4h10M3 8h7M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <strong>E*Trade</strong>
+                    <em>5.2M accounts. Morgan Stanley subsidiary. Strong options platform.</em>
+                  </span>
+                </span>
                 <span class="map-dot dot-robinhood">RH
                   <span class="dot-tip">
-                    <svg class="tip-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 2a6 6 0 100 12 6 6 0 000-12zM7 5h2v4H7zm0 5h2v2H7z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+                    <svg class="tip-icon" viewBox="0 0 16 16"><path d="M8 2a6 6 0 100 12 6 6 0 000-12zM7 5h2v4H7zm0 5h2v2H7z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
                     <strong>Robinhood</strong>
-                    <em>23M+ users. Democratized trading &mdash; but under gamification scrutiny.</em>
+                    <em>23M+ users. Democratized trading &mdash; gamification under scrutiny.</em>
                   </span>
                 </span>
                 <span class="map-dot dot-coinbase">CB
                   <span class="dot-tip">
-                    <svg class="tip-icon" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="6" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 6V4a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    <svg class="tip-icon" viewBox="0 0 16 16"><rect x="3" y="6" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 6V4a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
                     <strong>Coinbase</strong>
                     <em>98% cold storage. Most regulated crypto exchange. US + EU licensed.</em>
                   </span>
                 </span>
+                <span class="map-dot dot-kraken">KRK
+                  <span class="dot-tip">
+                    <svg class="tip-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>
+                    <strong>Kraken</strong>
+                    <em>10M+ users. Leading crypto derivatives. Built for serious traders.</em>
+                  </span>
+                </span>
+
+                <!-- Perpetuals (the opportunity) -->
                 <span class="map-dot dot-perpetuals">PDC
                   <span class="dot-tip tip-highlight">
-                    <svg class="tip-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3.5 1.5 5L8 11.5 3.5 14.5 5 9.5 1 6h5z" fill="currentColor"/></svg>
+                    <svg class="tip-icon" viewBox="0 0 16 16"><path d="M8 1l2 5h5l-4 3.5 1.5 5L8 11.5 3.5 14.5 5 9.5 1 6h5z" fill="currentColor"/></svg>
                     <strong>Perpetuals.com</strong>
-                    <em>The open quadrant. Institutional depth meets consumer clarity.</em>
+                    <em>The open quadrant. Institutional depth + consumer clarity. No one else is here.</em>
                   </span>
                 </span>
               </div>
-              <p class="map-insight">Perpetuals targets the open quadrant &mdash; institutional depth, consumer clarity</p>
+              <p class="map-insight">9 platforms analyzed &mdash; the bottom-right quadrant is empty. That&rsquo;s the opportunity.</p>
             </div>
           </div>
 
@@ -2328,75 +2376,150 @@
     .mini-map-grid {
       position: relative;
       width: 100%;
-      height: 180px;
-      border-left: 1px solid rgba(255,255,255,0.15);
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 35px,
-        rgba(255,255,255,0.03) 35px,
-        rgba(255,255,255,0.03) 36px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 35px,
-        rgba(255,255,255,0.03) 35px,
-        rgba(255,255,255,0.03) 36px
-      );
+      height: 280px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      overflow: visible;
     }
 
-    .axis-label {
+    /* Crosshair lines */
+    .quad-line-h {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      border-top: 1px dashed rgba(255,255,255,0.12);
+    }
+    .quad-line-v {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(255,255,255,0.1);
+      border-left: 1px dashed rgba(255,255,255,0.12);
+    }
+
+    /* Open quadrant glow (bottom-right) */
+    .quad-glow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(ellipse at 70% 70%, rgba(253,136,0,0.06) 0%, transparent 70%);
+      border-radius: 0 0 8px 0;
+      pointer-events: none;
+    }
+
+    /* Axis endpoint labels */
+    .axis-end {
       position: absolute;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.55rem;
-      color: rgba(255,255,255,0.25);
+      font-weight: 600;
+      color: rgba(255,255,255,0.35);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+    }
+    .axis-end-top { top: 6px; left: 50%; transform: translateX(-50%); }
+    .axis-end-bottom { bottom: 6px; left: 50%; transform: translateX(-50%); }
+    .axis-end-left { left: 8px; top: 50%; transform: translateY(-50%); }
+    .axis-end-right { right: 8px; top: 50%; transform: translateY(-50%); }
+
+    /* Quadrant labels */
+    .quad-label {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      color: rgba(255,255,255,0.15);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      pointer-events: none;
+    }
+    .quad-tl { top: 22px; left: 10px; }
+    .quad-tr { top: 22px; right: 10px; }
+    .quad-bl { bottom: 22px; left: 10px; }
+    .quad-br {
+      bottom: 22px;
+      right: 10px;
+      color: rgba(253,136,0,0.35);
+      font-weight: 600;
+      text-align: right;
+      pointer-events: auto;
+      cursor: default;
+    }
+    .quad-br-sub {
+      display: block;
+      font-size: 0.45rem;
+      font-weight: 400;
+      color: rgba(253,136,0,0.2);
+      margin-top: 2px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.25s ease;
+    }
+    .quad-br:hover .quad-br-sub {
+      max-height: 20px;
+      opacity: 1;
     }
 
-    .axis-top { top: 2px; left: 50%; transform: translateX(-50%); }
-    .axis-bottom { bottom: -16px; left: 50%; transform: translateX(-50%); }
-    .axis-left { left: -4px; bottom: -16px; }
-    .axis-right { right: 0; bottom: -16px; }
-
+    /* Map dots */
     .map-dot {
       position: absolute;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.5rem;
+      font-size: 0.45rem;
       font-weight: 700;
-      color: rgba(255,255,255,0.9);
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
       transition: transform 0.2s;
     }
 
-    .dot-bloomberg { top: 8%; right: 8%; background: rgba(255,140,0,0.15); }
-    .dot-ibkr { top: 18%; right: 20%; background: rgba(220,50,50,0.15); }
-    .dot-tos { top: 25%; left: 35%; background: rgba(0,150,0,0.15); }
-    .dot-robinhood { bottom: 15%; left: 12%; background: rgba(0,200,100,0.15); }
-    .dot-coinbase { bottom: 25%; left: 40%; background: rgba(0,80,200,0.15); }
+    /* Top-Right: Enterprise (Complex + Institutional) */
+    .dot-bloomberg { top: 6%; left: 82%; background: rgba(255,140,0,0.12); }
+    .dot-ibkr { top: 16%; left: 68%; background: rgba(220,50,50,0.12); }
+
+    /* Top-Left: Power Users (Complex + Retail) */
+    .dot-tos { top: 12%; left: 28%; background: rgba(0,150,0,0.12); }
+    .dot-kraken { top: 30%; left: 42%; background: rgba(130,80,220,0.12); }
+
+    /* Bottom-Left: Consumer (Simple + Retail) */
+    .dot-schwab { top: 52%; left: 20%; background: rgba(0,120,200,0.12); }
+    .dot-fidelity { top: 60%; left: 12%; background: rgba(60,160,60,0.12); }
+    .dot-coinbase { top: 54%; left: 38%; background: rgba(0,80,200,0.12); }
+    .dot-etrade { top: 68%; left: 28%; background: rgba(100,60,160,0.12); }
+    .dot-robinhood { top: 80%; left: 6%; background: rgba(0,200,100,0.12); }
+
+    /* Bottom-Right: THE GAP — Perpetuals */
     .dot-perpetuals {
-      top: 35%;
-      right: 25%;
-      background: rgba(253,136,0,0.25);
-      border-color: var(--primary);
+      top: 64%;
+      left: 72%;
+      background: rgba(253,136,0,0.2);
+      border: 2px solid var(--primary);
       color: var(--primary);
       animation: dashPulse 2s ease-in-out infinite;
-      z-index: 2;
+      z-index: 3;
+      width: 32px;
+      height: 32px;
+      font-size: 0.5rem;
+      box-shadow: 0 0 16px rgba(253,136,0,0.15);
     }
 
     .map-insight {
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.4);
-      margin-top: 1.25rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1rem;
       font-style: italic;
     }
 
@@ -2613,33 +2736,37 @@
       color: var(--primary);
     }
 
-    /* Edge-aware tooltips for left/right dots */
+    /* Edge-aware tooltips — left-side dots */
     .dot-robinhood .dot-tip,
-    .dot-coinbase .dot-tip {
+    .dot-fidelity .dot-tip {
       left: 0;
       transform: translateX(0) translateY(4px);
     }
     .dot-robinhood:hover .dot-tip,
-    .dot-coinbase:hover .dot-tip {
+    .dot-fidelity:hover .dot-tip {
       transform: translateX(0) translateY(0);
     }
     .dot-robinhood .dot-tip::after,
-    .dot-coinbase .dot-tip::after {
+    .dot-fidelity .dot-tip::after {
       left: 14px;
     }
 
+    /* Edge-aware tooltips — right-side dots */
     .dot-bloomberg .dot-tip,
-    .dot-ibkr .dot-tip {
+    .dot-ibkr .dot-tip,
+    .dot-perpetuals .dot-tip {
       left: auto;
       right: 0;
       transform: translateX(0) translateY(4px);
     }
     .dot-bloomberg:hover .dot-tip,
-    .dot-ibkr:hover .dot-tip {
+    .dot-ibkr:hover .dot-tip,
+    .dot-perpetuals:hover .dot-tip {
       transform: translateX(0) translateY(0);
     }
     .dot-bloomberg .dot-tip::after,
-    .dot-ibkr .dot-tip::after {
+    .dot-ibkr .dot-tip::after,
+    .dot-perpetuals .dot-tip::after {
       left: auto;
       right: 14px;
     }
@@ -2764,6 +2891,11 @@
     @media (max-width: 768px) {
       .scorecard-row { grid-template-columns: repeat(2, 1fr); }
       .dash-columns { grid-template-columns: 1fr; }
+      .mini-map-grid { height: 220px; }
+      .map-dot { width: 24px; height: 24px; font-size: 0.4rem; }
+      .dot-perpetuals { width: 26px; height: 26px; }
+      .dot-tip { display: none; }
+      .quad-br-sub { display: none; }
       .advantage-strip { flex-wrap: wrap; gap: 1rem; }
       .adv-divider { display: none; }
       .nav-links {
