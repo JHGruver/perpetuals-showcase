@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kronos X - Complete Exchange Infrastructure | Perpetuals</title>
-  <meta name="description" content="The complete exchange infrastructure for the next generation of regulated digital finance. Matching engine, settlement, custody, and compliance - all in one platform.">
+  <meta name="description" content="The full-stack exchange for regulated digital finance &mdash; built from the ground up. Matching engine, settlement, custody, and compliance in one platform.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +47,22 @@
         <span></span><span></span><span></span>
       </button>
     </nav>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+      <div class="mobile-menu-drawer">
+        <div class="mobile-menu-links">
+          <a href="../homepage-rebuild/index.html">Home</a>
+          <a href="./index.html" class="active">Features</a>
+          <a href="../competitive-analysis/index.html">Analysis</a>
+          <a href="../design-system/index.html">Design System</a>
+          <a href="../product-vision/index.html">Vision</a>
+        </div>
+        <div class="mobile-menu-actions">
+          <a href="#contact" class="btn btn-ghost">Contact</a>
+          <a href="#demo" class="btn btn-primary">Open Demo</a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main id="main-content">
@@ -78,7 +94,7 @@
           <span class="title-line title-small">Complete Exchange Infrastructure</span>
         </h1>
 
-        <p class="hero-subtitle">The modular platform powering the next generation of regulated digital asset markets. From matching engine to settlement, custody to compliance.</p>
+        <p class="hero-subtitle">Every piece of the exchange, one platform. Matching engine to settlement, custody to compliance.</p>
 
         <div class="hero-actions">
           <a href="#demo" class="btn btn-primary btn-lg">
@@ -138,38 +154,64 @@
         <div class="section-header">
           <span class="section-label">Platform Capabilities</span>
           <h2 class="section-title">Everything You Need to Launch</h2>
-          <p class="section-subtitle">Modular components that work together seamlessly</p>
+          <p class="section-subtitle">Modular components &mdash; each one battle-tested, all of them connected</p>
         </div>
 
         <div class="features-grid">
-          <!-- Large feature card -->
+          <!-- Featured card: Matching Engine (spans 2 cols) -->
           <article class="feature-card feature-card-lg" data-aos="fade-up">
-            <div class="feature-icon">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="4" y="4" width="40" height="40" rx="4"/>
-                <circle cx="24" cy="24" r="12"/>
-                <path d="M24 16v8l6 3"/>
-              </svg>
+            <div class="feature-card-lg-content">
+              <div class="feature-icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="4" y="4" width="40" height="40" rx="4"/>
+                  <circle cx="24" cy="24" r="12"/>
+                  <path d="M24 16v8l6 3"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">High-Performance Matching Engine</h3>
+              <p class="feature-description">Process over 2 million orders per second with sub-millisecond latency. Built for the speeds institutions demand.</p>
+              <div class="feature-stats">
+                <div class="feature-stat">
+                  <span class="stat-value">2M+</span>
+                  <span class="stat-label">Orders/sec</span>
+                </div>
+                <div class="feature-stat">
+                  <span class="stat-value">&lt;1ms</span>
+                  <span class="stat-label">Latency</span>
+                </div>
+                <div class="feature-stat">
+                  <span class="stat-value">99.99%</span>
+                  <span class="stat-label">Uptime</span>
+                </div>
+              </div>
             </div>
-            <h3 class="feature-title">High-Performance Matching Engine</h3>
-            <p class="feature-description">Process over 2 million orders per second with sub-millisecond latency. Built for institutional-grade performance.</p>
-            <div class="feature-stats">
-              <div class="feature-stat">
-                <span class="stat-value">2M+</span>
-                <span class="stat-label">Orders/sec</span>
-              </div>
-              <div class="feature-stat">
-                <span class="stat-value">&lt;1ms</span>
-                <span class="stat-label">Latency</span>
-              </div>
-              <div class="feature-stat">
-                <span class="stat-value">99.99%</span>
-                <span class="stat-label">Uptime</span>
+            <div class="feature-visual feature-visual-dark">
+              <div class="order-book">
+                <div class="order-book-side order-book-bids">
+                  <div class="order-book-header">Bids</div>
+                  <div class="order-book-row"><span class="ob-qty">12.45</span><span class="ob-price">64,218</span><div class="ob-bar ob-bar-bid" style="width: 85%"></div></div>
+                  <div class="order-book-row"><span class="ob-qty">8.32</span><span class="ob-price">64,215</span><div class="ob-bar ob-bar-bid" style="width: 62%"></div></div>
+                  <div class="order-book-row"><span class="ob-qty">24.10</span><span class="ob-price">64,210</span><div class="ob-bar ob-bar-bid" style="width: 95%"></div></div>
+                  <div class="order-book-row"><span class="ob-qty">5.88</span><span class="ob-price">64,205</span><div class="ob-bar ob-bar-bid" style="width: 45%"></div></div>
+                  <div class="order-book-row"><span class="ob-qty">15.60</span><span class="ob-price">64,200</span><div class="ob-bar ob-bar-bid" style="width: 78%"></div></div>
+                </div>
+                <div class="order-book-spread">
+                  <span class="spread-label">Spread</span>
+                  <span class="spread-value">$3.00</span>
+                </div>
+                <div class="order-book-side order-book-asks">
+                  <div class="order-book-header">Asks</div>
+                  <div class="order-book-row"><span class="ob-price">64,221</span><span class="ob-qty">9.74</span><div class="ob-bar ob-bar-ask" style="width: 70%"></div></div>
+                  <div class="order-book-row"><span class="ob-price">64,225</span><span class="ob-qty">18.20</span><div class="ob-bar ob-bar-ask" style="width: 88%"></div></div>
+                  <div class="order-book-row"><span class="ob-price">64,230</span><span class="ob-qty">6.55</span><div class="ob-bar ob-bar-ask" style="width: 50%"></div></div>
+                  <div class="order-book-row"><span class="ob-price">64,235</span><span class="ob-qty">22.30</span><div class="ob-bar ob-bar-ask" style="width: 92%"></div></div>
+                  <div class="order-book-row"><span class="ob-price">64,240</span><span class="ob-qty">11.15</span><div class="ob-bar ob-bar-ask" style="width: 65%"></div></div>
+                </div>
               </div>
             </div>
           </article>
 
-          <!-- Regular cards -->
+          <!-- Card 2: Multi-Wallet Architecture -->
           <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
             <div class="feature-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -182,8 +224,31 @@
             </div>
             <h3 class="feature-title">Multi-Wallet Architecture</h3>
             <p class="feature-description">Self-custody solution with hardware-secured cold storage and multi-signature authorization.</p>
+            <div class="feature-visual">
+              <div class="storage-tiers">
+                <div class="storage-tier">
+                  <span class="tier-indicator tier-hot"></span>
+                  <span class="tier-label">Hot Wallet</span>
+                  <div class="tier-bar-track"><div class="tier-bar-fill tier-bar-hot" style="width: 15%"></div></div>
+                  <span class="tier-pct">15%</span>
+                </div>
+                <div class="storage-tier">
+                  <span class="tier-indicator tier-warm"></span>
+                  <span class="tier-label">Warm Storage</span>
+                  <div class="tier-bar-track"><div class="tier-bar-fill tier-bar-warm" style="width: 35%"></div></div>
+                  <span class="tier-pct">35%</span>
+                </div>
+                <div class="storage-tier">
+                  <span class="tier-indicator tier-cold"></span>
+                  <span class="tier-label">Cold Vault</span>
+                  <div class="tier-bar-track"><div class="tier-bar-fill tier-bar-cold" style="width: 50%"></div></div>
+                  <span class="tier-pct">50%</span>
+                </div>
+              </div>
+            </div>
           </article>
 
+          <!-- Card 3: Equinix FR2 Co-location -->
           <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
             <div class="feature-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -195,8 +260,28 @@
             </div>
             <h3 class="feature-title">Equinix FR2 Co-location</h3>
             <p class="feature-description">Co-located with Eurex at Frankfurt's premier data center for minimal latency.</p>
+            <div class="feature-visual">
+              <div class="latency-ping">
+                <div class="ping-node">
+                  <span class="ping-dot"></span>
+                  <span class="ping-name">Your Server</span>
+                </div>
+                <div class="ping-line"></div>
+                <div class="ping-node ping-node-center">
+                  <span class="ping-dot ping-dot-active"></span>
+                  <span class="ping-name">Equinix FR2</span>
+                  <span class="ping-latency">0.4ms</span>
+                </div>
+                <div class="ping-line"></div>
+                <div class="ping-node">
+                  <span class="ping-dot"></span>
+                  <span class="ping-name">Eurex</span>
+                </div>
+              </div>
+            </div>
           </article>
 
+          <!-- Card 4: 24/7 Trading -->
           <article class="feature-card" data-aos="fade-up" data-aos-delay="300">
             <div class="feature-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -209,8 +294,21 @@
             </div>
             <h3 class="feature-title">24/7 Trading</h3>
             <p class="feature-description">Never miss an opportunity. Trade around the clock with no scheduled downtime.</p>
+            <div class="feature-visual">
+              <div class="week-grid">
+                <div class="week-day week-day-active"><span>M</span></div>
+                <div class="week-day week-day-active"><span>T</span></div>
+                <div class="week-day week-day-active"><span>W</span></div>
+                <div class="week-day week-day-active"><span>T</span></div>
+                <div class="week-day week-day-active"><span>F</span></div>
+                <div class="week-day week-day-active"><span>S</span></div>
+                <div class="week-day week-day-active"><span>S</span></div>
+              </div>
+              <p class="week-caption">No downtime windows</p>
+            </div>
           </article>
 
+          <!-- Card 5: Unified Dashboard -->
           <article class="feature-card" data-aos="fade-up" data-aos-delay="400">
             <div class="feature-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -224,8 +322,32 @@
             </div>
             <h3 class="feature-title">Unified Dashboard</h3>
             <p class="feature-description">Single pane of glass for all operations, risk management, and compliance monitoring.</p>
+            <div class="feature-visual">
+              <div class="mini-dashboard">
+                <div class="mini-dash-header">
+                  <span class="mini-dot" style="background:#ff5f57"></span>
+                  <span class="mini-dot" style="background:#febc2e"></span>
+                  <span class="mini-dot" style="background:#28c840"></span>
+                </div>
+                <div class="mini-dash-stats">
+                  <div class="mini-stat"><span class="mini-stat-label">PnL</span><span class="mini-stat-value mini-stat-green">+$48.2K</span></div>
+                  <div class="mini-stat"><span class="mini-stat-label">Volume</span><span class="mini-stat-value">$1.2M</span></div>
+                  <div class="mini-stat"><span class="mini-stat-label">Positions</span><span class="mini-stat-value">24</span></div>
+                </div>
+                <div class="mini-dash-chart">
+                  <div class="mini-bar" style="height: 40%"></div>
+                  <div class="mini-bar" style="height: 65%"></div>
+                  <div class="mini-bar" style="height: 45%"></div>
+                  <div class="mini-bar" style="height: 80%"></div>
+                  <div class="mini-bar" style="height: 55%"></div>
+                  <div class="mini-bar" style="height: 90%"></div>
+                  <div class="mini-bar" style="height: 70%"></div>
+                </div>
+              </div>
+            </div>
           </article>
 
+          <!-- Card 6: Multi-Layer Support -->
           <article class="feature-card" data-aos="fade-up" data-aos-delay="500">
             <div class="feature-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -238,8 +360,18 @@
             </div>
             <h3 class="feature-title">Multi-Layer Support</h3>
             <p class="feature-description">Native support for Ethereum, Solana, and other Layer 1 and Layer 2 networks.</p>
+            <div class="feature-visual">
+              <div class="chain-pills">
+                <div class="chain-connector-line"></div>
+                <span class="chain-pill chain-eth">ETH</span>
+                <span class="chain-pill chain-sol">SOL</span>
+                <span class="chain-pill chain-arb">ARB</span>
+                <span class="chain-pill chain-op">OP</span>
+              </div>
+            </div>
           </article>
 
+          <!-- Card 7: Regulation Ready -->
           <article class="feature-card" data-aos="fade-up" data-aos-delay="600">
             <div class="feature-icon">
               <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -250,6 +382,14 @@
             </div>
             <h3 class="feature-title">Regulation Ready</h3>
             <p class="feature-description">Pre-built compliance for MiFID II, MiCA, DORA, EMIR, and GDPR requirements.</p>
+            <div class="feature-visual">
+              <div class="compliance-list">
+                <div class="compliance-item"><span class="compliance-check">&#10003;</span><span>MiFID II</span></div>
+                <div class="compliance-item"><span class="compliance-check">&#10003;</span><span>MiCA</span></div>
+                <div class="compliance-item"><span class="compliance-check">&#10003;</span><span>EMIR</span></div>
+                <div class="compliance-item"><span class="compliance-check">&#10003;</span><span>GDPR</span></div>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -376,7 +516,7 @@
     <section class="compliance" id="compliance">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Regulatory Excellence</span>
+          <span class="section-label">Regulation Done Right</span>
           <h2 class="section-title">Built for Compliance</h2>
           <p class="section-subtitle">Pre-configured for institutional requirements across jurisdictions</p>
         </div>
@@ -534,13 +674,10 @@
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
               </svg>
             </div>
-            <p class="quote-text">"Kronos X has transformed our ability to offer institutional-grade services. The compliance features alone saved us months of development."</p>
+            <p class="quote-text">"Kronos X cut our compliance build from months to weeks. We launched with full regulatory coverage on day one."</p>
             <footer class="quote-author">
-              <div class="author-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="8" r="5"/>
-                  <path d="M20 21a8 8 0 00-16 0"/>
-                </svg>
+              <div class="author-avatar avatar-mc">
+                <span>MC</span>
               </div>
               <div class="author-info">
                 <cite class="author-name">Michael Chen</cite>
@@ -555,13 +692,10 @@
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
               </svg>
             </div>
-            <p class="quote-text">"The sub-millisecond latency and 99.99% uptime have exceeded our expectations. Our institutional clients notice the difference."</p>
+            <p class="quote-text">"Sub-millisecond fills. 99.99% uptime. Our institutional clients stopped asking about infrastructure &mdash; it just works."</p>
             <footer class="quote-author">
-              <div class="author-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="8" r="5"/>
-                  <path d="M20 21a8 8 0 00-16 0"/>
-                </svg>
+              <div class="author-avatar avatar-sm">
+                <span>SM</span>
               </div>
               <div class="author-info">
                 <cite class="author-name">Sarah Martinez</cite>
@@ -576,13 +710,10 @@
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
               </svg>
             </div>
-            <p class="quote-text">"BayesShield's AI surveillance gives us confidence that we're meeting regulatory requirements while protecting our users."</p>
+            <p class="quote-text">"BayesShield flags problems before regulators do. That's the kind of tooling that lets compliance teams sleep at night."</p>
             <footer class="quote-author">
-              <div class="author-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="8" r="5"/>
-                  <path d="M20 21a8 8 0 00-16 0"/>
-                </svg>
+              <div class="author-avatar avatar-jw">
+                <span>JW</span>
               </div>
               <div class="author-info">
                 <cite class="author-name">Dr. James Wilson</cite>
@@ -644,7 +775,7 @@
                 </svg>
               </div>
               <h3 class="step-title">Dedicated Assistance</h3>
-              <p class="step-description">Our integration team provides 24/7 support throughout your onboarding journey.</p>
+              <p class="step-description">Our integration team provides 24/7 support through every step of onboarding.</p>
               <a href="#contact" class="step-link">
                 Contact Team
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -664,7 +795,7 @@
                 </svg>
               </div>
               <h3 class="step-title">API Integration</h3>
-              <p class="step-description">Access comprehensive REST and WebSocket APIs with detailed documentation and SDKs.</p>
+              <p class="step-description">Full REST and WebSocket APIs &mdash; real documentation, working SDKs, zero guesswork.</p>
               <a href="#" class="step-link">
                 View Documentation
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -726,7 +857,8 @@
             </svg>
             <span>Perpetuals</span>
           </a>
-          <p class="footer-tagline">The Infrastructure for Tomorrow's Markets</p>
+          <p class="footer-tagline">Where Finance Meets Its Future</p>
+          <p class="footer-legal">NASDAQ: PDC</p>
         </div>
 
         <div class="footer-links">
@@ -740,6 +872,15 @@
             </ul>
           </div>
           <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
             <h4>Resources</h4>
             <ul>
               <li><a href="#">Documentation</a></li>
@@ -749,12 +890,12 @@
             </ul>
           </div>
           <div class="footer-column">
-            <h4>Company</h4>
+            <h4>Legal</h4>
             <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Press</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Licenses</a></li>
             </ul>
           </div>
         </div>
@@ -762,6 +903,23 @@
 
       <div class="footer-bottom">
         <p class="copyright">&copy; 2024 Perpetuals Group AG. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -817,6 +975,45 @@
         }
       });
     });
+
+    // ============================================
+    // MOBILE MENU
+    // ============================================
+    (function() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (!toggle || !overlay) return;
+
+      toggle.addEventListener('click', function() {
+        toggle.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+      });
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          toggle.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      overlay.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          toggle.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          toggle.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    })();
   </script>
 </body>
 </html>

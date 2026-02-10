@@ -351,6 +351,518 @@ body:not(.loaded) {
 }
 
 /* ================================================
+   EXECUTIVE DASHBOARD
+   ================================================ */
+.exec-dashboard {
+  background: var(--color-surface);
+  padding: 6.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.3s;
+}
+
+.loaded .exec-dashboard { opacity: 1; }
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dash-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-accent-secondary);
+  animation: dashPulse 2s ease-in-out infinite;
+}
+
+@keyframes dashPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(51,193,94,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(51,193,94,0); }
+}
+
+.dash-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Hero Metrics (3 large) --- */
+.metrics-hero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.metrics-hero .metric-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  cursor: default;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.metrics-hero .metric-card:hover {
+  border-color: rgba(253,136,0,0.4);
+  border-left-color: var(--color-accent);
+  box-shadow: 0 4px 24px rgba(253,136,0,0.08);
+  transform: translateY(-2px);
+}
+
+.metrics-hero .metric-value {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.1;
+}
+
+.metrics-hero .metric-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.3rem;
+}
+
+.metrics-hero .metric-detail {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-dim);
+  margin-top: 0.1rem;
+}
+
+/* --- Support Metrics (3 smaller) --- */
+.metrics-support {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metrics-support .metric-card {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid rgba(253,136,0,0.4);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  cursor: default;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.metrics-support .metric-card:hover {
+  border-color: rgba(253,136,0,0.3);
+  border-left-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(253,136,0,0.06);
+  transform: translateY(-2px);
+}
+
+.metrics-support .metric-value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.1;
+}
+
+.metrics-support .metric-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-top: 0.2rem;
+}
+
+.metrics-support .metric-detail {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+}
+
+/* --- Metric Hover Reveals --- */
+.metric-reveal {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.65rem;
+  color: var(--color-text-dim);
+  line-height: 1.4;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.metric-card:hover .metric-reveal {
+  max-height: 50px;
+  opacity: 1;
+  margin-top: 0.4rem;
+}
+
+/* --- Dashboard Panels --- */
+.dash-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.dash-panel {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.3s;
+}
+
+.dash-panel:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.panel-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* --- Roadmap --- */
+.roadmap-track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  padding: 12px 0 0;
+}
+
+.roadmap-line {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.roadmap-progress {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  width: 52%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-secondary) 0%, var(--color-accent-secondary) 65%, var(--color-accent) 100%);
+  z-index: 1;
+  border-radius: 1px;
+}
+
+.roadmap-milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  z-index: 2;
+  cursor: default;
+  transition: transform 0.2s;
+}
+
+.roadmap-milestone:hover {
+  transform: translateY(-2px);
+}
+
+.milestone-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: 2px solid var(--color-surface-elevated);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.roadmap-milestone:hover .milestone-dot {
+  transform: scale(1.35);
+}
+
+.milestone-done .milestone-dot {
+  background: var(--color-accent-secondary);
+  box-shadow: 0 0 0 3px rgba(51,193,94,0.15);
+}
+
+.milestone-active .milestone-dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(253,136,0,0.2);
+  animation: dashPulse 2s ease-in-out infinite;
+}
+
+.milestone-future .milestone-dot {
+  background: var(--color-border);
+}
+
+.milestone-target .milestone-dot {
+  border-color: var(--color-accent);
+}
+
+.milestone-year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.milestone-active .milestone-year {
+  color: var(--color-accent);
+}
+
+.milestone-done .milestone-year {
+  color: var(--color-accent-secondary);
+}
+
+.milestone-name {
+  font-size: 0.65rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- Milestone Tooltips --- */
+.milestone-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 160px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.milestone-tip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-bottom-color: var(--color-surface);
+}
+
+.roadmap-milestone:hover .milestone-tip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.milestone-active:hover .milestone-tip {
+  border-color: rgba(253,136,0,0.3);
+}
+
+.milestone-done:hover .milestone-tip {
+  border-color: rgba(51,193,94,0.3);
+}
+
+/* Edge-aware milestone tips */
+.roadmap-milestone:first-of-type .milestone-tip {
+  left: 0;
+  transform: translateX(0) translateY(4px);
+}
+.roadmap-milestone:first-of-type:hover .milestone-tip {
+  transform: translateX(0) translateY(0);
+}
+.roadmap-milestone:first-of-type .milestone-tip::before {
+  left: 14px;
+}
+
+.roadmap-milestone:last-of-type .milestone-tip {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(4px);
+}
+.roadmap-milestone:last-of-type:hover .milestone-tip {
+  left: auto;
+  transform: translateX(0) translateY(0);
+}
+.roadmap-milestone:last-of-type .milestone-tip::before {
+  left: auto;
+  right: 14px;
+}
+
+/* --- Pillars --- */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.pillar-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 8px;
+  cursor: default;
+  overflow: hidden;
+  transition: border-color 0.25s, background 0.25s, transform 0.2s;
+  flex-wrap: wrap;
+}
+
+.pillar-mini:hover {
+  border-color: rgba(253,136,0,0.4);
+  background: rgba(253,136,0,0.04);
+  transform: translateY(-1px);
+}
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  opacity: 0.7;
+}
+
+.pillar-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.pillar-reveal {
+  display: block;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+  line-height: 1.5;
+  transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease, padding-top 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.pillar-mini:hover .pillar-reveal {
+  max-height: 40px;
+  opacity: 1;
+  margin-top: 0.15rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(253,136,0,0.15);
+}
+
+/* --- Developer Target --- */
+.dev-target {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  background: rgba(253,136,0,0.05);
+  border: 1px solid rgba(253,136,0,0.15);
+  border-radius: 8px;
+  cursor: default;
+  overflow: hidden;
+  transition: background 0.25s, border-color 0.25s;
+  flex-wrap: wrap;
+}
+
+.dev-target:hover {
+  background: rgba(253,136,0,0.08);
+  border-color: rgba(253,136,0,0.3);
+}
+
+.dev-value {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.dev-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.dev-reveal {
+  display: block;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+  line-height: 1.4;
+  transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.dev-target:hover .dev-reveal {
+  max-height: 30px;
+  opacity: 1;
+  margin-top: 0.35rem;
+}
+
+/* --- Dashboard Responsive --- */
+@media (max-width: 768px) {
+  .exec-dashboard { padding-top: 5rem; }
+  .metrics-hero,
+  .metrics-support { grid-template-columns: 1fr 1fr; }
+  .dash-columns { grid-template-columns: 1fr; }
+  .dash-header { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+  .milestone-tip { display: none; }
+}
+
+@media (max-width: 480px) {
+  .metrics-hero,
+  .metrics-support { grid-template-columns: 1fr; }
+  .pillar-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================
    SECTION COMMON STYLES
    ================================================ */
 section {

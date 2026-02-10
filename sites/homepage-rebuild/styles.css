@@ -154,6 +154,88 @@ body {
   transition: all 0.3s;
 }
 
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: var(--header-height);
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  background: var(--color-white);
+  padding: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-overlay.active .mobile-menu-drawer {
+  transform: translateX(0);
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.mobile-menu-links a {
+  display: block;
+  padding: 1rem 0;
+  color: var(--color-gray-600);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-gray-200);
+  transition: color 0.2s;
+}
+
+.mobile-menu-links a:hover,
+.mobile-menu-links a.active {
+  color: var(--color-blue);
+}
+
+.mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-menu-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* ============================================
    BUTTONS
 ============================================ */
@@ -673,6 +755,216 @@ body {
   border-radius: 4px;
 }
 
+/* Barriers Preview */
+.barriers-payoff {
+  margin-bottom: 1rem;
+}
+
+.payoff-label {
+  font-size: 0.7rem;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.payoff-diagram {
+  height: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.barrier-line {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-red);
+  opacity: 0.7;
+}
+
+.barrier-line::after {
+  content: 'KO';
+  position: absolute;
+  right: 8px;
+  top: -14px;
+  font-size: 0.6rem;
+  color: var(--color-red);
+  font-family: var(--font-mono);
+}
+
+.payoff-curve {
+  position: absolute;
+  bottom: 30%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-green), var(--color-green), transparent);
+  border-radius: 2px;
+}
+
+.barriers-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.level-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-gray-800);
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.level-label {
+  color: var(--color-gray-400);
+}
+
+.level-value {
+  color: var(--color-white);
+  font-family: var(--font-mono);
+}
+
+/* Ledgera Preview */
+.ledger-header-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.65rem;
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-300);
+  background: var(--color-gray-800);
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.tx-id {
+  font-family: var(--font-mono);
+  color: var(--color-gray-400);
+}
+
+.status {
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.status-confirmed {
+  color: var(--color-green);
+}
+
+.status-pending {
+  color: var(--color-blue);
+}
+
+/* Upside Only Preview - Phone */
+.phone-frame {
+  width: 220px;
+  background: var(--color-gray-900);
+  border-radius: 32px;
+  padding: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--color-gray-700);
+}
+
+.phone-notch {
+  width: 80px;
+  height: 6px;
+  background: var(--color-gray-800);
+  border-radius: 3px;
+  margin: 0 auto 1.5rem;
+}
+
+.phone-content {
+  padding: 0 0.75rem 1rem;
+  text-align: center;
+}
+
+.app-greeting {
+  font-size: 0.75rem;
+  color: var(--color-gray-400);
+  margin-bottom: 0.5rem;
+}
+
+.app-balance {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.25rem;
+}
+
+.app-change {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.app-change.positive {
+  color: var(--color-green);
+}
+
+.app-chart-mini {
+  height: 60px;
+  background: linear-gradient(135deg, rgba(51, 193, 94, 0.2) 0%, rgba(51, 193, 94, 0.05) 100%);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-chart-mini::after {
+  content: '';
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-green);
+  opacity: 0.6;
+}
+
+.app-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.app-btn {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.app-btn-buy {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.app-btn-sell {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+}
+
 /* ============================================
    STATISTICS SECTION
 ============================================ */
@@ -974,7 +1266,14 @@ body {
 
 .media-logo:hover {
   color: var(--color-black);
+  opacity: 1;
 }
+
+.media-coindesk { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; font-size: 1.1rem; }
+.media-businessinsider { font-weight: 400; letter-spacing: 0.05em; font-style: italic; font-size: 1.05rem; }
+.media-investingcom { font-family: var(--font-mono); font-weight: 500; font-size: 1rem; letter-spacing: -0.02em; }
+.media-manager { font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; }
+.media-handelsblatt { font-weight: 300; letter-spacing: 0.08em; font-size: 1.15rem; }
 
 /* ============================================
    CTA SECTION
@@ -1242,6 +1541,10 @@ body {
 
   .mobile-menu-toggle {
     display: flex;
+  }
+
+  .mobile-menu-overlay {
+    display: block;
   }
 
   .hero-stats {
