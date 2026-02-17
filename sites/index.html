@@ -30,7 +30,11 @@
         <a href="competitive-analysis/index.html">Analysis</a>
         <a href="design-system/index.html">Design System</a>
         <a href="product-vision/index.html">Vision</a>
+        <a href="market-thesis/index.html">Market Thesis</a>
       </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -40,7 +44,7 @@
         <span class="label">Interview Showcase</span>
         <h1>Perpetuals.com<br>Design & Development</h1>
         <p class="lead">Product thinking, design execution, and technical depth &mdash; built for this conversation.</p>
-        <p class="meta">Prepared for <strong>Aaron Rudder</strong>, Chief Product Officer</p>
+        <p class="meta">Prepared for <strong>Aaron Rudder</strong>, CPO &amp; <strong>Patrick Gruhn</strong>, Co-CEO</p>
       </div>
     </section>
 
@@ -301,6 +305,47 @@
             </div>
           </a>
 
+          <a href="market-thesis/index.html" class="site-card featured">
+            <div class="site-preview thesis-preview">
+              <div class="preview-content">
+                <svg class="preview-illustration" width="280" height="160" viewBox="0 0 280 160" fill="none">
+                  <defs>
+                    <linearGradient id="thesis-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#fd8800"/>
+                      <stop offset="100%" stop-color="#130d90"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Three ascending number blocks -->
+                  <rect x="30" y="90" width="55" height="50" rx="4" fill="rgba(253,136,0,0.15)" stroke="rgba(253,136,0,0.3)" stroke-width="1"/>
+                  <text x="57" y="115" text-anchor="middle" fill="#fd8800" font-size="11" font-weight="700" font-family="monospace">$376M</text>
+                  <text x="57" y="128" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="5">Acquisition</text>
+
+                  <rect x="110" y="60" width="55" height="80" rx="4" fill="rgba(253,136,0,0.2)" stroke="rgba(253,136,0,0.4)" stroke-width="1"/>
+                  <text x="137" y="95" text-anchor="middle" fill="#fd8800" font-size="10" font-weight="700" font-family="monospace">$32.7M</text>
+                  <text x="137" y="108" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="5">Buyback</text>
+
+                  <rect x="190" y="25" width="60" height="115" rx="4" fill="rgba(253,136,0,0.25)" stroke="rgba(253,136,0,0.5)" stroke-width="1"/>
+                  <text x="220" y="75" text-anchor="middle" fill="#fd8800" font-size="14" font-weight="700" font-family="monospace">$846T</text>
+                  <text x="220" y="90" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="5">Target Market</text>
+
+                  <!-- Connecting trend line -->
+                  <path d="M57 90 L137 60 L220 25" stroke="url(#thesis-grad)" stroke-width="2" fill="none" stroke-dasharray="4 4" opacity="0.6"/>
+                  <circle cx="57" cy="90" r="3" fill="#fd8800"/>
+                  <circle cx="137" cy="60" r="3" fill="#fd8800"/>
+                  <circle cx="220" cy="25" r="4" fill="#fd8800">
+                    <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                </svg>
+              </div>
+              <span class="status live">Live</span>
+            </div>
+            <div class="site-info">
+              <h3>Market Thesis</h3>
+              <p>From $376M to $32.7M to NASDAQ &mdash; the data-driven case for why Perpetuals exists now.</p>
+              <span class="tag highlight">CEO Interview</span>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -365,6 +410,42 @@
       --color-secondary: #130d90;
       --color-accent: #fd8800;
       --color-accent-green: #33c15e;
+
+      /* Elevation system */
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+      --shadow-xl: 0 20px 48px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
+
+      /* Easing */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Accessibility: focus states */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Accessibility: reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Entrance animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     body {
@@ -388,6 +469,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
 
     header .container {
@@ -424,18 +506,66 @@
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
+      position: relative;
+    }
+
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s var(--ease-out-expo);
     }
 
     header nav a:hover {
       color: var(--color-accent);
     }
 
+    header nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text);
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
     /* Hero */
     .hero {
-      padding: 6rem 0;
+      padding: 6rem 0 5rem;
       text-align: center;
       background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+      animation: fadeIn 0.6s var(--ease-out-expo);
     }
+
+    .hero .label,
+    .hero h1,
+    .hero .lead,
+    .hero .meta {
+      animation: fadeInUp 0.7s var(--ease-out-expo) backwards;
+    }
+    .hero .label { animation-delay: 0.05s; }
+    .hero h1 { animation-delay: 0.12s; }
+    .hero .lead { animation-delay: 0.19s; }
+    .hero .meta { animation-delay: 0.26s; }
 
     .label {
       display: inline-block;
@@ -455,6 +585,7 @@
       font-size: clamp(2.5rem, 6vw, 4rem);
       line-height: 1.1;
       margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
 
     .hero .lead {
@@ -471,13 +602,14 @@
 
     /* Sites Section */
     .sites {
-      padding: 4rem 0;
+      padding: 5rem 0;
     }
 
     .sites h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
     }
 
     .site-grid {
@@ -492,14 +624,23 @@
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease, border-color 0.25s ease;
       border: 1px solid var(--color-border);
+      animation: fadeInUp 0.6s var(--ease-out-expo) backwards;
     }
 
+    .site-card:nth-child(1) { animation-delay: 0.1s; }
+    .site-card:nth-child(2) { animation-delay: 0.17s; }
+    .site-card:nth-child(3) { animation-delay: 0.24s; }
+    .site-card:nth-child(4) { animation-delay: 0.31s; }
+    .site-card:nth-child(5) { animation-delay: 0.38s; }
+    .site-card:nth-child(6) { animation-delay: 0.45s; }
+
     .site-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(253,136,0,0.3);
     }
 
     .site-card.featured {
@@ -542,6 +683,10 @@
       background: linear-gradient(135deg, #000 0%, #fd880020 100%);
     }
 
+    .thesis-preview {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
     .preview-content {
       display: flex;
       align-items: center;
@@ -574,6 +719,7 @@
     .status.live {
       background: var(--color-accent-green);
       color: white;
+      box-shadow: 0 2px 8px rgba(51,193,94,0.25);
     }
 
     .site-info {
@@ -608,20 +754,21 @@
 
     /* Documents Section */
     .documents {
-      padding: 4rem 0;
+      padding: 5rem 0;
       background: var(--color-surface);
     }
 
     .documents h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
     }
 
     .doc-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .doc-card {
@@ -630,17 +777,25 @@
       padding: 1.5rem;
       text-decoration: none;
       color: inherit;
-      transition: all 0.2s ease;
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease, background 0.2s ease;
       border: 1px solid transparent;
     }
 
     .doc-card:hover {
       background: var(--color-border);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
     }
 
     .doc-card.highlight {
-      background: linear-gradient(135deg, #fd8800 0%, #130d90 100%);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
       color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .doc-card.highlight:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(253,136,0,0.25);
     }
 
     .doc-card.highlight p {
@@ -674,7 +829,7 @@
 
     /* CTA */
     .cta {
-      padding: 4rem 0;
+      padding: 5rem 0;
       text-align: center;
     }
 
@@ -682,6 +837,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2rem;
       margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
 
     .cta p {
@@ -694,7 +850,7 @@
     footer {
       background: var(--color-text);
       color: var(--color-surface);
-      padding: 2rem 0;
+      padding: 3rem 0;
       text-align: center;
     }
 
@@ -703,13 +859,44 @@
       opacity: 0.7;
     }
 
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .site-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .site-grid {
         grid-template-columns: 1fr;
       }
-
+      .doc-grid {
+        grid-template-columns: 1fr;
+      }
       header nav {
         display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero {
+        padding: 4rem 0 3rem;
+      }
+      .sites, .documents, .cta {
+        padding: 3rem 0;
+      }
+      .sites h2, .documents h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>

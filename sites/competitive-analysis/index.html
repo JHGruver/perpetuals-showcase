@@ -28,6 +28,7 @@
         <a href="./index.html" class="active">Analysis</a>
         <a href="../design-system/index.html">Design System</a>
         <a href="../product-vision/index.html">Vision</a>
+        <a href="../market-thesis/index.html">Market Thesis</a>
       </div>
       <button class="mobile-menu" aria-label="Toggle menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -181,16 +182,44 @@
 
           <div class="dash-panel">
             <h3 class="panel-title">Key Insights</h3>
-            <div class="insight-list">
-              <div class="insight-row"><span class="insight-icon icon-pos">+</span><span>Mobile-first is mandatory &mdash; not optional</span><span class="insight-reveal">Every platform analyzed shows 60%+ mobile traffic. Web must feel native.</span></div>
-              <div class="insight-row"><span class="insight-icon icon-pos">+</span><span>Trust signals above the fold, always</span><span class="insight-reveal">Compliance badges, security indicators, and regulatory logos &mdash; visible before the first scroll.</span></div>
-              <div class="insight-row"><span class="insight-icon icon-warn">!</span><span>Gamification invites regulatory scrutiny</span><span class="insight-reveal">Robinhood's confetti feature led to congressional hearings. Professional positioning needs intentional friction.</span></div>
-              <div class="insight-row"><span class="insight-icon icon-neutral">~</span><span>Friction is a design tool, not a bug</span><span class="insight-reveal">Order confirmations, 2FA, risk warnings &mdash; friction that prevents a $2M fat-finger error at 3am.</span></div>
+            <div class="insight-grid">
+              <div class="insight-card">
+                <span class="insight-badge badge-pos">Validated</span>
+                <span class="insight-headline">Mobile-first is mandatory</span>
+                <span class="insight-body">60%+ mobile traffic across all 9 platforms. Web must feel native &mdash; not responsive as an afterthought.</span>
+              </div>
+              <div class="insight-card">
+                <span class="insight-badge badge-pos">Validated</span>
+                <span class="insight-headline">Trust signals above the fold</span>
+                <span class="insight-body">Compliance badges, security indicators, regulatory logos. Visible before the first scroll, every time.</span>
+              </div>
+              <div class="insight-card">
+                <span class="insight-badge badge-warn">Risk</span>
+                <span class="insight-headline">Gamification invites scrutiny</span>
+                <span class="insight-body">Robinhood&rsquo;s confetti &rarr; congressional hearings. Professional positioning demands intentional friction.</span>
+              </div>
+              <div class="insight-card insight-card-key">
+                <span class="insight-badge badge-key">Key Finding</span>
+                <span class="insight-headline">Friction is a design tool</span>
+                <span class="insight-body">Order confirms, 2FA, risk warnings &mdash; friction that prevents a $2M fat-finger error at 3am. Not a bug.</span>
+              </div>
             </div>
-            <div class="mini-spectrum">
-              <div class="spectrum-seg seg-remove">Remove<span class="spec-tip">Browse, portfolio view, research, price alerts</span></div>
-              <div class="spectrum-seg seg-balance">Balance<span class="spec-tip">Auth, order confirms, risk warnings, 2FA</span></div>
-              <div class="spectrum-seg seg-add">Add<span class="spec-tip">Large transfers, account changes, withdrawals</span></div>
+            <div class="friction-bar">
+              <span class="friction-title">Friction Spectrum</span>
+              <div class="friction-track">
+                <div class="friction-seg friction-remove">
+                  <span class="friction-label">Remove</span>
+                  <span class="friction-examples">Browse, research, alerts</span>
+                </div>
+                <div class="friction-seg friction-balance">
+                  <span class="friction-label">Balance</span>
+                  <span class="friction-examples">Auth, confirms, 2FA</span>
+                </div>
+                <div class="friction-seg friction-add">
+                  <span class="friction-label">Add</span>
+                  <span class="friction-examples">Transfers, withdrawals</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1170,6 +1199,7 @@
     :root {
       --primary: #fd8800;
       --primary-dark: #d97300;
+      --secondary: #130d90;
       --success: #33c15e;
       --danger: #ff3d00;
       --warning: #ffad45;
@@ -1181,6 +1211,40 @@
       --gray-100: #e9e9e9;
       --light: #fafafa;
       --white: #ffffff;
+
+      /* Elevation */
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+
+      /* Easing */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Accessibility */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     body {
@@ -1327,12 +1391,13 @@
       padding: 1.5rem;
       text-align: center;
       border: 1px solid var(--gray-100);
-      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
     }
 
     .finding-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-lg);
     }
 
     .finding-icon {
@@ -1512,11 +1577,13 @@
       border: 1px solid var(--gray-100);
       border-radius: 16px;
       padding: 1.5rem;
-      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease, border-color 0.25s ease;
     }
 
     .platform-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
       border-color: var(--primary);
     }
 
@@ -1661,6 +1728,13 @@
       border: 1px solid var(--gray-100);
       border-radius: 16px;
       padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+    }
+
+    .pattern-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
     }
 
     .pattern-icon {
@@ -2357,10 +2431,11 @@
     }
 
     .dash-panel {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
       padding: 1.25rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
     }
 
     .panel-title {
@@ -2523,57 +2598,132 @@
       font-style: italic;
     }
 
-    .insight-list {
+    /* Key Insights Grid */
+    .insight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .insight-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
+      gap: 0.35rem;
+      transition: border-color 0.25s, background 0.25s, transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
     }
 
-    .insight-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.75);
+    .insight-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     }
 
-    .insight-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .insight-card-key {
+      border-color: rgba(253,136,0,0.25);
+      background: rgba(253,136,0,0.04);
+    }
+    .insight-card-key:hover {
+      border-color: rgba(253,136,0,0.45);
+      background: rgba(253,136,0,0.08);
+    }
+
+    .insight-badge {
+      display: inline-block;
+      width: fit-content;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    .badge-pos {
+      background: rgba(51,193,94,0.15);
+      color: var(--success);
+    }
+    .badge-warn {
+      background: rgba(253,136,0,0.15);
+      color: var(--primary);
+    }
+    .badge-key {
+      background: rgba(253,136,0,0.25);
+      color: #ffaa40;
+    }
+
+    .insight-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.25;
+    }
+
+    .insight-body {
       font-size: 0.65rem;
-      font-weight: 700;
-      flex-shrink: 0;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.45;
     }
 
-    .icon-pos { background: rgba(51,193,94,0.2); color: var(--success); }
-    .icon-warn { background: rgba(253,136,0,0.2); color: var(--primary); }
-    .icon-neutral { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+    /* Friction Spectrum Bar */
+    .friction-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
 
-    .mini-spectrum {
+    .friction-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .friction-track {
       display: flex;
       border-radius: 6px;
       overflow: hidden;
     }
 
-    .spectrum-seg {
+    .friction-seg {
       flex: 1;
-      padding: 0.35rem;
-      text-align: center;
+      padding: 0.5rem 0.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+      transition: filter 0.2s;
+      cursor: default;
+    }
+    .friction-seg:hover {
+      filter: brightness(1.35);
+    }
+
+    .friction-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .seg-remove { background: rgba(51,193,94,0.15); color: var(--success); }
-    .seg-balance { background: rgba(253,136,0,0.15); color: var(--primary); }
-    .seg-add { background: rgba(255,61,0,0.15); color: var(--danger); }
+    .friction-examples {
+      font-size: 0.55rem;
+      opacity: 0.6;
+    }
+
+    .friction-remove { background: rgba(51,193,94,0.12); color: var(--success); }
+    .friction-balance { background: rgba(253,136,0,0.12); color: var(--primary); }
+    .friction-add { background: rgba(255,61,0,0.12); color: var(--danger); }
 
     .advantage-strip {
       display: flex;
@@ -2771,89 +2921,7 @@
       right: 14px;
     }
 
-    /* Insight row hover */
-    .insight-row {
-      position: relative;
-      cursor: default;
-      border-radius: 6px;
-      padding: 0.35rem 0.5rem;
-      margin: -0.35rem -0.5rem;
-      transition: background 0.2s;
-    }
-
-    .insight-row:hover {
-      background: rgba(255,255,255,0.04);
-    }
-
-    .insight-reveal {
-      display: block;
-      max-height: 0;
-      overflow: hidden;
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.4;
-      padding-left: 28px;
-      transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
-      opacity: 0;
-      margin-top: 0;
-    }
-
-    .insight-row:hover .insight-reveal {
-      max-height: 40px;
-      opacity: 1;
-      margin-top: 0.25rem;
-    }
-
-    /* Spectrum segment hover */
-    .spectrum-seg {
-      position: relative;
-      cursor: default;
-      transition: filter 0.2s;
-    }
-
-    .spectrum-seg:hover {
-      filter: brightness(1.3);
-    }
-
-    .spec-tip {
-      position: absolute;
-      bottom: calc(100% + 8px);
-      left: 50%;
-      transform: translateX(-50%) translateY(4px);
-      width: 170px;
-      background: #1a1a1a;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px;
-      padding: 0.45rem 0.6rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.6rem;
-      font-style: normal;
-      font-weight: 400;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.35;
-      text-transform: none;
-      letter-spacing: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      z-index: 10;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    }
-
-    .spec-tip::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-top-color: #1a1a1a;
-    }
-
-    .spectrum-seg:hover .spec-tip {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    /* (Insight + Friction hover styles are inline in base declarations above) */
 
     /* Advantage strip hover */
     .adv-item {
@@ -2888,6 +2956,11 @@
     }
 
     /* Responsive */
+    @media (max-width: 1024px) {
+      .findings-grid { grid-template-columns: repeat(2, 1fr); }
+      .platform-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 768px) {
       .scorecard-row { grid-template-columns: repeat(2, 1fr); }
       .dash-columns { grid-template-columns: 1fr; }
@@ -2896,6 +2969,7 @@
       .dot-perpetuals { width: 26px; height: 26px; }
       .dot-tip { display: none; }
       .quad-br-sub { display: none; }
+      .insight-grid { grid-template-columns: 1fr; }
       .advantage-strip { flex-wrap: wrap; gap: 1rem; }
       .adv-divider { display: none; }
       .nav-links {
@@ -2954,6 +3028,22 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.finding-card, .platform-card, .pattern-card').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+      revealObserver.observe(el);
     });
   </script>
 </body>

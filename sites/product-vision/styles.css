@@ -30,6 +30,25 @@
   --space-lg: 48px;
   --space-xl: 80px;
   --space-2xl: 120px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Reset */
@@ -1011,6 +1030,7 @@ section {
   opacity: 0;
   transform: translateY(30px);
   transition: all var(--transition-slow), border-color var(--transition-fast);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 .pillar-card.visible {
@@ -1020,6 +1040,8 @@ section {
 
 .pillar-card:hover {
   border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
 .pillar-number {
@@ -1272,6 +1294,7 @@ section {
   opacity: 0;
   transform: translateY(30px);
   transition: all var(--transition-slow), border-color var(--transition-fast);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 .future-card.visible {
@@ -1281,6 +1304,8 @@ section {
 
 .future-card:hover {
   border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
 }
 
 .future-card.large {
@@ -1460,6 +1485,8 @@ section {
 
 .btn-primary:hover {
   background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(253,136,0,0.3);
 }
 
 .btn-secondary {
@@ -1470,6 +1497,7 @@ section {
 
 .btn-secondary:hover {
   border-color: var(--color-text);
+  transform: translateY(-2px);
 }
 
 .cta-visual {

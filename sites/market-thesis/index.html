@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpetuals | Market Thesis</title>
+  <meta name="description" content="From $376M to $32.7M to NASDAQ — the data-driven case for why Perpetuals exists now.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 168 168'%3E%3Cg transform='translate(0,28)'%3E%3Cpath fill='%23fd8800' d='M0 55.7c0 9.6 2.3 18.5 6.8 26.5 6.3 11.7 16.6 20.7 29 25.5 12.4 4.7 26 4.9 38.5.5 3.2-1.1 6.3-2.6 9.3-4.3 8.4-4.9 15.5-11.9 20.4-20.4 1-1.8 3.4-2.4 5.2-1.4s2.4 3.4 1.4 5.2c-4.7 8.2-11.2 15.2-18.9 20.5 6.1 2.3 12.8 3.6 19.7 3.6 30.8 0 55.7-24.9 55.7-55.7 0-13.3-4.7-26.1-13.3-36.2-.7-.8-1.4-1.5-2.1-2.3-.6-.6-1.2-1.3-1.9-1.9C141.7 7.6 131.3 2.5 120.1.7c-2.7-.4-5.4-.7-8.1-.7-10.4-.1-20.7 2.7-29.7 8.2C71 15.1 62.6 25.9 58.5 38.5c-.6 2-2.8 3.1-4.8 2.4-2-.6-3.1-2.8-2.4-4.8C55.5 22.9 64.1 11.5 75.5 3.6 69.3 1.3 62.7 0 55.8 0 25.2 0 .4 24.6 0 55c0 .2 0 .5 0 .7z'/%3E%3C/g%3E%3C/svg%3E">
+  <script>!function(){var l=document.querySelector('link[rel="icon"]');if(l){var n=l.cloneNode();n.href=l.href;l.parentNode.removeChild(l);document.head.appendChild(n)}}()</script>
+
+  <style>
+    /* ================================================
+       CSS CUSTOM PROPERTIES
+       ================================================ */
+    :root {
+      --color-bg: #000000;
+      --color-surface: #0a0a0a;
+      --color-surface-elevated: #111111;
+      --color-border: #222222;
+      --color-text: #ffffff;
+      --color-text-muted: #888888;
+      --color-text-dim: #555555;
+      --color-accent: #fd8800;
+      --color-accent-secondary: #33c15e;
+      --color-danger: #ff3d00;
+      --gradient-primary: linear-gradient(135deg, #fd8800 0%, #130d90 100%);
+      --gradient-dark: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.4s ease;
+      --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 48px;
+      --space-xl: 80px;
+      --space-2xl: 120px;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
+      --shadow-xl: 0 24px 48px rgba(0,0,0,0.6);
+    }
+
+    /* ================================================
+       ACCESSIBILITY
+       ================================================ */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ================================================
+       RESET
+       ================================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body:not(.loaded) {
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* ================================================
+       KEYFRAMES
+       ================================================ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.4); }
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @keyframes barGrow {
+      from { width: 0; }
+    }
+
+    /* ================================================
+       LOADER
+       ================================================ */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .loader.loaded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      text-align: center;
+    }
+
+    .loader-logo {
+      margin-bottom: 24px;
+    }
+
+    .loader-logo svg {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .loader-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .loader-bar {
+      width: 200px;
+      height: 2px;
+      background: var(--color-border);
+      border-radius: 1px;
+      overflow: hidden;
+      margin: 0 auto 16px;
+    }
+
+    .loader-progress {
+      height: 100%;
+      background: var(--color-accent);
+      border-radius: 1px;
+      width: 0;
+      transition: width 0.1s ease;
+    }
+
+    .loader-year {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      letter-spacing: 0.2em;
+    }
+
+    /* ================================================
+       SCROLL PROGRESS
+       ================================================ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--color-accent);
+      z-index: 9998;
+      width: 0;
+      transition: width 0.1s linear;
+    }
+
+    /* ================================================
+       NAVIGATION
+       ================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+
+    .nav.scrolled {
+      padding: 12px 48px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--color-text);
+    }
+
+    .nav-logo span {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-label span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-label .accent {
+      color: var(--color-accent);
+    }
+
+    /* ================================================
+       HERO
+       ================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-lg);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-lg);
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out-expo) 0.3s forwards;
+    }
+
+    .hero-numbers {
+      display: flex;
+      gap: clamp(24px, 5vw, 80px);
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .hero-number {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+    }
+
+    .hero-number:nth-child(1) {
+      animation: fadeInUp 0.8s var(--ease-out-expo) 0.6s forwards;
+    }
+
+    .hero-number:nth-child(2) {
+      animation: fadeInUp 0.8s var(--ease-out-expo) 1.0s forwards;
+    }
+
+    .hero-number:nth-child(3) {
+      animation: fadeInUp 0.8s var(--ease-out-expo) 1.4s forwards;
+    }
+
+    .number-value {
+      font-family: var(--font-mono);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .number-label {
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+      color: var(--color-text-muted);
+      max-width: 200px;
+      line-height: 1.4;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+      line-height: 1.5;
+      opacity: 0;
+      animation: fadeInUp 0.8s var(--ease-out-expo) 1.8s forwards;
+    }
+
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease 2.4s forwards;
+    }
+
+    .scroll-indicator span {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .scroll-arrow {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-accent), transparent);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    /* ================================================
+       SECTIONS (shared)
+       ================================================ */
+    .section {
+      padding: var(--space-2xl) 0;
+      position: relative;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: var(--space-xl);
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================================================
+       SECTION 1: MARKET
+       ================================================ */
+    .market-section {
+      background: var(--color-surface);
+    }
+
+    .market-hero-stat {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .market-hero-stat .stat-value {
+      font-family: var(--font-mono);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      display: block;
+    }
+
+    .market-hero-stat .stat-label {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-top: 12px;
+      display: block;
+    }
+
+    .market-hero-stat .stat-source {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      margin-top: 4px;
+      display: block;
+    }
+
+    .market-bars {
+      max-width: 800px;
+      margin: 0 auto var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .market-bar {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .bar-label {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-align: right;
+    }
+
+    .bar-track {
+      height: 32px;
+      background: var(--color-border);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0;
+      transition: width 1.2s var(--ease-out-expo);
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+    }
+
+    .bar-fill.visible {
+      /* width set via inline style */
+    }
+
+    .bar-fill-default {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .bar-fill-accent {
+      background: var(--color-accent);
+    }
+
+    .bar-value {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-text);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    .bar-badge {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-accent-secondary);
+      background: rgba(51, 193, 94, 0.1);
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 8px;
+    }
+
+    .market-insight {
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-surface-elevated);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .market-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .mini-stat {
+      text-align: center;
+      padding: var(--space-md);
+      background: var(--color-surface-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+
+    .mini-stat .stat-val {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-text);
+      display: block;
+    }
+
+    .mini-stat .stat-lbl {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ================================================
+       SECTION 2: INSTITUTIONAL
+       ================================================ */
+    .institutional-section {
+      background: var(--color-bg);
+    }
+
+    .inst-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .inst-card {
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-surface-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .inst-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .inst-card .card-value {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-text);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .inst-card .card-title {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .inst-card .card-detail {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .inst-card .card-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-accent-secondary);
+      background: rgba(51, 193, 94, 0.1);
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 8px;
+    }
+
+    .inst-insight {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .inst-insight strong {
+      color: var(--color-accent);
+    }
+
+    /* ================================================
+       SECTION 3: COMPLIANCE
+       ================================================ */
+    .compliance-section {
+      background: var(--color-surface);
+    }
+
+    .compliance-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    /* Timeline */
+    .reg-timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .reg-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 32px;
+      padding-left: 16px;
+    }
+
+    .timeline-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--color-accent);
+      background: var(--color-bg);
+    }
+
+    .timeline-dot.active {
+      background: var(--color-accent);
+      box-shadow: 0 0 12px rgba(253, 136, 0, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .timeline-dot.completed {
+      background: var(--color-accent-secondary);
+      border-color: var(--color-accent-secondary);
+    }
+
+    .timeline-dot.future {
+      border-color: var(--color-text-dim);
+      background: var(--color-surface);
+    }
+
+    .timeline-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .timeline-status {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 8px;
+    }
+
+    .status-imminent {
+      color: var(--color-accent);
+      background: rgba(253, 136, 0, 0.1);
+    }
+
+    .status-live {
+      color: var(--color-accent-secondary);
+      background: rgba(51, 193, 94, 0.1);
+    }
+
+    .status-upcoming {
+      color: var(--color-text-dim);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Funnel */
+    .survival-funnel {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .funnel-label {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+      color: var(--color-text);
+    }
+
+    .funnel-stage {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .funnel-bar {
+      height: 36px;
+      border-radius: 4px;
+      transition: width 1s var(--ease-out-expo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .funnel-bar-default {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .funnel-bar-accent {
+      background: var(--color-accent);
+    }
+
+    .funnel-bar span {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text);
+      white-space: nowrap;
+      padding: 0 12px;
+    }
+
+    .funnel-text {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      min-width: 140px;
+    }
+
+    /* Advantage callout */
+    .compliance-advantage {
+      margin-top: var(--space-xl);
+      padding: var(--space-lg);
+      background: var(--color-surface-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+
+    .advantage-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .advantage-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    .advantage-item svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--color-accent-secondary);
+    }
+
+    /* ================================================
+       SECTION 4: PRODUCT STACK
+       ================================================ */
+    .product-section {
+      background: var(--color-bg);
+    }
+
+    .product-hub {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Center node */
+    .hub-center {
+      text-align: center;
+      padding: var(--space-lg);
+      background: var(--color-surface-elevated);
+      border: 2px solid var(--color-accent);
+      border-radius: 16px;
+      box-shadow: 0 0 60px rgba(253, 136, 0, 0.15);
+      margin-bottom: var(--space-lg);
+      position: relative;
+    }
+
+    .hub-center .hub-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-sm);
+    }
+
+    .hub-center .hub-icon svg {
+      color: #000;
+    }
+
+    .hub-center h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hub-center p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Spoke nodes */
+    .hub-spokes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .spoke-card {
+      padding: var(--space-md);
+      background: var(--color-surface-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      transition: all 0.4s var(--ease-out-expo);
+      box-shadow: var(--shadow-sm);
+      cursor: default;
+    }
+
+    .spoke-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(253, 136, 0, 0.3);
+    }
+
+    .spoke-card.featured {
+      border-color: var(--color-accent);
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .spoke-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(253, 136, 0, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .spoke-icon svg {
+      color: var(--color-accent);
+    }
+
+    .spoke-card h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .spoke-card .spoke-stat {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .spoke-card p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Cascade mini-viz */
+    .cascade-viz {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cascade-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cascade-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .cascade-bars {
+      display: flex;
+      gap: 3px;
+      height: 28px;
+      align-items: flex-end;
+    }
+
+    .cascade-bar {
+      width: 8px;
+      border-radius: 2px 2px 0 0;
+      transition: height 0.6s var(--ease-out-expo);
+    }
+
+    .cascade-bar.danger {
+      background: var(--color-danger);
+    }
+
+    .cascade-bar.safe {
+      background: var(--color-accent-secondary);
+    }
+
+    .cascade-bar.neutral {
+      background: var(--color-text-dim);
+    }
+
+    /* ================================================
+       SECTION 5: THESIS
+       ================================================ */
+    .thesis-section {
+      background: var(--color-surface);
+      padding: var(--space-2xl) 0 var(--space-xl);
+      text-align: center;
+    }
+
+    .thesis-quote {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto var(--space-lg);
+      padding: var(--space-lg) 0;
+    }
+
+    .thesis-quote::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 8rem;
+      color: rgba(253, 136, 0, 0.15);
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .thesis-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--color-text);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .thesis-attribution {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: var(--space-md);
+    }
+
+    .thesis-attribution strong {
+      color: var(--color-text);
+    }
+
+    /* ================================================
+       FOOTER
+       ================================================ */
+    .footer {
+      padding: var(--space-xl) 0 var(--space-lg);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-brand .brand-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      display: block;
+    }
+
+    .footer-brand .brand-tagline {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      display: block;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer-meta {
+      text-align: right;
+    }
+
+    .footer-meta p {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+
+    /* ================================================
+       RESPONSIVE
+       ================================================ */
+    @media (max-width: 1024px) {
+      .compliance-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .hub-spokes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .spoke-card.featured {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--space-md);
+      }
+
+      .nav {
+        padding: 12px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-label {
+        display: none;
+      }
+
+      .hero-numbers {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .number-label {
+        max-width: 280px;
+      }
+
+      .market-bar {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .bar-label {
+        text-align: left;
+        font-size: 0.75rem;
+      }
+
+      .bar-value {
+        font-size: 0.7rem;
+      }
+
+      .inst-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .market-stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hub-spokes {
+        grid-template-columns: 1fr;
+      }
+
+      .spoke-card.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: var(--space-xl) 0;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <svg width="64" height="64" viewBox="0 0 168 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+        </svg>
+      </div>
+      <div class="loader-text">Loading Market Thesis</div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="loader-progress"></div>
+      </div>
+      <div class="loader-year">2026</div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="../index.html" class="nav-logo">
+      <svg width="32" height="32" viewBox="0 0 168 112" fill="none">
+        <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+      </svg>
+      <span>Perpetuals</span>
+    </a>
+    <div class="nav-links">
+      <a href="#market">Market</a>
+      <a href="#institutional">Institutional</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#product">Product</a>
+      <a href="#thesis">Thesis</a>
+    </div>
+    <div class="nav-label">
+      <span>Prepared for</span>
+      <span class="accent">Patrick Gruhn</span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============================================
+         HERO: THE THREE NUMBERS
+         ============================================ -->
+    <section class="hero" id="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-content">
+        <span class="hero-eyebrow">The Perpetuals Market Thesis</span>
+        <div class="hero-numbers">
+          <div class="hero-number">
+            <span class="number-value">$376M</span>
+            <span class="number-label">What FTX paid for DigitalAssets.AG</span>
+          </div>
+          <div class="hero-number">
+            <span class="number-value">$32.7M</span>
+            <span class="number-label">What Gruhn paid to buy it back</span>
+          </div>
+          <div class="hero-number">
+            <span class="number-value">$846T</span>
+            <span class="number-label">The market they're going after</span>
+          </div>
+        </div>
+        <p class="hero-subtitle">The most expensive lesson in fintech became the foundation for the most ambitious.</p>
+        <div class="scroll-indicator">
+          <span>Scroll to explore</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: THE MARKET NOBODY OWNS
+         ============================================ -->
+    <section class="section market-section" id="market">
+      <div class="container">
+        <span class="section-label reveal">01 / Market</span>
+        <h2 class="section-title reveal">The Market Nobody Owns</h2>
+
+        <div class="market-hero-stat reveal">
+          <span class="stat-value">$846T</span>
+          <span class="stat-label">Global OTC Derivatives Market</span>
+          <span class="stat-source">BIS, June 2025</span>
+        </div>
+
+        <div class="market-bars" id="market-bars">
+          <div class="market-bar reveal">
+            <span class="bar-label">Interest Rate</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-default" data-width="65%"></div>
+            </div>
+            <span class="bar-value">$548T</span>
+          </div>
+          <div class="market-bar reveal">
+            <span class="bar-label">FX Derivatives</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-default" data-width="18%"></div>
+            </div>
+            <span class="bar-value">$155T <span class="bar-badge">+19% YoY</span></span>
+          </div>
+          <div class="market-bar reveal">
+            <span class="bar-label">Equity Derivatives</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-default" data-width="4%"></div>
+            </div>
+            <span class="bar-value">$35T</span>
+          </div>
+          <div class="market-bar reveal">
+            <span class="bar-label">Credit Derivatives</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-default" data-width="3%"></div>
+            </div>
+            <span class="bar-value">Fastest growing <span class="bar-badge">+23% YoY</span></span>
+          </div>
+          <div class="market-bar reveal">
+            <span class="bar-label">Crypto Derivatives</span>
+            <div class="bar-track">
+              <div class="bar-fill bar-fill-accent" data-width="10%"></div>
+            </div>
+            <span class="bar-value">$85.7T annual volume</span>
+          </div>
+        </div>
+
+        <div class="market-insight reveal">
+          Traditional derivatives are an $846 trillion market. Crypto derivatives do $85.7 trillion annually. The infrastructure to connect them doesn't exist yet.
+        </div>
+
+        <div class="market-stats-row">
+          <div class="mini-stat reveal">
+            <span class="stat-val">$264.5B</span>
+            <span class="stat-lbl">Avg daily volume</span>
+          </div>
+          <div class="mini-stat reveal">
+            <span class="stat-val">$235.9B</span>
+            <span class="stat-lbl">Peak open interest</span>
+          </div>
+          <div class="mini-stat reveal">
+            <span class="stat-val">16%</span>
+            <span class="stat-lbl">YoY growth</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: THE INSTITUTIONAL SHIFT
+         ============================================ -->
+    <section class="section institutional-section" id="institutional">
+      <div class="container">
+        <span class="section-label reveal">02 / Institutional</span>
+        <h2 class="section-title reveal">Institutional Money Isn't Coming &mdash; It Arrived</h2>
+        <p class="section-subtitle reveal">The largest asset managers in the world are already here. The infrastructure to serve them hasn't caught up.</p>
+
+        <div class="inst-grid">
+          <div class="inst-card reveal">
+            <span class="card-value">$54B</span>
+            <div class="card-title">BlackRock IBIT</div>
+            <div class="card-detail">$25B in inflows in 2025 alone &mdash; despite a -9.6% return. Institutional conviction, not speculation.</div>
+          </div>
+          <div class="inst-card reveal">
+            <span class="card-value">$114&ndash;137B</span>
+            <div class="card-title">US BTC ETF AUM</div>
+            <div class="card-detail">Total assets across all US Bitcoin ETFs. A market that didn't exist 18 months ago.</div>
+          </div>
+          <div class="inst-card reveal">
+            <span class="card-value">794,903</span>
+            <div class="card-title">CME Crypto Contracts/Day</div>
+            <div class="card-detail">Record daily volume. 132% year-over-year growth. Institutions trade on regulated venues.</div>
+            <span class="card-badge">+132% YoY</span>
+          </div>
+          <div class="inst-card reveal">
+            <span class="card-value">DTCC</span>
+            <div class="card-title">Tokenizing US Treasuries</div>
+            <div class="card-detail">SEC no-action letter (Dec 2025) cleared the way. The backbone of traditional finance is moving on-chain.</div>
+          </div>
+          <div class="inst-card reveal">
+            <span class="card-value">CFTC</span>
+            <div class="card-title">Tokenized Collateral</div>
+            <div class="card-detail">Permitting tokenized assets as derivatives collateral. The regulatory walls are turning into bridges.</div>
+          </div>
+          <div class="inst-card reveal">
+            <span class="card-value">$2.08T</span>
+            <div class="card-title">Tokenized Assets Market</div>
+            <div class="card-detail">Projected $9.4&ndash;18.9T by 2030&ndash;2033 (BCG/Ripple). The question isn't if &mdash; it's who builds the infrastructure.</div>
+            <span class="card-badge">4.5&ndash;9x growth</span>
+          </div>
+        </div>
+
+        <div class="inst-insight reveal">
+          The infrastructure to serve institutional capital hasn't caught up. <strong>That's where Perpetuals fits.</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: THE COMPLIANCE COUNTDOWN
+         ============================================ -->
+    <section class="section compliance-section" id="compliance">
+      <div class="container">
+        <span class="section-label reveal">03 / Compliance</span>
+        <h2 class="section-title reveal">Every Regulation Is a Moat</h2>
+        <p class="section-subtitle reveal">For compliant companies, every new regulation is a competitive advantage. For everyone else, it's a wall.</p>
+
+        <div class="compliance-layout">
+          <!-- Timeline -->
+          <div class="reg-timeline reveal">
+            <div class="timeline-entry">
+              <div class="timeline-dot completed"></div>
+              <div class="timeline-name">DORA Effective</div>
+              <div class="timeline-date">Jan 17, 2025 <span class="timeline-status status-live">Live</span></div>
+            </div>
+            <div class="timeline-entry">
+              <div class="timeline-dot active"></div>
+              <div class="timeline-name">MiCA Full Enforcement</div>
+              <div class="timeline-date">July 1, 2026 <span class="timeline-status status-imminent">Months away</span></div>
+            </div>
+            <div class="timeline-entry">
+              <div class="timeline-dot active"></div>
+              <div class="timeline-name">EMIR 3.0 Active Account Req.</div>
+              <div class="timeline-date">June 25, 2026 <span class="timeline-status status-imminent">Months away</span></div>
+            </div>
+            <div class="timeline-entry">
+              <div class="timeline-dot future"></div>
+              <div class="timeline-name">EU T+1 Settlement Mandate</div>
+              <div class="timeline-date">Oct 11, 2027 <span class="timeline-status status-upcoming">Upcoming</span></div>
+            </div>
+            <div class="timeline-entry">
+              <div class="timeline-dot active"></div>
+              <div class="timeline-name">ESMA CFD Restrictions</div>
+              <div class="timeline-date">Ongoing <span class="timeline-status status-imminent">Active</span></div>
+            </div>
+          </div>
+
+          <!-- Survival Funnel -->
+          <div class="survival-funnel reveal">
+            <div class="funnel-label">The Regulatory Survival Funnel</div>
+            <div class="funnel-stage">
+              <div class="funnel-bar funnel-bar-default" style="width: 100%;">
+                <span>100+ exchanges</span>
+              </div>
+              <span class="funnel-text">Today</span>
+            </div>
+            <div class="funnel-stage">
+              <div class="funnel-bar funnel-bar-default" style="width: 55%;">
+                <span>~50</span>
+              </div>
+              <span class="funnel-text">After MiCA</span>
+            </div>
+            <div class="funnel-stage">
+              <div class="funnel-bar funnel-bar-default" style="width: 25%;">
+                <span>~20</span>
+              </div>
+              <span class="funnel-text">After DORA audits</span>
+            </div>
+            <div class="funnel-stage">
+              <div class="funnel-bar funnel-bar-default" style="width: 10%;">
+                <span>&lt;10</span>
+              </div>
+              <span class="funnel-text">After T+1 mandate</span>
+            </div>
+            <div class="funnel-stage">
+              <div class="funnel-bar funnel-bar-accent" style="width: 100%;">
+                <span>Perpetuals.com</span>
+              </div>
+              <span class="funnel-text">Passes every gate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Advantage callout -->
+        <div class="compliance-advantage reveal">
+          <div class="advantage-title">Why Perpetuals Passes Every Gate</div>
+          <div class="advantage-grid">
+            <div class="advantage-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>CySEC MTF License #458/25 &mdash; the same class as traditional stock exchanges</span>
+            </div>
+            <div class="advantage-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>MiFID II passporting &mdash; 30 EEA countries from one license</span>
+            </div>
+            <div class="advantage-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Already MiCA-compliant and DORA-compliant &mdash; ahead of enforcement</span>
+            </div>
+            <div class="advantage-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>T+0 settlement &mdash; already exceeding the T+1 mandate by a full cycle</span>
+            </div>
+            <div class="advantage-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Self-clearing &mdash; no third-party CCP dependency</span>
+            </div>
+            <div class="advantage-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Recognized equivalence in US, Australia, Hong Kong, Singapore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: THE PRODUCT STACK
+         ============================================ -->
+    <section class="section product-section" id="product">
+      <div class="container">
+        <span class="section-label reveal">04 / Product</span>
+        <h2 class="section-title reveal">Not One Product &mdash; An Entire Infrastructure Stack</h2>
+        <p class="section-subtitle reveal">Six integrated systems. One platform. Every layer built in-house.</p>
+
+        <div class="product-hub">
+          <!-- Center: Kronos X -->
+          <div class="hub-center reveal">
+            <div class="hub-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3>Kronos X</h3>
+            <p>Distributed matching engine. 1M+ orders/sec. Co-located at Equinix FR2 with Eurex. Sub-millisecond execution.</p>
+          </div>
+
+          <!-- Spokes -->
+          <div class="hub-spokes">
+            <!-- Barrier Futures (featured) -->
+            <div class="spoke-card featured reveal">
+              <div>
+                <div class="spoke-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <h4>Barrier Futures</h4>
+                <span class="spoke-stat">$150B problem solved</span>
+                <p>No-liquidation derivatives. No margin calls. No funding fees. No cascades. The position simply closes at the barrier. Same exposure, fraction of the risk.</p>
+              </div>
+              <div class="cascade-viz">
+                <div class="cascade-comparison">
+                  <span class="cascade-label">Traditional Perpetual Swap</span>
+                  <div class="cascade-bars" id="cascade-traditional">
+                    <div class="cascade-bar danger" style="height: 28px;"></div>
+                    <div class="cascade-bar danger" style="height: 24px;"></div>
+                    <div class="cascade-bar danger" style="height: 20px;"></div>
+                    <div class="cascade-bar danger" style="height: 16px;"></div>
+                    <div class="cascade-bar danger" style="height: 12px;"></div>
+                    <div class="cascade-bar danger" style="height: 8px;"></div>
+                    <div class="cascade-bar danger" style="height: 5px;"></div>
+                    <div class="cascade-bar danger" style="height: 3px;"></div>
+                    <div class="cascade-bar danger" style="height: 2px;"></div>
+                    <div class="cascade-bar danger" style="height: 1px;"></div>
+                  </div>
+                </div>
+                <div class="cascade-comparison">
+                  <span class="cascade-label">Barrier Future</span>
+                  <div class="cascade-bars" id="cascade-barrier">
+                    <div class="cascade-bar safe" style="height: 28px;"></div>
+                    <div class="cascade-bar safe" style="height: 28px;"></div>
+                    <div class="cascade-bar safe" style="height: 28px;"></div>
+                    <div class="cascade-bar safe" style="height: 28px;"></div>
+                    <div class="cascade-bar safe" style="height: 28px;"></div>
+                    <div class="cascade-bar safe" style="height: 26px;"></div>
+                    <div class="cascade-bar neutral" style="height: 0;"></div>
+                    <div class="cascade-bar neutral" style="height: 0;"></div>
+                    <div class="cascade-bar neutral" style="height: 0;"></div>
+                    <div class="cascade-bar neutral" style="height: 0;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spoke-card reveal">
+              <div class="spoke-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <h4>BayesShield AI</h4>
+              <span class="spoke-stat">92% losing trade filter</span>
+              <p>NVIDIA-powered. Trained on 11.7B trades. Flags risky positions before they become problems &mdash; for traders and regulators.</p>
+            </div>
+
+            <div class="spoke-card reveal">
+              <div class="spoke-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h4>Perpetuals Vault</h4>
+              <span class="spoke-stat">Quantum-resilient custody</span>
+              <p>No third-party dependency. Post-quantum cryptography ready. Your assets, your keys, institutional-strength security.</p>
+            </div>
+
+            <div class="spoke-card reveal">
+              <div class="spoke-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <h4>Ledgera</h4>
+              <span class="spoke-stat">T+0 cross-chain settlement</span>
+              <p>Meta-blockchain settlement layer. Instant finality across chains. Already exceeding the EU T+1 mandate.</p>
+            </div>
+
+            <div class="spoke-card reveal">
+              <div class="spoke-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                </svg>
+              </div>
+              <h4>PerpetualPay</h4>
+              <span class="spoke-stat">Fiat on/off ramp</span>
+              <p>Payments layer connecting traditional banking to digital assets. The bridge between old money and new infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: WHY DESIGN MATTERS HERE
+         ============================================ -->
+    <section class="section thesis-section" id="thesis">
+      <div class="container">
+        <span class="section-label reveal">05 / Thesis</span>
+        <h2 class="section-title reveal">Why Design Matters Here</h2>
+
+        <div class="thesis-quote reveal">
+          <blockquote>
+            Every piece of this stack has a user. Brokers onboarding to Barrier Futures. Traders managing risk with BayesShield. Institutional clients trusting Perpetuals Vault with their assets. The technology is built. The regulatory positioning is years ahead. The missing piece is making it feel as trustworthy as it actually is. That's the design problem I want to solve.
+          </blockquote>
+        </div>
+
+        <div class="thesis-attribution reveal">
+          &mdash; <strong>Jacob Gruver</strong>, prepared for Patrick Gruhn, February 2026
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <svg width="32" height="32" viewBox="0 0 168 112" fill="none">
+            <path d="M0.0694701 55.6809C0.0694701 55.8745 0.0704577 56.0678 0.0724283 56.2609C0.166578 65.2834 2.45337 74.2124 6.81703 82.2493C13.1431 93.9004 23.4188 102.912 35.7959 107.663C48.1731 112.414 61.8394 112.593 74.3367 108.168C77.5615 107.026 80.6539 105.596 83.5813 103.907C91.9987 99.0492 99.0526 92.0399 103.971 83.5211C105.021 81.702 107.347 81.0787 109.166 82.129C110.985 83.1792 111.609 85.5053 110.558 87.3244C105.832 95.5117 99.3691 102.472 91.7017 107.765C97.8341 110.089 104.484 111.361 111.431 111.361C142.182 111.361 167.111 86.4322 167.111 55.6807C167.111 42.4229 162.381 29.6003 153.771 19.5191C153.111 18.7474 152.433 17.9956 151.736 17.2644C151.122 16.6197 150.492 15.9898 149.847 15.3752C141.698 7.60817 131.348 2.46066 120.141 0.685647C117.448 0.259099 114.742 0.0330641 112.043 0.00336996C101.622 -0.111315 91.3168 2.70275 82.3376 8.2052C71.0336 15.1323 62.5722 25.8656 58.4753 38.4745C57.8262 40.4722 55.6805 41.5654 53.6828 40.9163C51.6851 40.2672 50.5918 38.1216 51.2409 36.1239C55.5421 22.8862 64.0759 11.4673 75.479 3.59659C69.3467 1.27249 62.6969 0.000310811 55.7501 0.000310811C25.2228 0.000310811 0.433339 24.5671 0.0734392 55.0091C0.0707956 55.2327 0.0694701 55.4567 0.0694701 55.6809Z" fill="#fd8800"/>
+          </svg>
+          <div>
+            <span class="brand-name">Perpetuals</span>
+            <span class="brand-tagline">Market Thesis</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="../homepage-rebuild/index.html">Homepage</a>
+          <a href="../features-rebuild/index.html">Features</a>
+          <a href="../competitive-analysis/index.html">Analysis</a>
+          <a href="../design-system/index.html">Design System</a>
+          <a href="../product-vision/index.html">Vision</a>
+        </div>
+        <div class="footer-meta">
+          <p>Prepared for the third round interview</p>
+          <p>with Patrick Gruhn, Co-CEO</p>
+          <p style="margin-top: 8px; font-size: 0.65rem;">Data: BIS, CoinGlass, CME, ESMA, CySEC, BCG &mdash; Feb 2026</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ================================================
+    // LOADING ANIMATION
+    // ================================================
+    document.addEventListener('DOMContentLoaded', function() {
+      const loader = document.getElementById('loader');
+      const loaderProgress = document.getElementById('loader-progress');
+      let progress = 0;
+
+      const loadingInterval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(loadingInterval);
+          setTimeout(() => {
+            loader.classList.add('loaded');
+            document.body.classList.add('loaded');
+          }, 300);
+        }
+        loaderProgress.style.width = progress + '%';
+      }, 100);
+    });
+
+    // ================================================
+    // SCROLL PROGRESS
+    // ================================================
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+    });
+
+    // ================================================
+    // NAVIGATION SCROLL STATE
+    // ================================================
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // ================================================
+    // HERO CANVAS PARTICLES
+    // ================================================
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null };
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+      particles = [];
+      const numParticles = Math.floor((canvas.width * canvas.height) / 15000);
+      for (let i = 0; i < numParticles; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.5 + 0.2
+        });
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, ' + p.opacity + ')';
+        ctx.fill();
+
+        particles.slice(i + 1).forEach(p2 => {
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (0.1 * (1 - dist / 120)) + ')';
+            ctx.stroke();
+          }
+        });
+
+        if (mouse.x && mouse.y) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            const force = (150 - dist) / 150;
+            p.x += dx * force * 0.02;
+            p.y += dy * force * 0.02;
+          }
+        }
+      });
+
+      requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      createParticles();
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    resizeCanvas();
+    createParticles();
+    drawParticles();
+
+    // ================================================
+    // INTERSECTION OBSERVER — REVEAL ANIMATIONS
+    // ================================================
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger siblings
+          const parent = entry.target.parentElement;
+          const siblings = Array.from(parent.querySelectorAll('.reveal'));
+          const siblingIndex = siblings.indexOf(entry.target);
+          const delay = siblingIndex * 80;
+
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+
+            // Animate market bars within this element
+            const barFill = entry.target.querySelector('.bar-fill');
+            if (barFill) {
+              const targetWidth = barFill.dataset.width;
+              setTimeout(() => {
+                barFill.style.width = targetWidth;
+              }, 100);
+            }
+          }, delay);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ================================================
+    // SMOOTH SCROLL
+    // ================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
