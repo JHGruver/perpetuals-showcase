@@ -1476,6 +1476,91 @@
       color: var(--color-text-dim);
     }
 
+    /* Talking point tooltips */
+    .talk-point {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 8px);
+      background: #1a1a1a;
+      border: 1px solid rgba(253, 136, 0, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: var(--color-text-muted);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      z-index: 100;
+      pointer-events: none;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      min-width: 240px;
+      max-width: 360px;
+    }
+
+    .talk-point::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 20px;
+      width: 8px;
+      height: 8px;
+      background: #1a1a1a;
+      border-left: 1px solid rgba(253, 136, 0, 0.25);
+      border-top: 1px solid rgba(253, 136, 0, 0.25);
+      transform: rotate(45deg);
+    }
+
+    .talk-point .tp-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    /* Parent hover triggers */
+    .kpi-card,
+    .leader-card,
+    .team-chip {
+      position: relative;
+    }
+
+    .kpi-card:hover .talk-point,
+    .leader-card:hover .talk-point,
+    .team-chip:hover .talk-point {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Leader card tooltip — position below the card */
+    .leader-card .talk-point {
+      max-width: 100%;
+    }
+
+    /* Team chip tooltip — position above */
+    .team-chip .talk-point {
+      top: auto;
+      bottom: calc(100% + 8px);
+      min-width: 280px;
+    }
+
+    .team-chip .talk-point::before {
+      top: auto;
+      bottom: -4px;
+      border-left: none;
+      border-top: none;
+      border-right: 1px solid rgba(253, 136, 0, 0.25);
+      border-bottom: 1px solid rgba(253, 136, 0, 0.25);
+    }
+
     /* Dashboard responsive */
     @media (max-width: 768px) {
       .dash-kpis {
@@ -1488,6 +1573,10 @@
 
       .dash-team {
         flex-direction: column;
+      }
+
+      .talk-point {
+        min-width: 200px;
       }
     }
   </style>
@@ -1545,18 +1634,34 @@
         <div class="kpi-card">
           <span class="kpi-value">NASDAQ: PDC</span>
           <span class="kpi-label">Ticker (since Jan 2026)</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Rebranded from Earlyworks (ERLY) to Perpetuals in January 2026. The ticker change signals the strategic pivot from blockchain infrastructure to a consumer-facing regulated derivatives platform. Mention that this kind of brand transformation is exactly the design challenge you want to own.
+          </div>
         </div>
         <div class="kpi-card">
           <span class="kpi-value">MTF #458/25</span>
           <span class="kpi-label">CySEC License Class</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Multilateral Trading Facility license from CySEC &mdash; one of very few crypto firms to hold this. Enables MiFID II passporting across 30 EEA countries without additional licensing. This is Perpetuals' deepest moat. Ask Patrick how the licensing process shaped the product roadmap.
+          </div>
         </div>
         <div class="kpi-card">
           <span class="kpi-value">+70.6%</span>
           <span class="kpi-label">Stock return post-rebrand</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Stock went from ~$1.70 to ~$2.90 after the Perpetuals rebrand. The market is pricing in the derivatives pivot. This is your opening to say: "Brand and design drove a measurable valuation shift &mdash; I want to accelerate that."
+          </div>
         </div>
         <div class="kpi-card">
           <span class="kpi-value">Mar 2026</span>
           <span class="kpi-label">Barrier Futures launch</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Barrier Futures is the flagship &mdash; no-liquidation derivatives that solve the $150B annual liquidation problem. Launching weeks from now. This is the product that defines the company. Ask what the onboarding experience looks like for the first institutional clients.
+          </div>
         </div>
       </div>
 
@@ -1582,6 +1687,10 @@
             <span class="leader-tag">MiFID II / MiCA</span>
             <span class="leader-tag">Equinix FR2</span>
           </div>
+          <div class="talk-point">
+            <span class="tp-label">How to connect with Patrick</span>
+            His origin story is the interview's emotional core: built something, lost it in FTX, bought it back for pennies on the dollar, and is now building something bigger. He values resilience, regulatory rigor, and speed of execution. He's a lawyer AND a software engineer &mdash; he'll respect both precision and technical depth. Lead with what you've built, not what you've studied. Ask about the FTX buyback &mdash; it's his defining moment and he'll want to tell it.
+          </div>
         </div>
 
         <!-- Satoshi Kobayashi -->
@@ -1604,6 +1713,10 @@
             <span class="leader-tag">Majority shareholder</span>
             <span class="leader-tag">Tokyo HQ</span>
           </div>
+          <div class="talk-point">
+            <span class="tp-label">How to reference Satoshi</span>
+            Brought the NASDAQ listing to the table via Earlyworks. His Grid Ledger System (0.016s transactions) is the settlement backbone &mdash; acknowledge GLS as critical infrastructure, not just "the Japan side." Lower English-language media profile, so showing you researched him signals thoroughness. If Patrick mentions Satoshi, say: "The GLS integration with Kronos X is what makes self-clearing possible &mdash; that's the technical moat."
+          </div>
         </div>
       </div>
 
@@ -1612,31 +1725,55 @@
           <div class="team-chip-dot" style="background: var(--color-accent);"></div>
           <span>Hiroki Yamamoto</span>
           <span class="chip-role">CTO, Co-Founder</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            CTO from the Earlyworks side. Built the Grid Ledger System with Kobayashi. Technical backbone of the entire stack. If design needs engineering buy-in, Yamamoto is the gatekeeper. Show respect for the GLS architecture.
+          </div>
         </div>
         <div class="team-chip">
           <div class="team-chip-dot" style="background: var(--color-accent);"></div>
           <span>Robin Matzke</span>
           <span class="chip-role">Co-Founder, Perpetual Markets</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Co-founded Perpetual Markets Ltd (the EU entity) with Gruhn. One of the original DigitalAssets.AG team &mdash; went through the FTX collapse and stayed. Day-one loyalist. If mentioned, acknowledge the founding team's resilience.
+          </div>
         </div>
         <div class="team-chip">
           <div class="team-chip-dot"></div>
           <span>Kota Steve Kobayashi</span>
           <span class="chip-role">CFO</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            CFO of the NASDAQ entity. Likely related to Satoshi Kobayashi. Handles financials and SEC reporting for the public company. If Patrick asks about your understanding of the business, mentioning the CFO by name shows depth.
+          </div>
         </div>
         <div class="team-chip">
           <div class="team-chip-dot"></div>
           <span>Naoki Yokota</span>
           <span class="chip-role">COO</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            COO from the Earlyworks side. Operations lead for the Japan operations. Part of the original Earlyworks founding team that brought the NASDAQ listing.
+          </div>
         </div>
         <div class="team-chip">
           <div class="team-chip-dot"></div>
           <span>Nayia Ziourti</span>
           <span class="chip-role">Co-Founder, Perpetual Markets</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Co-founded Perpetual Markets with Gruhn and Matzke. Part of the EU regulatory team. Based in Cyprus near CySEC. Important for the European compliance story &mdash; she's one of the people who made the MTF license happen.
+          </div>
         </div>
         <div class="team-chip">
           <div class="team-chip-dot"></div>
           <span>Matthew Nicoletti</span>
           <span class="chip-role">Independent Director</span>
+          <div class="talk-point">
+            <span class="tp-label">Talking point</span>
+            Independent board director. Required for NASDAQ governance standards. Signals the company takes public-company compliance seriously. If governance comes up, mention that having an independent director this early shows institutional maturity.
+          </div>
         </div>
       </div>
     </div>
