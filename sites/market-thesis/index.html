@@ -1273,6 +1273,223 @@
         font-size: 1.6rem;
       }
     }
+
+    /* ================================================
+       LEADERSHIP DASHBOARD
+       ================================================ */
+    .exec-dashboard {
+      padding: 80px 0 40px;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      opacity: 0;
+      transition: opacity 0.6s ease 0.4s;
+    }
+
+    .loaded .exec-dashboard {
+      opacity: 1;
+    }
+
+    .dash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-md);
+    }
+
+    .dash-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dash-label .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent-secondary);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .dash-date {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+    }
+
+    /* KPI row */
+    .dash-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: var(--space-md);
+    }
+
+    .kpi-card {
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .kpi-value {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      display: block;
+    }
+
+    .kpi-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Leader cards */
+    .dash-leaders {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .leader-card {
+      padding: var(--space-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      transition: border-color 0.3s ease;
+    }
+
+    .leader-card:hover {
+      border-color: rgba(253, 136, 0, 0.3);
+    }
+
+    .leader-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .leader-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .leader-avatar.secondary {
+      background: #130d90;
+      color: #fff;
+    }
+
+    .leader-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      display: block;
+    }
+
+    .leader-title {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-accent);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .leader-bio {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .leader-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .leader-tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--color-text-dim);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .leader-tag.highlight {
+      color: var(--color-accent);
+      background: rgba(253, 136, 0, 0.08);
+    }
+
+    /* Team strip */
+    .dash-team {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .team-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+    }
+
+    .team-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-text-dim);
+    }
+
+    .team-chip span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+    }
+
+    .team-chip .chip-role {
+      color: var(--color-text-dim);
+    }
+
+    /* Dashboard responsive */
+    @media (max-width: 768px) {
+      .dash-kpis {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dash-leaders {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-team {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1315,6 +1532,115 @@
       <span class="accent">Patrick Gruhn</span>
     </div>
   </nav>
+
+  <!-- Leadership Dashboard -->
+  <section class="exec-dashboard" id="dashboard">
+    <div class="container">
+      <div class="dash-header">
+        <div class="dash-label"><span class="pulse-dot"></span> Leadership &amp; Company Intel</div>
+        <span class="dash-date">NASDAQ: PDC &mdash; Research by Jacob Gruver</span>
+      </div>
+
+      <div class="dash-kpis">
+        <div class="kpi-card">
+          <span class="kpi-value">NASDAQ: PDC</span>
+          <span class="kpi-label">Ticker (since Jan 2026)</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">MTF #458/25</span>
+          <span class="kpi-label">CySEC License Class</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">+70.6%</span>
+          <span class="kpi-label">Stock return post-rebrand</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">Mar 2026</span>
+          <span class="kpi-label">Barrier Futures launch</span>
+        </div>
+      </div>
+
+      <div class="dash-leaders">
+        <!-- Patrick Gruhn -->
+        <div class="leader-card">
+          <div class="leader-header">
+            <div class="leader-avatar">PG</div>
+            <div>
+              <span class="leader-name">Prof. Patrick Gruhn, LL.M., MBA</span>
+              <span class="leader-title">Co-CEO &mdash; European Ops, Product, Regulatory</span>
+            </div>
+          </div>
+          <div class="leader-bio">
+            Serial entrepreneur, lawyer, software engineer. Co-founded DigitalAssets.AG in Zurich &mdash; acquired by FTX for ~$376M. Became Head of FTX Europe, pioneered the first regulatory-approved tokenized stocks. After FTX collapsed, bought back EU assets for $32.7M. Now building Perpetuals.com with Kronos X, Barrier Futures, and BayesShield AI. First German Co-CEO of a NASDAQ tech company since BioNTech's Ugur Sahin.
+          </div>
+          <div class="leader-tags">
+            <span class="leader-tag highlight">Kronos X</span>
+            <span class="leader-tag highlight">Barrier Futures</span>
+            <span class="leader-tag">LL.M. + MBA</span>
+            <span class="leader-tag">MIT Blockchain</span>
+            <span class="leader-tag">PhD candidate</span>
+            <span class="leader-tag">MiFID II / MiCA</span>
+            <span class="leader-tag">Equinix FR2</span>
+          </div>
+        </div>
+
+        <!-- Satoshi Kobayashi -->
+        <div class="leader-card">
+          <div class="leader-header">
+            <div class="leader-avatar secondary">SK</div>
+            <div>
+              <span class="leader-name">Satoshi Kobayashi</span>
+              <span class="leader-title">Co-CEO, Co-Founder &mdash; Japan Ops, Corporate, GLS</span>
+            </div>
+          </div>
+          <div class="leader-bio">
+            Founded Earlyworks (2018) and led it through NASDAQ IPO in July 2023. Rang the Nasdaq Closing Bell. Created the Grid Ledger System &mdash; a hybrid blockchain with 0.016s transaction speed. Previously founded Smart Contract Japan and BEXAM exchange. Enterprise Ethereum Alliance member. Majority shareholder of the combined entity.
+          </div>
+          <div class="leader-tags">
+            <span class="leader-tag highlight">Grid Ledger System</span>
+            <span class="leader-tag highlight">NASDAQ IPO (2023)</span>
+            <span class="leader-tag">Smart Contract Japan</span>
+            <span class="leader-tag">Enterprise Ethereum Alliance</span>
+            <span class="leader-tag">Majority shareholder</span>
+            <span class="leader-tag">Tokyo HQ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-team">
+        <div class="team-chip">
+          <div class="team-chip-dot" style="background: var(--color-accent);"></div>
+          <span>Hiroki Yamamoto</span>
+          <span class="chip-role">CTO, Co-Founder</span>
+        </div>
+        <div class="team-chip">
+          <div class="team-chip-dot" style="background: var(--color-accent);"></div>
+          <span>Robin Matzke</span>
+          <span class="chip-role">Co-Founder, Perpetual Markets</span>
+        </div>
+        <div class="team-chip">
+          <div class="team-chip-dot"></div>
+          <span>Kota Steve Kobayashi</span>
+          <span class="chip-role">CFO</span>
+        </div>
+        <div class="team-chip">
+          <div class="team-chip-dot"></div>
+          <span>Naoki Yokota</span>
+          <span class="chip-role">COO</span>
+        </div>
+        <div class="team-chip">
+          <div class="team-chip-dot"></div>
+          <span>Nayia Ziourti</span>
+          <span class="chip-role">Co-Founder, Perpetual Markets</span>
+        </div>
+        <div class="team-chip">
+          <div class="team-chip-dot"></div>
+          <span>Matthew Nicoletti</span>
+          <span class="chip-role">Independent Director</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <main>
     <!-- ============================================
