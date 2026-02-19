@@ -31,6 +31,7 @@
         <a href="design-system/index.html">Design System</a>
         <a href="product-vision/index.html">Vision</a>
         <a href="market-thesis/index.html">Market Thesis</a>
+        <a href="product-encyclopedia/index.html">Encyclopedia</a>
       </nav>
       <button class="mobile-menu-btn" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -51,6 +52,58 @@
     <section class="sites">
       <div class="container">
         <h2>Showcase Sites</h2>
+
+        <!-- Featured Card: Product Encyclopedia -->
+        <a href="product-encyclopedia/index.html" class="featured-card">
+          <div class="featured-preview">
+            <svg width="320" height="180" viewBox="0 0 320 180" fill="none">
+              <!-- Central node -->
+              <circle cx="160" cy="90" r="22" fill="rgba(253,136,0,0.15)" stroke="#fd8800" stroke-width="1.5"/>
+              <text x="160" y="86" text-anchor="middle" fill="#fd8800" font-size="7" font-weight="600" font-family="Space Grotesk">KRONOS</text>
+              <text x="160" y="96" text-anchor="middle" fill="#fd8800" font-size="7" font-weight="600" font-family="Space Grotesk">X</text>
+              <!-- Product nodes -->
+              <line x1="160" y1="90" x2="70" y2="45" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <circle cx="70" cy="45" r="14" fill="rgba(253,136,0,0.08)" stroke="rgba(253,136,0,0.3)" stroke-width="1"/>
+              <text x="70" y="48" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="6" font-family="Inter">Barriers</text>
+
+              <line x1="160" y1="90" x2="250" y2="45" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <circle cx="250" cy="45" r="14" fill="rgba(19,13,144,0.15)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+              <text x="250" y="48" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="6" font-family="Inter">BayesShield</text>
+
+              <line x1="160" y1="90" x2="70" y2="135" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <circle cx="70" cy="135" r="14" fill="rgba(51,193,94,0.08)" stroke="rgba(51,193,94,0.3)" stroke-width="1"/>
+              <text x="70" y="138" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="6" font-family="Inter">Vault</text>
+
+              <line x1="160" y1="90" x2="250" y2="135" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <circle cx="250" cy="135" r="14" fill="rgba(253,136,0,0.08)" stroke="rgba(253,136,0,0.3)" stroke-width="1"/>
+              <text x="250" y="138" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="6" font-family="Inter">Ledgera</text>
+
+              <line x1="160" y1="90" x2="275" y2="90" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <circle cx="275" cy="90" r="12" fill="rgba(253,136,0,0.05)" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <text x="275" y="93" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="5" font-family="Inter">Pay</text>
+
+              <line x1="160" y1="90" x2="45" y2="90" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <circle cx="45" cy="90" r="12" fill="rgba(253,136,0,0.05)" stroke="rgba(253,136,0,0.2)" stroke-width="1"/>
+              <text x="45" y="93" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="5" font-family="Inter">GLS</text>
+            </svg>
+            <span class="status live">Reference Guide</span>
+          </div>
+          <div class="featured-info">
+            <div class="featured-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              NEW
+            </div>
+            <h3>Product Encyclopedia</h3>
+            <p>The complete reference guide to every product, technology, regulation, and market Perpetuals touches. Searchable knowledge base with sidebar navigation.</p>
+            <div class="featured-tags">
+              <span class="tag highlight">Learning Tool</span>
+              <span class="tag">9 Products</span>
+              <span class="tag">8 Regulations</span>
+              <span class="tag">Searchable</span>
+            </div>
+          </div>
+        </a>
+
         <div class="site-grid">
 
           <a href="homepage-rebuild/index.html" class="site-card">
@@ -685,6 +738,75 @@
 
     .thesis-preview {
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
+    /* Featured Encyclopedia Card */
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      border: 2px solid rgba(253,136,0,0.3);
+      box-shadow: 0 12px 32px rgba(253,136,0,0.08);
+      transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s var(--ease-out-expo) backwards;
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(253,136,0,0.15);
+      border-color: rgba(253,136,0,0.5);
+    }
+    .featured-preview {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #000 0%, #0a0a2e 100%);
+    }
+    .featured-info {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-info h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .featured-info p {
+      font-size: 0.85rem;
+      color: #aaa;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #fd8800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .featured-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-preview { height: 160px; }
     }
 
     .preview-content {
