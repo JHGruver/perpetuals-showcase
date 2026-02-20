@@ -1869,6 +1869,16 @@
         </div>
       </div>
       <div class="sidebar-group expanded">
+        <button class="sidebar-group-title">Trading Knowledge <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+        <div class="sidebar-links">
+          <a href="#trading-concepts" class="sidebar-link">Trading Concepts</a>
+          <a href="#positions-margin" class="sidebar-link">Positions &amp; Margin</a>
+          <a href="#chart-anatomy" class="sidebar-link">Chart Anatomy</a>
+          <a href="#trade-lifecycle" class="sidebar-link">Trade Lifecycle</a>
+          <a href="#fee-structure" class="sidebar-link">Fee Structure</a>
+        </div>
+      </div>
+      <div class="sidebar-group expanded">
         <button class="sidebar-group-title">Brands <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
         <div class="sidebar-links">
           <a href="#brands" class="sidebar-link">Consumer Brands</a>
@@ -2260,8 +2270,10 @@
             <h3>How It Works</h3>
             <p>Ledgera is a meta-blockchain settlement layer that provides instant (T+0) cross-chain settlement. It supports multiple chains &mdash; ETH, BTC, USDC, and others &mdash; with real-time clearing and finality. No intermediary clearinghouse required.</p>
             <p>The EU T+1 settlement mandate doesn't take effect until October 2027. Ledgera already operates at T+0, exceeding the requirement by over two years. This is a significant competitive and regulatory advantage.</p>
-            <details class="component-item"><summary>Tokenized Securities Settlement</summary><div class="detail-content">Ledgera provides the infrastructure for tokenized securities settlement &mdash; the same capability Gruhn pioneered at FTX Europe with the world's first regulatory-approved tokenized stocks.</div></details>
-            <details class="component-item"><summary>Consumer Brand: Ledgera Console</summary><div class="detail-content">Ledgera also exists as a standalone consumer brand within the Perpetuals ecosystem &mdash; the "Ledgera Console" for digital asset settlement services. Secure, compliant settlement infrastructure for tokenized securities.</div></details>
+            <details class="component-item" open><summary>Tokenized Securities Settlement</summary><div class="detail-content">Ledgera provides the infrastructure for tokenized securities settlement &mdash; the same capability Gruhn pioneered at FTX Europe with the world's first regulatory-approved tokenized stocks. Tokenized securities are traditional financial instruments (stocks, bonds, ETFs) represented as blockchain tokens. This enables 24/7 trading, fractional ownership, and instant settlement of assets that traditionally take T+2 days to settle.</div></details>
+            <details class="component-item"><summary>Consumer Brand: Ledgera Console</summary><div class="detail-content">Ledgera also exists as a standalone consumer brand within the Perpetuals ecosystem. The "Ledgera Console" is a separate product targeting institutional settlement services &mdash; banks, brokers, and fintech companies that need settlement infrastructure without running their own exchange. Think of it as "settlement-as-a-service." Standalone users include: custodians needing cross-chain settlement, OTC desks requiring instant finality, and tokenization platforms issuing digital securities.</div></details>
+            <details class="component-item"><summary>Ledgera vs. Kronos X Settlement Layer</summary><div class="detail-content"><strong>Embedded layer (inside Kronos X):</strong> Handles settlement for trades matched on the Perpetuals exchange. Invisible to users &mdash; trades just settle instantly. This is the "engine under the hood."<br><strong>Standalone product (Ledgera Console):</strong> Available to external clients who don't use Kronos X at all. They access Ledgera's settlement API independently. Different user base, different product surface, same underlying technology.</div></details>
+            <details class="component-item"><summary>How Cross-Chain Settlement Works</summary><div class="detail-content">Ledgera acts as a meta-layer across blockchains. When a trade involves assets on different chains (e.g., selling ETH to receive USDC on Solana), Ledgera coordinates atomic settlement across both chains simultaneously. Neither party bears counterparty risk during the swap. This uses the GLS hybrid blockchain as the coordination and finality layer, with bridge protocols connecting to each supported L1/L2.</div></details>
           </div>
           <div class="product-aside">
             <h3>Why It Matters</h3>
@@ -2271,6 +2283,8 @@
               <div class="fact-item"><span class="fact-label">Chains</span><span class="fact-value">ETH, BTC, USDC+</span></div>
               <div class="fact-item"><span class="fact-label">Clearing</span><span class="fact-value">Self-clearing (no CCP)</span></div>
               <div class="fact-item"><span class="fact-label">EU mandate</span><span class="fact-value">Oct 2027 (already passed)</span></div>
+              <div class="fact-item"><span class="fact-label">Standalone</span><span class="fact-value">Ledgera Console</span></div>
+              <div class="fact-item"><span class="fact-label">Clients</span><span class="fact-value">Banks, brokers, fintech</span></div>
             </div>
           </div>
         </div>
@@ -2290,15 +2304,35 @@
             <p class="product-tagline">Fiat on/off ramp connecting traditional banking to digital assets</p>
           </div>
         </div>
+        <div class="product-stats reveal">
+          <div class="stat-card"><span class="stat-value">Fiat ↔ Crypto</span><span class="stat-label">Bidirectional bridge</span></div>
+          <div class="stat-card"><span class="stat-value">Multi-currency</span><span class="stat-label">EUR, USD, GBP+</span></div>
+          <div class="stat-card"><span class="stat-value">Instant</span><span class="stat-label">Crypto deposits</span></div>
+          <div class="stat-card"><span class="stat-value">Compliant</span><span class="stat-label">Full KYC/AML</span></div>
+        </div>
         <div class="product-grid reveal">
           <div class="product-main">
             <h3>How It Works</h3>
             <p>PerpetualPay is the payments layer that bridges traditional banking infrastructure and digital assets. It enables users to move money between conventional bank accounts and the Perpetuals platform &mdash; the "last mile" that connects old money to new infrastructure.</p>
             <p>Without a fiat on/off ramp, the exchange is only accessible to users who already hold crypto. PerpetualPay removes that barrier, making the platform accessible to traditional institutional clients and first-time crypto users alike.</p>
+
+            <details class="component-item" open><summary>Payment Rails</summary><div class="detail-content"><strong>Fiat rails:</strong> SEPA (EUR, 1-2 business days), SWIFT (international, 2-5 days), Faster Payments (GBP, near-instant). Card payments via Visa/Mastercard for smaller amounts.<br><strong>Crypto rails:</strong> Direct on-chain deposits across supported networks (ETH, SOL, ARB, OP). Near-instant confirmation depending on chain finality.<br><strong>Internal transfers:</strong> Between Perpetuals accounts = instant, zero fee, settled via Ledgera.</div></details>
+            <details class="component-item"><summary>Supported Currencies</summary><div class="detail-content"><strong>Fiat:</strong> EUR (primary), USD, GBP, CHF. Additional currencies via SWIFT.<br><strong>Crypto:</strong> BTC, ETH, USDC, USDT, SOL, and major ERC-20 tokens. New tokens added as markets launch on Kronos X.<br><strong>Stablecoin focus:</strong> USDC preferred for trading collateral due to regulatory clarity and 1:1 reserve backing.</div></details>
+            <details class="component-item"><summary>KYC Onboarding Flow</summary><div class="detail-content"><strong>Tier 1 (Basic):</strong> Email + phone verification. Limited deposit/withdrawal amounts. Minutes to complete.<br><strong>Tier 2 (Standard):</strong> Government ID + proof of address. Full access to retail features. 24-48 hours verification.<br><strong>Tier 3 (Enhanced/Institutional):</strong> Corporate documentation, source of funds, beneficial ownership. Required for institutional accounts. Dedicated onboarding specialist assigned.<br><strong>UX note:</strong> Progressive disclosure &mdash; don't ask for everything upfront. Let users start with Tier 1 and upgrade when they hit limits.</div></details>
+            <details class="component-item"><summary>Deposit &amp; Withdrawal UX</summary><div class="detail-content"><strong>Deposits:</strong> Select currency → choose method (bank/card/crypto) → enter amount → confirm. Show estimated arrival time. Crypto deposits show wallet address + QR code.<br><strong>Withdrawals:</strong> Select currency → enter amount → select destination → 2FA confirmation → processing. Show status tracker (pending → processing → completed).<br><strong>Key UX patterns:</strong> Saved beneficiaries for repeat withdrawals. Withdrawal whitelist for security. Push notifications for deposit confirmations.</div></details>
+            <details class="component-item"><summary>Institutional vs. Retail</summary><div class="detail-content"><strong>Retail:</strong> Card payments, smaller SEPA transfers, simple deposit flow, standard withdrawal limits.<br><strong>Institutional:</strong> Large SWIFT transfers, OTC desk access for block trades, dedicated account manager, custom settlement schedules, API-driven deposits/withdrawals for automated treasury management. Higher limits, lower fees per volume.</div></details>
           </div>
           <div class="product-aside">
             <h3>Why It Matters</h3>
             <div class="importance-card"><p>The fiat bridge is what makes Perpetuals accessible to institutional clients who manage assets in traditional currencies. It's the entry point for the "institutional shift" &mdash; traditional finance capital flowing into crypto derivatives.</p></div>
+            <h3>Key Facts</h3>
+            <div class="fact-list">
+              <div class="fact-item"><span class="fact-label">Primary rail</span><span class="fact-value">SEPA (EUR)</span></div>
+              <div class="fact-item"><span class="fact-label">Card support</span><span class="fact-value">Visa / Mastercard</span></div>
+              <div class="fact-item"><span class="fact-label">Crypto chains</span><span class="fact-value">ETH, SOL, ARB, OP</span></div>
+              <div class="fact-item"><span class="fact-label">KYC provider</span><span class="fact-value">Regulatory-grade identity</span></div>
+              <div class="fact-item"><span class="fact-label">2FA</span><span class="fact-value">Required for withdrawals</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2323,6 +2357,10 @@
             <h3>Background</h3>
             <p>The Grid Ledger System was developed by Satoshi Kobayashi and Hiroki Yamamoto at Earlyworks, prior to the Perpetual Markets merger. It's a proprietary hybrid blockchain that achieves 0.016-second transaction speeds.</p>
             <p>GLS serves as the settlement backbone for the entire Perpetuals technology stack. The integration between GLS and Kronos X is what enables self-clearing &mdash; the ability to settle trades without a third-party central counterparty clearinghouse.</p>
+
+            <details class="component-item" open><summary>What "Hybrid Blockchain" Means</summary><div class="detail-content"><strong>Pure Proof of Work (PoW):</strong> Bitcoin's model &mdash; miners compete to validate blocks. Extremely secure but slow (10 min blocks) and energy-intensive. Not suitable for exchange settlement.<br><strong>Pure Proof of Stake (PoS):</strong> Ethereum's model &mdash; validators stake capital. Faster (12-15 sec blocks) but still too slow for institutional trading.<br><strong>GLS Hybrid:</strong> Combines a permissioned validation layer (selected, trusted nodes for speed) with cryptographic finality guarantees (immutability once settled). Result: 0.016-second transactions with the security assurances financial regulators require. It's the speed of a centralized database with the auditability of a blockchain.</div></details>
+            <details class="component-item"><summary>Enterprise Ethereum Alliance (EEA) Membership</summary><div class="detail-content">The EEA is a consortium of 400+ enterprises including JP Morgan, Microsoft, Intel, and ConsenSys. Membership signals that GLS is enterprise-grade and interoperable with Ethereum standards. Benefits: access to enterprise specifications, credibility with institutional clients who require standards compliance, and interoperability with the broader Ethereum ecosystem (important for Ledgera's cross-chain settlement).</div></details>
+            <details class="component-item"><summary>GLS + Ledgera Integration</summary><div class="detail-content"><strong>GLS is the engine; Ledgera is the product built on it.</strong> GLS provides the raw blockchain infrastructure &mdash; transaction processing, consensus, and finality. Ledgera wraps this in settlement business logic: cross-chain coordination, tokenized security handling, and regulatory compliance checks. When a trade settles on Ledgera, the actual on-chain write happens on GLS. External chains (ETH, SOL) are bridged into GLS for unified settlement, then results are propagated back to native chains.</div></details>
           </div>
           <div class="product-aside">
             <h3>Key Facts</h3>
@@ -2331,6 +2369,15 @@
               <div class="fact-item"><span class="fact-label">Origin</span><span class="fact-value">Earlyworks Inc.</span></div>
               <div class="fact-item"><span class="fact-label">Type</span><span class="fact-value">Hybrid blockchain</span></div>
               <div class="fact-item"><span class="fact-label">Speed</span><span class="fact-value">0.016 seconds</span></div>
+              <div class="fact-item"><span class="fact-label">Consortium</span><span class="fact-value">EEA member</span></div>
+              <div class="fact-item"><span class="fact-label">Consensus</span><span class="fact-value">Permissioned + crypto finality</span></div>
+            </div>
+            <h3 style="margin-top:var(--space-md)">Speed Comparison</h3>
+            <div class="fact-list">
+              <div class="fact-item"><span class="fact-label">Bitcoin</span><span class="fact-value">~600 seconds (10 min)</span></div>
+              <div class="fact-item"><span class="fact-label">Ethereum</span><span class="fact-value">~12 seconds</span></div>
+              <div class="fact-item"><span class="fact-label">Solana</span><span class="fact-value">~0.4 seconds</span></div>
+              <div class="fact-item"><span class="fact-label">GLS</span><span class="fact-value">0.016 seconds</span></div>
             </div>
           </div>
         </div>
@@ -2353,6 +2400,10 @@
             <p>Native Layer 1 and Layer 2 support: Ethereum (ETH), Solana (SOL), Arbitrum (ARB), and Optimism (OP). Cross-chain settlement via Ledgera.</p>
             <h3>Fault Tolerance</h3>
             <p>Redundant systems, error correction, real-time monitoring, auto failover, and zero-downtime deployments. No scheduled maintenance windows.</p>
+
+            <details class="component-item" open><summary>Disaster Recovery</summary><div class="detail-content"><strong>Active-active architecture:</strong> No single data center is a single point of failure. If Equinix FR2 goes down, failover to the secondary site is automatic and seamless &mdash; no user-visible interruption.<br><strong>Data replication:</strong> Real-time synchronous replication of order book state, account balances, and position data across sites. Recovery Point Objective (RPO) = 0 (no data loss).<br><strong>Recovery Time Objective (RTO):</strong> Sub-second automatic failover. Trading continues without interruption.</div></details>
+            <details class="component-item"><summary>Geographic Redundancy</summary><div class="detail-content"><strong>Primary:</strong> Equinix FR2, Frankfurt &mdash; co-located with Eurex (Europe's largest derivatives exchange). 0.4ms ping. This is where latency-sensitive matching happens.<br><strong>Secondary:</strong> Geographically separated backup site for disaster recovery. Full replica of the production environment.<br><strong>Edge nodes:</strong> Global CDN and edge routing to minimize latency for users worldwide. API gateways distributed across regions.</div></details>
+            <details class="component-item"><summary>Zero-Downtime Deployments</summary><div class="detail-content">In traditional exchanges, system upgrades require "maintenance windows" &mdash; scheduled downtime where trading stops. Perpetuals uses blue-green deployment patterns: new code is deployed to a parallel environment, traffic is switched over seamlessly, and the old environment is kept warm as rollback insurance. For a trading platform, this is critical &mdash; markets never sleep, and any downtime means lost revenue and lost trader trust.</div></details>
           </div>
           <div class="product-aside" id="security">
             <h3>Security Architecture</h3>
@@ -2363,6 +2414,287 @@
               <div class="fact-item"><span class="fact-label">Audit</span><span class="fact-value">SOC 2 Type II</span></div>
               <div class="fact-item"><span class="fact-label">Monitoring</span><span class="fact-value">24/7 real-time</span></div>
               <div class="fact-item"><span class="fact-label">Deployments</span><span class="fact-value">Zero downtime</span></div>
+              <div class="fact-item"><span class="fact-label">DR failover</span><span class="fact-value">Sub-second automatic</span></div>
+              <div class="fact-item"><span class="fact-label">Data loss (RPO)</span><span class="fact-value">Zero</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TRADING CONCEPTS
+         ========================================== -->
+    <section class="section" id="trading-concepts" data-searchable>
+      <div class="container">
+        <span class="section-label reveal">Trading Knowledge</span>
+        <h2 class="section-title reveal">Trading Concepts Reference</h2>
+        <p class="section-subtitle reveal">Everything a designer needs to know about how trading works &mdash; order types, order books, and the matching engine.</p>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg)">Order Types</h3>
+        <p class="reveal" style="color:var(--color-text-muted);max-width:800px">Every trade starts with an order. Understanding order types is essential &mdash; each one maps to a distinct UI pattern, confirmation flow, and risk profile.</p>
+        <div class="product-grid reveal" style="grid-template-columns:1fr">
+          <div class="product-main" style="max-width:100%">
+            <details class="component-item" open><summary>Market Order</summary><div class="detail-content">Executes immediately at the best available price. The simplest order type &mdash; "buy/sell now." The user sees a single button (Buy or Sell), no price input needed. Risk: price can slip between the time the user taps and the fill. <strong>UX note:</strong> Show estimated price + slippage warning. This is the default for beginners.</div></details>
+            <details class="component-item"><summary>Limit Order</summary><div class="detail-content">Executes only at a specified price or better. The user sets their desired price &mdash; "buy at $50,000 or lower." The order sits in the order book until it's matched or cancelled. <strong>UX note:</strong> Requires a price input field. Show how far the limit price is from the current market price. Most used order type by active traders.</div></details>
+            <details class="component-item"><summary>Stop Order (Stop-Loss)</summary><div class="detail-content">Becomes a market order when a trigger price is hit. Used to limit losses &mdash; "if price drops to $48,000, sell immediately." Doesn't guarantee the exact price, just that the order activates. <strong>UX note:</strong> Requires a trigger price input. Often shown as a secondary action on the position card.</div></details>
+            <details class="component-item"><summary>Stop-Limit Order</summary><div class="detail-content">Becomes a limit order (not market) when a trigger price is hit. Two prices: stop price (trigger) + limit price (worst acceptable fill). More control than a stop order, but risk of not filling if the market moves too fast. <strong>UX note:</strong> Two price fields = more complex form. Best for advanced users.</div></details>
+            <details class="component-item"><summary>Take-Profit Order</summary><div class="detail-content">Opposite of stop-loss. Closes a position at a target profit level. "If BTC reaches $55,000, sell and lock in profit." <strong>UX note:</strong> Often paired with stop-loss in an order ticket. Show projected P&L at the take-profit level.</div></details>
+            <details class="component-item"><summary>Trailing Stop</summary><div class="detail-content">A stop order that follows the price as it moves in the trader's favor. Set a trailing distance (e.g., $500 or 2%). If BTC goes from $50K to $55K, the stop trails up from $49.5K to $54.5K. If price reverses by the trail amount, the stop triggers. <strong>UX note:</strong> Needs a trail amount input (fixed or percentage). Visual showing the trailing relationship is highly effective.</div></details>
+            <details class="component-item"><summary>OCO (One-Cancels-Other)</summary><div class="detail-content">Two orders linked together &mdash; when one fills, the other is automatically cancelled. Typically pairs a take-profit with a stop-loss. "If BTC hits $55K, take profit. If it drops to $48K, stop loss." <strong>UX note:</strong> Two-panel order form or a bracket visualization around the current price.</div></details>
+            <details class="component-item"><summary>Post-Only</summary><div class="detail-content">Guarantees the order will only be added to the order book as a maker order (not matched immediately). If it would match, it's rejected instead. Used by traders who want to earn maker fee rebates. <strong>UX note:</strong> Checkbox or toggle on the order form. Show fee savings.</div></details>
+            <details class="component-item"><summary>FOK (Fill or Kill)</summary><div class="detail-content">The entire order must fill immediately and completely, or it's cancelled entirely. No partial fills allowed. Used for large institutional orders where partial execution creates risk. <strong>UX note:</strong> Dropdown under "Time in Force" on advanced order forms.</div></details>
+            <details class="component-item"><summary>IOC (Immediate or Cancel)</summary><div class="detail-content">Fill whatever you can immediately, cancel the rest. Unlike FOK, partial fills are OK. Used when speed matters more than complete fills. <strong>UX note:</strong> Another "Time in Force" option. Show estimated fill percentage.</div></details>
+            <details class="component-item"><summary>GTC (Good Till Cancelled)</summary><div class="detail-content">Order stays active until it's filled or manually cancelled. The default for limit orders. Can remain in the book for days, weeks, or months. <strong>UX note:</strong> Default behavior &mdash; may not need explicit UI. Show in order management as "active."</div></details>
+          </div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg)">Order Book Mechanics</h3>
+        <p class="reveal" style="color:var(--color-text-muted);max-width:800px">The order book is the core data structure of any exchange. It's where all unmatched limit orders live.</p>
+        <div class="product-grid reveal">
+          <div class="product-main">
+            <details class="component-item" open><summary>Bid &amp; Ask</summary><div class="detail-content"><strong>Bid</strong> = the highest price buyers are willing to pay. <strong>Ask</strong> = the lowest price sellers are willing to accept. The bid is always lower than the ask. These two prices are the most important numbers on any trading screen.</div></details>
+            <details class="component-item"><summary>Spread</summary><div class="detail-content">The difference between the best bid and best ask. A tight spread (e.g., $0.01) means high liquidity. A wide spread (e.g., $50) means low liquidity or a volatile market. <strong>UX note:</strong> Display spread prominently near the current price. Color-code: green for tight, yellow/red for wide.</div></details>
+            <details class="component-item"><summary>Depth of Market (DOM)</summary><div class="detail-content">The full list of all bid and ask orders at every price level. Shows how much volume exists at each price. "Depth" = how much the price would move if you placed a large order. Visualized as a depth chart (mountain chart) or as the Level 2 order book table.</div></details>
+            <details class="component-item"><summary>Level 2 Data</summary><div class="detail-content">The detailed order book showing individual price levels and their sizes. Level 1 = just best bid/ask. Level 2 = full depth. Professional traders rely on Level 2 to read market sentiment and detect large orders ("walls").</div></details>
+            <details class="component-item"><summary>Maker vs. Taker</summary><div class="detail-content"><strong>Maker</strong> = adds liquidity by placing a limit order that goes into the book. <strong>Taker</strong> = removes liquidity by placing an order that matches immediately. Makers typically pay lower fees (sometimes earn rebates). Takers pay higher fees. This is fundamental to exchange fee models.</div></details>
+          </div>
+          <div class="product-aside">
+            <h3>The Matching Engine</h3>
+            <div class="importance-card">
+              <p>From a user's perspective, the matching engine is invisible &mdash; but understanding it helps design better feedback states:</p>
+              <p><strong>1.</strong> User submits an order (market, limit, etc.)</p>
+              <p><strong>2.</strong> Kronos X engine receives it in microseconds</p>
+              <p><strong>3.</strong> Engine checks: does this order match any resting order in the book?</p>
+              <p><strong>4.</strong> If yes → instant fill (or partial fill). If no → order joins the book.</p>
+              <p><strong>5.</strong> Priority: <em>Price-Time</em>. Best price wins. At same price, first order wins.</p>
+              <p><strong>6.</strong> Fill confirmation sent back to the user.</p>
+              <p style="margin-top:12px;color:var(--color-accent)">Kronos X processes this in &lt;50 microseconds. The bottleneck is never the engine &mdash; it's the network latency to the user.</p>
+            </div>
+            <h3>Key Metric</h3>
+            <div class="fact-list">
+              <div class="fact-item"><span class="fact-label">Throughput</span><span class="fact-value">1M+ orders/sec</span></div>
+              <div class="fact-item"><span class="fact-label">Latency</span><span class="fact-value">&lt;50 microseconds</span></div>
+              <div class="fact-item"><span class="fact-label">Priority</span><span class="fact-value">Price-Time (FIFO)</span></div>
+              <div class="fact-item"><span class="fact-label">Book type</span><span class="fact-value">Central Limit Order Book</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         POSITION & MARGIN
+         ========================================== -->
+    <section class="section" id="positions-margin" data-searchable style="background:var(--color-surface)">
+      <div class="container">
+        <span class="section-label reveal">Trading Knowledge</span>
+        <h2 class="section-title reveal">Positions &amp; Margin</h2>
+        <p class="section-subtitle reveal">How leveraged trading works &mdash; and why Barrier Futures change everything.</p>
+
+        <div class="product-grid reveal">
+          <div class="product-main">
+            <h3>Long vs. Short Positions</h3>
+            <p><strong>Long</strong> = you profit when the price goes up. You're "buying" the asset. <strong>Short</strong> = you profit when the price goes down. You're "selling" an asset you don't own (borrowing it). Every derivatives exchange needs both sides. In the UI, this is the fundamental Buy/Sell (or Long/Short) toggle.</p>
+
+            <h3 style="margin-top:var(--space-md)">Leverage Explained</h3>
+            <p>Leverage lets traders control a larger position with less capital. With 10x leverage, $1,000 controls a $10,000 position. Gains and losses are both multiplied.</p>
+            <div class="fact-list" style="margin-top:12px">
+              <div class="fact-item"><span class="fact-label">2x</span><span class="fact-value">Conservative &mdash; $1K controls $2K. Common in spot margin.</span></div>
+              <div class="fact-item"><span class="fact-label">5x</span><span class="fact-value">Moderate &mdash; $1K controls $5K. Popular with swing traders.</span></div>
+              <div class="fact-item"><span class="fact-label">10x</span><span class="fact-value">Standard perp default. A 10% move = 100% gain or total loss.</span></div>
+              <div class="fact-item"><span class="fact-label">50x</span><span class="fact-value">Aggressive &mdash; a 2% adverse move liquidates the position.</span></div>
+              <div class="fact-item"><span class="fact-label">100x</span><span class="fact-value">Maximum on most exchanges. 1% move = total loss. Extremely risky.</span></div>
+            </div>
+
+            <h3 style="margin-top:var(--space-md)">Margin Types</h3>
+            <details class="component-item" open><summary>Initial Margin</summary><div class="detail-content">The collateral required to open a position. At 10x leverage, initial margin = 10% of position size. A $10,000 position requires $1,000 initial margin.</div></details>
+            <details class="component-item"><summary>Maintenance Margin</summary><div class="detail-content">The minimum collateral to keep a position open. Usually lower than initial margin (e.g., 5%). If your collateral drops below this, you get a margin call or are liquidated.</div></details>
+            <details class="component-item"><summary>Margin Call</summary><div class="detail-content">A warning that your collateral is approaching the maintenance margin. You must add more collateral or reduce the position. If you don't act, the exchange liquidates you. <strong>UX note:</strong> This is a critical alert state. Red banners, push notifications, urgent tone.</div></details>
+            <details class="component-item"><summary>Isolated Margin</summary><div class="detail-content">Each position has its own separate collateral. If one position is liquidated, your other positions and wallet balance are unaffected. Safer for managing individual trade risk. <strong>UX note:</strong> Per-position margin display. Popular with cautious traders.</div></details>
+            <details class="component-item"><summary>Cross Margin</summary><div class="detail-content">All positions share your entire account balance as collateral. Lower liquidation risk for individual positions (more cushion), but if one position goes bad, it can drain your entire account. <strong>UX note:</strong> Show total account health, not per-position.</div></details>
+          </div>
+          <div class="product-aside">
+            <h3>P&amp;L (Profit &amp; Loss)</h3>
+            <div class="importance-card">
+              <p><strong>Unrealized P&amp;L:</strong> The profit or loss on an open position, calculated against the current mark price. Changes in real time. Also called "floating" P&amp;L. Displayed on every position card.</p>
+              <p style="margin-top:8px"><strong>Realized P&amp;L:</strong> The actual profit or loss from closed positions. Locked in when you close. This is your "real" performance. Shown in trade history and portfolio summary.</p>
+            </div>
+            <h3>Price Types</h3>
+            <div class="fact-list">
+              <div class="fact-item"><span class="fact-label">Last Price</span><span class="fact-value">Price of the most recent trade executed</span></div>
+              <div class="fact-item"><span class="fact-label">Mark Price</span><span class="fact-value">Fair price calculated from multiple sources. Used for liquidations to prevent manipulation.</span></div>
+              <div class="fact-item"><span class="fact-label">Index Price</span><span class="fact-value">Weighted average across multiple exchanges. The "true" spot price reference.</span></div>
+            </div>
+            <h3 style="margin-top:var(--space-md)">How Barrier Futures Change This</h3>
+            <div class="importance-card" style="border-color:rgba(51,193,94,0.3)">
+              <p style="color:var(--color-accent-secondary)"><strong>Barrier Futures eliminate the entire margin system.</strong></p>
+              <p>No initial margin. No maintenance margin. No margin calls. No liquidation cascades. No funding rates.</p>
+              <p style="margin-top:8px">Instead: you set a <strong>barrier price</strong> (your maximum loss level). The position auto-closes cleanly at that price. Your risk is known and fixed from the moment you enter.</p>
+              <p style="margin-top:8px">This is the core innovation &mdash; it removes the most dangerous and confusing aspects of leveraged trading and replaces them with a single, intuitive concept: "How much are you willing to lose?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CHART & MARKET DATA ANATOMY
+         ========================================== -->
+    <section class="section" id="chart-anatomy" data-searchable>
+      <div class="container">
+        <span class="section-label reveal">Trading Knowledge</span>
+        <h2 class="section-title reveal">Chart &amp; Market Data Anatomy</h2>
+        <p class="section-subtitle reveal">The visual language of trading &mdash; candlesticks, indicators, and how to read market data screens.</p>
+
+        <div class="product-grid reveal">
+          <div class="product-main">
+            <h3>Candlestick Structure: OHLCV</h3>
+            <p>Every candlestick on a trading chart represents a time period and contains five data points:</p>
+            <div class="fact-list" style="margin-top:12px">
+              <div class="fact-item"><span class="fact-label">Open (O)</span><span class="fact-value">Price at the start of the period</span></div>
+              <div class="fact-item"><span class="fact-label">High (H)</span><span class="fact-value">Highest price during the period</span></div>
+              <div class="fact-item"><span class="fact-label">Low (L)</span><span class="fact-value">Lowest price during the period</span></div>
+              <div class="fact-item"><span class="fact-label">Close (C)</span><span class="fact-value">Price at the end of the period</span></div>
+              <div class="fact-item"><span class="fact-label">Volume (V)</span><span class="fact-value">Total amount traded during the period</span></div>
+            </div>
+            <p style="margin-top:12px"><strong>Green/bullish candle:</strong> Close &gt; Open (price went up). <strong>Red/bearish candle:</strong> Close &lt; Open (price went down). The body = Open to Close range. The wicks = High and Low beyond the body.</p>
+
+            <h3 style="margin-top:var(--space-md)">Time Frames</h3>
+            <p>Charts can show candles at different intervals. Each candle = one period:</p>
+            <div class="fact-list" style="margin-top:12px">
+              <div class="fact-item"><span class="fact-label">1m, 5m, 15m</span><span class="fact-value">Scalping / day trading. Very short-term.</span></div>
+              <div class="fact-item"><span class="fact-label">1H, 4H</span><span class="fact-value">Intraday analysis. Popular with active traders.</span></div>
+              <div class="fact-item"><span class="fact-label">1D (Daily)</span><span class="fact-value">Swing trading. Most common for technical analysis.</span></div>
+              <div class="fact-item"><span class="fact-label">1W (Weekly)</span><span class="fact-value">Long-term trends. Institutional perspective.</span></div>
+            </div>
+            <p style="margin-top:12px"><strong>UX note:</strong> Time frame selector is one of the most-tapped controls. It should be always visible, not hidden in a menu.</p>
+
+            <h3 style="margin-top:var(--space-md)">Common Indicators</h3>
+            <details class="component-item"><summary>Moving Averages (MA / EMA)</summary><div class="detail-content">A smoothed line showing average price over N periods. Simple MA (SMA) = equal weight. Exponential MA (EMA) = more weight on recent prices. Common periods: 20, 50, 200. When price crosses above the 200 MA = bullish signal. Overlaid directly on the price chart.</div></details>
+            <details class="component-item"><summary>RSI (Relative Strength Index)</summary><div class="detail-content">Momentum oscillator from 0-100. Above 70 = overbought (might drop). Below 30 = oversold (might rise). Shown as a separate panel below the main chart. Default period: 14.</div></details>
+            <details class="component-item"><summary>Bollinger Bands</summary><div class="detail-content">Three lines: middle = 20-period SMA. Upper/lower bands = 2 standard deviations above/below. Price near upper band = potentially overbought. Price squeezing between bands = volatility about to increase. Overlaid on the price chart.</div></details>
+            <details class="component-item"><summary>VWAP (Volume Weighted Average Price)</summary><div class="detail-content">Average price weighted by volume. Institutional benchmark &mdash; "did I get a good price?" If you bought below VWAP, you got a better-than-average deal. Resets daily. Overlaid on intraday charts.</div></details>
+          </div>
+          <div class="product-aside">
+            <h3>Depth Chart</h3>
+            <div class="importance-card">
+              <p>The depth chart is a mountain-shaped visualization of the order book. Left side (green) = cumulative buy orders. Right side (red) = cumulative sell orders. The meeting point = current price.</p>
+              <p style="margin-top:8px">Steep walls = strong support/resistance. Thin areas = price could move quickly through them. Institutional traders watch for "whale walls" &mdash; large orders that act as price barriers.</p>
+              <p style="margin-top:8px"><strong>UX note:</strong> Often displayed as a tab alongside the order book table. Interactive: hover to see price/volume at any level.</p>
+            </div>
+            <h3>Trade Feed / Ticker</h3>
+            <div class="importance-card">
+              <p>A real-time stream of every trade as it happens. Each entry shows:</p>
+              <p>&bull; Price &bull; Size &bull; Time &bull; Side (buy/sell)</p>
+              <p style="margin-top:8px">Green rows = trades at the ask (buyer initiated). Red rows = trades at the bid (seller initiated). Fast-scrolling feed = high activity. Used by scalpers to read "tape" (flow of orders).</p>
+              <p style="margin-top:8px"><strong>UX note:</strong> Auto-scrolling list. Recent trades at top. Color-coded. Optional: aggregate by time or show individual fills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TRADE LIFECYCLE
+         ========================================== -->
+    <section class="section" id="trade-lifecycle" data-searchable style="background:var(--color-surface)">
+      <div class="container">
+        <span class="section-label reveal">Trading Knowledge</span>
+        <h2 class="section-title reveal">Trade Lifecycle</h2>
+        <p class="section-subtitle reveal">From order entry to settlement &mdash; every step of a trade mapped to Perpetuals infrastructure and the screens a designer builds.</p>
+
+        <div class="product-grid reveal" style="grid-template-columns:1fr">
+          <div class="product-main" style="max-width:100%">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--space-md)">
+              <div class="importance-card" style="position:relative">
+                <span style="position:absolute;top:-12px;left:16px;background:var(--color-accent);color:#000;font-weight:700;font-size:0.75rem;padding:2px 10px;border-radius:4px">STEP 1</span>
+                <h4 style="color:var(--color-accent);margin-top:8px">Pre-Trade</h4>
+                <p><strong>Order Entry:</strong> User selects asset, order type, size, leverage/barrier level. The order form is the most critical screen in any trading app.</p>
+                <p><strong>Risk Checks:</strong> BayesShield AI scores the trade in real-time. Position limits checked. Margin requirements calculated (or barrier price validated).</p>
+                <p style="margin-top:8px;color:var(--color-text-dim);font-size:0.85rem"><em>Screens: Order ticket, risk summary, order confirmation modal</em></p>
+              </div>
+              <div class="importance-card" style="position:relative">
+                <span style="position:absolute;top:-12px;left:16px;background:var(--color-accent);color:#000;font-weight:700;font-size:0.75rem;padding:2px 10px;border-radius:4px">STEP 2</span>
+                <h4 style="color:var(--color-accent);margin-top:8px">Matching</h4>
+                <p><strong>Kronos X Engine:</strong> Order enters the matching engine. Price-time priority &mdash; best price first, earliest time wins ties.</p>
+                <p><strong>Order Book Interaction:</strong> Market orders match immediately against resting limit orders. Limit orders either match or join the book.</p>
+                <p style="margin-top:8px;color:var(--color-text-dim);font-size:0.85rem"><em>Screens: Order book (real-time), trade feed showing new matches</em></p>
+              </div>
+              <div class="importance-card" style="position:relative">
+                <span style="position:absolute;top:-12px;left:16px;background:var(--color-accent);color:#000;font-weight:700;font-size:0.75rem;padding:2px 10px;border-radius:4px">STEP 3</span>
+                <h4 style="color:var(--color-accent);margin-top:8px">Execution</h4>
+                <p><strong>Fill Confirmation:</strong> Trade executes. User receives confirmation with fill price, quantity, fees, and timestamp.</p>
+                <p><strong>Partial Fills:</strong> Large orders may fill across multiple price levels. The UI must show partial fill progress and weighted average fill price.</p>
+                <p style="margin-top:8px;color:var(--color-text-dim);font-size:0.85rem"><em>Screens: Fill notification toast, order status update, blotter entry</em></p>
+              </div>
+              <div class="importance-card" style="position:relative">
+                <span style="position:absolute;top:-12px;left:16px;background:var(--color-accent);color:#000;font-weight:700;font-size:0.75rem;padding:2px 10px;border-radius:4px">STEP 4</span>
+                <h4 style="color:var(--color-accent);margin-top:8px">Clearing &amp; Settlement</h4>
+                <p><strong>Ledgera Settlement:</strong> T+0 instant settlement. Assets and obligations are settled on-chain immediately after matching.</p>
+                <p><strong>Self-Clearing via GLS:</strong> No third-party CCP. The Grid Ledger System processes settlement in 0.016 seconds. This is invisible to the user but enables the "instant" experience.</p>
+                <p style="margin-top:8px;color:var(--color-text-dim);font-size:0.85rem"><em>Screens: Settlement confirmation (often merged with fill confirmation)</em></p>
+              </div>
+              <div class="importance-card" style="position:relative">
+                <span style="position:absolute;top:-12px;left:16px;background:var(--color-accent);color:#000;font-weight:700;font-size:0.75rem;padding:2px 10px;border-radius:4px">STEP 5</span>
+                <h4 style="color:var(--color-accent);margin-top:8px">Post-Trade</h4>
+                <p><strong>Position Management:</strong> Open position appears in the portfolio. P&amp;L updates in real time. Stop-loss / take-profit orders can be attached.</p>
+                <p><strong>Monitoring:</strong> BayesShield continues to score risk. Barrier proximity alerts for Barrier Futures. Portfolio-level risk metrics updated.</p>
+                <p style="margin-top:8px;color:var(--color-text-dim);font-size:0.85rem"><em>Screens: Position list, P&amp;L dashboard, order history, trade report</em></p>
+              </div>
+              <div class="importance-card" style="position:relative">
+                <span style="position:absolute;top:-12px;left:16px;background:var(--color-accent);color:#000;font-weight:700;font-size:0.75rem;padding:2px 10px;border-radius:4px">STEP 6</span>
+                <h4 style="color:var(--color-accent);margin-top:8px">Close / Expiry</h4>
+                <p><strong>Manual Close:</strong> User closes position via the position card. Realized P&amp;L calculated and credited.</p>
+                <p><strong>Barrier Trigger:</strong> For Barrier Futures, position auto-closes at barrier price. Clean exit, no cascading effects.</p>
+                <p><strong>Reporting:</strong> Trade added to history. Tax lot tracking. Performance analytics updated.</p>
+                <p style="margin-top:8px;color:var(--color-text-dim);font-size:0.85rem"><em>Screens: Close confirmation, trade history, performance report</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FEE STRUCTURE
+         ========================================== -->
+    <section class="section" id="fee-structure" data-searchable>
+      <div class="container">
+        <span class="section-label reveal">Trading Knowledge</span>
+        <h2 class="section-title reveal">Fee Structure</h2>
+        <p class="section-subtitle reveal">How exchange fees work and how they surface in the trading UX.</p>
+
+        <div class="product-grid reveal">
+          <div class="product-main">
+            <h3>Maker / Taker Model</h3>
+            <p>Most exchanges charge different fees based on whether you add or remove liquidity:</p>
+            <div class="fact-list" style="margin-top:12px">
+              <div class="fact-item"><span class="fact-label">Maker fee</span><span class="fact-value">0.01% &ndash; 0.05% (or even negative = rebate)</span></div>
+              <div class="fact-item"><span class="fact-label">Taker fee</span><span class="fact-value">0.03% &ndash; 0.10%</span></div>
+              <div class="fact-item"><span class="fact-label">Why different?</span><span class="fact-value">Makers improve liquidity, takers consume it</span></div>
+            </div>
+
+            <h3 style="margin-top:var(--space-md)">Volume-Based Fee Tiers</h3>
+            <p>Exchanges typically offer lower fees for higher trading volume. Tiers are based on 30-day rolling volume:</p>
+            <div class="fact-list" style="margin-top:12px">
+              <div class="fact-item"><span class="fact-label">Tier 1</span><span class="fact-value">&lt;$1M/month &mdash; highest fees (standard retail)</span></div>
+              <div class="fact-item"><span class="fact-label">Tier 2-5</span><span class="fact-value">$1M&ndash;$50M/month &mdash; progressive discounts</span></div>
+              <div class="fact-item"><span class="fact-label">VIP / MM</span><span class="fact-value">&gt;$50M/month &mdash; custom rates, possible rebates</span></div>
+            </div>
+
+            <h3 style="margin-top:var(--space-md)">Other Fees</h3>
+            <details class="component-item"><summary>Funding Rates (Perpetual Futures)</summary><div class="detail-content">Periodic payments between longs and shorts to keep the contract anchored to spot price. Paid every 8 hours on most exchanges. Barrier Futures eliminate this entirely.</div></details>
+            <details class="component-item"><summary>Withdrawal Fees</summary><div class="detail-content">Fixed fee per withdrawal, varies by network. On-chain gas fees are passed through. PerpetualPay handles fiat withdrawals with their own fee schedule.</div></details>
+            <details class="component-item"><summary>Settlement / Clearing Fees</summary><div class="detail-content">Most exchanges pass through CCP clearing fees. Perpetuals' self-clearing eliminates third-party clearing costs entirely.</div></details>
+          </div>
+          <div class="product-aside">
+            <h3>UX Implications</h3>
+            <div class="importance-card">
+              <p><strong>Order entry:</strong> Show estimated fees before confirmation. "Est. fee: $0.50 (0.05%)" next to the total.</p>
+              <p style="margin-top:8px"><strong>Fee tier display:</strong> Show current tier, volume to next tier, and potential savings. Gamification opportunity.</p>
+              <p style="margin-top:8px"><strong>Post-only indicator:</strong> When a user selects Post-Only, show the maker fee they'll pay (or rebate they'll earn).</p>
+              <p style="margin-top:8px"><strong>Trade confirmation:</strong> Break down: execution price, fee, net cost. Never surprise the user with hidden fees.</p>
             </div>
           </div>
         </div>
@@ -2382,22 +2714,29 @@
             <div class="brand-name">Perpetuals</div>
             <div class="brand-type">Institutional Trading Platform</div>
             <div class="brand-desc">Full-stack exchange for institutional digital asset markets. Matching engine to settlement, custody to compliance. The primary platform targeting professional and institutional traders.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Brand Deep Dive</summary><div class="detail-content"><strong>Target user:</strong> Professional traders, hedge funds, prop trading firms, institutional asset managers.<br><strong>Tone:</strong> Authoritative, precise, technical. Bloomberg Terminal energy &mdash; information density over visual flair.<br><strong>Design language:</strong> Dark UI, data-heavy dashboards, keyboard shortcuts, multi-panel layouts. Desktop-first (traders use multiple monitors). Space Grotesk for headings, JetBrains Mono for data.<br><strong>Relationship:</strong> The flagship brand. All other brands run on Perpetuals infrastructure. This is the "parent" platform.<br><strong>Platform:</strong> Desktop web (primary), desktop app, mobile companion (monitoring only, not primary trading).</div></details>
           </div>
           <div class="brand-card">
             <div class="brand-name">Barriers</div>
             <div class="brand-type">Structured Products Terminal</div>
             <div class="brand-desc">Create and trade barrier options and structured products. Enterprise-level risk management with real-time pricing. Features knock-in, knock-out, and strike level controls via the "Barriers Terminal."</div>
+            <details class="component-item" style="margin-top:12px"><summary>Brand Deep Dive</summary><div class="detail-content"><strong>Target user:</strong> Quant desks, structured product specialists, risk managers, sophisticated retail traders.<br><strong>Tone:</strong> Specialist, sophisticated, clean. Think Bloomberg but for barrier products specifically.<br><strong>Design language:</strong> Barrier visualization is key &mdash; price charts with barrier levels overlaid. Risk/reward diagrams. Scenario analysis tools. Clean, precise, mathematical.<br><strong>Relationship:</strong> Powered by Kronos X matching engine + Barrier Futures product. A focused vertical product carved out from the main platform.<br><strong>Platform:</strong> Desktop web primary. Mobile for monitoring barrier proximity and alerts.</div></details>
           </div>
           <div class="brand-card">
             <div class="brand-name">Ledgera</div>
             <div class="brand-type">Digital Asset Settlement</div>
             <div class="brand-desc">Secure, compliant settlement infrastructure for tokenized securities. Multi-chain support. The "Ledgera Console" provides institutional-grade settlement services as a standalone product.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Brand Deep Dive</summary><div class="detail-content"><strong>Target user:</strong> Banks, brokers, fintech companies, custodians, tokenization platforms. B2B &mdash; not end consumers.<br><strong>Tone:</strong> Enterprise, trustworthy, compliance-focused. More AWS than Coinbase.<br><strong>Design language:</strong> Console/dashboard aesthetic. Status monitors, transaction logs, API documentation. Clean and functional rather than flashy.<br><strong>Relationship:</strong> Built on GLS blockchain. Uses the same settlement technology as Perpetuals but exposed as an API-first product for external clients.<br><strong>Platform:</strong> Web console (primary), API-first (most clients integrate programmatically).</div></details>
           </div>
           <div class="brand-card">
             <div class="brand-name">Upside Only</div>
             <div class="brand-type">Retail Trading App</div>
             <div class="brand-desc">Consumer-friendly access to professional-depth markets. Simple interface, mobile-first design. The entry point for retail users who want institutional-grade tools without the complexity.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Brand Deep Dive</summary><div class="detail-content"><strong>Target user:</strong> First-time crypto traders, retail investors, Robinhood/Coinbase migrants looking for derivatives exposure.<br><strong>Tone:</strong> Friendly, approachable, educational. "Your first trade doesn't have to be scary." Confident without being intimidating.<br><strong>Design language:</strong> Mobile-first, card-based UI, progressive complexity (simple mode → advanced mode). Bold colors, rounded corners, micro-animations. The opposite of information-dense terminal UIs.<br><strong>Relationship:</strong> Simplified frontend to the same Kronos X engine. Uses Barrier Futures as the default derivative &mdash; no margin/liquidation complexity for beginners.<br><strong>Platform:</strong> Mobile app (primary), responsive web. This is where the APPXISH designs likely apply most directly.</div></details>
           </div>
+        </div>
+        <div class="importance-card reveal" style="margin-top:var(--space-md)">
+          <p><strong>Shared Infrastructure:</strong> All four brands share: Kronos X (matching), BayesShield (risk), Ledgera (settlement), GLS (blockchain), Vault (custody), PerpetualPay (fiat). Different UIs, same engine. One design system, four brand expressions. A designer's work on components and patterns can flow across all brands.</p>
         </div>
       </div>
     </section>
@@ -2679,6 +3018,9 @@
       <div class="container">
         <span class="section-label reveal">Reference</span>
         <h2 class="section-title reveal">Glossary</h2>
+        <p class="section-subtitle reveal">80+ terms organized by category &mdash; from regulatory frameworks to trading mechanics to crypto-native concepts.</p>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Regulatory &amp; Compliance</h3>
         <div class="glossary-grid reveal">
           <div class="glossary-item"><div class="glossary-term">MTF</div><div class="glossary-def">Multilateral Trading Facility. A regulated trading venue under MiFID II. Same classification as traditional stock exchanges.</div></div>
           <div class="glossary-item"><div class="glossary-term">MiFID II</div><div class="glossary-def">Markets in Financial Instruments Directive II. EU regulation governing investment services. Enables cross-border passporting.</div></div>
@@ -2686,18 +3028,127 @@
           <div class="glossary-item"><div class="glossary-term">DORA</div><div class="glossary-def">Digital Operational Resilience Act. EU regulation requiring ICT risk management and resilience testing for financial entities.</div></div>
           <div class="glossary-item"><div class="glossary-term">EMIR</div><div class="glossary-def">European Market Infrastructure Regulation. Rules for OTC derivatives, central counterparties, and trade repositories.</div></div>
           <div class="glossary-item"><div class="glossary-term">CySEC</div><div class="glossary-def">Cyprus Securities and Exchange Commission. The regulatory authority that issued Perpetuals' MTF license.</div></div>
-          <div class="glossary-item"><div class="glossary-term">T+0 / T+1</div><div class="glossary-def">Settlement timing. T+0 = instant settlement. T+1 = settlement one day after trade. EU mandates T+1 by Oct 2027.</div></div>
-          <div class="glossary-item"><div class="glossary-term">GLS</div><div class="glossary-def">Grid Ledger System. Kobayashi's proprietary hybrid blockchain with 0.016s transaction speed.</div></div>
-          <div class="glossary-item"><div class="glossary-term">HSM</div><div class="glossary-def">Hardware Security Module. Physical device for managing cryptographic keys. Used in Perpetuals Vault.</div></div>
+          <div class="glossary-item"><div class="glossary-term">ESMA</div><div class="glossary-def">European Securities and Markets Authority. EU-level regulatory body. Issues guidance on CFD restrictions and investor protection.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Passporting</div><div class="glossary-def">Using a license from one EU/EEA country to operate across all 30 member states without additional licenses.</div></div>
           <div class="glossary-item"><div class="glossary-term">KYC/AML</div><div class="glossary-def">Know Your Customer / Anti-Money Laundering. Identity verification and transaction monitoring requirements.</div></div>
+          <div class="glossary-item"><div class="glossary-term">GDPR</div><div class="glossary-def">General Data Protection Regulation. EU data privacy law governing how personal data is collected, stored, and processed.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Trading Mechanics</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">Market Order</div><div class="glossary-def">An order to buy or sell immediately at the best available price. Fastest execution, but price is not guaranteed.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Limit Order</div><div class="glossary-def">An order to buy or sell at a specified price or better. Sits in the order book until matched. Price guaranteed, execution is not.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Stop Order</div><div class="glossary-def">An order that becomes a market order when a trigger price is reached. Used for stop-losses. Also called a "stop-loss order."</div></div>
+          <div class="glossary-item"><div class="glossary-term">Stop-Limit</div><div class="glossary-def">An order that becomes a limit order (not market) when the trigger price is hit. Two prices: stop price + limit price. More control, risk of no fill.</div></div>
+          <div class="glossary-item"><div class="glossary-term">OCO</div><div class="glossary-def">One-Cancels-Other. Two linked orders where executing one automatically cancels the other. Common: stop-loss + take-profit pair.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Post-Only</div><div class="glossary-def">Order that only adds liquidity. If it would match immediately, it's rejected. Ensures maker fee (lower) instead of taker fee.</div></div>
+          <div class="glossary-item"><div class="glossary-term">FOK</div><div class="glossary-def">Fill or Kill. Entire order must execute immediately and completely, or it's cancelled. No partial fills allowed.</div></div>
+          <div class="glossary-item"><div class="glossary-term">IOC</div><div class="glossary-def">Immediate or Cancel. Fill what you can immediately, cancel the rest. Partial fills are acceptable.</div></div>
+          <div class="glossary-item"><div class="glossary-term">GTC</div><div class="glossary-def">Good Till Cancelled. Order remains active until filled or manually cancelled. The default for most limit orders.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Bid</div><div class="glossary-def">The highest price a buyer is willing to pay. The "buy" side of the order book.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Ask</div><div class="glossary-def">The lowest price a seller is willing to accept. The "sell" side of the order book. Also called the "offer."</div></div>
+          <div class="glossary-item"><div class="glossary-term">Spread</div><div class="glossary-def">The difference between the best bid and best ask. Tight spread = high liquidity. Wide spread = low liquidity or high volatility.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Maker</div><div class="glossary-def">A trader who adds liquidity by placing a limit order that rests in the book. Makers typically pay lower fees.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Taker</div><div class="glossary-def">A trader who removes liquidity by placing an order that matches immediately. Takers pay higher fees.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Slippage</div><div class="glossary-def">The difference between the expected price and the actual fill price. Occurs with market orders in fast-moving or illiquid markets.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Price Impact</div><div class="glossary-def">How much a single order moves the market price. Large orders in thin order books have high price impact.</div></div>
+          <div class="glossary-item"><div class="glossary-term">CLOB</div><div class="glossary-def">Central Limit Order Book. The standard order matching model used by exchanges. Orders sorted by price then time. Kronos X uses a CLOB.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Positions &amp; Margin</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">Long</div><div class="glossary-def">A position that profits when the price increases. "Going long" = buying with the expectation of selling higher.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Short</div><div class="glossary-def">A position that profits when the price decreases. "Going short" = selling borrowed assets to buy back cheaper later.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Leverage</div><div class="glossary-def">Borrowing to amplify position size. 10x leverage means $1K controls $10K. Multiplies both gains and losses.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Initial Margin</div><div class="glossary-def">The collateral required to open a leveraged position. At 10x leverage, initial margin = 10% of position value.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Maintenance Margin</div><div class="glossary-def">Minimum collateral to keep a position open. Drop below this = margin call or liquidation.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Margin Call</div><div class="glossary-def">Warning that collateral is near the maintenance margin. Add more funds or reduce position to avoid liquidation.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Isolated Margin</div><div class="glossary-def">Each position has its own separate collateral. Liquidation of one position doesn't affect others. Safer per-trade.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Cross Margin</div><div class="glossary-def">All positions share the full account balance as collateral. Less likely to be liquidated, but one bad trade can drain everything.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Unrealized P&amp;L</div><div class="glossary-def">Profit or loss on open positions, calculated against mark price. Changes in real time. Also called "floating P&amp;L."</div></div>
+          <div class="glossary-item"><div class="glossary-term">Realized P&amp;L</div><div class="glossary-def">Actual profit or loss from closed positions. Locked in when the position is closed.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Mark Price</div><div class="glossary-def">Fair price calculated from multiple sources. Used for P&amp;L calculations and liquidation triggers to prevent manipulation.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Index Price</div><div class="glossary-def">Weighted average price across multiple exchanges. Reference "true" spot price. Used to calculate mark price.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Liquidation</div><div class="glossary-def">Forced closure of a leveraged position when margin is insufficient. Cascading liquidations are the $150B problem Barrier Futures solve.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Derivatives</h3>
+        <div class="glossary-grid reveal">
           <div class="glossary-item"><div class="glossary-term">Perpetual Futures</div><div class="glossary-def">Derivative contracts with no expiry date. Traders can hold positions indefinitely, paying periodic funding rates.</div></div>
           <div class="glossary-item"><div class="glossary-term">Barrier Futures</div><div class="glossary-def">Perpetuals' novel derivative. Position auto-closes at a pre-set barrier price. No margin calls, no funding fees, no cascading liquidations.</div></div>
           <div class="glossary-item"><div class="glossary-term">Funding Rate</div><div class="glossary-def">Periodic payment between long and short positions in perpetual futures. Keeps the contract price anchored to spot. Barrier Futures eliminate this.</div></div>
-          <div class="glossary-item"><div class="glossary-term">Liquidation</div><div class="glossary-def">Forced closure of a leveraged position when margin is insufficient. Cascading liquidations are the $150B problem Barrier Futures solve.</div></div>
           <div class="glossary-item"><div class="glossary-term">Open Interest</div><div class="glossary-def">Total value of outstanding derivative contracts. Peak crypto OI reached $235.9B in October 2025.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Delta</div><div class="glossary-def">Rate of change of an option's price relative to the underlying asset's price. Delta of 0.5 = option moves $0.50 per $1 move in the asset.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Gamma</div><div class="glossary-def">Rate of change of delta. Measures how fast delta changes as the underlying moves. High gamma = delta is unstable.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Theta</div><div class="glossary-def">Time decay. How much an option's value decreases per day as expiry approaches. All options lose value over time.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Vega</div><div class="glossary-def">Sensitivity to volatility. How much an option's price changes per 1% change in implied volatility.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Strike Price</div><div class="glossary-def">The price at which an option can be exercised. For Barrier Futures, analogous to the barrier level.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Expiry</div><div class="glossary-def">The date a derivative contract expires. Perpetual futures have no expiry. Standard futures/options have fixed expiry dates.</div></div>
+          <div class="glossary-item"><div class="glossary-term">ITM / OTM</div><div class="glossary-def">In-The-Money / Out-of-The-Money. ITM = option would be profitable if exercised now. OTM = it would not be.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Notional Value</div><div class="glossary-def">The total value of a leveraged position. With 10x leverage on $1K, notional value = $10K.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Contract Size</div><div class="glossary-def">The amount of underlying asset one contract represents. E.g., 1 BTC futures contract = 1 BTC.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Tick Size</div><div class="glossary-def">Minimum price increment for an instrument. BTC/USD might have a tick size of $0.10.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Basis</div><div class="glossary-def">The difference between futures price and spot price. Positive basis = futures trading above spot (contango).</div></div>
+          <div class="glossary-item"><div class="glossary-term">Contango</div><div class="glossary-def">When futures price &gt; spot price. Normal in most markets. Means futures traders pay a premium for future delivery.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Backwardation</div><div class="glossary-def">When futures price &lt; spot price. Unusual. Can signal supply shortages or bearish long-term sentiment.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Charts &amp; Technical Analysis</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">OHLCV</div><div class="glossary-def">Open, High, Low, Close, Volume. The five data points in every candlestick. The fundamental unit of chart data.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Candlestick</div><div class="glossary-def">A chart element showing price movement over a time period. Body = open-to-close range. Wicks = high and low extremes.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Time Frame</div><div class="glossary-def">The duration each candle represents. Common: 1m, 5m, 15m, 1H, 4H, 1D, 1W. Shorter = more noise, longer = smoother trends.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Volume</div><div class="glossary-def">The total amount of an asset traded in a given period. High volume confirms price moves. Low volume suggests weak conviction.</div></div>
+          <div class="glossary-item"><div class="glossary-term">VWAP</div><div class="glossary-def">Volume Weighted Average Price. Average price weighted by volume. Institutional benchmark for "good" execution quality.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Moving Average</div><div class="glossary-def">Smoothed price line over N periods. SMA = equal weight. EMA = recent-weighted. Common: 20, 50, 200 period.</div></div>
+          <div class="glossary-item"><div class="glossary-term">RSI</div><div class="glossary-def">Relative Strength Index. Oscillator 0-100. Above 70 = overbought. Below 30 = oversold. Default: 14 periods.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Bollinger Bands</div><div class="glossary-def">Three lines: SMA &plusmn; 2 standard deviations. Price squeezing between bands = volatility expansion imminent.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Market Structure</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">Spot Price</div><div class="glossary-def">The current market price for immediate delivery. The "real" price of an asset right now.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Mark-to-Market</div><div class="glossary-def">Revaluing open positions to current market prices. Determines unrealized P&amp;L and margin requirements.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Liquidity</div><div class="glossary-def">How easily an asset can be bought/sold without moving the price. Deep order books = high liquidity.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Volatility</div><div class="glossary-def">The degree of price fluctuation. High volatility = big price swings. Crypto is significantly more volatile than traditional assets.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Circuit Breaker</div><div class="glossary-def">Automatic trading halt triggered by extreme price moves. Prevents flash crashes. Common in TradFi, rare in crypto.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Dark Pool</div><div class="glossary-def">A private exchange where large orders execute without showing in the public order book. Prevents price impact on large trades.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Price Discovery</div><div class="glossary-def">The process by which the market determines the fair price of an asset through supply and demand.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Market Depth</div><div class="glossary-def">The volume of orders at each price level in the order book. Deep market = large orders can fill without significant price impact.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Crypto-Specific</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">CEX</div><div class="glossary-def">Centralized Exchange. An exchange operated by a company (Binance, Coinbase, Perpetuals). Custodial &mdash; the exchange holds user funds.</div></div>
+          <div class="glossary-item"><div class="glossary-term">DEX</div><div class="glossary-def">Decentralized Exchange. An exchange running on smart contracts (Uniswap, dYdX). Non-custodial &mdash; users control their own funds.</div></div>
+          <div class="glossary-item"><div class="glossary-term">AMM</div><div class="glossary-def">Automated Market Maker. DEX model where liquidity pools replace order books. Uses math formulas (x*y=k) instead of matching engines.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Stablecoin</div><div class="glossary-def">A crypto token pegged to a stable asset (usually USD). USDC and USDT are the most common. Used as trading collateral and settlement currency.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Gas Fees</div><div class="glossary-def">Transaction fees on blockchain networks. Paid to validators for processing transactions. Varies by network congestion.</div></div>
+          <div class="glossary-item"><div class="glossary-term">On-chain / Off-chain</div><div class="glossary-def">On-chain = recorded on the blockchain (transparent, permanent). Off-chain = processed outside the blockchain (faster, cheaper). Exchange matching is off-chain; settlement is on-chain.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Oracle</div><div class="glossary-def">A service that feeds real-world data (prices, events) to smart contracts. Price oracles are critical for mark price calculations and liquidation triggers.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Risk Management</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">VaR</div><div class="glossary-def">Value at Risk. Statistical measure of the maximum expected loss over a time period at a given confidence level. E.g., "1-day 99% VaR of $10M."</div></div>
+          <div class="glossary-item"><div class="glossary-term">Stress Test</div><div class="glossary-def">Simulating extreme market scenarios to test system resilience. Required by DORA for EU-regulated firms.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Hedging</div><div class="glossary-def">Taking an offsetting position to reduce risk. E.g., holding long BTC spot and short BTC futures to be "market neutral."</div></div>
+          <div class="glossary-item"><div class="glossary-term">Insurance Fund</div><div class="glossary-def">A pool of capital that covers losses from bankrupt positions. Prevents socialized losses among other traders.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Socialized Loss</div><div class="glossary-def">When losses from liquidated positions are spread across profitable traders. Happens when the insurance fund is depleted. Very unpopular.</div></div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Institutional &amp; Infrastructure</h3>
+        <div class="glossary-grid reveal">
+          <div class="glossary-item"><div class="glossary-term">Prime Brokerage</div><div class="glossary-def">A suite of services for institutional clients: margin lending, trade execution, custody, reporting. The "full service" tier.</div></div>
+          <div class="glossary-item"><div class="glossary-term">DMA</div><div class="glossary-def">Direct Market Access. Institutional traders connecting directly to the matching engine, bypassing standard UI. Lowest latency.</div></div>
+          <div class="glossary-item"><div class="glossary-term">HFT</div><div class="glossary-def">High-Frequency Trading. Algorithmic trading at microsecond speeds. Requires co-location and DMA. Kronos X's &lt;50μs latency supports HFT.</div></div>
+          <div class="glossary-item"><div class="glossary-term">FIX Protocol</div><div class="glossary-def">Financial Information eXchange. Industry-standard protocol for electronic trading communication. Used by institutional clients to connect to exchanges.</div></div>
+          <div class="glossary-item"><div class="glossary-term">SOR</div><div class="glossary-def">Smart Order Router. Automatically routes orders to the best venue (exchange) for the best price/liquidity.</div></div>
+          <div class="glossary-item"><div class="glossary-term">T+0 / T+1</div><div class="glossary-def">Settlement timing. T+0 = instant settlement. T+1 = settlement one day after trade. EU mandates T+1 by Oct 2027. Ledgera = T+0.</div></div>
           <div class="glossary-item"><div class="glossary-term">Self-clearing</div><div class="glossary-def">Ability to settle trades without a third-party clearinghouse (CCP). Enabled by Kronos X + GLS integration.</div></div>
-          <div class="glossary-item"><div class="glossary-term">Passporting</div><div class="glossary-def">Using a license from one EU/EEA country to operate across all 30 member states without additional licenses.</div></div>
-          <div class="glossary-item"><div class="glossary-term">ESMA</div><div class="glossary-def">European Securities and Markets Authority. EU-level regulatory body. Issues guidance on CFD restrictions and investor protection.</div></div>
+          <div class="glossary-item"><div class="glossary-term">GLS</div><div class="glossary-def">Grid Ledger System. Kobayashi's proprietary hybrid blockchain with 0.016s transaction speed.</div></div>
+          <div class="glossary-item"><div class="glossary-term">HSM</div><div class="glossary-def">Hardware Security Module. Physical device for managing cryptographic keys. Used in Perpetuals Vault.</div></div>
+          <div class="glossary-item"><div class="glossary-term">Co-location</div><div class="glossary-def">Placing trading servers physically next to the exchange's matching engine. Equinix FR2 in Frankfurt. Minimizes network latency.</div></div>
         </div>
       </div>
     </section>
@@ -2720,6 +3171,7 @@
             <a href="../design-system/index.html" class="footer-link">Design System</a>
             <a href="../product-vision/index.html" class="footer-link">Vision</a>
             <a href="../market-thesis/index.html" class="footer-link">Market Thesis</a>
+            <a href="../appxish/index.html" class="footer-link">APPXISH</a>
           </div>
         </div>
         <div class="footer-note">All market data sourced from BIS, CoinGlass, CME, ESMA, CoinDesk, The Block, BCG, Mordor Intelligence &mdash; February 2026. Compiled by Jacob Gruver.</div>
