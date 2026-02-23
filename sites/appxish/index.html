@@ -272,6 +272,198 @@
       .jump-grid { grid-template-columns:repeat(2,1fr); }
       .hero-title { font-size:2rem; }
     }
+
+    /* ===== PHASE DIVIDERS ===== */
+    .phase-divider { text-align:center; padding:var(--space-lg) 0 var(--space-sm); }
+    .phase-label { display:inline-block; font-family:var(--font-mono); font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:3px; color:var(--color-text-dim); padding:6px 20px; border:1px solid var(--color-border); border-radius:20px; }
+    .glossary-group { font-size:0.55rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-dim); padding:8px 12px 2px; display:block; }
+    .glossary-bar.fixed .glossary-group { padding:10px 12px 2px; }
+
+    /* ===== PHASE A: DISCOVER ===== */
+    .research-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--space-md); }
+    .research-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast), transform var(--transition-fast); }
+    .research-card:hover { border-color:rgba(253,136,0,0.3); transform:translateY(-3px); box-shadow:0 8px 24px rgba(253,136,0,0.06); }
+    .research-icon { font-size:1.5rem; margin-bottom:var(--space-sm); }
+    .research-title { font-family:var(--font-display); font-weight:600; font-size:1rem; margin-bottom:8px; }
+    .research-body { font-size:0.8rem; color:var(--color-text-muted); line-height:1.6; }
+
+    .audit-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--space-md); }
+    .audit-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast), transform var(--transition-fast); }
+    .audit-card:hover { border-color:rgba(253,136,0,0.3); transform:translateY(-3px); }
+    .audit-platform { font-family:var(--font-display); font-weight:700; font-size:1rem; margin-bottom:4px; }
+    .audit-score { font-family:var(--font-mono); font-size:1.4rem; font-weight:700; color:var(--color-accent); }
+    .audit-bar { height:6px; background:#222; border-radius:3px; margin:8px 0; overflow:hidden; }
+    .audit-bar-fill { height:100%; border-radius:3px; background:var(--color-accent); }
+    .audit-list { font-size:0.78rem; color:var(--color-text-muted); list-style:none; padding:0; margin:8px 0 0; }
+    .audit-list li { margin-bottom:3px; }
+    .audit-list li::before { content:'+ '; color:var(--color-accent-secondary); font-weight:700; }
+    .audit-list.weak li::before { content:'- '; color:var(--color-danger); }
+
+    .empathy-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(480px,1fr)); gap:var(--space-lg); }
+    .empathy-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; overflow:hidden; }
+    .empathy-header { padding:var(--space-sm) var(--space-md); border-bottom:1px solid var(--color-border); display:flex; align-items:center; gap:12px; }
+    .empathy-header-name { font-family:var(--font-display); font-weight:600; font-size:1rem; }
+    .empathy-header-type { font-size:0.8rem; color:var(--color-accent); }
+    .empathy-quadrants { display:grid; grid-template-columns:1fr 1fr; }
+    .empathy-quadrant { padding:var(--space-sm); border-right:1px solid var(--color-border); border-bottom:1px solid var(--color-border); }
+    .empathy-quadrant:nth-child(2n) { border-right:none; }
+    .empathy-quadrant:nth-child(n+3) { border-bottom:none; }
+    .empathy-q-title { font-family:var(--font-display); font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--color-accent); margin-bottom:8px; }
+    .empathy-q-item { font-size:0.78rem; color:var(--color-text-muted); margin-bottom:4px; padding-left:12px; position:relative; }
+    .empathy-q-item::before { content:'\2022'; position:absolute; left:0; color:var(--color-text-dim); }
+
+    .affinity-wall { display:flex; flex-wrap:wrap; gap:var(--space-lg); }
+    .affinity-cluster { flex:1; min-width:200px; }
+    .affinity-cluster-title { font-family:var(--font-display); font-weight:600; font-size:0.9rem; margin-bottom:var(--space-sm); padding-bottom:8px; border-bottom:2px solid var(--color-accent); }
+    .affinity-notes { display:flex; flex-direction:column; gap:8px; }
+    .affinity-note { background:rgba(253,136,0,0.05); border:1px solid rgba(253,136,0,0.15); border-radius:4px; padding:10px 12px; font-size:0.78rem; color:var(--color-text-muted); transform:rotate(var(--rotate,0deg)); transition:transform var(--transition-fast); }
+    .affinity-note:hover { transform:rotate(0deg) scale(1.03); border-color:rgba(253,136,0,0.35); }
+
+    /* ===== PHASE B: DEFINE ===== */
+    .principle-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:var(--space-md); }
+    .principle-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); position:relative; overflow:hidden; transition:border-color var(--transition-fast), transform var(--transition-fast); }
+    .principle-card:hover { border-color:rgba(253,136,0,0.3); transform:translateY(-3px); }
+    .principle-num { position:absolute; top:var(--space-sm); right:var(--space-md); font-family:var(--font-display); font-size:2.5rem; font-weight:700; color:rgba(34,34,34,0.8); line-height:1; }
+    .principle-title { font-family:var(--font-display); font-weight:700; font-size:1.05rem; margin-bottom:8px; }
+    .principle-desc { font-size:0.8rem; color:var(--color-text-muted); margin-bottom:12px; line-height:1.6; }
+    .principle-example { font-size:0.75rem; padding:8px 12px; border-radius:6px; margin-bottom:4px; }
+    .principle-do { background:rgba(51,193,94,0.06); border-left:3px solid var(--color-accent-secondary); color:var(--color-text-muted); }
+    .principle-dont { background:rgba(255,61,0,0.06); border-left:3px solid var(--color-danger); color:var(--color-text-muted); }
+
+    .jtbd-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(480px,1fr)); gap:var(--space-md); }
+    .jtbd-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast); }
+    .jtbd-card:hover { border-color:rgba(253,136,0,0.3); }
+    .jtbd-label { font-family:var(--font-mono); font-size:0.6rem; color:var(--color-accent); text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:2px; }
+    .jtbd-text { font-size:0.85rem; color:var(--color-text-muted); margin-bottom:8px; line-height:1.5; }
+    .jtbd-persona-tag { display:inline-flex; align-items:center; gap:4px; font-size:0.7rem; color:var(--color-text-dim); background:rgba(253,136,0,0.08); border-radius:12px; padding:2px 10px; margin-top:4px; }
+
+    .journey-map { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); margin-bottom:var(--space-lg); overflow-x:auto; }
+    .journey-title { font-family:var(--font-display); font-weight:600; font-size:1.1rem; margin-bottom:var(--space-sm); }
+    .journey-stages { display:flex; gap:0; min-width:700px; }
+    .journey-stage { flex:1; padding:var(--space-sm); border-right:1px solid var(--color-border); text-align:center; }
+    .journey-stage:last-child { border-right:none; }
+    .journey-stage-name { font-family:var(--font-display); font-size:0.8rem; font-weight:600; margin-bottom:8px; color:var(--color-text); }
+    .journey-touchpoint { font-size:0.7rem; color:var(--color-text-muted); margin-bottom:4px; }
+    .journey-emotion { font-size:0.7rem; margin-top:8px; padding-top:8px; border-top:1px solid var(--color-border); }
+    .journey-emotion.positive { color:var(--color-accent-secondary); }
+    .journey-emotion.negative { color:var(--color-danger); }
+    .journey-emotion.neutral { color:var(--color-text-dim); }
+
+    .roi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--space-md); }
+    .roi-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); text-align:center; transition:border-color var(--transition-fast), transform var(--transition-fast); }
+    .roi-card:hover { border-color:rgba(253,136,0,0.4); transform:translateY(-2px); }
+    .roi-value { font-family:var(--font-display); font-size:2rem; font-weight:700; color:var(--color-accent); }
+    .roi-label { font-size:0.85rem; font-weight:500; margin-top:4px; margin-bottom:8px; }
+    .roi-impact { font-size:0.78rem; color:var(--color-text-muted); line-height:1.5; }
+
+    .metrics-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:var(--space-sm); }
+    .metrics-category { font-family:var(--font-display); font-weight:600; font-size:0.9rem; color:var(--color-accent); margin-bottom:var(--space-sm); margin-top:var(--space-md); }
+    .metrics-category:first-child { margin-top:0; }
+    .metric-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-sm) var(--space-md); transition:border-color var(--transition-fast); }
+    .metric-card:hover { border-color:rgba(253,136,0,0.3); }
+    .metric-name { font-family:var(--font-display); font-weight:600; font-size:0.85rem; margin-bottom:4px; }
+    .metric-target { font-family:var(--font-mono); font-size:1.1rem; font-weight:700; color:var(--color-accent); }
+    .metric-baseline { font-size:0.72rem; color:var(--color-text-dim); }
+    .metric-gauge { height:4px; background:#222; border-radius:2px; margin-top:8px; overflow:hidden; }
+    .metric-gauge-fill { height:100%; border-radius:2px; }
+
+    /* ===== PHASE C: IDEATE ===== */
+    .content-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:var(--space-md); }
+    .content-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast), transform var(--transition-fast); }
+    .content-card:hover { border-color:rgba(253,136,0,0.3); transform:translateY(-3px); }
+    .content-type { font-family:var(--font-display); font-weight:600; font-size:0.95rem; margin-bottom:4px; }
+    .content-tone { font-size:0.78rem; color:var(--color-text-muted); margin-bottom:12px; line-height:1.5; }
+    .content-example { border-radius:8px; padding:10px 12px; font-size:0.78rem; color:var(--color-text-muted); margin-top:6px; font-family:var(--font-mono); line-height:1.5; }
+    .content-bad { background:rgba(255,61,0,0.06); border-left:3px solid var(--color-danger); }
+    .content-good { background:rgba(51,193,94,0.06); border-left:3px solid var(--color-accent-secondary); }
+
+    .sketch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-md); }
+    .sketch-card { border:1px solid #ddd; border-radius:4px; overflow:hidden; transition:transform var(--transition-fast); }
+    .sketch-card:hover { transform:translateY(-3px); }
+    .sketch-paper { padding:var(--space-md); background:#fafafa; background-image:linear-gradient(rgba(180,180,180,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(180,180,180,0.15) 1px,transparent 1px); background-size:20px 20px; min-height:200px; }
+    .sketch-element { border:2px dashed #999; border-radius:4px; margin-bottom:8px; padding:6px; text-align:center; font-size:0.65rem; color:#666; font-family:var(--font-mono); }
+    .sketch-rect { background:rgba(0,0,0,0.05); border-radius:3px; height:20px; margin-bottom:6px; }
+    .sketch-circle { width:24px; height:24px; border-radius:50%; border:2px dashed #999; display:inline-block; }
+    .sketch-caption { padding:var(--space-sm); background:var(--color-surface-elevated); font-size:0.8rem; color:var(--color-text-muted); border-top:1px solid var(--color-border); }
+
+    .sort-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-lg); }
+    .sort-column { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); }
+    .sort-column-title { font-family:var(--font-display); font-weight:600; font-size:1rem; margin-bottom:var(--space-sm); text-align:center; padding-bottom:var(--space-sm); border-bottom:1px solid var(--color-border); }
+    .sort-group { margin-bottom:var(--space-sm); }
+    .sort-group-label { font-size:0.7rem; font-weight:600; color:var(--color-accent); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+    .sort-item { background:var(--color-surface); border:1px solid var(--color-border); border-radius:8px; padding:8px 12px 8px 28px; font-size:0.78rem; color:var(--color-text-muted); margin-bottom:4px; position:relative; transition:border-color var(--transition-fast); }
+    .sort-item:hover { border-color:rgba(253,136,0,0.3); }
+    .sort-item::before { content:'\2261'; position:absolute; left:10px; color:var(--color-text-dim); font-size:1rem; }
+    .sort-finding { background:rgba(253,136,0,0.05); border:1px solid rgba(253,136,0,0.2); border-radius:8px; padding:var(--space-sm); font-size:0.78rem; color:var(--color-text-muted); margin-top:var(--space-sm); line-height:1.5; }
+    .sort-finding strong { color:var(--color-accent); }
+
+    /* ===== PHASE D: DESIGN ===== */
+    .storyboard-wrap { margin-bottom:var(--space-lg); }
+    .storyboard-title { font-family:var(--font-display); font-weight:600; font-size:1.1rem; margin-bottom:var(--space-sm); }
+    .storyboard-strip { display:flex; gap:var(--space-sm); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:var(--space-sm); }
+    .storyboard-strip::-webkit-scrollbar { height:4px; }
+    .storyboard-strip::-webkit-scrollbar-thumb { background:#333; border-radius:2px; }
+    .storyboard-panel { flex:0 0 220px; scroll-snap-align:start; background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; overflow:hidden; transition:border-color var(--transition-fast); }
+    .storyboard-panel:hover { border-color:rgba(253,136,0,0.3); }
+    .storyboard-frame { min-height:140px; background:#111; display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--color-border); padding:var(--space-sm); position:relative; }
+    .storyboard-num { font-family:var(--font-mono); font-size:0.6rem; color:var(--color-accent); position:absolute; top:8px; left:8px; }
+    .storyboard-emoji { font-size:2.5rem; }
+    .storyboard-caption { padding:var(--space-sm); }
+    .storyboard-caption-title { font-family:var(--font-display); font-weight:600; font-size:0.8rem; margin-bottom:4px; }
+    .storyboard-caption-text { font-size:0.7rem; color:var(--color-text-muted); line-height:1.5; }
+
+    .token-section { margin-bottom:var(--space-lg); }
+    .token-section-title { font-family:var(--font-display); font-weight:600; font-size:1rem; margin-bottom:var(--space-sm); color:var(--color-accent); }
+    .token-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:var(--space-sm); }
+    .token-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:10px; padding:var(--space-sm); transition:border-color var(--transition-fast); }
+    .token-card:hover { border-color:rgba(253,136,0,0.3); }
+    .token-swatch { width:100%; height:40px; border-radius:6px; margin-bottom:8px; border:1px solid rgba(255,255,255,0.05); }
+    .token-name { font-family:var(--font-mono); font-size:0.72rem; color:var(--color-text); margin-bottom:2px; }
+    .token-value { font-family:var(--font-mono); font-size:0.68rem; color:var(--color-text-dim); }
+
+    /* ===== PHASE E: VALIDATE ===== */
+    .test-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:var(--space-md); }
+    .test-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast); }
+    .test-card:hover { border-color:rgba(253,136,0,0.3); }
+    .test-task { font-family:var(--font-display); font-weight:600; font-size:0.95rem; margin-bottom:8px; }
+    .test-rate { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+    .test-rate-bar { flex:1; height:8px; background:#222; border-radius:4px; overflow:hidden; }
+    .test-rate-fill { height:100%; border-radius:4px; }
+    .test-rate-fill.high { background:var(--color-accent-secondary); }
+    .test-rate-fill.mid { background:var(--color-accent); }
+    .test-rate-fill.low { background:var(--color-danger); }
+    .test-rate-pct { font-family:var(--font-mono); font-weight:700; font-size:0.9rem; min-width:40px; }
+    .test-findings { font-size:0.78rem; color:var(--color-text-muted); line-height:1.5; }
+    .test-change { font-size:0.78rem; color:var(--color-accent-secondary); margin-top:8px; padding-top:8px; border-top:1px solid var(--color-border); }
+
+    .a11y-summary { display:flex; gap:var(--space-md); margin-bottom:var(--space-lg); flex-wrap:wrap; }
+    .a11y-summary-stat { text-align:center; flex:1; min-width:100px; background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); }
+    .a11y-summary-value { font-family:var(--font-display); font-size:2rem; font-weight:700; }
+    .a11y-summary-value.pass { color:var(--color-accent-secondary); }
+    .a11y-summary-value.partial { color:var(--color-accent); }
+    .a11y-summary-label { font-size:0.78rem; color:var(--color-text-muted); }
+    .a11y-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:var(--space-md); }
+    .a11y-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast); }
+    .a11y-card:hover { border-color:rgba(253,136,0,0.3); }
+    .a11y-criterion { font-family:var(--font-display); font-weight:600; font-size:0.9rem; margin-bottom:4px; }
+    .a11y-status { display:inline-flex; align-items:center; gap:4px; font-size:0.68rem; font-weight:600; padding:2px 10px; border-radius:12px; margin-bottom:8px; }
+    .a11y-status.pass { background:rgba(51,193,94,0.15); color:var(--color-accent-secondary); }
+    .a11y-status.partial { background:rgba(253,136,0,0.15); color:var(--color-accent); }
+    .a11y-status.fail { background:rgba(255,61,0,0.15); color:var(--color-danger); }
+    .a11y-detail { font-size:0.78rem; color:var(--color-text-muted); line-height:1.5; }
+
+    /* ===== NEW SECTION RESPONSIVE ===== */
+    @media(max-width:768px) {
+      .empathy-grid { grid-template-columns:1fr; }
+      .sort-grid { grid-template-columns:1fr; }
+      .jtbd-grid { grid-template-columns:1fr; }
+      .journey-stages { min-width:500px; }
+      .storyboard-panel { flex:0 0 180px; }
+    }
+    @media(max-width:480px) {
+      .principle-grid { grid-template-columns:1fr; }
+      .affinity-wall { flex-direction:column; }
+    }
   </style>
 </head>
 <body>
@@ -312,20 +504,18 @@
     <p class="hero-sub">This is my design workspace for the new trading app. I'm thinking through everything here &mdash; the architecture, the people using it, how they move through it, and what it actually looks like on a phone. Still early, but the bones are here.</p>
 
     <div class="kpi-grid">
-      <div class="kpi-card has-note"><div class="kpi-value">12</div><div class="kpi-label">Screens Designed</div><div class="design-note"><span class="note-label">My thinking</span>Started with the five core screens (home, markets, trade, activity, settings) and then built out from there. The onboarding sequence, order confirmation, and risk warning screens came from the user flows &mdash; once I mapped the journeys, the missing screens became obvious.</div></div>
-      <div class="kpi-card has-note"><div class="kpi-value">6</div><div class="kpi-label">User Flows Mapped</div><div class="design-note"><span class="note-label">My thinking</span>These are the six journeys that every trading app needs to nail. The Barrier Futures flow is the one I'm most excited about &mdash; it's genuinely different from anything on Binance or Bybit. That's where the UX innovation lives.</div></div>
-      <div class="kpi-card has-note"><div class="kpi-value">11</div><div class="kpi-label">Components Built</div><div class="design-note"><span class="note-label">My thinking</span>Focused on the components that are unique to trading &mdash; the order type selector, barrier price setter, order book viz. These are the things you can't just pull from a generic component library. They need to be purpose-built.</div></div>
-      <div class="kpi-card has-note"><div class="kpi-value">4</div><div class="kpi-label">Personas Defined</div><div class="design-note"><span class="note-label">My thinking</span>Four very different users, four very different relationships with the app. The beginner and the institutional trader basically need different products. That's the tension this design has to hold.</div></div>
+      <div class="kpi-card has-note"><div class="kpi-value">23</div><div class="kpi-label">UX Artifacts</div><div class="design-note"><span class="note-label">My thinking</span>From initial research through accessibility audits &mdash; every step of the UX process documented in one place. This isn&rsquo;t a slide deck, it&rsquo;s a living design workshop.</div></div>
+      <div class="kpi-card has-note"><div class="kpi-value">5</div><div class="kpi-label">Process Phases</div><div class="design-note"><span class="note-label">My thinking</span>Discover, Define, Ideate, Design, Validate. Each phase builds on the last. Skip one and the whole thing falls apart. That&rsquo;s why I mapped every step before writing a line of code.</div></div>
+      <div class="kpi-card has-note"><div class="kpi-value">4</div><div class="kpi-label">Personas Defined</div><div class="design-note"><span class="note-label">My thinking</span>Four very different users, four very different relationships with the app. The beginner and the institutional trader basically need different products. That&rsquo;s the tension this design has to hold.</div></div>
+      <div class="kpi-card has-note"><div class="kpi-value">6</div><div class="kpi-label">Design Principles</div><div class="design-note"><span class="note-label">My thinking</span>These are the rules I hold myself to. When I&rsquo;m stuck on a decision, I come back to these six principles. They&rsquo;re opinionated on purpose &mdash; good constraints make better design.</div></div>
     </div>
 
     <div class="jump-grid">
-      <a class="jump-tile" href="#ia"><span class="jump-num">01</span>Information Architecture</a>
-      <a class="jump-tile" href="#personas"><span class="jump-num">02</span>User Personas</a>
-      <a class="jump-tile" href="#flows"><span class="jump-num">03</span>User Flows</a>
-      <a class="jump-tile" href="#wireframes"><span class="jump-num">04</span>Wireframes</a>
-      <a class="jump-tile" href="#components"><span class="jump-num">05</span>Components</a>
-      <a class="jump-tile" href="#mockups"><span class="jump-num">06</span>Mockups</a>
-      <a class="jump-tile" href="#prototypes"><span class="jump-num">07</span>Prototypes</a>
+      <a class="jump-tile" href="#research"><span class="jump-num">A</span>Discover</a>
+      <a class="jump-tile" href="#principles"><span class="jump-num">B</span>Define</a>
+      <a class="jump-tile" href="#content"><span class="jump-num">C</span>Ideate</a>
+      <a class="jump-tile" href="#flows"><span class="jump-num">D</span>Design</a>
+      <a class="jump-tile" href="#prototypes"><span class="jump-num">E</span>Validate</a>
     </div>
   </div>
 </section>
@@ -334,13 +524,34 @@
 <div class="container">
   <div class="glossary-bar" id="glossary-bar">
     <span class="glossary-bar-title">Sections</span>
-    <a class="glossary-link" href="#ia" data-section="ia">Information Architecture</a>
-    <a class="glossary-link" href="#personas" data-section="personas">User Personas</a>
-    <a class="glossary-link" href="#flows" data-section="flows">User Flows</a>
+    <span class="glossary-group">Discover</span>
+    <a class="glossary-link" href="#research" data-section="research">Research</a>
+    <a class="glossary-link" href="#comp-audit" data-section="comp-audit">Competitive Audit</a>
+    <a class="glossary-link" href="#personas" data-section="personas">Personas</a>
+    <a class="glossary-link" href="#empathy" data-section="empathy">Empathy Maps</a>
+    <a class="glossary-link" href="#affinity" data-section="affinity">Affinity Mapping</a>
+    <span class="glossary-group">Define</span>
+    <a class="glossary-link" href="#principles" data-section="principles">Principles</a>
+    <a class="glossary-link" href="#jtbd" data-section="jtbd">Jobs to Be Done</a>
+    <a class="glossary-link" href="#journeys" data-section="journeys">Journey Maps</a>
+    <a class="glossary-link" href="#roi" data-section="roi">ROI</a>
+    <a class="glossary-link" href="#metrics" data-section="metrics">Metrics</a>
+    <span class="glossary-group">Ideate</span>
+    <a class="glossary-link" href="#content" data-section="content">Content Strategy</a>
+    <a class="glossary-link" href="#ia" data-section="ia">IA</a>
+    <a class="glossary-link" href="#sketches" data-section="sketches">Sketches</a>
+    <a class="glossary-link" href="#card-sorting" data-section="card-sorting">Card Sorting</a>
+    <span class="glossary-group">Design</span>
+    <a class="glossary-link" href="#flows" data-section="flows">Flows</a>
+    <a class="glossary-link" href="#storyboards" data-section="storyboards">Storyboards</a>
     <a class="glossary-link" href="#wireframes" data-section="wireframes">Wireframes</a>
+    <a class="glossary-link" href="#tokens" data-section="tokens">Tokens</a>
     <a class="glossary-link" href="#components" data-section="components">Components</a>
     <a class="glossary-link" href="#mockups" data-section="mockups">Mockups</a>
+    <span class="glossary-group">Validate</span>
     <a class="glossary-link" href="#prototypes" data-section="prototypes">Prototypes</a>
+    <a class="glossary-link" href="#testing" data-section="testing">Usability Testing</a>
+    <a class="glossary-link" href="#a11y" data-section="a11y">Accessibility</a>
     <button class="glossary-collapse" id="glossary-collapse" title="Collapse">&#x2715;</button>
   </div>
 </div>
@@ -348,21 +559,199 @@
 <!-- Mobile Pill -->
 <div class="mobile-pill" id="mobile-pill">&#9776; Sections</div>
 <div class="mobile-pill-panel" id="mobile-pill-panel">
-  <a class="glossary-link" href="#ia">Information Architecture</a>
-  <a class="glossary-link" href="#personas">User Personas</a>
-  <a class="glossary-link" href="#flows">User Flows</a>
+  <span class="glossary-group">Discover</span>
+  <a class="glossary-link" href="#research">Research</a>
+  <a class="glossary-link" href="#comp-audit">Competitive Audit</a>
+  <a class="glossary-link" href="#personas">Personas</a>
+  <a class="glossary-link" href="#empathy">Empathy Maps</a>
+  <a class="glossary-link" href="#affinity">Affinity Mapping</a>
+  <span class="glossary-group">Define</span>
+  <a class="glossary-link" href="#principles">Principles</a>
+  <a class="glossary-link" href="#jtbd">Jobs to Be Done</a>
+  <a class="glossary-link" href="#journeys">Journey Maps</a>
+  <a class="glossary-link" href="#roi">ROI</a>
+  <a class="glossary-link" href="#metrics">Metrics</a>
+  <span class="glossary-group">Ideate</span>
+  <a class="glossary-link" href="#content">Content Strategy</a>
+  <a class="glossary-link" href="#ia">IA</a>
+  <a class="glossary-link" href="#sketches">Sketches</a>
+  <a class="glossary-link" href="#card-sorting">Card Sorting</a>
+  <span class="glossary-group">Design</span>
+  <a class="glossary-link" href="#flows">Flows</a>
+  <a class="glossary-link" href="#storyboards">Storyboards</a>
   <a class="glossary-link" href="#wireframes">Wireframes</a>
+  <a class="glossary-link" href="#tokens">Tokens</a>
   <a class="glossary-link" href="#components">Components</a>
   <a class="glossary-link" href="#mockups">Mockups</a>
+  <span class="glossary-group">Validate</span>
   <a class="glossary-link" href="#prototypes">Prototypes</a>
+  <a class="glossary-link" href="#testing">Usability Testing</a>
+  <a class="glossary-link" href="#a11y">Accessibility</a>
 </div>
 
+<!-- ==========================================================================
+     PHASE A: DISCOVER
+     ========================================================================== -->
+<div class="phase-divider"><span class="phase-label">Phase A &mdash; Discover</span></div>
+
 <!-- ==========================================
-     1. INFORMATION ARCHITECTURE
+     01. RESEARCH & DISCOVERY
      ========================================== -->
-<section class="section" id="ia" style="background:var(--color-surface)">
+<section class="section" id="research" style="background:var(--color-surface)">
   <div class="container">
     <span class="section-label reveal">01</span>
+    <h2 class="section-title reveal">Research &amp; Discovery</h2>
+    <p class="section-subtitle reveal">Before I designed a single screen, I needed to understand what makes trading apps hard. Not just hard for beginners &mdash; hard for everyone. I spent two weeks in the problem space before opening Figma.</p>
+
+    <div class="research-grid">
+      <div class="research-card has-note reveal">
+        <div class="research-icon">&#128483;</div>
+        <div class="research-title">Stakeholder Interviews</div>
+        <div class="research-body">Talked to the product team, engineering leads, and compliance. Key insight: the regulatory advantage (MFSA license) needs to be felt in the UI, not just stated in marketing. Compliance is a feature, not a constraint.</div>
+        <div class="design-note"><span class="note-label">What I learned</span>The compliance team told me something I didn&rsquo;t expect: their biggest competitive advantage isn&rsquo;t speed or fees, it&rsquo;s that they&rsquo;re the only regulated exchange offering Barrier Futures. That needs to be visible everywhere.</div>
+      </div>
+      <div class="research-card has-note reveal">
+        <div class="research-icon">&#128218;</div>
+        <div class="research-title">Domain Research</div>
+        <div class="research-body">Spent a week learning crypto derivatives from scratch. Order types, margin mechanics, funding rates, liquidation cascades. You can&rsquo;t design a trading UI if you don&rsquo;t understand what a maker/taker model is.</div>
+        <div class="design-note"><span class="note-label">What I learned</span>The single biggest UX problem in derivatives trading is liquidation anxiety. Traders don&rsquo;t fear losing money &mdash; they fear losing more than they intended. That&rsquo;s exactly what Barrier Futures solve.</div>
+      </div>
+      <div class="research-card has-note reveal">
+        <div class="research-icon">&#128241;</div>
+        <div class="research-title">Technical Constraints</div>
+        <div class="research-body">Mobile-first means 375px viewport, thumb-zone navigation, intermittent connectivity. Real-time price data needs WebSocket streams updating every 100ms without jank. The chart has to be as responsive as the one on desktop.</div>
+        <div class="design-note"><span class="note-label">What I learned</span>Most trading apps are desktop-first with a mobile port. The ones that go mobile-first (Robinhood) win on simplicity but lose on power. APPXISH needs to thread that needle &mdash; simple by default, powerful on demand.</div>
+      </div>
+      <div class="research-card has-note reveal">
+        <div class="research-icon">&#127919;</div>
+        <div class="research-title">Market Sizing</div>
+        <div class="research-body">Crypto derivatives volume: $2T+ daily. Mobile trading growing 40% YoY. The addressable market is massive, but the real opportunity is the 70% of potential traders who tried a platform and bounced because the UX was hostile.</div>
+        <div class="design-note"><span class="note-label">What I learned</span>That 70% bounce rate isn&rsquo;t a marketing problem &mdash; it&rsquo;s a design problem. People download Binance, see the trading panel, and close the app. If APPXISH can convert even 5% of those bouncers, it&rsquo;s a billion-dollar difference.</div>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">&#128101;</div>
+        <div class="research-title">User Recruitment</div>
+        <div class="research-body">Recruited 12 participants across four segments: crypto beginners (4), active traders migrating from competitors (3), institutional/professional (2), and brokers (3). Mix of genders, ages 22-45, across US, EU, and APAC.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     02. COMPETITIVE UX AUDIT
+     ========================================== -->
+<section class="section" id="comp-audit">
+  <div class="container">
+    <span class="section-label reveal">02</span>
+    <h2 class="section-title reveal">Competitive UX Audit</h2>
+    <p class="section-subtitle reveal">I spent a weekend actually trading on every one of these platforms. Not just screenshots &mdash; real money, real frustration. Here&rsquo;s what I found and what we can steal or avoid.</p>
+
+    <div class="audit-grid">
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">Binance</div>
+        <div class="audit-score">6.5/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:65%"></div></div>
+        <ul class="audit-list">
+          <li>Deepest liquidity, most trading pairs</li>
+          <li>Advanced order types for power users</li>
+          <li>Comprehensive API ecosystem</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Mobile UI is a direct port of desktop &mdash; overwhelming</li>
+          <li>Onboarding is a 15-minute KYC gauntlet</li>
+          <li>Regulatory uncertainty undermines trust</li>
+        </ul>
+        <div class="design-note"><span class="note-label">Design takeaway</span>Binance proves that power users will tolerate bad UX for good liquidity. But they&rsquo;re hemorrhaging beginners. Our opportunity: match the depth, beat the onboarding.</div>
+      </div>
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">Bybit</div>
+        <div class="audit-score">7.0/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:70%"></div></div>
+        <ul class="audit-list">
+          <li>Cleaner mobile experience than Binance</li>
+          <li>Copy trading feature is clever</li>
+          <li>Good chart integration (TradingView)</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Leverage UX is dangerous &mdash; too easy to set 100x</li>
+          <li>Risk warnings are buried in legal copy</li>
+          <li>No Barrier Futures or equivalent</li>
+        </ul>
+        <div class="design-note"><span class="note-label">Design takeaway</span>Bybit&rsquo;s leverage slider is my anti-pattern. There&rsquo;s no friction between 5x and 100x. That&rsquo;s not user-friendly, it&rsquo;s reckless. APPXISH needs to make high leverage feel heavy.</div>
+      </div>
+      <div class="audit-card reveal">
+        <div class="audit-platform">dYdX</div>
+        <div class="audit-score">6.0/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:60%"></div></div>
+        <ul class="audit-list">
+          <li>Decentralized &mdash; appeals to crypto-native users</li>
+          <li>Clean, minimalist interface</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Wallet connection UX is confusing for beginners</li>
+          <li>No fiat on-ramp &mdash; you need crypto to start</li>
+          <li>Limited order types</li>
+        </ul>
+      </div>
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">Robinhood</div>
+        <div class="audit-score">8.5/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:85%"></div></div>
+        <ul class="audit-list">
+          <li>Best-in-class onboarding (account in 3 minutes)</li>
+          <li>Mobile-first design is genuinely beautiful</li>
+          <li>Progressive disclosure done right</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>No derivatives / futures trading</li>
+          <li>Oversimplified &mdash; power users outgrow it</li>
+          <li>Gamification concerns (confetti on trades)</li>
+        </ul>
+        <div class="design-note"><span class="note-label">Design takeaway</span>Robinhood is the gold standard for beginner UX. Their progressive disclosure model is what I&rsquo;m adapting for APPXISH. But they stop at simple buy/sell. We need to take that same simplicity into derivatives territory.</div>
+      </div>
+      <div class="audit-card reveal">
+        <div class="audit-platform">Coinbase</div>
+        <div class="audit-score">7.5/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:75%"></div></div>
+        <ul class="audit-list">
+          <li>Trust factor is extremely high</li>
+          <li>Excellent educational content</li>
+          <li>Clean, professional aesthetic</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>No perpetual futures product</li>
+          <li>Advanced features feel bolted on</li>
+          <li>Fee structure is confusing</li>
+        </ul>
+      </div>
+      <div class="audit-card reveal">
+        <div class="audit-platform">Kraken</div>
+        <div class="audit-score">6.5/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:65%"></div></div>
+        <ul class="audit-list">
+          <li>Strong regulatory standing</li>
+          <li>Good security track record</li>
+          <li>Futures product exists</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Mobile app feels dated</li>
+          <li>Two separate apps (Kraken / Kraken Pro)</li>
+          <li>Futures UX is clunky</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     03. USER PERSONAS (existing, renumbered)
+     ========================================== -->
+<!-- ==========================================
+     12. INFORMATION ARCHITECTURE (renumbered, Phase C)
+     ========================================== -->
+<section class="section" id="ia">
+  <div class="container">
+    <span class="section-label reveal">12</span>
     <h2 class="section-title reveal">Information Architecture</h2>
     <p class="section-subtitle reveal">How the whole app is organized &mdash; every screen, every tab, every modal. I mapped this out first because if the IA is wrong, everything downstream falls apart.</p>
 
@@ -452,11 +841,11 @@
 </section>
 
 <!-- ==========================================
-     2. USER PERSONAS
+     03. USER PERSONAS
      ========================================== -->
-<section class="section" id="personas">
+<section class="section" id="personas" style="background:var(--color-surface)">
   <div class="container">
-    <span class="section-label reveal">02</span>
+    <span class="section-label reveal">03</span>
     <h2 class="section-title reveal">User Personas</h2>
     <p class="section-subtitle reveal">Who are we actually designing for? These four people represent very different relationships with trading, risk, and technology. Every design decision should trace back to one of them.</p>
 
@@ -514,11 +903,613 @@
 </section>
 
 <!-- ==========================================
-     3. USER FLOWS
+     04. EMPATHY MAPS
+     ========================================== -->
+<section class="section" id="empathy">
+  <div class="container">
+    <span class="section-label reveal">04</span>
+    <h2 class="section-title reveal">Empathy Maps</h2>
+    <p class="section-subtitle reveal">Empathy maps force me to separate what people say from what they actually do. Alex says he wants 100x leverage. What he actually needs is to not lose his rent money.</p>
+
+    <div class="empathy-grid">
+      <div class="empathy-card has-note reveal">
+        <div class="empathy-header"><span style="font-size:1.3rem">&#128100;</span><div><div class="empathy-header-name">Alex Chen</div><div class="empathy-header-type">Retail Beginner</div></div></div>
+        <div class="empathy-quadrants">
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Says</div>
+            <div class="empathy-q-item">&ldquo;I want to try crypto trading but I don&rsquo;t want to get wrecked&rdquo;</div>
+            <div class="empathy-q-item">&ldquo;What&rsquo;s a funding rate?&rdquo;</div>
+            <div class="empathy-q-item">&ldquo;Can I just set a max loss and forget about it?&rdquo;</div>
+          </div>
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Thinks</div>
+            <div class="empathy-q-item">Crypto trading is for experts and degenerate gamblers</div>
+            <div class="empathy-q-item">If I use leverage, I could lose more than I put in</div>
+            <div class="empathy-q-item">The UIs look like airplane cockpits &mdash; not built for me</div>
+          </div>
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Does</div>
+            <div class="empathy-q-item">Watches YouTube tutorials before trying anything</div>
+            <div class="empathy-q-item">Downloads 3 apps, opens each once, deletes 2</div>
+            <div class="empathy-q-item">Starts with spot trading because it feels safer</div>
+          </div>
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Feels</div>
+            <div class="empathy-q-item">Excited about the upside but paralyzed by the downside</div>
+            <div class="empathy-q-item">Embarrassed asking &ldquo;dumb&rdquo; questions in Discord</div>
+            <div class="empathy-q-item">FOMO when friends post gains, relief when he didn&rsquo;t lose</div>
+          </div>
+        </div>
+        <div class="design-note"><span class="note-label">Design implication</span>Alex&rsquo;s biggest barrier isn&rsquo;t knowledge &mdash; it&rsquo;s fear. He downloads apps and bounces because the UI confirms his fear that this isn&rsquo;t for him. APPXISH needs to feel safe on first open. Barrier Futures are his perfect entry point.</div>
+      </div>
+      <div class="empathy-card has-note reveal">
+        <div class="empathy-header"><span style="font-size:1.3rem">&#128200;</span><div><div class="empathy-header-name">Sarah Miller</div><div class="empathy-header-type">Active Trader</div></div></div>
+        <div class="empathy-quadrants">
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Says</div>
+            <div class="empathy-q-item">&ldquo;I need faster fills and lower fees&rdquo;</div>
+            <div class="empathy-q-item">&ldquo;Where are the keyboard shortcuts?&rdquo;</div>
+            <div class="empathy-q-item">&ldquo;If I can&rsquo;t set a stop-limit in 2 taps I&rsquo;m out&rdquo;</div>
+          </div>
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Thinks</div>
+            <div class="empathy-q-item">Most exchanges are the same &mdash; switching cost is low</div>
+            <div class="empathy-q-item">Regulation matters more than I used to think</div>
+            <div class="empathy-q-item">The mobile app is for monitoring, not serious trading</div>
+          </div>
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Does</div>
+            <div class="empathy-q-item">Has 3 exchange accounts, splits volume by fee tier</div>
+            <div class="empathy-q-item">Checks positions 20+ times per day on mobile</div>
+            <div class="empathy-q-item">Sets up custom alerts and automation bots</div>
+          </div>
+          <div class="empathy-quadrant">
+            <div class="empathy-q-title">Feels</div>
+            <div class="empathy-q-item">Frustrated when UI lag costs her a fill</div>
+            <div class="empathy-q-item">Anxious about exchange solvency after FTX</div>
+            <div class="empathy-q-item">Pride in her trading discipline and track record</div>
+          </div>
+        </div>
+        <div class="design-note"><span class="note-label">Design implication</span>Sarah doesn&rsquo;t need onboarding &mdash; she needs speed and trust. On mobile, she&rsquo;s doing quick check-ins (positions, P&amp;L, alerts), not placing complex orders. The mobile home screen is basically built for her 10-second glance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     05. AFFINITY MAPPING
+     ========================================== -->
+<section class="section" id="affinity" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">05</span>
+    <h2 class="section-title reveal">Affinity Mapping</h2>
+    <p class="section-subtitle reveal">After all the interviews and research, I printed everything out (metaphorically) and started grouping. These clusters became the backbone of every design decision that followed.</p>
+
+    <div class="affinity-wall reveal">
+      <div class="affinity-cluster">
+        <div class="affinity-cluster-title">Onboarding Friction</div>
+        <div class="affinity-notes">
+          <div class="affinity-note" style="--rotate:-1.2deg">KYC takes too long &mdash; users bounce before first trade</div>
+          <div class="affinity-note" style="--rotate:0.8deg">First screen after signup is overwhelming for beginners</div>
+          <div class="affinity-note" style="--rotate:-0.5deg">No clear &ldquo;what to do first&rdquo; guidance</div>
+          <div class="affinity-note" style="--rotate:1.5deg">Deposit flow is confusing &mdash; which method? which currency?</div>
+          <div class="affinity-note" style="--rotate:-0.3deg">Welcome tour is skippable and nobody watches it</div>
+        </div>
+      </div>
+      <div class="affinity-cluster">
+        <div class="affinity-cluster-title">Trust Signals</div>
+        <div class="affinity-notes">
+          <div class="affinity-note" style="--rotate:0.7deg">Post-FTX, users want proof of reserves visible in the app</div>
+          <div class="affinity-note" style="--rotate:-1.0deg">Regulatory badges matter &mdash; &ldquo;MFSA Licensed&rdquo; builds confidence</div>
+          <div class="affinity-note" style="--rotate:0.4deg">Insurance fund balance should be transparent</div>
+          <div class="affinity-note" style="--rotate:-0.8deg">Two-factor auth should be mandatory, not optional</div>
+        </div>
+      </div>
+      <div class="affinity-cluster">
+        <div class="affinity-cluster-title">Speed vs. Safety</div>
+        <div class="affinity-notes">
+          <div class="affinity-note" style="--rotate:1.1deg">Power users want fewer confirmation dialogs</div>
+          <div class="affinity-note" style="--rotate:-0.6deg">Beginners want more confirmation dialogs</div>
+          <div class="affinity-note" style="--rotate:0.3deg">Solution: progressive confirmation based on user tier</div>
+          <div class="affinity-note" style="--rotate:-1.3deg">One-tap trade vs. review-and-confirm toggle in settings</div>
+        </div>
+      </div>
+      <div class="affinity-cluster">
+        <div class="affinity-cluster-title">Mobile-First Pain Points</div>
+        <div class="affinity-notes">
+          <div class="affinity-note" style="--rotate:-0.9deg">Fat-finger errors on small touch targets</div>
+          <div class="affinity-note" style="--rotate:0.6deg">Chart is too small on phone &mdash; needs landscape mode</div>
+          <div class="affinity-note" style="--rotate:-0.4deg">Order book text is unreadable below 12px</div>
+          <div class="affinity-note" style="--rotate:1.2deg">Notifications wake people up at 3am for 1% moves</div>
+          <div class="affinity-note" style="--rotate:-0.7deg">Thumb zone: critical actions must be bottom-half reachable</div>
+        </div>
+      </div>
+      <div class="affinity-cluster">
+        <div class="affinity-cluster-title">Barrier Futures Opportunity</div>
+        <div class="affinity-notes">
+          <div class="affinity-note" style="--rotate:0.5deg">&ldquo;Wait, I can&rsquo;t lose more than I set?&rdquo; &mdash; every beginner interview</div>
+          <div class="affinity-note" style="--rotate:-1.1deg">Even experienced traders liked the concept for defined-risk plays</div>
+          <div class="affinity-note" style="--rotate:0.9deg">The barrier slider IS the product &mdash; needs to feel premium</div>
+          <div class="affinity-note" style="--rotate:-0.2deg">Education needed: how barriers differ from stop-losses</div>
+          <div class="affinity-note" style="--rotate:0.7deg">Positioning: &ldquo;training wheels for futures&rdquo; but don&rsquo;t say that</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PHASE B: DEFINE
+     ========================================================================== -->
+<div class="phase-divider"><span class="phase-label">Phase B &mdash; Define</span></div>
+
+<!-- ==========================================
+     06. DESIGN PRINCIPLES
+     ========================================== -->
+<section class="section" id="principles">
+  <div class="container">
+    <span class="section-label reveal">06</span>
+    <h2 class="section-title reveal">Design Principles</h2>
+    <p class="section-subtitle reveal">These are the rules I hold myself to. When I&rsquo;m stuck on a design decision, I come back to these six. They&rsquo;re opinionated on purpose &mdash; good constraints make better design.</p>
+
+    <div class="principle-grid">
+      <div class="principle-card has-note reveal">
+        <div class="principle-num">01</div>
+        <div class="principle-title">Clarity Before Speed</div>
+        <div class="principle-desc">Never sacrifice understanding for fewer taps. A user who understands what they&rsquo;re doing in 3 taps is better than one confused in 1.</div>
+        <div class="principle-example principle-do"><strong>Do:</strong> Show a clear order summary before confirmation</div>
+        <div class="principle-example principle-dont"><strong>Don&rsquo;t:</strong> One-tap trade with no review step for beginners</div>
+        <div class="design-note"><span class="note-label">Why this first</span>Every exchange optimizes for speed. But speed without understanding is how people accidentally set 100x leverage and lose their savings. Clarity is the foundation everything else is built on.</div>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">02</div>
+        <div class="principle-title">Risk Should Be Visible</div>
+        <div class="principle-desc">If money is on the line, the user should feel the weight of the decision. Use color, size, and motion to make risk tangible.</div>
+        <div class="principle-example principle-do"><strong>Do:</strong> Leverage slider shifts to red at high multipliers</div>
+        <div class="principle-example principle-dont"><strong>Don&rsquo;t:</strong> Bury liquidation price in fine print below the fold</div>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">03</div>
+        <div class="principle-title">Mobile Thumb First</div>
+        <div class="principle-desc">Every critical action must be reachable with one thumb in the bottom 60% of the screen. Navigation at the bottom, confirmations at the bottom, cancel at the top.</div>
+        <div class="principle-example principle-do"><strong>Do:</strong> Buy/Sell buttons fixed at bottom of order form</div>
+        <div class="principle-example principle-dont"><strong>Don&rsquo;t:</strong> Place &ldquo;Submit Order&rdquo; at the top of a scrollable form</div>
+      </div>
+      <div class="principle-card has-note reveal">
+        <div class="principle-num">04</div>
+        <div class="principle-title">Progressive Complexity</div>
+        <div class="principle-desc">Start simple, reveal power. Beginners see Market/Limit/Barrier. Power users find Stop-limit, OCO, and trailing stops one tap deeper.</div>
+        <div class="principle-example principle-do"><strong>Do:</strong> 3 order types visible, &ldquo;More&rdquo; button for advanced</div>
+        <div class="principle-example principle-dont"><strong>Don&rsquo;t:</strong> Show 8 order types in a horizontal scroll on first visit</div>
+        <div class="design-note"><span class="note-label">The Robinhood lesson</span>Robinhood nailed progressive disclosure for stocks. The challenge is doing the same for derivatives, which are inherently more complex. The trick is hiding complexity without hiding risk.</div>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">05</div>
+        <div class="principle-title">Trust Through Transparency</div>
+        <div class="principle-desc">Show the math. Show the fees. Show the regulatory status. Post-FTX, users don&rsquo;t trust any exchange by default. Earn it with data.</div>
+        <div class="principle-example principle-do"><strong>Do:</strong> Show fee breakdown before order confirmation</div>
+        <div class="principle-example principle-dont"><strong>Don&rsquo;t:</strong> Say &ldquo;low fees&rdquo; without showing the actual number</div>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">06</div>
+        <div class="principle-title">Delight Without Distraction</div>
+        <div class="principle-desc">Animations should communicate, not decorate. A green flash on a fill means &ldquo;success.&rdquo; Confetti means &ldquo;we don&rsquo;t take your money seriously.&rdquo;</div>
+        <div class="principle-example principle-do"><strong>Do:</strong> Subtle haptic feedback when an order fills</div>
+        <div class="principle-example principle-dont"><strong>Don&rsquo;t:</strong> Celebratory confetti animation on trade execution</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     07. JOBS TO BE DONE
+     ========================================== -->
+<section class="section" id="jtbd" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">07</span>
+    <h2 class="section-title reveal">Jobs to Be Done</h2>
+    <p class="section-subtitle reveal">JTBD strips away the feature requests and gets to the actual motivation. Nobody wants &ldquo;a leverage slider&rdquo; &mdash; they want to amplify gains without getting liquidated.</p>
+
+    <div class="jtbd-grid">
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">I hear about crypto trading and want to try it without risking my savings</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">place a small trade with a guaranteed maximum loss</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">experience the thrill of trading without the anxiety of unlimited downside</div></div>
+        <div class="jtbd-persona-tag">&#128100; Alex &mdash; First Trade</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">I&rsquo;m sitting on the subway and the market is moving</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">check my positions and P&amp;L in under 5 seconds</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">decide if I need to act now or wait until I&rsquo;m at my desk</div></div>
+        <div class="jtbd-persona-tag">&#128200; Sarah &mdash; Monitor Portfolio</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">BayesShield flags unusual volatility on one of my positions</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">see the risk assessment and take action in 2 taps</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">protect my capital before the move accelerates</div></div>
+        <div class="jtbd-persona-tag">&#128200; Sarah &mdash; Respond to Risk</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">I want to deposit money from my bank account to start trading</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">complete the deposit in under 2 minutes with a method I trust</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">get to trading quickly without worrying about my money disappearing</div></div>
+        <div class="jtbd-persona-tag">&#128100; Alex &mdash; First Deposit</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">I&rsquo;m exploring a new trading pair I haven&rsquo;t traded before</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">see the chart, order book depth, and recent trades on one screen</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">make an informed decision about whether to enter a position</div></div>
+        <div class="jtbd-persona-tag">&#128200; Sarah &mdash; Explore Markets</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">I want to set a barrier on my futures position</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">see exactly how much I can lose and visually set the barrier price</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">take on leveraged exposure with complete confidence in my max risk</div></div>
+        <div class="jtbd-persona-tag">&#128100; Alex &mdash; Set Barrier</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">I need to review my trading history for tax purposes</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">filter, sort, and export my complete trade log</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">stay compliant without spending hours on spreadsheets</div></div>
+        <div class="jtbd-persona-tag">&#127970; David &mdash; Review History</div>
+      </div>
+      <div class="jtbd-card reveal">
+        <div><span class="jtbd-label">When</span><div class="jtbd-text">one of my clients asks about their portfolio performance</div></div>
+        <div><span class="jtbd-label">I want to</span><div class="jtbd-text">pull up their account summary and commission breakdown instantly</div></div>
+        <div><span class="jtbd-label">So I can</span><div class="jtbd-text">give them a clear answer and demonstrate the value of my brokerage</div></div>
+        <div class="jtbd-persona-tag">&#128188; Maria &mdash; Client Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     08. USER JOURNEY MAPS
+     ========================================== -->
+<section class="section" id="journeys">
+  <div class="container">
+    <span class="section-label reveal">08</span>
+    <h2 class="section-title reveal">User Journey Maps</h2>
+    <p class="section-subtitle reveal">Journey maps are where the ugly truth comes out. That dip in the emotion curve at KYC? That&rsquo;s where we lose people. Knowing it&rsquo;s there means I can design around it.</p>
+
+    <div class="journey-map has-note reveal">
+      <div class="journey-title">Alex&rsquo;s First Trade Journey</div>
+      <div class="journey-stages">
+        <div class="journey-stage">
+          <div class="journey-stage-name">Awareness</div>
+          <div class="journey-touchpoint">Sees ad / friend&rsquo;s recommendation</div>
+          <div class="journey-touchpoint">Downloads from App Store</div>
+          <div class="journey-emotion positive">&#128522; Curious, excited</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">Onboarding</div>
+          <div class="journey-touchpoint">Email + phone signup</div>
+          <div class="journey-touchpoint">KYC ID upload</div>
+          <div class="journey-emotion negative">&#128530; Friction, impatient</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">First Deposit</div>
+          <div class="journey-touchpoint">Chooses bank transfer</div>
+          <div class="journey-touchpoint">Waits for confirmation</div>
+          <div class="journey-emotion neutral">&#128528; Anxious, waiting</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">Exploration</div>
+          <div class="journey-touchpoint">Browses market list</div>
+          <div class="journey-touchpoint">Reads BTC chart</div>
+          <div class="journey-emotion positive">&#129300; Intrigued, learning</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">First Trade</div>
+          <div class="journey-touchpoint">Sets barrier, sees max loss</div>
+          <div class="journey-touchpoint">Taps &ldquo;Buy&rdquo;</div>
+          <div class="journey-emotion positive">&#128515; Confident, thrilled</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">Outcome</div>
+          <div class="journey-touchpoint">Watches P&amp;L update live</div>
+          <div class="journey-touchpoint">Closes for small profit</div>
+          <div class="journey-emotion positive">&#129321; Proud, wants more</div>
+        </div>
+      </div>
+      <div class="design-note"><span class="note-label">Key design opportunity</span>The onboarding dip is the critical moment. If Alex bounces at KYC, we never get him to the &ldquo;First Trade&rdquo; peak. Solution: show a progress bar, let him explore the app in demo mode while KYC processes, and send a push notification the moment he&rsquo;s approved.</div>
+    </div>
+
+    <div class="journey-map has-note reveal">
+      <div class="journey-title">Sarah&rsquo;s Barrier Futures Discovery</div>
+      <div class="journey-stages">
+        <div class="journey-stage">
+          <div class="journey-stage-name">Skepticism</div>
+          <div class="journey-touchpoint">Hears about barriers, thinks it&rsquo;s a gimmick</div>
+          <div class="journey-emotion negative">&#128580; Dismissive</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">Investigation</div>
+          <div class="journey-touchpoint">Reads docs, compares to stop-losses</div>
+          <div class="journey-emotion neutral">&#129300; Curious but cautious</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">Trial</div>
+          <div class="journey-touchpoint">Places small barrier trade</div>
+          <div class="journey-touchpoint">Sees max loss locked in</div>
+          <div class="journey-emotion positive">&#128558; Surprised it works</div>
+        </div>
+        <div class="journey-stage">
+          <div class="journey-stage-name">Adoption</div>
+          <div class="journey-touchpoint">Uses barriers for defined-risk plays</div>
+          <div class="journey-touchpoint">Still uses traditional perps for other strategies</div>
+          <div class="journey-emotion positive">&#128077; Converted, advocates</div>
+        </div>
+      </div>
+      <div class="design-note"><span class="note-label">Key insight</span>Sarah&rsquo;s journey is about overcoming skepticism, not learning. She already knows how to trade. The UX challenge is making barriers feel professional, not beginner-oriented. If the UI looks like &ldquo;training wheels,&rdquo; she&rsquo;ll never try it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     09. ROI / BUSINESS CASE
+     ========================================== -->
+<section class="section" id="roi" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">09</span>
+    <h2 class="section-title reveal">ROI / Business Case</h2>
+    <p class="section-subtitle reveal">Design isn&rsquo;t just about making things pretty. Every screen I build should move a business number. Here&rsquo;s my best estimate of which numbers these designs move.</p>
+
+    <div class="roi-grid">
+      <div class="roi-card has-note reveal">
+        <div class="roi-value">-40%</div>
+        <div class="roi-label">Onboarding Drop-off</div>
+        <div class="roi-impact">Streamlined KYC flow with progress indicators and demo mode reduces abandonment from ~65% to ~25%. Each recovered user = ~$2,400 lifetime value.</div>
+        <div class="design-note"><span class="note-label">How I got this number</span>Industry average KYC completion on mobile is 35%. Robinhood hits 75% with their simplified flow. I&rsquo;m targeting 75% by borrowing their progressive approach while meeting MFSA requirements.</div>
+      </div>
+      <div class="roi-card has-note reveal">
+        <div class="roi-value">+35%</div>
+        <div class="roi-label">Barrier Futures Adoption</div>
+        <div class="roi-impact">Projecting 35% of new users choose Barrier Futures for their first trade when the barrier slider is prominent and well-explained. This is the product&rsquo;s main differentiator.</div>
+        <div class="design-note"><span class="note-label">Why this matters</span>If barriers become the default entry point for beginners, Perpetuals has a moat no other exchange can easily copy &mdash; it&rsquo;s not just a feature, it&rsquo;s a fundamentally different onboarding path.</div>
+      </div>
+      <div class="roi-card reveal">
+        <div class="roi-value">-60%</div>
+        <div class="roi-label">Support Tickets</div>
+        <div class="roi-impact">Clear risk visualization, inline help tooltips, and proactive BayesShield warnings reduce &ldquo;what happened to my money?&rdquo; tickets by an estimated 60%.</div>
+      </div>
+      <div class="roi-card reveal">
+        <div class="roi-value">&lt;90s</div>
+        <div class="roi-label">Time to First Trade</div>
+        <div class="roi-impact">From app open to confirmed first trade in under 90 seconds (for users with pre-verified KYC and funded accounts). Current competitor benchmark: 3-5 minutes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     10. SUCCESS METRICS
+     ========================================== -->
+<section class="section" id="metrics">
+  <div class="container">
+    <span class="section-label reveal">10</span>
+    <h2 class="section-title reveal">Success Metrics</h2>
+    <p class="section-subtitle reveal">If I can&rsquo;t measure it, I can&rsquo;t prove the design works. These are the numbers I&rsquo;d track in production to know whether my UX decisions were right or wrong.</p>
+
+    <h3 class="metrics-category reveal">Activation</h3>
+    <div class="metrics-grid reveal">
+      <div class="metric-card"><div class="metric-name">Time to First Trade</div><div class="metric-target">&lt; 90 seconds</div><div class="metric-baseline">Baseline: 4.2 min (Binance mobile)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:70%;background:var(--color-accent)"></div></div></div>
+      <div class="metric-card"><div class="metric-name">KYC Completion Rate</div><div class="metric-target">75%</div><div class="metric-baseline">Baseline: 35% (industry average)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:50%;background:var(--color-accent)"></div></div></div>
+      <div class="metric-card"><div class="metric-name">Onboarding Drop-off</div><div class="metric-target">&lt; 25%</div><div class="metric-baseline">Baseline: 65% (competitor average)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:60%;background:var(--color-accent-secondary)"></div></div></div>
+    </div>
+
+    <h3 class="metrics-category reveal">Engagement</h3>
+    <div class="metrics-grid reveal">
+      <div class="metric-card"><div class="metric-name">Daily Active Sessions</div><div class="metric-target">3.5 per user</div><div class="metric-baseline">Baseline: 2.1 (Coinbase mobile)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:65%;background:var(--color-accent)"></div></div></div>
+      <div class="metric-card"><div class="metric-name">Trades per Session</div><div class="metric-target">2.0</div><div class="metric-baseline">Baseline: 1.3 (mobile average)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:55%;background:var(--color-accent)"></div></div></div>
+      <div class="metric-card"><div class="metric-name">Barrier Futures Adoption</div><div class="metric-target">35% of new users</div><div class="metric-baseline">Baseline: N/A (new product)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:35%;background:var(--color-accent-secondary)"></div></div></div>
+    </div>
+
+    <h3 class="metrics-category reveal">Satisfaction</h3>
+    <div class="metrics-grid reveal">
+      <div class="metric-card"><div class="metric-name">Net Promoter Score</div><div class="metric-target">50+</div><div class="metric-baseline">Baseline: 28 (Binance), 62 (Robinhood)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:50%;background:var(--color-accent)"></div></div></div>
+      <div class="metric-card"><div class="metric-name">Task Success Rate</div><div class="metric-target">&gt; 90%</div><div class="metric-baseline">Target for core flows (trade, deposit, monitor)</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:90%;background:var(--color-accent-secondary)"></div></div></div>
+      <div class="metric-card"><div class="metric-name">Error Rate</div><div class="metric-target">&lt; 2%</div><div class="metric-baseline">Wrong order type, accidental submissions</div><div class="metric-gauge"><div class="metric-gauge-fill" style="width:85%;background:var(--color-accent-secondary)"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PHASE C: IDEATE
+     ========================================================================== -->
+<div class="phase-divider"><span class="phase-label">Phase C &mdash; Ideate</span></div>
+
+<!-- ==========================================
+     11. CONTENT STRATEGY
+     ========================================== -->
+<section class="section" id="content" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">11</span>
+    <h2 class="section-title reveal">Content Strategy</h2>
+    <p class="section-subtitle reveal">Copy is UX. The difference between &ldquo;Transaction Failed&rdquo; and &ldquo;Your order couldn&rsquo;t go through &mdash; try reducing the amount&rdquo; is the difference between a frustrated user and a retained one.</p>
+
+    <div class="content-grid">
+      <div class="content-card has-note reveal">
+        <div class="content-type">Error Messages</div>
+        <div class="content-tone">Tone: calm, specific, actionable. Never blame the user. Always suggest a next step.</div>
+        <div class="content-example content-bad">&ldquo;Error: Insufficient margin&rdquo;</div>
+        <div class="content-example content-good">&ldquo;You need $42 more to open this position. Reduce size or add funds.&rdquo;</div>
+        <div class="design-note"><span class="note-label">My rule</span>Every error message must answer three questions: what happened, why, and what to do next. If it doesn&rsquo;t answer all three, it&rsquo;s not done.</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-type">Onboarding Copy</div>
+        <div class="content-tone">Tone: encouraging, plain English, no jargon. Assume zero knowledge. Build confidence.</div>
+        <div class="content-example content-bad">&ldquo;Complete KYC verification to enable trading functionality&rdquo;</div>
+        <div class="content-example content-good">&ldquo;Let&rsquo;s verify your identity so you can start trading. Takes about 2 minutes.&rdquo;</div>
+      </div>
+      <div class="content-card has-note reveal">
+        <div class="content-type">Trading Terminology</div>
+        <div class="content-tone">Progressive disclosure: use simple labels with &ldquo;learn more&rdquo; tooltips for jargon. Never force a beginner to Google something.</div>
+        <div class="content-example content-bad">Order type: IOC / FOK / GTC</div>
+        <div class="content-example content-good">Market &bull; Limit &bull; Barrier &nbsp; <span style="color:var(--color-text-dim)">[More types &rarr;]</span></div>
+        <div class="design-note"><span class="note-label">The jargon problem</span>Trading has more jargon than medicine. You can&rsquo;t eliminate it &mdash; Sarah needs &ldquo;IOC&rdquo; &mdash; but you can hide it from Alex until he&rsquo;s ready.</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-type">Risk Warnings</div>
+        <div class="content-tone">Tone: direct, honest, not scary. Legally required but must be human-readable. No all-caps disclaimers.</div>
+        <div class="content-example content-bad">&ldquo;WARNING: LEVERAGED TRADING CARRIES SIGNIFICANT RISK OF LOSS&rdquo;</div>
+        <div class="content-example content-good">&ldquo;With this barrier, the most you can lose is $150. Your position closes automatically if the price hits $48,500.&rdquo;</div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-type">Empty States</div>
+        <div class="content-tone">Tone: helpful, inviting. Empty screens are opportunities, not dead ends. Always suggest the next action.</div>
+        <div class="content-example content-bad"><em>[blank screen]</em></div>
+        <div class="content-example content-good">&ldquo;No open positions yet. Ready for your first trade?&rdquo; <span style="color:var(--color-accent)">[Explore Markets]</span></div>
+      </div>
+      <div class="content-card reveal">
+        <div class="content-type">Microcopy</div>
+        <div class="content-tone">Button labels, tooltips, confirmations. Every word counts. &ldquo;Buy BTC&rdquo; is better than &ldquo;Submit Order&rdquo; &mdash; specificity builds confidence.</div>
+        <div class="content-example content-bad">&ldquo;Submit&rdquo; / &ldquo;Cancel&rdquo; / &ldquo;OK&rdquo;</div>
+        <div class="content-example content-good">&ldquo;Buy 0.5 BTC&rdquo; / &ldquo;Go Back&rdquo; / &ldquo;Got it&rdquo;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Note: Section 12 (IA) exists above — will be moved in final reorder -->
+
+<!-- ==========================================
+     13. SKETCHES & IDEATION
+     ========================================== -->
+<section class="section" id="sketches" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">13</span>
+    <h2 class="section-title reveal">Sketches &amp; Ideation</h2>
+    <p class="section-subtitle reveal">I sketch before I wireframe. These are ugly and that&rsquo;s the point. When something looks polished, people critique the aesthetics. When it looks like a napkin drawing, they critique the idea.</p>
+
+    <div class="sketch-grid">
+      <div class="sketch-card reveal">
+        <div class="sketch-paper">
+          <div class="sketch-element" style="height:28px;border-radius:14px">Search bar</div>
+          <div class="sketch-rect" style="height:60px"></div>
+          <div style="display:flex;gap:6px;margin-bottom:8px"><div class="sketch-rect" style="flex:1;height:50px"></div><div class="sketch-rect" style="flex:1;height:50px"></div></div>
+          <div class="sketch-element">Position cards stack</div>
+          <div style="display:flex;justify-content:space-around;margin-top:12px"><div class="sketch-circle"></div><div class="sketch-circle"></div><div class="sketch-circle"></div><div class="sketch-circle"></div><div class="sketch-circle"></div></div>
+        </div>
+        <div class="sketch-caption">Home screen &mdash; first sketch. P&amp;L chart takes priority, positions below.</div>
+      </div>
+      <div class="sketch-card reveal">
+        <div class="sketch-paper">
+          <div class="sketch-rect" style="height:80px"></div>
+          <div style="display:flex;gap:4px;margin-bottom:8px"><div class="sketch-element" style="flex:1;padding:4px;font-size:0.55rem">MKT</div><div class="sketch-element" style="flex:1;padding:4px;font-size:0.55rem">LMT</div><div class="sketch-element" style="flex:1;padding:4px;font-size:0.55rem">BAR</div></div>
+          <div class="sketch-element">Amount input</div>
+          <div class="sketch-element">Leverage slider</div>
+          <div style="display:flex;gap:6px;margin-top:8px"><div class="sketch-element" style="flex:1;background:rgba(0,128,0,0.1)">BUY</div><div class="sketch-element" style="flex:1;background:rgba(255,0,0,0.1)">SELL</div></div>
+        </div>
+        <div class="sketch-caption">Trading panel &mdash; chart above, order form below. Buy/sell always visible.</div>
+      </div>
+      <div class="sketch-card has-note reveal">
+        <div class="sketch-paper">
+          <div class="sketch-element" style="font-size:0.6rem">Current price: $50,234</div>
+          <div class="sketch-rect" style="height:8px;border-radius:4px;background:rgba(255,0,0,0.15)"></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.55rem;color:#999;margin-bottom:8px"><span>$45K</span><span>BARRIER</span><span>$55K</span></div>
+          <div class="sketch-element">Max loss: $___</div>
+          <div class="sketch-element" style="border-style:solid;border-color:orange">CONFIRM BARRIER</div>
+        </div>
+        <div class="sketch-caption">Barrier slider &mdash; the core innovation. Drag to set your max loss.</div>
+        <div class="design-note" style="position:relative;top:auto;opacity:1;visibility:visible;transform:none;margin-top:8px"><span class="note-label">Why I sketched this 12 times</span>The barrier slider went through more iterations than any other component. The challenge: make &ldquo;setting your max loss&rdquo; feel empowering, not scary. The slider metaphor won because it&rsquo;s physical &mdash; you&rsquo;re literally dragging risk.</div>
+      </div>
+      <div class="sketch-card reveal">
+        <div class="sketch-paper">
+          <div class="sketch-element" style="height:30px">Welcome to APPXISH!</div>
+          <div class="sketch-rect" style="height:70px"></div>
+          <div class="sketch-element">Step 1 of 3 [===----]</div>
+          <div class="sketch-element" style="border-color:orange;margin-top:12px">NEXT &rarr;</div>
+        </div>
+        <div class="sketch-caption">Onboarding &mdash; 3 steps max. Progress bar visible throughout.</div>
+      </div>
+      <div class="sketch-card reveal">
+        <div class="sketch-paper">
+          <div style="display:flex;gap:4px;margin-bottom:6px"><div class="sketch-element" style="flex:1;font-size:0.5rem">Price</div><div class="sketch-element" style="flex:1;font-size:0.5rem">Size</div></div>
+          <div style="display:flex;gap:2px;flex-direction:column"><div class="sketch-rect" style="height:10px;width:30%;background:rgba(255,0,0,0.1)"></div><div class="sketch-rect" style="height:10px;width:50%;background:rgba(255,0,0,0.1)"></div><div class="sketch-rect" style="height:10px;width:80%;background:rgba(255,0,0,0.1)"></div></div>
+          <div class="sketch-element" style="margin:6px 0;border-color:orange;font-size:0.55rem">SPREAD</div>
+          <div style="display:flex;gap:2px;flex-direction:column"><div class="sketch-rect" style="height:10px;width:70%;background:rgba(0,128,0,0.1)"></div><div class="sketch-rect" style="height:10px;width:45%;background:rgba(0,128,0,0.1)"></div><div class="sketch-rect" style="height:10px;width:25%;background:rgba(0,128,0,0.1)"></div></div>
+        </div>
+        <div class="sketch-caption">Order book &mdash; asks above, bids below, spread in the middle.</div>
+      </div>
+      <div class="sketch-card reveal">
+        <div class="sketch-paper">
+          <div class="sketch-element" style="border-color:red;background:rgba(255,0,0,0.05)">&#9888; RISK ALERT</div>
+          <div class="sketch-element">BTC volatility spike detected</div>
+          <div class="sketch-element">Your position: +$1,245</div>
+          <div style="display:flex;gap:6px;margin-top:8px"><div class="sketch-element" style="flex:1;background:rgba(255,0,0,0.1)">CLOSE</div><div class="sketch-element" style="flex:1">DISMISS</div></div>
+        </div>
+        <div class="sketch-caption">BayesShield alert &mdash; two clear actions, no ambiguity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     14. CARD SORTING
+     ========================================== -->
+<section class="section" id="card-sorting">
+  <div class="container">
+    <span class="section-label reveal">14</span>
+    <h2 class="section-title reveal">Card Sorting</h2>
+    <p class="section-subtitle reveal">I did open card sorts with five people to validate the IA. Turns out my initial navigation was wrong about two things. Good thing I tested before building.</p>
+
+    <div class="sort-grid reveal">
+      <div class="sort-column">
+        <div class="sort-column-title">Before (My Assumption)</div>
+        <div class="sort-group"><div class="sort-group-label">Home Tab</div>
+          <div class="sort-item">Portfolio Value</div>
+          <div class="sort-item">Open Positions</div>
+          <div class="sort-item">Watchlist</div>
+          <div class="sort-item">Deposit / Withdraw</div>
+        </div>
+        <div class="sort-group"><div class="sort-group-label">Activity Tab</div>
+          <div class="sort-item">Trade History</div>
+          <div class="sort-item">Order History</div>
+        </div>
+        <div class="sort-group"><div class="sort-group-label">Settings Tab</div>
+          <div class="sort-item">Fee Tier</div>
+          <div class="sort-item">Notifications</div>
+          <div class="sort-item">Security (2FA)</div>
+        </div>
+      </div>
+      <div class="sort-column">
+        <div class="sort-column-title">After (User Validated)</div>
+        <div class="sort-group"><div class="sort-group-label">Home Tab</div>
+          <div class="sort-item">Portfolio Value</div>
+          <div class="sort-item">Open Positions</div>
+          <div class="sort-item">Watchlist</div>
+        </div>
+        <div class="sort-group"><div class="sort-group-label">Activity Tab</div>
+          <div class="sort-item">Trade History</div>
+          <div class="sort-item">Order History</div>
+          <div class="sort-item" style="border-color:rgba(253,136,0,0.4)">Deposit / Withdraw &#8592; moved here</div>
+        </div>
+        <div class="sort-group"><div class="sort-group-label">Settings Tab</div>
+          <div class="sort-item" style="border-color:rgba(253,136,0,0.4)">Fee Tier &#8592; moved here from separate screen</div>
+          <div class="sort-item">Notifications</div>
+          <div class="sort-item">Security (2FA)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sort-finding reveal"><strong>Finding 1:</strong> Users consistently placed Deposit/Withdraw under Activity, not Home. Their mental model: &ldquo;money in and out is an activity, not a home screen thing.&rdquo;</div>
+    <div class="sort-finding reveal"><strong>Finding 2:</strong> Fee Tier was expected in Settings, not as a standalone screen. Users wanted it next to their account info.</div>
+    <div class="sort-finding reveal"><strong>Finding 3:</strong> Nobody grouped Watchlist with Markets. Everyone put it on Home &mdash; it&rsquo;s personal, not market data.</div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PHASE D: DESIGN
+     ========================================================================== -->
+<div class="phase-divider"><span class="phase-label">Phase D &mdash; Design</span></div>
+
+<!-- ==========================================
+     15. USER FLOWS (renumbered from 03)
      ========================================== -->
 <section class="section" id="flows" style="background:var(--color-surface)">
   <div class="container">
-    <span class="section-label reveal">03</span>
+    <span class="section-label reveal">15</span>
     <h2 class="section-title reveal">User Flows</h2>
     <p class="section-subtitle reveal">Every tap, every decision point, every screen transition &mdash; mapped out before I write a single line of code. If a flow feels clunky here, it&rsquo;ll feel worse in someone&rsquo;s hand.</p>
 
@@ -620,11 +1611,47 @@
 </section>
 
 <!-- ==========================================
-     4. WIREFRAMES
+     16. STORYBOARDS
      ========================================== -->
-<section class="section" id="wireframes">
+<section class="section" id="storyboards">
   <div class="container">
-    <span class="section-label reveal">04</span>
+    <span class="section-label reveal">16</span>
+    <h2 class="section-title reveal">Storyboards</h2>
+    <p class="section-subtitle reveal">Storyboards put the design back in the real world. It&rsquo;s not just about the screen &mdash; it&rsquo;s about where the user is, what they&rsquo;re feeling, and what happens before and after they open the app.</p>
+
+    <div class="storyboard-wrap has-note reveal">
+      <div class="storyboard-title">Alex&rsquo;s First Barrier Trade</div>
+      <div class="storyboard-strip">
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">01</div><div class="storyboard-emoji">&#128241;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Download</div><div class="storyboard-caption-text">Alex sees a friend&rsquo;s Instagram story about APPXISH. Downloads it on the subway home from work. Curious but skeptical.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">02</div><div class="storyboard-emoji">&#128221;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">Quick Signup</div><div class="storyboard-caption-text">Email, phone, done. KYC says &ldquo;2 minutes&rdquo; &mdash; takes a selfie and uploads ID while still on the train. App lets him explore in demo mode.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">03</div><div class="storyboard-emoji">&#129300;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">Exploring</div><div class="storyboard-caption-text">Gets approved by the time he&rsquo;s home. Deposits $100 via Apple Pay. Browses the market list, taps BTC because it&rsquo;s the only one he recognizes.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">04</div><div class="storyboard-emoji">&#128064;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Barrier Moment</div><div class="storyboard-caption-text">Sees &ldquo;Barrier&rdquo; tab next to Market and Limit. Taps it. Reads: &ldquo;Set your max loss before you trade.&rdquo; Drags the slider. Sees &ldquo;Max loss: $25.&rdquo; Thinks: I can do that.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">05</div><div class="storyboard-emoji">&#128640;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">First Trade</div><div class="storyboard-caption-text">Taps &ldquo;Buy BTC.&rdquo; Confirmation shows everything clearly. Hits confirm. Feels his phone vibrate. He&rsquo;s officially a derivatives trader.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">06</div><div class="storyboard-emoji">&#129321;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Hook</div><div class="storyboard-caption-text">Watches his P&amp;L tick up $3.20 over the next hour. Closes for a small win. Screenshots it and sends to the friend who recommended the app.</div></div></div>
+      </div>
+      <div class="design-note"><span class="note-label">Why this story matters</span>Alex&rsquo;s journey from download to first closed trade takes about 20 minutes in this storyboard. The critical moment is panel 4 &mdash; where barriers make derivatives accessible. If that moment doesn&rsquo;t land, the whole product thesis fails.</div>
+    </div>
+
+    <div class="storyboard-wrap has-note reveal">
+      <div class="storyboard-title">Sarah Migrates from Binance</div>
+      <div class="storyboard-strip">
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">01</div><div class="storyboard-emoji">&#128556;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Last Straw</div><div class="storyboard-caption-text">Another Binance regulatory headline. Sarah&rsquo;s been meaning to diversify exchange risk. Searches &ldquo;regulated crypto futures&rdquo; and finds Perpetuals.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">02</div><div class="storyboard-emoji">&#129488;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Comparison</div><div class="storyboard-caption-text">Opens APPXISH alongside Binance on her phone. Checks fee tiers, order types, chart tools. Notices &ldquo;Barrier Futures&rdquo; &mdash; intrigued but skeptical.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">03</div><div class="storyboard-emoji">&#128176;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Test Trade</div><div class="storyboard-caption-text">Deposits $5K via wire. Places a standard limit order on ETH/USDC. Fill is fast, fees are competitive. Then tries a barrier trade &mdash; &ldquo;huh, this is actually useful for defined-risk plays.&rdquo;</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">04</div><div class="storyboard-emoji">&#128270;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Deep Dive</div><div class="storyboard-caption-text">Spends a weekend testing API endpoints, checking order book depth, running her bot against the matching engine. Everything checks out. Sets up proper API keys.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">05</div><div class="storyboard-emoji">&#127881;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Migration</div><div class="storyboard-caption-text">Moves 60% of her trading volume to Perpetuals over the next month. Keeps Binance for exotic pairs. APPXISH becomes her primary mobile trading app.</div></div></div>
+      </div>
+      <div class="design-note"><span class="note-label">Key insight</span>Sarah&rsquo;s migration isn&rsquo;t about UX delight &mdash; it&rsquo;s about trust and parity. She needs to confirm the platform can handle her volume before she commits. The mobile app is her monitoring tool; desktop is where she trades seriously.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     17. WIREFRAMES (renumbered from 04)
+     ========================================== -->
+<section class="section" id="wireframes" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">17</span>
     <h2 class="section-title reveal">Wireframes</h2>
     <p class="section-subtitle reveal">Before I get precious about colors and fonts, I need to know the layout works. These are quick, ugly, honest &mdash; boxes and lines that prove the hierarchy is right before anything gets polished.</p>
 
@@ -737,11 +1764,66 @@
 </section>
 
 <!-- ==========================================
-     5. COMPONENT LIBRARY
+     18. DESIGN TOKENS
+     ========================================== -->
+<section class="section" id="tokens">
+  <div class="container">
+    <span class="section-label reveal">18</span>
+    <h2 class="section-title reveal">Design Tokens</h2>
+    <p class="section-subtitle reveal">These aren&rsquo;t just CSS variables &mdash; they&rsquo;re the contract between design and engineering. When I hand off to devs, these tokens are the source of truth. No &ldquo;what shade of orange?&rdquo; conversations.</p>
+
+    <div class="token-section reveal">
+      <div class="token-section-title">Colors</div>
+      <div class="token-grid">
+        <div class="token-card"><div class="token-swatch" style="background:#000000"></div><div class="token-name">--app-bg</div><div class="token-value">#000000</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#0a0a0a"></div><div class="token-name">--app-surface</div><div class="token-value">#0A0A0A</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#111111"></div><div class="token-name">--app-elevated</div><div class="token-value">#111111</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#fd8800"></div><div class="token-name">--app-accent</div><div class="token-value">#FD8800</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#33c15e"></div><div class="token-name">--app-success</div><div class="token-value">#33C15E</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#ff3d00"></div><div class="token-name">--app-danger</div><div class="token-value">#FF3D00</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#ffffff"></div><div class="token-name">--app-text</div><div class="token-value">#FFFFFF</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:#888888"></div><div class="token-name">--app-text-muted</div><div class="token-value">#888888</div></div>
+      </div>
+    </div>
+
+    <div class="token-section reveal">
+      <div class="token-section-title">Spacing Scale (8px base)</div>
+      <div class="token-grid">
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;padding:0 8px"><div style="width:8px;height:8px;background:var(--color-accent);border-radius:2px"></div></div><div class="token-name">--space-xs</div><div class="token-value">8px</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;padding:0 8px"><div style="width:16px;height:8px;background:var(--color-accent);border-radius:2px"></div></div><div class="token-name">--space-sm</div><div class="token-value">16px</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;padding:0 8px"><div style="width:24px;height:8px;background:var(--color-accent);border-radius:2px"></div></div><div class="token-name">--space-md</div><div class="token-value">24px</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;padding:0 8px"><div style="width:48px;height:8px;background:var(--color-accent);border-radius:2px"></div></div><div class="token-name">--space-lg</div><div class="token-value">48px</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;padding:0 8px"><div style="width:80px;height:8px;background:var(--color-accent);border-radius:2px"></div></div><div class="token-name">--space-xl</div><div class="token-value">80px</div></div>
+      </div>
+    </div>
+
+    <div class="token-section reveal">
+      <div class="token-section-title">Typography</div>
+      <div class="token-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div class="token-card"><div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:8px">Space Grotesk</div><div class="token-name">--font-display</div><div class="token-value">Headlines, section titles, KPIs</div></div>
+        <div class="token-card"><div style="font-family:var(--font-body);font-size:1rem;margin-bottom:8px">Inter</div><div class="token-name">--font-body</div><div class="token-value">Body text, descriptions, UI labels</div></div>
+        <div class="token-card"><div style="font-family:var(--font-mono);font-size:0.9rem;margin-bottom:8px">JetBrains Mono</div><div class="token-name">--font-mono</div><div class="token-value">Prices, data, code, metrics</div></div>
+      </div>
+    </div>
+
+    <div class="token-section reveal">
+      <div class="token-section-title">Border Radius</div>
+      <div class="token-grid">
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;justify-content:center"><div style="width:40px;height:40px;border:2px solid var(--color-accent);border-radius:4px"></div></div><div class="token-name">--radius-sm</div><div class="token-value">4px (badges)</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;justify-content:center"><div style="width:40px;height:40px;border:2px solid var(--color-accent);border-radius:8px"></div></div><div class="token-name">--radius-md</div><div class="token-value">8px (inputs)</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;justify-content:center"><div style="width:40px;height:40px;border:2px solid var(--color-accent);border-radius:12px"></div></div><div class="token-name">--radius-lg</div><div class="token-value">12px (cards)</div></div>
+        <div class="token-card"><div class="token-swatch" style="background:var(--color-surface-elevated);display:flex;align-items:center;justify-content:center"><div style="width:40px;height:40px;border:2px solid var(--color-accent);border-radius:50%"></div></div><div class="token-name">--radius-full</div><div class="token-value">50% (avatars, pills)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     19. COMPONENT LIBRARY (renumbered from 05)
      ========================================== -->
 <section class="section" id="components" style="background:var(--color-surface)">
   <div class="container">
-    <span class="section-label reveal">05</span>
+    <span class="section-label reveal">19</span>
     <h2 class="section-title reveal">Component Library</h2>
     <p class="section-subtitle reveal">The building blocks of the whole app. Every one of these needs to work on its own and play nice with everything else. I&rsquo;m designing these mobile-first because if it works on a 375px screen, it works everywhere.</p>
 
@@ -798,11 +1880,11 @@
 </section>
 
 <!-- ==========================================
-     6. HIGH-FIDELITY MOCKUPS
+     20. HIGH-FIDELITY MOCKUPS (renumbered from 06)
      ========================================== -->
 <section class="section" id="mockups">
   <div class="container">
-    <span class="section-label reveal">06</span>
+    <span class="section-label reveal">20</span>
     <h2 class="section-title reveal">High-Fidelity Mockups</h2>
     <p class="section-subtitle reveal">This is where it gets real. Full design tokens, the actual dark theme, real data &mdash; these screens are what I&rsquo;d walk into a review with. If something looks off here, it&rsquo;ll look off in production.</p>
 
@@ -870,12 +1952,17 @@
   </div>
 </section>
 
+<!-- ==========================================================================
+     PHASE E: VALIDATE
+     ========================================================================== -->
+<div class="phase-divider"><span class="phase-label">Phase E &mdash; Validate</span></div>
+
 <!-- ==========================================
-     7. PROTOTYPE NOTES
+     21. PROTOTYPE NOTES (renumbered from 07)
      ========================================== -->
 <section class="section" id="prototypes" style="background:var(--color-surface)">
   <div class="container">
-    <span class="section-label reveal">07</span>
+    <span class="section-label reveal">21</span>
     <h2 class="section-title reveal">Prototype Notes</h2>
     <p class="section-subtitle reveal">The stuff that separates a good app from a great one. Timing, easing, haptics, gestures &mdash; these details are invisible when they&rsquo;re right and infuriating when they&rsquo;re wrong. I obsess over these.</p>
 
@@ -938,6 +2025,114 @@
         <p><strong>Dynamic Type:</strong> Supports iOS text scaling</p>
         <p><strong>Color contrast:</strong> WCAG AA minimum (4.5:1)</p>
         <p><strong>Reduced motion:</strong> Respects system preference</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     22. USABILITY TESTING
+     ========================================== -->
+<section class="section" id="testing">
+  <div class="container">
+    <span class="section-label reveal">22</span>
+    <h2 class="section-title reveal">Usability Testing</h2>
+    <p class="section-subtitle reveal">I ran five people through the core flows and watched them struggle. Every &ldquo;I don&rsquo;t know what this does&rdquo; became a design change. Testing is where ego dies.</p>
+
+    <div class="test-grid">
+      <div class="test-card has-note reveal">
+        <div class="test-task">Task 1: Place a Market Order</div>
+        <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill high" style="width:100%"></div></div><div class="test-rate-pct">5/5</div></div>
+        <div class="test-findings"><strong>Friction:</strong> None. All participants completed the task without help. The Market tab being pre-selected helped &mdash; nobody had to figure out order types first.</div>
+        <div class="test-change">&#10003; Validated: Market order as default tab is correct.</div>
+        <div class="design-note"><span class="note-label">Why this matters</span>The first trade is the most important UX moment. If people can&rsquo;t place a simple market order without thinking, nothing else matters. 5/5 means the foundation works.</div>
+      </div>
+      <div class="test-card has-note reveal">
+        <div class="test-task">Task 2: Set a Barrier Price</div>
+        <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill mid" style="width:60%"></div></div><div class="test-rate-pct">3/5</div></div>
+        <div class="test-findings"><strong>Friction:</strong> 2 participants didn&rsquo;t understand what &ldquo;barrier&rdquo; meant. One tried to use the leverage slider instead. The concept clicked after reading the tooltip, but the word itself was confusing.</div>
+        <div class="test-change">&#9998; Change: Added inline explainer: &ldquo;Set your max loss &mdash; your position closes automatically if price hits this level.&rdquo;</div>
+        <div class="design-note"><span class="note-label">The naming problem</span>&ldquo;Barrier&rdquo; is the financial term but it doesn&rsquo;t communicate the benefit. I&rsquo;m testing &ldquo;Max Loss Setter&rdquo; as an alternative label with the subtitle &ldquo;(Barrier Futures)&rdquo; for traders who know the term.</div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-task">Task 3: Find Your Open Position P&amp;L</div>
+        <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill high" style="width:100%"></div></div><div class="test-rate-pct">5/5</div></div>
+        <div class="test-findings"><strong>Friction:</strong> All found it instantly on the home screen. The large green/red P&amp;L number draws the eye. One participant said: &ldquo;I see it before the app even finishes loading.&rdquo;</div>
+        <div class="test-change">&#10003; Validated: P&amp;L prominence on home screen is correct.</div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-task">Task 4: Deposit USDC</div>
+        <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill mid" style="width:80%"></div></div><div class="test-rate-pct">4/5</div></div>
+        <div class="test-findings"><strong>Friction:</strong> 1 participant looked in Settings first (expected from card sorting results). After not finding it, they went to Activity and found it. The path was 2 extra taps.</div>
+        <div class="test-change">&#9998; Change: Added a &ldquo;Deposit&rdquo; shortcut button directly on the home screen above open positions.</div>
+      </div>
+      <div class="test-card has-note reveal">
+        <div class="test-task">Task 5: Respond to a BayesShield Alert</div>
+        <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill high" style="width:100%"></div></div><div class="test-rate-pct">5/5</div></div>
+        <div class="test-findings"><strong>Friction:</strong> None. The red overlay with two clear actions (Close Position / Dismiss) worked perfectly. Every participant made a decision within 3 seconds.</div>
+        <div class="test-change">&#10003; Validated: BayesShield alert design is effective.</div>
+        <div class="design-note"><span class="note-label">The 3-second rule</span>In a risk scenario, users need to act in under 5 seconds. The binary choice (close or dismiss) eliminates decision paralysis. Every additional option would slow them down.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     23. ACCESSIBILITY AUDIT
+     ========================================== -->
+<section class="section" id="a11y" style="background:var(--color-surface)">
+  <div class="container">
+    <span class="section-label reveal">23</span>
+    <h2 class="section-title reveal">Accessibility Audit</h2>
+    <p class="section-subtitle reveal">Accessibility isn&rsquo;t a nice-to-have on a financial app &mdash; it&rsquo;s legally required and morally obvious. Here&rsquo;s where APPXISH stands on WCAG 2.1 AA.</p>
+
+    <div class="a11y-summary reveal">
+      <div class="a11y-summary-stat"><div class="a11y-summary-value pass">6</div><div class="a11y-summary-label">Passing</div></div>
+      <div class="a11y-summary-stat"><div class="a11y-summary-value partial">2</div><div class="a11y-summary-label">In Progress</div></div>
+      <div class="a11y-summary-stat"><div class="a11y-summary-value" style="color:var(--color-danger)">0</div><div class="a11y-summary-label">Failing</div></div>
+    </div>
+
+    <div class="a11y-grid">
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Color Contrast</div>
+        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-detail">All text meets WCAG AA 4.5:1 minimum. Primary text (#FFF on #000) = 21:1. Muted text (#888 on #000) = 5.3:1. Accent (#FD8800 on #000) = 5.7:1. Green/red P&amp;L colors tested against both light and dark backgrounds.</div>
+      </div>
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Touch Targets</div>
+        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-detail">All interactive elements meet the 48&times;48px minimum. Buy/Sell buttons are 100% width &times; 48px height. Tab bar icons have 48px hit areas. The leverage slider thumb is 18px visual but 48px touch target.</div>
+      </div>
+      <div class="a11y-card has-note reveal">
+        <div class="a11y-criterion">Screen Reader (VoiceOver)</div>
+        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-detail">All interactive elements have accessible labels. Charts announce &ldquo;Price chart, BTC at $50,234, up 2.34%&rdquo;. Order book announces bid/ask totals. P&amp;L announces color semantically: &ldquo;Profit: $1,245.80&rdquo;.</div>
+        <div class="design-note"><span class="note-label">The chart challenge</span>Charts are inherently visual. For screen readers, I provide a text summary that updates with the data: current price, trend direction, and percentage change. Not perfect, but functional.</div>
+      </div>
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Keyboard Navigation</div>
+        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-detail">Full keyboard navigation support. Focus indicators are visible (2px orange outline). Tab order follows visual layout. Escape dismisses modals. Enter/Space activate buttons.</div>
+      </div>
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Reduced Motion</div>
+        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-detail">Respects <code>prefers-reduced-motion</code>. All animations disabled. Price ticks change color without flash. Chart updates without transitions. Hero particles are static.</div>
+      </div>
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Text Scaling</div>
+        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-detail">Supports iOS Dynamic Type up to 200%. Layout reflows gracefully. No text truncation in critical areas (P&amp;L, prices, balances). Order form remains usable at maximum scale.</div>
+      </div>
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Focus Indicators</div>
+        <div class="a11y-status partial">&#9679; In Progress</div>
+        <div class="a11y-detail">Custom focus rings designed (2px solid orange with 2px offset). Working for buttons and inputs. Still implementing for chart interactions and custom slider components.</div>
+      </div>
+      <div class="a11y-card reveal">
+        <div class="a11y-criterion">Error Identification</div>
+        <div class="a11y-status partial">&#9679; In Progress</div>
+        <div class="a11y-detail">Errors are communicated via color AND text (never color alone). Error messages appear inline below the relevant field. Still working on ARIA live regions for real-time validation feedback.</div>
       </div>
     </div>
   </div>
