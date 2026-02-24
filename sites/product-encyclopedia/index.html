@@ -1940,6 +1940,7 @@
           <a href="#trading-concepts" class="sidebar-link">Trading Concepts</a>
           <a href="#positions-margin" class="sidebar-link">Positions &amp; Margin</a>
           <a href="#chart-anatomy" class="sidebar-link">Chart Anatomy</a>
+          <a href="#analysis-methods" class="sidebar-link">TA vs. FA</a>
           <a href="#trade-lifecycle" class="sidebar-link">Trade Lifecycle</a>
           <a href="#fee-structure" class="sidebar-link">Fee Structure</a>
         </div>
@@ -2676,6 +2677,61 @@
               <p>&bull; Price &bull; Size &bull; Time &bull; Side (buy/sell)</p>
               <p style="margin-top:8px">Green rows = trades at the ask (buyer initiated). Red rows = trades at the bid (seller initiated). Fast-scrolling feed = high activity. Used by scalpers to read "tape" (flow of orders).</p>
               <p style="margin-top:8px"><strong>UX note:</strong> Auto-scrolling list. Recent trades at top. Color-coded. Optional: aggregate by time or show individual fills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TECHNICAL vs FUNDAMENTAL ANALYSIS
+         ========================================== -->
+    <section class="section" id="analysis-methods" data-searchable style="background:var(--color-surface)">
+      <div class="container">
+        <span class="section-label reveal">Trading Knowledge</span>
+        <h2 class="section-title reveal">Technical vs. Fundamental Analysis</h2>
+        <p class="section-subtitle reveal">Two lenses for the same market. Most crypto derivatives traders lean heavily on technical analysis, but institutional players blend both. Understanding these frameworks shapes every chart tool, data widget, and information hierarchy in the UI.</p>
+
+        <div class="product-grid reveal">
+          <div class="product-main">
+            <h3>Technical Analysis (TA)</h3>
+            <p>Technical analysis studies price and volume data to identify patterns and predict future price movements. It&rsquo;s the primary decision framework for 70%+ of active crypto traders. Every chart tool, overlay, indicator toggle, and drawing instrument in the UI exists to serve this workflow.</p>
+
+            <details class="component-item" open><summary>Support &amp; Resistance</summary><div class="detail-content"><strong>Support</strong> = a price level where buying pressure historically prevents further decline. <strong>Resistance</strong> = a price level where selling pressure historically prevents further rise. These are the most fundamental concepts in TA. When broken, support becomes resistance and vice versa. <strong>UX note:</strong> Drawing tools for horizontal lines are essential. Consider auto-detecting S/R levels from historical data.</div></details>
+            <details class="component-item"><summary>Trend Lines &amp; Channels</summary><div class="detail-content">Lines connecting successive highs (downtrend) or lows (uptrend). Channels are parallel trend lines. Traders use them to identify the direction and boundaries of price movement. <strong>UX note:</strong> Drawing tools with snap-to-price functionality. Auto-extend lines to the right edge of the chart.</div></details>
+            <details class="component-item"><summary>Chart Patterns</summary><div class="detail-content">Repeating shapes that traders believe predict future moves: <strong>Head and Shoulders</strong> (reversal), <strong>Double Top/Bottom</strong> (reversal), <strong>Triangles</strong> (ascending, descending, symmetrical &mdash; continuation), <strong>Flags and Pennants</strong> (continuation after a sharp move). Pattern recognition is the most visual and intuitive aspect of TA.</div></details>
+            <details class="component-item"><summary>Fibonacci Retracements</summary><div class="detail-content">Horizontal lines at key percentages (23.6%, 38.2%, 50%, 61.8%, 78.6%) between a high and low point. Traders expect pullbacks to these levels before the trend continues. Based on the Fibonacci sequence &mdash; widely used despite debatable statistical foundation. <strong>UX note:</strong> Fib drawing tool should auto-calculate levels from two anchor points.</div></details>
+            <details class="component-item"><summary>Volume Analysis</summary><div class="detail-content">Price moves confirmed by volume are considered stronger. <strong>Volume spike + price breakout</strong> = strong signal. <strong>Price move on low volume</strong> = weak, likely to reverse. Volume Profile shows where the most trading activity occurred at each price level. <strong>UX note:</strong> Volume bars below the main chart. VWAP overlay for institutional users.</div></details>
+            <details class="component-item"><summary>Key Indicators</summary><div class="detail-content"><strong>MACD</strong> (Moving Average Convergence Divergence) &mdash; Shows trend momentum via the relationship between two EMAs. Signal line crossovers indicate buy/sell opportunities. <strong>Stochastic Oscillator</strong> &mdash; Like RSI, measures momentum on a 0-100 scale. <strong>ADX</strong> (Average Directional Index) &mdash; Measures trend strength, not direction. Above 25 = strong trend. <strong>UX note:</strong> Default to 2-3 popular indicators. Let users add/remove via a panel.</div></details>
+
+            <h3 style="margin-top:var(--space-md)">Fundamental Analysis (FA)</h3>
+            <p>Evaluating underlying value rather than price patterns. Less dominant in short-term derivatives trading, but institutional users reference it for position sizing and directional bias. In crypto, &ldquo;fundamental analysis&rdquo; means something different than in equities:</p>
+
+            <details class="component-item"><summary>On-Chain Metrics</summary><div class="detail-content"><strong>Active addresses</strong> = daily users of the network. <strong>Transaction volume</strong> = actual usage (not exchange volume). <strong>Hash rate</strong> (PoW) = network security strength. <strong>Staking ratio</strong> (PoS) = percentage of supply locked. These metrics reflect actual blockchain activity, not just market sentiment.</div></details>
+            <details class="component-item"><summary>Tokenomics</summary><div class="detail-content">Supply schedule (fixed vs. inflationary), token distribution (team vs. community), vesting schedules, burn mechanisms, and governance rights. A token with 80% held by insiders and a massive unlock approaching is fundamentally different from a widely-distributed one.</div></details>
+            <details class="component-item"><summary>Protocol Revenue &amp; TVL</summary><div class="detail-content"><strong>Total Value Locked (TVL)</strong> = how much capital is deposited in a DeFi protocol. <strong>Protocol revenue</strong> = actual fees earned. These are the closest crypto equivalents to traditional earnings. Increasingly used by institutional investors for valuation.</div></details>
+            <details class="component-item"><summary>Macro Factors</summary><div class="detail-content">Fed interest rate decisions, DXY (dollar strength), Bitcoin ETF flows, regulatory announcements, and institutional adoption signals. In 2025-2026, macro drives crypto more than any single technical signal. BlackRock&rsquo;s IBIT inflows alone moved BTC price by 15% in one quarter.</div></details>
+          </div>
+          <div class="product-aside">
+            <h3>TA vs. FA: Which Matters?</h3>
+            <div class="importance-card">
+              <p><strong>For derivatives traders:</strong> Technical analysis dominates. 80% of short-term crypto decisions are chart-driven. The entire order flow &mdash; entries, exits, stop-losses &mdash; is based on price levels and patterns.</p>
+              <p style="margin-top:8px"><strong>For institutional users:</strong> They blend both. FA for directional conviction, TA for timing entries and exits. David Park (our institutional persona) runs fundamental screens first, then uses charts to optimize execution.</p>
+              <p style="margin-top:8px"><strong>For APPXISH design:</strong> The chart is the center of the trading experience. Every TA tool must be accessible, fast, and touch-optimized. FA data (on-chain, macro) belongs in a secondary panel or market context widget &mdash; available but not competing with the chart for attention.</p>
+            </div>
+            <h3>Indicator Categories</h3>
+            <div class="fact-list">
+              <div class="fact-item"><span class="fact-label">Trend</span><span class="fact-value">MA, EMA, MACD, ADX</span></div>
+              <div class="fact-item"><span class="fact-label">Momentum</span><span class="fact-value">RSI, Stochastic, CCI</span></div>
+              <div class="fact-item"><span class="fact-label">Volatility</span><span class="fact-value">Bollinger Bands, ATR</span></div>
+              <div class="fact-item"><span class="fact-label">Volume</span><span class="fact-value">OBV, VWAP, Volume Profile</span></div>
+              <div class="fact-item"><span class="fact-label">Support/Resist</span><span class="fact-value">Fibonacci, Pivot Points</span></div>
+            </div>
+            <h3 style="margin-top:var(--space-md)">Related</h3>
+            <div class="related-links">
+              <a href="#chart-anatomy" class="related-link">&rarr; Chart Anatomy (visual tools)</a>
+              <a href="#trading-concepts" class="related-link">&rarr; Trading Concepts (order types)</a>
+              <a href="#bayesshield" class="related-link">&rarr; BayesShield (AI analysis)</a>
             </div>
           </div>
         </div>

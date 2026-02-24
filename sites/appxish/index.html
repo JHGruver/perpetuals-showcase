@@ -80,8 +80,10 @@
     .jump-tile .jump-num { font-family:var(--font-mono); font-size:0.65rem; color:var(--color-text-dim); display:block; margin-bottom:4px; }
 
     /* Floating Glossary / TOC */
-    .glossary-bar { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-sm) var(--space-md); margin:var(--space-lg) 0; display:flex; flex-wrap:wrap; gap:var(--space-xs); align-items:center; transition:all 0.4s ease; }
-    .glossary-bar.fixed { position:fixed; top:64px; right:var(--space-md); width:200px; flex-direction:column; border-radius:12px; z-index:8000; box-shadow:0 8px 32px rgba(0,0,0,0.6); margin:0; max-height:calc(100vh - 100px); overflow-y:auto; }
+    .glossary-bar { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-sm) var(--space-md); margin:var(--space-lg) 0; display:flex; flex-wrap:nowrap; gap:var(--space-xs); align-items:center; transition:all 0.4s ease; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .glossary-bar::-webkit-scrollbar { height:4px; }
+    .glossary-bar::-webkit-scrollbar-thumb { background:#333; border-radius:2px; }
+    .glossary-bar.fixed { position:fixed; top:64px; right:var(--space-md); width:220px; flex-direction:column; flex-wrap:nowrap; border-radius:12px; z-index:8000; box-shadow:0 8px 32px rgba(0,0,0,0.6); margin:0; max-height:calc(100vh - 100px); overflow-x:hidden; overflow-y:auto; }
     .glossary-bar.fixed::-webkit-scrollbar { width:4px; }
     .glossary-bar.fixed::-webkit-scrollbar-thumb { background:#333; border-radius:2px; }
     .glossary-bar-title { font-family:var(--font-display); font-weight:600; font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px; white-space:nowrap; }
@@ -92,7 +94,7 @@
     .glossary-collapse { display:none; background:none; border:none; color:var(--color-text-muted); cursor:pointer; padding:4px; margin-left:auto; }
     .glossary-bar.fixed .glossary-collapse { display:block; }
     .glossary-bar.collapsed { width:48px; padding:var(--space-xs); align-items:center; justify-content:center; }
-    .glossary-bar.collapsed .glossary-link, .glossary-bar.collapsed .glossary-bar-title { display:none; }
+    .glossary-bar.collapsed .glossary-link, .glossary-bar.collapsed .glossary-bar-title, .glossary-bar.collapsed .glossary-group { display:none; }
 
     /* Sections */
     .section { padding:var(--space-xl) 0; }
@@ -175,7 +177,8 @@
     .persona-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--space-md); }
     .persona-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast); }
     .persona-card:hover { border-color:rgba(253,136,0,0.3); }
-    .persona-avatar { width:56px; height:56px; border-radius:50%; background:var(--gradient-primary); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:var(--space-sm); }
+    .persona-avatar { width:56px; height:56px; border-radius:50%; background:var(--gradient-primary); display:flex; align-items:center; justify-content:center; margin-bottom:var(--space-sm); }
+    .persona-avatar svg { width:24px; height:24px; stroke:#fff; }
     .persona-name { font-family:var(--font-display); font-weight:700; font-size:1.1rem; }
     .persona-type { font-size:0.8rem; color:var(--color-accent); margin-bottom:var(--space-sm); }
     .persona-detail { font-size:0.8rem; color:var(--color-text-muted); margin-bottom:4px; }
@@ -276,14 +279,16 @@
     /* ===== PHASE DIVIDERS ===== */
     .phase-divider { text-align:center; padding:var(--space-lg) 0 var(--space-sm); }
     .phase-label { display:inline-block; font-family:var(--font-mono); font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:3px; color:var(--color-text-dim); padding:6px 20px; border:1px solid var(--color-border); border-radius:20px; }
-    .glossary-group { font-size:0.55rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-dim); padding:8px 12px 2px; display:block; }
-    .glossary-bar.fixed .glossary-group { padding:10px 12px 2px; }
+    .glossary-group { font-size:0.55rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-dim); padding:8px 12px 2px; display:block; white-space:nowrap; flex-shrink:0; }
+    .glossary-bar.fixed .glossary-group { padding:10px 12px 2px; border-top:1px solid var(--color-border); margin-top:4px; white-space:normal; }
+    .glossary-bar.fixed .glossary-group:first-of-type { border-top:none; margin-top:0; }
 
     /* ===== PHASE A: DISCOVER ===== */
     .research-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--space-md); }
     .research-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); transition:border-color var(--transition-fast), transform var(--transition-fast); }
     .research-card:hover { border-color:rgba(253,136,0,0.3); transform:translateY(-3px); box-shadow:0 8px 24px rgba(253,136,0,0.06); }
-    .research-icon { font-size:1.5rem; margin-bottom:var(--space-sm); }
+    .research-icon { margin-bottom:var(--space-sm); color:var(--color-accent); }
+    .research-icon svg { width:24px; height:24px; }
     .research-title { font-family:var(--font-display); font-weight:600; font-size:1rem; margin-bottom:8px; }
     .research-body { font-size:0.8rem; color:var(--color-text-muted); line-height:1.6; }
 
@@ -348,6 +353,7 @@
     .journey-emotion.positive { color:var(--color-accent-secondary); }
     .journey-emotion.negative { color:var(--color-danger); }
     .journey-emotion.neutral { color:var(--color-text-dim); }
+    .journey-emotion svg { width:14px; height:14px; vertical-align:-2px; margin-right:3px; }
 
     .roi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--space-md); }
     .roi-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; padding:var(--space-md); text-align:center; transition:border-color var(--transition-fast), transform var(--transition-fast); }
@@ -407,7 +413,8 @@
     .storyboard-panel:hover { border-color:rgba(253,136,0,0.3); }
     .storyboard-frame { min-height:140px; background:#111; display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--color-border); padding:var(--space-sm); position:relative; }
     .storyboard-num { font-family:var(--font-mono); font-size:0.6rem; color:var(--color-accent); position:absolute; top:8px; left:8px; }
-    .storyboard-emoji { font-size:2.5rem; }
+    .storyboard-scene { color:var(--color-text-dim); }
+    .storyboard-scene svg { width:40px; height:40px; }
     .storyboard-caption { padding:var(--space-sm); }
     .storyboard-caption-title { font-family:var(--font-display); font-weight:600; font-size:0.8rem; margin-bottom:4px; }
     .storyboard-caption-text { font-size:0.7rem; color:var(--color-text-muted); line-height:1.5; }
@@ -552,12 +559,12 @@
     <a class="glossary-link" href="#prototypes" data-section="prototypes">Prototypes</a>
     <a class="glossary-link" href="#testing" data-section="testing">Usability Testing</a>
     <a class="glossary-link" href="#a11y" data-section="a11y">Accessibility</a>
-    <button class="glossary-collapse" id="glossary-collapse" title="Collapse">&#x2715;</button>
+    <button class="glossary-collapse" id="glossary-collapse" title="Collapse"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
 </div>
 
 <!-- Mobile Pill -->
-<div class="mobile-pill" id="mobile-pill">&#9776; Sections</div>
+<div class="mobile-pill" id="mobile-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Sections</div>
 <div class="mobile-pill-panel" id="mobile-pill-panel">
   <span class="glossary-group">Discover</span>
   <a class="glossary-link" href="#research">Research</a>
@@ -605,31 +612,31 @@
 
     <div class="research-grid">
       <div class="research-card has-note reveal">
-        <div class="research-icon">&#128483;</div>
+        <div class="research-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
         <div class="research-title">Stakeholder Interviews</div>
         <div class="research-body">Talked to the product team, engineering leads, and compliance. Key insight: the regulatory advantage (MFSA license) needs to be felt in the UI, not just stated in marketing. Compliance is a feature, not a constraint.</div>
         <div class="design-note"><span class="note-label">What I learned</span>The compliance team told me something I didn&rsquo;t expect: their biggest competitive advantage isn&rsquo;t speed or fees, it&rsquo;s that they&rsquo;re the only regulated exchange offering Barrier Futures. That needs to be visible everywhere.</div>
       </div>
       <div class="research-card has-note reveal">
-        <div class="research-icon">&#128218;</div>
+        <div class="research-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <div class="research-title">Domain Research</div>
         <div class="research-body">Spent a week learning crypto derivatives from scratch. Order types, margin mechanics, funding rates, liquidation cascades. You can&rsquo;t design a trading UI if you don&rsquo;t understand what a maker/taker model is.</div>
         <div class="design-note"><span class="note-label">What I learned</span>The single biggest UX problem in derivatives trading is liquidation anxiety. Traders don&rsquo;t fear losing money &mdash; they fear losing more than they intended. That&rsquo;s exactly what Barrier Futures solve.</div>
       </div>
       <div class="research-card has-note reveal">
-        <div class="research-icon">&#128241;</div>
+        <div class="research-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <div class="research-title">Technical Constraints</div>
         <div class="research-body">Mobile-first means 375px viewport, thumb-zone navigation, intermittent connectivity. Real-time price data needs WebSocket streams updating every 100ms without jank. The chart has to be as responsive as the one on desktop.</div>
         <div class="design-note"><span class="note-label">What I learned</span>Most trading apps are desktop-first with a mobile port. The ones that go mobile-first (Robinhood) win on simplicity but lose on power. APPXISH needs to thread that needle &mdash; simple by default, powerful on demand.</div>
       </div>
       <div class="research-card has-note reveal">
-        <div class="research-icon">&#127919;</div>
+        <div class="research-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <div class="research-title">Market Sizing</div>
         <div class="research-body">Crypto derivatives volume: $2T+ daily. Mobile trading growing 40% YoY. The addressable market is massive, but the real opportunity is the 70% of potential traders who tried a platform and bounced because the UX was hostile.</div>
         <div class="design-note"><span class="note-label">What I learned</span>That 70% bounce rate isn&rsquo;t a marketing problem &mdash; it&rsquo;s a design problem. People download Binance, see the trading panel, and close the app. If APPXISH can convert even 5% of those bouncers, it&rsquo;s a billion-dollar difference.</div>
       </div>
       <div class="research-card reveal">
-        <div class="research-icon">&#128101;</div>
+        <div class="research-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="research-title">User Recruitment</div>
         <div class="research-body">Recruited 12 participants across four segments: crypto beginners (4), active traders migrating from competitors (3), institutional/professional (2), and brokers (3). Mix of genders, ages 22-45, across US, EU, and APAC.</div>
       </div>
@@ -740,6 +747,100 @@
         </ul>
       </div>
     </div>
+
+    <h3 class="reveal" style="font-family:var(--font-display);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Adjacent Industry UX Audit</h3>
+    <p class="reveal" style="color:var(--color-text-muted);font-size:0.9rem;max-width:700px;margin-bottom:var(--space-md)">The best ideas don&rsquo;t come from copying competitors &mdash; they come from adjacent industries solving the same UX problem in a different context.</p>
+
+    <div class="audit-grid">
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">FTMO</div>
+        <div class="audit-score">7.5/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:75%"></div></div>
+        <ul class="audit-list">
+          <li>Clean evaluation dashboard with progress tracking</li>
+          <li>Risk metrics (drawdown, profit targets) always visible</li>
+          <li>Account scaling UX makes progression feel rewarding</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Challenge purchase flow could be simpler</li>
+          <li>Mobile experience is secondary to desktop</li>
+        </ul>
+        <div class="design-note"><span class="note-label">Why a prop firm matters</span>FTMO&rsquo;s evaluation model &mdash; where traders operate within defined loss limits &mdash; is conceptually identical to Barrier Futures. Their drawdown visualization is something we should study closely. The way they present &ldquo;you can lose up to X&rdquo; is the exact UI pattern we need.</div>
+      </div>
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">FundingPips</div>
+        <div class="audit-score">7.0/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:70%"></div></div>
+        <ul class="audit-list">
+          <li>Modern, clean dashboard design</li>
+          <li>Challenge purchase flow is streamlined</li>
+          <li>Good mobile responsiveness</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Risk visualization less detailed than FTMO</li>
+          <li>Analytics depth could be stronger</li>
+        </ul>
+        <div class="design-note"><span class="note-label">Design takeaway</span>FundingPips proves you can make complex trading rules feel accessible to retail users. Their onboarding simplicity is worth stealing &mdash; they don&rsquo;t front-load complexity, they reveal it progressively.</div>
+      </div>
+      <div class="audit-card reveal">
+        <div class="audit-platform">Alpha Capital Group</div>
+        <div class="audit-score">6.5/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:65%"></div></div>
+        <ul class="audit-list">
+          <li>Institutional-quality risk dashboards</li>
+          <li>Professional analytics and reporting</li>
+          <li>Strong account management UX</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>UI feels more B2B than consumer</li>
+          <li>Mobile experience is an afterthought</li>
+        </ul>
+      </div>
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">DraftKings / FanDuel</div>
+        <div class="audit-score">8.0/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:80%"></div></div>
+        <ul class="audit-list">
+          <li>Instant gratification UX &mdash; bet in 3 taps</li>
+          <li>Best-in-class mobile onboarding</li>
+          <li>Real-time odds feel alive (like live prices)</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Dark patterns around deposits and bonus wagering</li>
+          <li>Risk communication is intentionally vague</li>
+        </ul>
+        <div class="design-note"><span class="note-label">What sports betting teaches us</span>Sports betting apps nail the &ldquo;beginner feels welcome&rdquo; problem. DraftKings&rsquo; onboarding converts at 80%+ because the first bet is frictionless. We want that same energy for the first Barrier trade &mdash; without the dark patterns.</div>
+      </div>
+      <div class="audit-card has-note reveal">
+        <div class="audit-platform">eToro / Plus500</div>
+        <div class="audit-score">6.0/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:60%"></div></div>
+        <ul class="audit-list">
+          <li>Social trading / copy trading features</li>
+          <li>ESMA-compliant risk disclosures baked into UI</li>
+          <li>Leverage selector with mandatory warnings</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>CFD broker complexity leaks through simplified UI</li>
+          <li>Risk warnings feel like legal CYA, not user education</li>
+        </ul>
+        <div class="design-note"><span class="note-label">The MiFID II lesson</span>eToro and Plus500 live under the same MiFID II regime we&rsquo;ll operate in. Their risk disclosure UX is a preview of what regulators expect &mdash; but their approach is &ldquo;checkbox compliance.&rdquo; We can do better by making risk communication genuinely useful, not just legally sufficient.</div>
+      </div>
+      <div class="audit-card reveal">
+        <div class="audit-platform">Polymarket / Kalshi</div>
+        <div class="audit-score">7.0/10</div>
+        <div class="audit-bar"><div class="audit-bar-fill" style="width:70%"></div></div>
+        <ul class="audit-list">
+          <li>Yes/No contract structure is brilliantly simple</li>
+          <li>Probability display makes risk intuitive</li>
+          <li>Clean mobile-first interfaces</li>
+        </ul>
+        <ul class="audit-list weak">
+          <li>Limited depth for sophisticated traders</li>
+          <li>Liquidity can be thin on niche markets</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -760,9 +861,9 @@
         <h3 style="font-size:1rem;margin-bottom:var(--space-sm)">App Sitemap</h3>
         <div class="ia-tree">
           <div class="ia-root">
-            <div class="ia-node-label"><span class="ia-icon">&#9679;</span> APPXISH</div>
+            <div class="ia-node-label"><span class="ia-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg></span> APPXISH</div>
             <div class="ia-children">
-              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon">&#9654;</span> Home / Portfolio</div>
+              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon"><svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Home / Portfolio</div>
                 <div class="ia-children">
                   <div class="ia-node"><div class="ia-node-label">Account Balance</div></div>
                   <div class="ia-node"><div class="ia-node-label">Open Positions</div></div>
@@ -770,7 +871,7 @@
                   <div class="ia-node"><div class="ia-node-label">Watchlist</div></div>
                 </div>
               </div>
-              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon">&#9654;</span> Markets</div>
+              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon"><svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Markets</div>
                 <div class="ia-children">
                   <div class="ia-node"><div class="ia-node-label">Asset List (search/filter)</div></div>
                   <div class="ia-node"><div class="ia-node-label">Market Detail &rarr; Chart</div></div>
@@ -778,7 +879,7 @@
                   <div class="ia-node"><div class="ia-node-label">Trade Feed</div></div>
                 </div>
               </div>
-              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon">&#9654;</span> Trade</div>
+              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon"><svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Trade</div>
                 <div class="ia-children">
                   <div class="ia-node"><div class="ia-node-label">Order Entry Panel</div></div>
                   <div class="ia-node"><div class="ia-node-label">Barrier Futures Config</div></div>
@@ -786,14 +887,14 @@
                   <div class="ia-node"><div class="ia-node-label">Position Manager</div></div>
                 </div>
               </div>
-              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon">&#9654;</span> Activity</div>
+              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon"><svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Activity</div>
                 <div class="ia-children">
                   <div class="ia-node"><div class="ia-node-label">Order History</div></div>
                   <div class="ia-node"><div class="ia-node-label">Trade History</div></div>
                   <div class="ia-node"><div class="ia-node-label">Deposits / Withdrawals</div></div>
                 </div>
               </div>
-              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon">&#9654;</span> Settings</div>
+              <div class="ia-node"><div class="ia-node-label"><span class="ia-icon"><svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span> Settings</div>
                 <div class="ia-children">
                   <div class="ia-node"><div class="ia-node-label">Profile &amp; KYC</div></div>
                   <div class="ia-node"><div class="ia-node-label">Security (2FA)</div></div>
@@ -810,11 +911,11 @@
         <div style="background:var(--color-surface-elevated);border:1px solid var(--color-border);border-radius:12px;padding:var(--space-md)">
           <p style="font-size:0.85rem;color:var(--color-text-muted);margin:0 0 12px"><strong style="color:var(--color-text)">Bottom Tab Bar</strong> (5 tabs, always visible)</p>
           <div style="display:flex;justify-content:space-around;background:#0a0a0a;border-radius:8px;padding:12px 0">
-            <div style="text-align:center;font-size:0.65rem;color:var(--color-accent)">&#9679;<br>Home</div>
-            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)">&#9679;<br>Markets</div>
-            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)">&#9679;<br>Trade</div>
-            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)">&#9679;<br>Activity</div>
-            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)">&#9679;<br>Settings</div>
+            <div style="text-align:center;font-size:0.65rem;color:var(--color-accent)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><br>Home</div>
+            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><br>Markets</div>
+            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><br>Trade</div>
+            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg><br>Activity</div>
+            <div style="text-align:center;font-size:0.65rem;color:var(--color-text-dim)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><br>Settings</div>
           </div>
           <p style="font-size:0.85rem;color:var(--color-text-muted);margin:16px 0 8px"><strong style="color:var(--color-text)">Modal Overlays</strong></p>
           <p style="font-size:0.8rem;color:var(--color-text-dim);margin:0">Order confirmation, BayesShield risk warning, barrier price selector, deposit/withdrawal flow</p>
@@ -851,7 +952,7 @@
 
     <div class="persona-grid reveal">
       <div class="persona-card has-note">
-        <div class="persona-avatar">&#128100;</div>
+        <div class="persona-avatar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <div class="persona-name">Alex Chen</div>
         <div class="persona-type">Retail Beginner</div>
         <div class="persona-detail"><strong>Age:</strong> 24 &mdash; Recent college grad, crypto-curious</div>
@@ -863,7 +964,7 @@
         <div class="design-note"><span class="note-label">Design implication</span>Alex is the reason Barrier Futures matters so much from a UX perspective. Traditional perps require understanding margin, liquidation, funding &mdash; that's a wall for this user. Barriers collapse all of that into one question: "how much are you willing to lose?" That's a UI I can actually design for a beginner.</div>
       </div>
       <div class="persona-card has-note">
-        <div class="persona-avatar">&#128200;</div>
+        <div class="persona-avatar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <div class="persona-name">Sarah Miller</div>
         <div class="persona-type">Active Trader</div>
         <div class="persona-detail"><strong>Age:</strong> 32 &mdash; 5+ years trading experience, migrating from Binance</div>
@@ -875,7 +976,7 @@
         <div class="design-note"><span class="note-label">Design implication</span>Sarah already knows how Binance works. She'll judge us by what we do differently, not what we copy. The advanced order types, the time-frame picker always being visible, the keyboard shortcuts &mdash; those are table stakes for her. The win is making the regulatory advantage feel tangible in the UI, not just marketing copy.</div>
       </div>
       <div class="persona-card has-note">
-        <div class="persona-avatar">&#127970;</div>
+        <div class="persona-avatar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><path d="M10 18h4v4h-4z"/></svg></div>
         <div class="persona-name">David Park</div>
         <div class="persona-type">Professional / Institutional</div>
         <div class="persona-detail"><strong>Age:</strong> 41 &mdash; Prop desk trader, manages $50M+ portfolio</div>
@@ -887,7 +988,7 @@
         <div class="design-note"><span class="note-label">Design implication</span>David barely uses the mobile app. He's on desktop with three monitors. But when he does open APPXISH at dinner, he needs to see his positions, P&amp;L, and any risk alerts immediately. The home screen is essentially built for his 10-second check-in. No clutter, just numbers.</div>
       </div>
       <div class="persona-card has-note">
-        <div class="persona-avatar">&#128188;</div>
+        <div class="persona-avatar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
         <div class="persona-name">Maria Santos</div>
         <div class="persona-type">Broker / Introducing Broker</div>
         <div class="persona-detail"><strong>Age:</strong> 38 &mdash; Runs a network of 200+ retail clients</div>
@@ -913,7 +1014,7 @@
 
     <div class="empathy-grid">
       <div class="empathy-card has-note reveal">
-        <div class="empathy-header"><span style="font-size:1.3rem">&#128100;</span><div><div class="empathy-header-name">Alex Chen</div><div class="empathy-header-type">Retail Beginner</div></div></div>
+        <div class="empathy-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div><div class="empathy-header-name">Alex Chen</div><div class="empathy-header-type">Retail Beginner</div></div></div>
         <div class="empathy-quadrants">
           <div class="empathy-quadrant">
             <div class="empathy-q-title">Says</div>
@@ -943,7 +1044,7 @@
         <div class="design-note"><span class="note-label">Design implication</span>Alex&rsquo;s biggest barrier isn&rsquo;t knowledge &mdash; it&rsquo;s fear. He downloads apps and bounces because the UI confirms his fear that this isn&rsquo;t for him. APPXISH needs to feel safe on first open. Barrier Futures are his perfect entry point.</div>
       </div>
       <div class="empathy-card has-note reveal">
-        <div class="empathy-header"><span style="font-size:1.3rem">&#128200;</span><div><div class="empathy-header-name">Sarah Miller</div><div class="empathy-header-type">Active Trader</div></div></div>
+        <div class="empathy-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><div><div class="empathy-header-name">Sarah Miller</div><div class="empathy-header-type">Active Trader</div></div></div>
         <div class="empathy-quadrants">
           <div class="empathy-quadrant">
             <div class="empathy-q-title">Says</div>
@@ -1115,49 +1216,49 @@
         <div><span class="jtbd-label">When</span><div class="jtbd-text">I hear about crypto trading and want to try it without risking my savings</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">place a small trade with a guaranteed maximum loss</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">experience the thrill of trading without the anxiety of unlimited downside</div></div>
-        <div class="jtbd-persona-tag">&#128100; Alex &mdash; First Trade</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Alex &mdash; First Trade</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">I&rsquo;m sitting on the subway and the market is moving</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">check my positions and P&amp;L in under 5 seconds</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">decide if I need to act now or wait until I&rsquo;m at my desk</div></div>
-        <div class="jtbd-persona-tag">&#128200; Sarah &mdash; Monitor Portfolio</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg> Sarah &mdash; Monitor Portfolio</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">BayesShield flags unusual volatility on one of my positions</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">see the risk assessment and take action in 2 taps</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">protect my capital before the move accelerates</div></div>
-        <div class="jtbd-persona-tag">&#128200; Sarah &mdash; Respond to Risk</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg> Sarah &mdash; Respond to Risk</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">I want to deposit money from my bank account to start trading</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">complete the deposit in under 2 minutes with a method I trust</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">get to trading quickly without worrying about my money disappearing</div></div>
-        <div class="jtbd-persona-tag">&#128100; Alex &mdash; First Deposit</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Alex &mdash; First Deposit</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">I&rsquo;m exploring a new trading pair I haven&rsquo;t traded before</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">see the chart, order book depth, and recent trades on one screen</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">make an informed decision about whether to enter a position</div></div>
-        <div class="jtbd-persona-tag">&#128200; Sarah &mdash; Explore Markets</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg> Sarah &mdash; Explore Markets</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">I want to set a barrier on my futures position</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">see exactly how much I can lose and visually set the barrier price</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">take on leveraged exposure with complete confidence in my max risk</div></div>
-        <div class="jtbd-persona-tag">&#128100; Alex &mdash; Set Barrier</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Alex &mdash; Set Barrier</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">I need to review my trading history for tax purposes</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">filter, sort, and export my complete trade log</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">stay compliant without spending hours on spreadsheets</div></div>
-        <div class="jtbd-persona-tag">&#127970; David &mdash; Review History</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/></svg> David &mdash; Review History</div>
       </div>
       <div class="jtbd-card reveal">
         <div><span class="jtbd-label">When</span><div class="jtbd-text">one of my clients asks about their portfolio performance</div></div>
         <div><span class="jtbd-label">I want to</span><div class="jtbd-text">pull up their account summary and commission breakdown instantly</div></div>
         <div><span class="jtbd-label">So I can</span><div class="jtbd-text">give them a clear answer and demonstrate the value of my brokerage</div></div>
-        <div class="jtbd-persona-tag">&#128188; Maria &mdash; Client Management</div>
+        <div class="jtbd-persona-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg> Maria &mdash; Client Management</div>
       </div>
     </div>
   </div>
@@ -1179,37 +1280,37 @@
           <div class="journey-stage-name">Awareness</div>
           <div class="journey-touchpoint">Sees ad / friend&rsquo;s recommendation</div>
           <div class="journey-touchpoint">Downloads from App Store</div>
-          <div class="journey-emotion positive">&#128522; Curious, excited</div>
+          <div class="journey-emotion positive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Curious, excited</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">Onboarding</div>
           <div class="journey-touchpoint">Email + phone signup</div>
           <div class="journey-touchpoint">KYC ID upload</div>
-          <div class="journey-emotion negative">&#128530; Friction, impatient</div>
+          <div class="journey-emotion negative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Friction, impatient</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">First Deposit</div>
           <div class="journey-touchpoint">Chooses bank transfer</div>
           <div class="journey-touchpoint">Waits for confirmation</div>
-          <div class="journey-emotion neutral">&#128528; Anxious, waiting</div>
+          <div class="journey-emotion neutral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Anxious, waiting</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">Exploration</div>
           <div class="journey-touchpoint">Browses market list</div>
           <div class="journey-touchpoint">Reads BTC chart</div>
-          <div class="journey-emotion positive">&#129300; Intrigued, learning</div>
+          <div class="journey-emotion positive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Intrigued, learning</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">First Trade</div>
           <div class="journey-touchpoint">Sets barrier, sees max loss</div>
           <div class="journey-touchpoint">Taps &ldquo;Buy&rdquo;</div>
-          <div class="journey-emotion positive">&#128515; Confident, thrilled</div>
+          <div class="journey-emotion positive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Confident, thrilled</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">Outcome</div>
           <div class="journey-touchpoint">Watches P&amp;L update live</div>
           <div class="journey-touchpoint">Closes for small profit</div>
-          <div class="journey-emotion positive">&#129321; Proud, wants more</div>
+          <div class="journey-emotion positive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Proud, wants more</div>
         </div>
       </div>
       <div class="design-note"><span class="note-label">Key design opportunity</span>The onboarding dip is the critical moment. If Alex bounces at KYC, we never get him to the &ldquo;First Trade&rdquo; peak. Solution: show a progress bar, let him explore the app in demo mode while KYC processes, and send a push notification the moment he&rsquo;s approved.</div>
@@ -1221,24 +1322,24 @@
         <div class="journey-stage">
           <div class="journey-stage-name">Skepticism</div>
           <div class="journey-touchpoint">Hears about barriers, thinks it&rsquo;s a gimmick</div>
-          <div class="journey-emotion negative">&#128580; Dismissive</div>
+          <div class="journey-emotion negative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Dismissive</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">Investigation</div>
           <div class="journey-touchpoint">Reads docs, compares to stop-losses</div>
-          <div class="journey-emotion neutral">&#129300; Curious but cautious</div>
+          <div class="journey-emotion neutral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Curious but cautious</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">Trial</div>
           <div class="journey-touchpoint">Places small barrier trade</div>
           <div class="journey-touchpoint">Sees max loss locked in</div>
-          <div class="journey-emotion positive">&#128558; Surprised it works</div>
+          <div class="journey-emotion positive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Surprised it works</div>
         </div>
         <div class="journey-stage">
           <div class="journey-stage-name">Adoption</div>
           <div class="journey-touchpoint">Uses barriers for defined-risk plays</div>
           <div class="journey-touchpoint">Still uses traditional perps for other strategies</div>
-          <div class="journey-emotion positive">&#128077; Converted, advocates</div>
+          <div class="journey-emotion positive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><path d="M4 15s1 1 4 1 4-1 4-1"/><path d="M2 12h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H2"/></svg> Converted, advocates</div>
         </div>
       </div>
       <div class="design-note"><span class="note-label">Key insight</span>Sarah&rsquo;s journey is about overcoming skepticism, not learning. She already knows how to trade. The UX challenge is making barriers feel professional, not beginner-oriented. If the UI looks like &ldquo;training wheels,&rdquo; she&rsquo;ll never try it.</div>
@@ -1434,7 +1535,7 @@
       </div>
       <div class="sketch-card reveal">
         <div class="sketch-paper">
-          <div class="sketch-element" style="border-color:red;background:rgba(255,0,0,0.05)">&#9888; RISK ALERT</div>
+          <div class="sketch-element" style="border-color:red;background:rgba(255,0,0,0.05)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" style="vertical-align:-1px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> RISK ALERT</div>
           <div class="sketch-element">BTC volatility spike detected</div>
           <div class="sketch-element">Your position: +$1,245</div>
           <div style="display:flex;gap:6px;margin-top:8px"><div class="sketch-element" style="flex:1;background:rgba(255,0,0,0.1)">CLOSE</div><div class="sketch-element" style="flex:1">DISMISS</div></div>
@@ -1622,12 +1723,12 @@
     <div class="storyboard-wrap has-note reveal">
       <div class="storyboard-title">Alex&rsquo;s First Barrier Trade</div>
       <div class="storyboard-strip">
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">01</div><div class="storyboard-emoji">&#128241;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Download</div><div class="storyboard-caption-text">Alex sees a friend&rsquo;s Instagram story about APPXISH. Downloads it on the subway home from work. Curious but skeptical.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">02</div><div class="storyboard-emoji">&#128221;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">Quick Signup</div><div class="storyboard-caption-text">Email, phone, done. KYC says &ldquo;2 minutes&rdquo; &mdash; takes a selfie and uploads ID while still on the train. App lets him explore in demo mode.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">03</div><div class="storyboard-emoji">&#129300;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">Exploring</div><div class="storyboard-caption-text">Gets approved by the time he&rsquo;s home. Deposits $100 via Apple Pay. Browses the market list, taps BTC because it&rsquo;s the only one he recognizes.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">04</div><div class="storyboard-emoji">&#128064;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Barrier Moment</div><div class="storyboard-caption-text">Sees &ldquo;Barrier&rdquo; tab next to Market and Limit. Taps it. Reads: &ldquo;Set your max loss before you trade.&rdquo; Drags the slider. Sees &ldquo;Max loss: $25.&rdquo; Thinks: I can do that.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">05</div><div class="storyboard-emoji">&#128640;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">First Trade</div><div class="storyboard-caption-text">Taps &ldquo;Buy BTC.&rdquo; Confirmation shows everything clearly. Hits confirm. Feels his phone vibrate. He&rsquo;s officially a derivatives trader.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">06</div><div class="storyboard-emoji">&#129321;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Hook</div><div class="storyboard-caption-text">Watches his P&amp;L tick up $3.20 over the next hour. Closes for a small win. Screenshots it and sends to the friend who recommended the app.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">01</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Download</div><div class="storyboard-caption-text">Alex sees a friend&rsquo;s Instagram story about APPXISH. Downloads it on the subway home from work. Curious but skeptical.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">02</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">Quick Signup</div><div class="storyboard-caption-text">Email, phone, done. KYC says &ldquo;2 minutes&rdquo; &mdash; takes a selfie and uploads ID while still on the train. App lets him explore in demo mode.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">03</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">Exploring</div><div class="storyboard-caption-text">Gets approved by the time he&rsquo;s home. Deposits $100 via Apple Pay. Browses the market list, taps BTC because it&rsquo;s the only one he recognizes.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">04</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Barrier Moment</div><div class="storyboard-caption-text">Sees &ldquo;Barrier&rdquo; tab next to Market and Limit. Taps it. Reads: &ldquo;Set your max loss before you trade.&rdquo; Drags the slider. Sees &ldquo;Max loss: $25.&rdquo; Thinks: I can do that.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">05</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">First Trade</div><div class="storyboard-caption-text">Taps &ldquo;Buy BTC.&rdquo; Confirmation shows everything clearly. Hits confirm. Feels his phone vibrate. He&rsquo;s officially a derivatives trader.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">06</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Hook</div><div class="storyboard-caption-text">Watches his P&amp;L tick up $3.20 over the next hour. Closes for a small win. Screenshots it and sends to the friend who recommended the app.</div></div></div>
       </div>
       <div class="design-note"><span class="note-label">Why this story matters</span>Alex&rsquo;s journey from download to first closed trade takes about 20 minutes in this storyboard. The critical moment is panel 4 &mdash; where barriers make derivatives accessible. If that moment doesn&rsquo;t land, the whole product thesis fails.</div>
     </div>
@@ -1635,11 +1736,11 @@
     <div class="storyboard-wrap has-note reveal">
       <div class="storyboard-title">Sarah Migrates from Binance</div>
       <div class="storyboard-strip">
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">01</div><div class="storyboard-emoji">&#128556;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Last Straw</div><div class="storyboard-caption-text">Another Binance regulatory headline. Sarah&rsquo;s been meaning to diversify exchange risk. Searches &ldquo;regulated crypto futures&rdquo; and finds Perpetuals.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">02</div><div class="storyboard-emoji">&#129488;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Comparison</div><div class="storyboard-caption-text">Opens APPXISH alongside Binance on her phone. Checks fee tiers, order types, chart tools. Notices &ldquo;Barrier Futures&rdquo; &mdash; intrigued but skeptical.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">03</div><div class="storyboard-emoji">&#128176;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Test Trade</div><div class="storyboard-caption-text">Deposits $5K via wire. Places a standard limit order on ETH/USDC. Fill is fast, fees are competitive. Then tries a barrier trade &mdash; &ldquo;huh, this is actually useful for defined-risk plays.&rdquo;</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">04</div><div class="storyboard-emoji">&#128270;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Deep Dive</div><div class="storyboard-caption-text">Spends a weekend testing API endpoints, checking order book depth, running her bot against the matching engine. Everything checks out. Sets up proper API keys.</div></div></div>
-        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">05</div><div class="storyboard-emoji">&#127881;</div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Migration</div><div class="storyboard-caption-text">Moves 60% of her trading volume to Perpetuals over the next month. Keeps Binance for exotic pairs. APPXISH becomes her primary mobile trading app.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">01</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Last Straw</div><div class="storyboard-caption-text">Another Binance regulatory headline. Sarah&rsquo;s been meaning to diversify exchange risk. Searches &ldquo;regulated crypto futures&rdquo; and finds Perpetuals.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">02</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Comparison</div><div class="storyboard-caption-text">Opens APPXISH alongside Binance on her phone. Checks fee tiers, order types, chart tools. Notices &ldquo;Barrier Futures&rdquo; &mdash; intrigued but skeptical.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">03</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Test Trade</div><div class="storyboard-caption-text">Deposits $5K via wire. Places a standard limit order on ETH/USDC. Fill is fast, fees are competitive. Then tries a barrier trade &mdash; &ldquo;huh, this is actually useful for defined-risk plays.&rdquo;</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">04</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14.5" y1="4" x2="9.5" y2="20"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Deep Dive</div><div class="storyboard-caption-text">Spends a weekend testing API endpoints, checking order book depth, running her bot against the matching engine. Everything checks out. Sets up proper API keys.</div></div></div>
+        <div class="storyboard-panel"><div class="storyboard-frame"><div class="storyboard-num">05</div><div class="storyboard-scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div><div class="storyboard-caption"><div class="storyboard-caption-title">The Migration</div><div class="storyboard-caption-text">Moves 60% of her trading volume to Perpetuals over the next month. Keeps Binance for exotic pairs. APPXISH becomes her primary mobile trading app.</div></div></div>
       </div>
       <div class="design-note"><span class="note-label">Key insight</span>Sarah&rsquo;s migration isn&rsquo;t about UX delight &mdash; it&rsquo;s about trust and parity. She needs to confirm the platform can handle her volume before she commits. The mobile app is her monitoring tool; desktop is where she trades seriously.</div>
     </div>
@@ -1864,7 +1965,7 @@
         <div class="comp-info"><div class="comp-name">Order Book Depth</div><div class="comp-desc">Asks stacked above, bids below, spread in the middle. The background bars show relative volume at each level so you can feel the depth at a glance without reading numbers.</div></div>
       </div>
       <div class="comp-card reveal">
-        <div class="comp-preview"><div style="width:100%"><div style="background:rgba(255,61,0,0.1);border:1px solid rgba(255,61,0,0.3);border-radius:10px;padding:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="font-size:1.2rem">&#9888;</span><strong style="font-size:0.85rem;color:var(--color-danger)">High Risk Detected</strong></div><div style="font-size:0.75rem;color:var(--color-text-muted)">BayesShield AI has flagged unusual volatility in BTC/USDC. Consider reducing position size.</div><div style="display:flex;gap:8px;margin-top:10px"><div style="flex:1;padding:8px;border-radius:6px;background:rgba(255,61,0,0.2);text-align:center;font-size:0.75rem;font-weight:600;color:var(--color-danger);cursor:pointer">Close Position</div><div style="flex:1;padding:8px;border-radius:6px;background:#222;text-align:center;font-size:0.75rem;font-weight:600;color:var(--color-text-muted);cursor:pointer">Dismiss</div></div></div></div></div>
+        <div class="comp-preview"><div style="width:100%"><div style="background:rgba(255,61,0,0.1);border:1px solid rgba(255,61,0,0.3);border-radius:10px;padding:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-danger)" stroke-width="2" style="vertical-align:-3px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><strong style="font-size:0.85rem;color:var(--color-danger)">High Risk Detected</strong></div><div style="font-size:0.75rem;color:var(--color-text-muted)">BayesShield AI has flagged unusual volatility in BTC/USDC. Consider reducing position size.</div><div style="display:flex;gap:8px;margin-top:10px"><div style="flex:1;padding:8px;border-radius:6px;background:rgba(255,61,0,0.2);text-align:center;font-size:0.75rem;font-weight:600;color:var(--color-danger);cursor:pointer">Close Position</div><div style="flex:1;padding:8px;border-radius:6px;background:#222;text-align:center;font-size:0.75rem;font-weight:600;color:var(--color-text-muted);cursor:pointer">Dismiss</div></div></div></div></div>
         <div class="comp-info"><div class="comp-name">Risk Alert / Notification</div><div class="comp-desc">When BayesShield flags something, this drops in hard &mdash; red accent, clear language, two actions: close the position or dismiss. You can dismiss it, but we log that you saw it. Accountability matters.</div></div>
       </div>
       <div class="comp-card reveal">
@@ -2044,33 +2145,33 @@
         <div class="test-task">Task 1: Place a Market Order</div>
         <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill high" style="width:100%"></div></div><div class="test-rate-pct">5/5</div></div>
         <div class="test-findings"><strong>Friction:</strong> None. All participants completed the task without help. The Market tab being pre-selected helped &mdash; nobody had to figure out order types first.</div>
-        <div class="test-change">&#10003; Validated: Market order as default tab is correct.</div>
+        <div class="test-change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Validated: Market order as default tab is correct.</div>
         <div class="design-note"><span class="note-label">Why this matters</span>The first trade is the most important UX moment. If people can&rsquo;t place a simple market order without thinking, nothing else matters. 5/5 means the foundation works.</div>
       </div>
       <div class="test-card has-note reveal">
         <div class="test-task">Task 2: Set a Barrier Price</div>
         <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill mid" style="width:60%"></div></div><div class="test-rate-pct">3/5</div></div>
         <div class="test-findings"><strong>Friction:</strong> 2 participants didn&rsquo;t understand what &ldquo;barrier&rdquo; meant. One tried to use the leverage slider instead. The concept clicked after reading the tooltip, but the word itself was confusing.</div>
-        <div class="test-change">&#9998; Change: Added inline explainer: &ldquo;Set your max loss &mdash; your position closes automatically if price hits this level.&rdquo;</div>
+        <div class="test-change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Change: Added inline explainer: &ldquo;Set your max loss &mdash; your position closes automatically if price hits this level.&rdquo;</div>
         <div class="design-note"><span class="note-label">The naming problem</span>&ldquo;Barrier&rdquo; is the financial term but it doesn&rsquo;t communicate the benefit. I&rsquo;m testing &ldquo;Max Loss Setter&rdquo; as an alternative label with the subtitle &ldquo;(Barrier Futures)&rdquo; for traders who know the term.</div>
       </div>
       <div class="test-card reveal">
         <div class="test-task">Task 3: Find Your Open Position P&amp;L</div>
         <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill high" style="width:100%"></div></div><div class="test-rate-pct">5/5</div></div>
         <div class="test-findings"><strong>Friction:</strong> All found it instantly on the home screen. The large green/red P&amp;L number draws the eye. One participant said: &ldquo;I see it before the app even finishes loading.&rdquo;</div>
-        <div class="test-change">&#10003; Validated: P&amp;L prominence on home screen is correct.</div>
+        <div class="test-change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Validated: P&amp;L prominence on home screen is correct.</div>
       </div>
       <div class="test-card reveal">
         <div class="test-task">Task 4: Deposit USDC</div>
         <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill mid" style="width:80%"></div></div><div class="test-rate-pct">4/5</div></div>
         <div class="test-findings"><strong>Friction:</strong> 1 participant looked in Settings first (expected from card sorting results). After not finding it, they went to Activity and found it. The path was 2 extra taps.</div>
-        <div class="test-change">&#9998; Change: Added a &ldquo;Deposit&rdquo; shortcut button directly on the home screen above open positions.</div>
+        <div class="test-change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Change: Added a &ldquo;Deposit&rdquo; shortcut button directly on the home screen above open positions.</div>
       </div>
       <div class="test-card has-note reveal">
         <div class="test-task">Task 5: Respond to a BayesShield Alert</div>
         <div class="test-rate"><div class="test-rate-bar"><div class="test-rate-fill high" style="width:100%"></div></div><div class="test-rate-pct">5/5</div></div>
         <div class="test-findings"><strong>Friction:</strong> None. The red overlay with two clear actions (Close Position / Dismiss) worked perfectly. Every participant made a decision within 3 seconds.</div>
-        <div class="test-change">&#10003; Validated: BayesShield alert design is effective.</div>
+        <div class="test-change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Validated: BayesShield alert design is effective.</div>
         <div class="design-note"><span class="note-label">The 3-second rule</span>In a risk scenario, users need to act in under 5 seconds. The binary choice (close or dismiss) eliminates decision paralysis. Every additional option would slow them down.</div>
       </div>
     </div>
@@ -2095,43 +2196,43 @@
     <div class="a11y-grid">
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Color Contrast</div>
-        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-status pass"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Pass</div>
         <div class="a11y-detail">All text meets WCAG AA 4.5:1 minimum. Primary text (#FFF on #000) = 21:1. Muted text (#888 on #000) = 5.3:1. Accent (#FD8800 on #000) = 5.7:1. Green/red P&amp;L colors tested against both light and dark backgrounds.</div>
       </div>
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Touch Targets</div>
-        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-status pass"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Pass</div>
         <div class="a11y-detail">All interactive elements meet the 48&times;48px minimum. Buy/Sell buttons are 100% width &times; 48px height. Tab bar icons have 48px hit areas. The leverage slider thumb is 18px visual but 48px touch target.</div>
       </div>
       <div class="a11y-card has-note reveal">
         <div class="a11y-criterion">Screen Reader (VoiceOver)</div>
-        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-status pass"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Pass</div>
         <div class="a11y-detail">All interactive elements have accessible labels. Charts announce &ldquo;Price chart, BTC at $50,234, up 2.34%&rdquo;. Order book announces bid/ask totals. P&amp;L announces color semantically: &ldquo;Profit: $1,245.80&rdquo;.</div>
         <div class="design-note"><span class="note-label">The chart challenge</span>Charts are inherently visual. For screen readers, I provide a text summary that updates with the data: current price, trend direction, and percentage change. Not perfect, but functional.</div>
       </div>
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Keyboard Navigation</div>
-        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-status pass"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Pass</div>
         <div class="a11y-detail">Full keyboard navigation support. Focus indicators are visible (2px orange outline). Tab order follows visual layout. Escape dismisses modals. Enter/Space activate buttons.</div>
       </div>
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Reduced Motion</div>
-        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-status pass"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Pass</div>
         <div class="a11y-detail">Respects <code>prefers-reduced-motion</code>. All animations disabled. Price ticks change color without flash. Chart updates without transitions. Hero particles are static.</div>
       </div>
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Text Scaling</div>
-        <div class="a11y-status pass">&#10003; Pass</div>
+        <div class="a11y-status pass"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align:-1px"><polyline points="20 6 9 17 4 12"/></svg> Pass</div>
         <div class="a11y-detail">Supports iOS Dynamic Type up to 200%. Layout reflows gracefully. No text truncation in critical areas (P&amp;L, prices, balances). Order form remains usable at maximum scale.</div>
       </div>
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Focus Indicators</div>
-        <div class="a11y-status partial">&#9679; In Progress</div>
+        <div class="a11y-status partial"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg> In Progress</div>
         <div class="a11y-detail">Custom focus rings designed (2px solid orange with 2px offset). Working for buttons and inputs. Still implementing for chart interactions and custom slider components.</div>
       </div>
       <div class="a11y-card reveal">
         <div class="a11y-criterion">Error Identification</div>
-        <div class="a11y-status partial">&#9679; In Progress</div>
+        <div class="a11y-status partial"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg> In Progress</div>
         <div class="a11y-detail">Errors are communicated via color AND text (never color alone). Error messages appear inline below the relevant field. Still working on ARIA live regions for real-time validation feedback.</div>
       </div>
     </div>
