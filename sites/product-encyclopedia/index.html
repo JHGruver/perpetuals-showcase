@@ -1793,6 +1793,72 @@
         font-size: 1.8rem;
       }
     }
+
+    /* ========================================
+       Staff Notes (Internal)
+       ======================================== */
+    .staff-note {
+      position: relative;
+      padding: var(--space-sm);
+      padding-top: 36px;
+      background: rgba(253, 200, 0, 0.04);
+      border: 1px solid rgba(253, 200, 0, 0.18);
+      border-radius: 8px;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .staff-note::before {
+      content: 'INTERNAL';
+      position: absolute;
+      top: 10px;
+      left: var(--space-sm);
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(253, 200, 0, 0.7);
+      background: rgba(253, 200, 0, 0.1);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .staff-note p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .staff-note p + p {
+      margin-top: 8px;
+    }
+
+    .staff-note strong {
+      color: rgba(253, 200, 0, 0.85);
+    }
+
+    .staff-note ul {
+      margin: 8px 0 0 0;
+      padding-left: 18px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    .staff-note ul li {
+      margin-bottom: 4px;
+    }
+
+    .staff-note a {
+      color: rgba(253, 200, 0, 0.85);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .staff-note a:hover {
+      color: rgba(253, 200, 0, 1);
+    }
   </style>
 </head>
 <body>
@@ -2202,6 +2268,17 @@
             </div>
           </div>
         </div>
+
+        <div class="staff-note reveal">
+          <p><strong>ML Model Primer:</strong> BayesShield uses non-LLM machine learning models. Understanding the basics of these model types helps when discussing the system's architecture, designing explainability features, and writing accurate product copy:</p>
+          <ul>
+            <li><strong>Random Forest</strong> &mdash; An ensemble of decision trees that each "vote" on a prediction. Robust against overfitting, handles noisy data well. Relevant for classification tasks like "is this trade likely to lose?" Each tree sees a random subset of features, so the model is naturally resilient to outliers.</li>
+            <li><strong>Support Vector Machine (SVM)</strong> &mdash; Finds the optimal boundary between two classes (e.g., profitable vs. unprofitable trades). Works well in high-dimensional spaces &mdash; useful when each trade has dozens of features (leverage, volume, volatility, time, asset, etc.).</li>
+            <li><strong>Gradient Boosting (XGBoost / LightGBM)</strong> &mdash; Builds trees sequentially, each correcting the errors of the last. State-of-the-art for tabular data in production ML. Likely the backbone of BayesShield's risk scoring given its performance on financial datasets.</li>
+            <li><strong>Bayesian Networks</strong> &mdash; Probabilistic graphical models that represent conditional dependencies between variables. The "Bayes" in BayesShield likely references this approach &mdash; the system models how different risk factors relate to each other probabilistically rather than just correlating them.</li>
+          </ul>
+          <p>These models differ from LLMs (like GPT/Claude) in that they're trained on structured numerical data, not text. They're faster, more interpretable, and better suited for real-time scoring of trade parameters. <strong>Additional ML resources will be shared by the team &mdash; to be added here when available.</strong></p>
+        </div>
       </div>
     </section>
 
@@ -2479,6 +2556,16 @@
               <div class="fact-item"><span class="fact-label">Book type</span><span class="fact-value">Central Limit Order Book</span></div>
             </div>
           </div>
+        </div>
+
+        <div class="staff-note reveal">
+          <p><strong>Broader Industry Context:</strong> This section covers order types and execution mechanics, but the team should also be fluent in the higher-level trading frameworks that our users think in:</p>
+          <ul>
+            <li><strong>Technical Analysis</strong> &mdash; Chart pattern reading, support/resistance levels, indicators (RSI, MACD, Bollinger Bands), candlestick patterns, and trend identification. This is the primary decision framework for 70%+ of active crypto traders. Every chart tool, overlay toggle, and drawing instrument in our UI exists to serve this workflow.</li>
+            <li><strong>Fundamental Analysis</strong> &mdash; Evaluating underlying value through on-chain data, project metrics, team credibility, tokenomics, and macro factors. Less common in short-term derivatives trading, but institutional users reference it for position sizing and directional bias. Relevant for how we surface market context beyond just price charts.</li>
+            <li><strong>Derivative Contracts</strong> &mdash; Understand the full spectrum beyond perpetuals: futures (expiring), options (calls/puts), swaps, and structured products. Knowing how traditional derivatives work (CME, CBOE) gives context for why Barrier Futures are novel &mdash; they combine the simplicity of a binary option with the flexibility of a perpetual swap.</li>
+          </ul>
+          <p>For quick ramp-up: spend time on Investopedia's derivatives section, Binance Academy's trading guides, and CME Group's education hub. The goal is to recognize trading concepts instantly when they appear in product specs or user research.</p>
         </div>
       </div>
     </section>
@@ -2924,6 +3011,26 @@
           <div class="competitor-card"><div class="competitor-name">CME</div><div class="competitor-weakness">Institutional derivatives leader but legacy infrastructure. No retail access. No crypto-native features.</div></div>
           <div class="competitor-card"><div class="competitor-name">dYdX</div><div class="competitor-weakness">Decentralized exchange &mdash; strong tech but fundamentally lacks regulatory compliance. No MTF, no MiFID II.</div></div>
           <div class="competitor-card"><div class="competitor-name">Crypto.com</div><div class="competitor-weakness">Consumer-focused with marketing-heavy approach. Licensing gaps. No derivatives innovation at the Barrier Futures level.</div></div>
+        </div>
+
+        <div class="staff-note reveal">
+          <p><strong>UX Research Directive:</strong> Familiarize yourself with the UI/UX of adjacent industries &mdash; not just crypto exchanges. The patterns we're competing with extend beyond trading platforms:</p>
+          <ul>
+            <li><strong>Sports Betting Platforms</strong> &mdash; Study how DraftKings, FanDuel, and Bet365 handle real-time odds, quick bet placement, and mobile-first risk decisions. Their onboarding flows and "instant gratification" UX patterns are directly relevant to how beginners expect a trading app to feel.</li>
+            <li><strong>Prediction Marketplaces</strong> &mdash; Polymarket, Kalshi, and Metaculus show how to present probabilistic outcomes to non-expert users. Their contract structures (yes/no, range) parallel Barrier Futures' "set your max loss" simplicity.</li>
+            <li><strong>CFD Brokers</strong> &mdash; eToro, Plus500, and IG Group are the closest UX analogs for leveraged derivatives. Study how they present risk warnings (ESMA-mandated), manage leverage selectors, and handle the regulatory disclosure requirements we'll share under MiFID II.</li>
+          </ul>
+          <p>The goal is to cherry-pick the best interaction patterns from each while avoiding the worst (dark patterns in sports betting, complexity overload in CFD platforms, information sparsity in prediction markets).</p>
+        </div>
+
+        <div class="staff-note reveal">
+          <p><strong>Patrick's Recommendation &mdash; Prop Trading Firms:</strong> Study these three proprietary trading firm platforms specifically. They solve a similar trust problem to ours: giving traders access to large capital while managing risk on the platform side.</p>
+          <ul>
+            <li><strong>FTMO</strong> &mdash; The market leader in prop trading challenges. Their evaluation dashboard, risk metrics display, and account scaling UX are best-in-class. Pay attention to how they present drawdown limits and profit targets &mdash; it's conceptually very close to Barrier Futures' "set your maximum loss" model.</li>
+            <li><strong>FundingPips</strong> &mdash; Newer entrant with a cleaner, more modern UI. Their challenge purchase flow and dashboard simplicity are worth studying. Good example of making complex trading rules feel accessible to retail users.</li>
+            <li><strong>Alpha Capital Group</strong> &mdash; Strong institutional feel in their UX. Their risk management dashboards and account analytics show how to present professional-grade data without overwhelming the user.</li>
+          </ul>
+          <p>The prop firm model is relevant because these platforms already solved the "risk boundary" UX &mdash; traders operate within defined loss limits. Barrier Futures has a similar mechanic built into the product itself.</p>
         </div>
       </div>
     </section>
