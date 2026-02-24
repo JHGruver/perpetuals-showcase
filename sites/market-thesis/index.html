@@ -257,56 +257,40 @@
     }
 
     .nav-links {
-      display: flex;
-      gap: 32px;
+      display: none;
     }
 
-    .nav-links a {
-      color: var(--color-text-muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--color-accent);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s var(--ease-out-expo);
-    }
-
-    .nav-links a:hover {
-      color: var(--color-text);
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    .nav-label {
+    .nav-hamburger {
+      margin-left: auto;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--color-text-muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      transition: border-color 0.2s, color 0.2s;
     }
+    .nav-hamburger:hover { border-color: rgba(253,136,0,0.4); color: var(--color-accent); }
+    .nav-hamburger svg { flex-shrink: 0; }
 
-    .nav-label span {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--color-text-dim);
-      letter-spacing: 0.05em;
-    }
+    .menu-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(8px); z-index:9500; opacity:0; visibility:hidden; transition:opacity 0.3s ease, visibility 0.3s ease; }
+    .menu-overlay.open { opacity:1; visibility:visible; }
+    .menu-panel { position:fixed; top:0; right:0; width:320px; max-width:85vw; height:100vh; background:rgba(10,10,10,0.98); border-left:1px solid rgba(255,255,255,0.08); z-index:9600; transform:translateX(100%); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1); padding:48px 24px; display:flex; flex-direction:column; }
+    .menu-panel.open { transform:translateX(0); }
+    .menu-close { align-self:flex-end; background:none; border:none; color:var(--color-text-muted); cursor:pointer; padding:4px; margin-bottom:48px; transition:color 0.2s; }
+    .menu-close:hover { color:var(--color-accent); }
+    .menu-links { display:flex; flex-direction:column; gap:4px; }
+    .menu-links a { color:var(--color-text-muted); font-size:1rem; font-weight:500; padding:12px 16px; border-radius:10px; transition:all 0.2s; display:block; text-decoration:none; }
+    .menu-links a:hover { color:var(--color-accent); background:rgba(253,136,0,0.06); }
 
-    .nav-label .accent {
-      color: var(--color-accent);
+    .nav-label {
+      display: none;
     }
 
     /* ================================================
@@ -1198,13 +1182,6 @@
         padding: 12px 20px;
       }
 
-      .nav-links {
-        display: none;
-      }
-
-      .nav-label {
-        display: none;
-      }
 
       .hero-numbers {
         flex-direction: column;
@@ -1609,18 +1586,29 @@
       </svg>
       <span>Perpetuals</span>
     </a>
-    <div class="nav-links">
-      <a href="#market">Market</a>
-      <a href="#institutional">Institutional</a>
-      <a href="#compliance">Compliance</a>
-      <a href="#product">Product</a>
-      <a href="#thesis">Thesis</a>
-    </div>
-    <div class="nav-label">
-      <span>Prepared for</span>
-      <span class="accent">Patrick Gruhn</span>
-    </div>
+    <button class="nav-hamburger" id="nav-hamburger">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      Menu
+    </button>
   </nav>
+
+  <!-- Menu Overlay + Panel -->
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="menu-panel" id="menu-panel">
+    <button class="menu-close" id="menu-close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="menu-links">
+      <a href="../homepage-rebuild/index.html">Home</a>
+      <a href="../features-rebuild/index.html">Features</a>
+      <a href="../competitive-analysis/index.html">Analysis</a>
+      <a href="../design-system/index.html">Design System</a>
+      <a href="../product-vision/index.html">Vision</a>
+      <a href="./index.html" class="active">Market Thesis</a>
+      <a href="../product-encyclopedia/index.html">Encyclopedia</a>
+      <a href="../appxish/index.html">APPXISH</a>
+    </div>
+  </div>
 
   <!-- Leadership Dashboard -->
   <section class="exec-dashboard" id="dashboard">
@@ -2399,6 +2387,20 @@
         }
       });
     });
+
+    // ================================================
+    // HAMBURGER MENU
+    // ================================================
+    const hamburger=document.getElementById('nav-hamburger');
+    const menuOverlay=document.getElementById('menu-overlay');
+    const menuPanel=document.getElementById('menu-panel');
+    const menuClose=document.getElementById('menu-close');
+    function openMenu(){menuPanel.classList.add('open');menuOverlay.classList.add('open');document.body.style.overflow='hidden'}
+    function closeMenu(){menuPanel.classList.remove('open');menuOverlay.classList.remove('open');document.body.style.overflow=''}
+    hamburger.addEventListener('click',openMenu);
+    menuClose.addEventListener('click',closeMenu);
+    menuOverlay.addEventListener('click',closeMenu);
+    menuPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   </script>
 </body>
 </html>

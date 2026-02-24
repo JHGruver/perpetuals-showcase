@@ -135,8 +135,7 @@ body {
 }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
+  display: none;
 }
 
 .nav-links a {
@@ -172,18 +171,18 @@ body {
 }
 
 .nav-actions {
-  display: flex;
-  gap: 1rem;
+  display: none;
 }
 
 .mobile-menu-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .mobile-menu-toggle span {
@@ -195,7 +194,7 @@ body {
 
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
-  display: none;
+  display: block;
   position: fixed;
   inset: 0;
   top: var(--header-height);
@@ -1576,18 +1575,6 @@ body {
     --header-height: 64px;
   }
 
-  .nav-links,
-  .nav-actions {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
-  }
-
-  .mobile-menu-overlay {
-    display: block;
-  }
 
   .hero-stats {
     gap: 1rem;

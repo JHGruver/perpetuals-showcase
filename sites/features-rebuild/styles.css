@@ -123,7 +123,7 @@ body {
 
 .logo-icon { width: 36px; height: 36px; }
 
-.nav-links { display: flex; gap: 2rem; }
+.nav-links { display: none; }
 
 .nav-links a {
   color: var(--color-gray-600);
@@ -136,16 +136,17 @@ body {
 .nav-links a:hover,
 .nav-links a.active { color: var(--color-blue); }
 
-.nav-actions { display: flex; gap: 1rem; }
+.nav-actions { display: none; }
 
 .mobile-menu-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .mobile-menu-toggle span {
@@ -157,7 +158,7 @@ body {
 
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
-  display: none;
+  display: block;
   position: fixed;
   inset: 0;
   top: var(--header-height);
@@ -1665,9 +1666,6 @@ body {
     --header-height: 64px;
   }
 
-  .nav-links, .nav-actions { display: none; }
-  .mobile-menu-toggle { display: flex; }
-  .mobile-menu-overlay { display: block; }
 
   .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
 

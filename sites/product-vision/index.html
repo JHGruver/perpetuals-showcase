@@ -43,17 +43,29 @@
       </svg>
       <span>Perpetuals</span>
     </div>
-    <div class="nav-links">
-      <a href="#vision">Vision</a>
-      <a href="#pillars">Pillars</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#future">Future</a>
-    </div>
-    <div class="nav-year">
-      <span class="year-label">Vision</span>
-      <span class="year-value">2030</span>
-    </div>
+    <button class="nav-hamburger" id="nav-hamburger">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      Menu
+    </button>
   </nav>
+
+  <!-- Menu Overlay + Panel -->
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="menu-panel" id="menu-panel">
+    <button class="menu-close" id="menu-close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="menu-links">
+      <a href="../homepage-rebuild/index.html">Home</a>
+      <a href="../features-rebuild/index.html">Features</a>
+      <a href="../competitive-analysis/index.html">Analysis</a>
+      <a href="../design-system/index.html">Design System</a>
+      <a href="./index.html" class="active">Vision</a>
+      <a href="../market-thesis/index.html">Market Thesis</a>
+      <a href="../product-encyclopedia/index.html">Encyclopedia</a>
+      <a href="../appxish/index.html">APPXISH</a>
+    </div>
+  </div>
 
   <!-- Executive Dashboard -->
   <section class="exec-dashboard" id="dashboard">
@@ -794,6 +806,18 @@
         }
       });
     });
+
+    // Hamburger Menu
+    const hamburger=document.getElementById('nav-hamburger');
+    const menuOverlay=document.getElementById('menu-overlay');
+    const menuPanel=document.getElementById('menu-panel');
+    const menuClose=document.getElementById('menu-close');
+    function openMenu(){menuPanel.classList.add('open');menuOverlay.classList.add('open');document.body.style.overflow='hidden'}
+    function closeMenu(){menuPanel.classList.remove('open');menuOverlay.classList.remove('open');document.body.style.overflow=''}
+    hamburger.addEventListener('click',openMenu);
+    menuClose.addEventListener('click',closeMenu);
+    menuOverlay.addEventListener('click',closeMenu);
+    menuPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   </script>
 </body>
 </html>
