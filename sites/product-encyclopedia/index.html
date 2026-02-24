@@ -1958,6 +1958,15 @@
         </div>
       </div>
       <div class="sidebar-group expanded">
+        <button class="sidebar-group-title">Design Research <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+        <div class="sidebar-links">
+          <a href="#gambling-ux" class="sidebar-link">Gambling &times; Trading UX</a>
+          <a href="#platform-teardowns" class="sidebar-link">Platform Teardowns</a>
+          <a href="#engagement-mechanics" class="sidebar-link">Engagement Mechanics</a>
+          <a href="#responsible-design" class="sidebar-link">Responsible Design</a>
+        </div>
+      </div>
+      <div class="sidebar-group expanded">
         <button class="sidebar-group-title">Reference <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
         <div class="sidebar-links">
           <a href="#glossary" class="sidebar-link">Glossary</a>
@@ -3291,6 +3300,287 @@
           <div class="glossary-item"><div class="glossary-term">GLS</div><div class="glossary-def">Grid Ledger System. Kobayashi's proprietary hybrid blockchain with 0.016s transaction speed.</div></div>
           <div class="glossary-item"><div class="glossary-term">HSM</div><div class="glossary-def">Hardware Security Module. Physical device for managing cryptographic keys. Used in Perpetuals Vault.</div></div>
           <div class="glossary-item"><div class="glossary-term">Co-location</div><div class="glossary-def">Placing trading servers physically next to the exchange's matching engine. Equinix FR2 in Frankfurt. Minimizes network latency.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         GAMBLING × TRADING UX RESEARCH
+         ========================================== -->
+    <section class="section" id="gambling-ux" data-searchable>
+      <div class="container">
+        <span class="section-label reveal">Design Research</span>
+        <h2 class="section-title reveal">Gambling &times; Trading UX</h2>
+        <p class="section-subtitle reveal">Gambling and trading platforms solve the same core UX problem: presenting real-time probabilistic data in a way that enables fast, confident decisions under uncertainty. This research maps the patterns worth borrowing &mdash; and the ones to avoid.</p>
+
+        <div class="product-stats reveal">
+          <div class="stat-card"><span class="stat-value">6</span><span class="stat-label">Platforms Analyzed</span></div>
+          <div class="stat-card"><span class="stat-value">10</span><span class="stat-label">Patterns to Adopt</span></div>
+          <div class="stat-card"><span class="stat-value">8</span><span class="stat-label">Patterns to Avoid</span></div>
+          <div class="stat-card"><span class="stat-value">60+</span><span class="stat-label">Sources Cited</span></div>
+        </div>
+
+        <div class="importance-card reveal" style="margin-top:var(--space-md)">
+          <p><strong>Key Insight:</strong> The design convergence between gambling and trading has accelerated since 2020, driven by prediction markets (Polymarket, Kalshi), gamified brokerages (Robinhood), and crypto-native gambling platforms (Stake.com) that blur the line entirely. Perpetuals can borrow engagement mechanics from betting UX without crossing into predatory territory &mdash; but the line is thin and regulated.</p>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Pattern Mapping: Gambling &rarr; Trading</h3>
+        <p class="reveal" style="color:var(--color-text-muted);max-width:800px;margin-bottom:var(--space-md)">Direct translations from betting UX to trading UX, ranked by implementation risk.</p>
+
+        <div class="product-grid reveal" style="grid-template-columns:1fr">
+          <div class="product-main" style="max-width:100%">
+            <details class="component-item" open>
+              <summary>Bet Slip &rarr; Sticky Order Panel</summary>
+              <div class="detail-content">The bet slip is the single most relevant gambling UI component. It stays visible as users browse markets, accepts stake input, and calculates potential payout in real-time. <strong>Trading equivalent:</strong> A persistent order panel that shows live P&amp;L preview as you adjust position size, leverage, and direction. On mobile: bottom sheet with drag-to-expand, showing summary in collapsed state. <strong>Risk level:</strong> Low &mdash; adopt directly.</div>
+            </details>
+            <details class="component-item">
+              <summary>Live Odds Display &rarr; Real-Time Price Feed</summary>
+              <div class="detail-content">Betting platforms use brief color flashes (1&ndash;3 seconds) for odds movement rather than persistent coloring &mdash; reduces visual fatigue during extended sessions. Betfair's order book uses blue (back/buy) and pink (lay/sell) columns. <strong>Trading equivalent:</strong> Price tickers with brief directional flashes, not persistent red/green. Two-tone order book columns distinct from P&amp;L colors. <strong>Risk level:</strong> Low &mdash; adopt directly.</div>
+            </details>
+            <details class="component-item">
+              <summary>One-Tap Bet Placement &rarr; Quick Order Execution</summary>
+              <div class="detail-content">Tapping odds instantly adds to bet slip. Betfair's price ladder: single tap on a level enters an order. Betly uses Tinder-style swipe right=Yes, swipe left=No. <strong>Trading equivalent:</strong> Pre-configured order templates ("5x Long BTC" as a one-tap preset). Swipe-to-trade cards. <strong>Risk level:</strong> Medium &mdash; adopt with mandatory confirmation step showing full risk summary.</div>
+            </details>
+            <details class="component-item">
+              <summary>Progressive Information Density</summary>
+              <div class="detail-content"><strong>Gambling:</strong> Featured events with simple win/lose bets &rarr; full market list &rarr; live in-play micro-markets &rarr; exchange trading with order books. <strong>Trading:</strong> Buy/Sell market order &rarr; limit orders and stop losses &rarr; advanced order types and indicators &rarr; API access and algorithmic strategies. <strong>Principle:</strong> Default view enables a complete action in 2&ndash;3 interactions. Advanced features discoverable but never obstructing. Apps combining this with streaks/milestones see 40&ndash;60% higher DAU.</div>
+            </details>
+            <details class="component-item">
+              <summary>Paper Trading as Onboarding (Free-Play Mode)</summary>
+              <div class="detail-content">Demo missions in gambling show 43% retention increase vs. traditional signup bonuses. 72% of users aged 21&ndash;35 prefer interactive onboarding over static bonus offers. <strong>Trading equivalent:</strong> Paper trading as the default first experience, not an opt-in buried in settings. Same interface for paper and live. Contextual education overlays. Use paper performance as a qualification gate for higher-risk features (leverage). <strong>Risk level:</strong> Low &mdash; adopt directly.</div>
+            </details>
+            <details class="component-item">
+              <summary>Confetti &amp; Win Celebrations &rarr; DO NOT</summary>
+              <div class="detail-content">Robinhood's confetti on first trade and scratch-off free stock led to a <strong>$7.5M settlement</strong>, SEC industry inquiry, and Massachusetts regulatory action for "trivializing investing." The UKGC explicitly prohibits celebrating returns &le; the stake. <strong>Rule for Perpetuals:</strong> Subtle confirmation feedback (checkmark, brief haptic) is fine. Never celebrate trade execution itself. Never use green/"win" treatment on breakeven or losing positions. Never celebrate opening a position &mdash; only outcomes, and muted. <strong>Risk level:</strong> High &mdash; avoid.</div>
+            </details>
+            <details class="component-item">
+              <summary>Leaderboards &amp; Social Proof</summary>
+              <div class="detail-content"><strong>What works:</strong> Leaderboards ranked by risk-adjusted returns or consistency. Social proof of market activity ("10,000 traders in this market") builds confidence. <strong>What fails:</strong> Leaderboards ranked by raw short-term profit encourage reckless leverage. Surfacing individual trades ("John just bought 50x long BTC") causes herding. <strong>Risk level:</strong> Medium &mdash; adopt with guardrails (Sharpe ratio ranking only, no individual trade visibility).</div>
+            </details>
+            <details class="component-item">
+              <summary>Streak &amp; Achievement Systems</summary>
+              <div class="detail-content"><strong>Adopt:</strong> "Risk-Control Pro" badge for maintaining drawdown limits. Streaks for consecutive days of disciplined trading (not consecutive profitable days). Learning milestones for completing risk management tutorials. <strong>Avoid:</strong> Volume-based rewards (badges for number of trades). Profit-streak counters. Achievement unlocks tied to leverage or trade size. Any gamification rewarding frequency over quality. <strong>Risk level:</strong> Medium &mdash; reward education and discipline, never volume.</div>
+            </details>
+          </div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Color System: Gambling &times; Trading</h3>
+        <div class="reg-grid reveal">
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Green</span><span class="reg-status compliant">Universal</span></div>
+            <div class="reg-desc"><strong>Gambling:</strong> Win, payout, odds shortening.<br><strong>Trading:</strong> Profit, price up, bullish.<br><strong>Psychological:</strong> Growth, go, safety. Use muted/desaturated on dark UI. Reserve vivid green for significant movements only.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Red</span><span class="reg-status compliant">Universal</span></div>
+            <div class="reg-desc"><strong>Gambling:</strong> Loss, odds drifting.<br><strong>Trading:</strong> Loss, price down, bearish.<br><strong>Psychological:</strong> Danger, stop, urgency. Similarly muted for resting state. 8% of men are red-green colorblind &mdash; offer blue/orange alternative.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Blue</span><span class="reg-status compliant">Directional</span></div>
+            <div class="reg-desc"><strong>Gambling:</strong> Betfair "back" (buy side). Trust, primary actions.<br><strong>Trading:</strong> Trust, neutral data, informational. Can be used for bid/buy side of order book (distinct from green P&amp;L).<br><strong>Psychological:</strong> Calm, reliability, stability.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Yellow / Amber</span><span class="reg-status pending">Caution</span></div>
+            <div class="reg-desc"><strong>Gambling:</strong> Pending states, caution.<br><strong>Trading:</strong> Warnings, margin approaching limit, barrier proximity alerts.<br><strong>Psychological:</strong> Attention, moderate alert. Use for threshold warnings before critical red states.</div>
+          </div>
+        </div>
+
+        <div class="staff-note reveal" style="margin-top:var(--space-md)">
+          <p><strong>Dashboard Layout Consensus:</strong> Both gambling and trading platforms converge on a tri-panel desktop layout: <strong>navigation/watchlist (left)</strong>, <strong>chart + market data (center)</strong>, <strong>order panel (right)</strong>. This mirrors the proven sportsbook layout of sport nav / event cards / bet slip. On mobile: bottom nav with 4&ndash;5 tabs (Markets, Positions, Trade, Profile). Offer both "simple" (Polymarket card-based) and "pro" (Betfair ladder) views.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PLATFORM TEARDOWNS
+         ========================================== -->
+    <section class="section" id="platform-teardowns" data-searchable style="background:var(--color-surface)">
+      <div class="container">
+        <span class="section-label reveal">Design Research</span>
+        <h2 class="section-title reveal">Platform Teardowns</h2>
+        <p class="section-subtitle reveal">Six platforms at the intersection of gambling and trading, analyzed for design patterns that translate to perpetuals UX.</p>
+
+        <div class="brand-grid reveal">
+          <div class="brand-card">
+            <div class="brand-name">Stake.com</div>
+            <div class="brand-type">Crypto Gambling &mdash; Minimal Dark UI</div>
+            <div class="brand-desc">Closest visual reference for a crypto-native perpetuals platform. Dark theme with neon accents optimized for long sessions. Minimal chrome &mdash; maximum screen real estate. Separated casino/sportsbook navigation maps to separating trading/portfolio views.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Design Deep Dive</summary><div class="detail-content"><strong>Key patterns:</strong> Left sidebar for category nav. No unnecessary pop-ups or advertising clutter. Speed-first game design (quick sessions, immediate feedback). PWA for mobile distribution (avoids app store restrictions). Crypto-native wallet with instant deposits/withdrawals.<br><br><strong>Lessons for Perpetuals:</strong> Dark theme is non-negotiable for crypto audience. Separate navigation contexts for trading vs. portfolio. PWA avoids app store complications. Prioritize speed of interaction over feature density per screen.</div></details>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">DraftKings / FanDuel</div>
+            <div class="brand-type">Sports Betting &mdash; Data-Dense</div>
+            <div class="brand-desc">Solve the hardest UX problem: presenting hundreds of real-time markets without overwhelming casual users while still serving power users. Progressive information density is the key pattern.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Design Deep Dive</summary><div class="detail-content"><strong>Key patterns:</strong> Card-based event layouts with inline odds. "Hover to reveal" for secondary actions &mdash; bet buttons only appear on hover, reducing visual clutter. Persistent bet slip as bottom sheet. Live events embed scoreboard + stats alongside odds in a single card. Quick bet suggestions: pre-populated parlay cards with popular combinations.<br><br><strong>Lessons for Perpetuals:</strong> Progressive disclosure manages complexity. Card-based layouts work for multi-market browsing. Integrate real-time metrics (funding rates, volume, OI) alongside price in a single card. Pre-built trade templates ("5x Long BTC") mirror parlay card patterns.</div></details>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">Betfair Exchange</div>
+            <div class="brand-type">Order Book Model &mdash; Closest to Trading</div>
+            <div class="brand-desc">Functionally a trading platform wearing a betting skin. Full order book with back (buy) and lay (sell) columns. Price ladder with click-to-populate orders. The single most relevant design reference for a perpetuals order book.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Design Deep Dive</summary><div class="detail-content"><strong>Key patterns:</strong> Back/Lay two-color system (blue/pink) instantly communicates directionality without text. Vertical price ladder with volume bars extending horizontally. Clicking a price level populates an order &mdash; identical to DOM trading. "Position in Queue" shows how close an unmatched order is to being filled. Multi-market grids: 4&ndash;8 markets simultaneously. Third-party tool ecosystem via API (Bet Angel, betfairviz).<br><br><strong>Lessons for Perpetuals:</strong> Two-color directional system (not just green/red). Click-to-populate price ladder is the gold standard. Show queue position for limit orders. Design for rapid updates without layout shifts. Support power-user tool integrations via API.</div></details>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">Polymarket</div>
+            <div class="brand-type">Prediction Markets &mdash; Consumer Web</div>
+            <div class="brand-desc">The most successful example of making a trading product feel like a consumer app. ~$3.5B monthly volume at peak. Probability percentages as the primary metric instead of prices or odds.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Design Deep Dive</summary><div class="detail-content"><strong>Key patterns:</strong> Binary Yes/No simplicity reduces interface to two large buttons. Consumer-web aesthetic: rounded corners, generous whitespace, card-based. Portfolio as dashboard showing positions with P&amp;L. One-click wallet connection (MetaMask, Rainbow). Category-based market discovery (Politics, Sports, Crypto).<br><br><strong>Lessons for Perpetuals:</strong> Percentage-based displays more intuitive for certain audiences. Consumer-web aesthetics make complex products accessible. Category-based navigation reduces cognitive load vs. ticker symbols. Simple Long/Short as primary entry, complexity on demand.</div></details>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">Robinhood</div>
+            <div class="brand-type">Gamified Trading &mdash; Cautionary Tale</div>
+            <div class="brand-desc">The definitive case study in borrowing gambling mechanics for trading &mdash; both the successes (23M+ users, mobile-first dominance) and the regulatory fallout ($7.5M settlement, SEC inquiry, Congressional hearings).</div>
+            <details class="component-item" style="margin-top:12px"><summary>Design Deep Dive</summary><div class="detail-content"><strong>Borrowed from gambling:</strong> Confetti on first trade. Scratch-off free stock rewards (lottery mechanics). Swipe-to-trade gesture. "Trending stocks" FOMO lists. Push notifications for price movements. Entire interface shifts color temperature (green when up, red when down).<br><br><strong>What worked:</strong> Simplified default view. Mobile-first single-stock view with large chart + prominent trade button. Minimal data density by default with progressive disclosure.<br><br><strong>What failed:</strong> Massachusetts cited gamification as "trivializing investing." $7.5M settlement. EU regulators proposing rules targeting gamified investment interfaces.<br><br><strong>Lessons for Perpetuals:</strong> Simplification works but must have depth available. Confetti is a proven regulatory risk. Push notifications cross into manipulation when tied to FOMO. Free rewards effective for onboarding but avoid lottery-style randomization.</div></details>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">eToro</div>
+            <div class="brand-type">Social Trading &mdash; Gamified Community</div>
+            <div class="brand-desc">Pioneered social media UX for trading. CopyTrader (one-click portfolio copying), Facebook-like newsfeed, Popular Investor tier system. Proves social proof and community features drive retention.</div>
+            <details class="component-item" style="margin-top:12px"><summary>Design Deep Dive</summary><div class="detail-content"><strong>Key patterns:</strong> Social feed as the primary interface, not charts. CopyTrader: one-click copy showing historical performance, risk score, and follower count &mdash; like a social profile. Trader discovery marketplace filtered by nationality, performance, risk level. Popular Investor tiers (Cadet, Champion, Elite, Elite Pro) create progression. Community sentiment displayed as a horizontal bar per asset.<br><br><strong>Lessons for Perpetuals:</strong> Social proof (follower/copier counts) drives engagement more than raw data. Trader profiles as gaming profiles (stats, achievements, reputation). Copy trading reduces barrier to entry. Tier systems create aspiration without volume-based incentives. Sentiment indicators add context without being prescriptive.</div></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ENGAGEMENT MECHANICS
+         ========================================== -->
+    <section class="section" id="engagement-mechanics" data-searchable>
+      <div class="container">
+        <span class="section-label reveal">Design Research</span>
+        <h2 class="section-title reveal">Engagement Mechanics</h2>
+        <p class="section-subtitle reveal">Shared UX mechanics between gambling and trading &mdash; the dopamine loops, social triggers, and interaction patterns that drive user behavior in both domains.</p>
+
+        <div class="product-grid reveal" style="grid-template-columns:1fr">
+          <div class="product-main" style="max-width:100%">
+            <details class="component-item" open>
+              <summary>Dopamine Loops &amp; Variable Rewards</summary>
+              <div class="detail-content">Both domains exploit the dopamine response to unpredictable outcomes. Research shows anticipation of a potential reward triggers stronger neurochemical response than the reward itself.<br><br><strong>Quantified impact:</strong> Push notifications increase trade frequency by 11%. Points and prize draws increase trades by 12% and increase risky investments by 6&ndash;8%. ~9.5% of investors display problematic trading patterns amplified by interface design.<br><br><strong>Shared manifestations:</strong> Variable reward timing (slot spins / P&amp;L fluctuation). Near-miss effect (almost-winning / price approaching take-profit then reversing). Progress bars (loyalty meters / portfolio value charts). Sound design (win sounds / order fill confirmations).</div>
+            </details>
+            <details class="component-item">
+              <summary>One-Tap &amp; Swipe Actions</summary>
+              <div class="detail-content"><strong>Gambling:</strong> Tap odds to add to slip instantly. Pre-set stake amounts for one-tap placement. Betfair ladder: single tap enters an order.<br><br><strong>Trading:</strong> Robinhood swipe-to-submit. MetaMask Perps two-tap trading. One-tap order templates with pre-configured size/leverage.<br><br><strong>Emerging:</strong> Betly uses Tinder-style swipe right=Yes, left=No for prediction markets. Demonstrates the trend toward single-gesture execution.<br><br><strong>The tension:</strong> Every tap removed increases speed but reduces opportunity for reflection. The design challenge: minimum viable friction &mdash; enough to prevent errors, not enough to create frustration.</div>
+            </details>
+            <details class="component-item">
+              <summary>Social Proof &amp; Community Signals</summary>
+              <div class="detail-content"><strong>Gambling:</strong> "X people betting on this market." Live bet feed showing recent wagers. Top winners leaderboard. VIP tier badges.<br><br><strong>Trading:</strong> eToro follower/copier counts. Polymarket "X traders in this market." Robinhood "100 Most Popular Stocks." Prop trading leaderboards.<br><br><strong>What works:</strong> Market activity social proof ("10,000 traders") builds confidence. Risk-adjusted return rankings promote good behavior. Consistency-based leaderboards.<br><br><strong>What fails:</strong> Raw profit leaderboards encourage reckless leverage. Surfacing individual trades causes herding and copy-without-understanding.</div>
+            </details>
+            <details class="component-item">
+              <summary>FOMO Notifications</summary>
+              <div class="detail-content"><strong>Gambling:</strong> "Limited-time boosted odds." "Your team is playing now." "Unused bonus credits." In-play event alerts.<br><br><strong>Trading:</strong> "BTC is up 5% in the last hour." "Your watchlist stock is moving." "Markets are volatile right now."<br><br><strong>Data:</strong> Personalized notifications improve CTR by 300%, but 3+ promotional messages per hour cause disengagement and uninstalls.<br><br><strong>Responsible design:</strong> Notifications should be informational ("BTC hit your price alert at $52,000") not promotional ("Markets are hot &mdash; trade now!"). Granular controls: separate toggles for price alerts, order fills, news, and promotional. Never send notifications celebrating unrealized gains.</div>
+            </details>
+            <details class="component-item">
+              <summary>Mobile-First Patterns from Betting</summary>
+              <div class="detail-content"><strong>What betting apps have perfected:</strong><br>&bull; One-handed operation &mdash; all primary actions reachable by thumb in bottom 60% of screen<br>&bull; Bottom sheet patterns &mdash; bet slip slides up, collapsible to summary bar<br>&bull; Swipe navigation &mdash; horizontal between related markets, vertical within a market<br>&bull; Large touch targets &mdash; minimum 44&times;44pt with generous spacing<br>&bull; Contextual keyboards &mdash; numeric auto-triggered for stake/size entry<br>&bull; Persistent bottom nav &mdash; 4&ndash;5 tabs max (Home, Live, My Bets, Search, Account)<br>&bull; Pull-to-refresh &mdash; universal for updating prices<br>&bull; Quick actions &mdash; swipe-to-trade cards with preconfigured templates</div>
+            </details>
+          </div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Controversial Patterns: The Fine Line</h3>
+        <div class="reg-grid reveal">
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Confetti Animations</span><span class="reg-status risk">HIGH RISK</span></div>
+            <div class="reg-desc">Robinhood's confetti &rarr; $7.5M settlement, SEC inquiry, Congressional hearings. <strong>Rule:</strong> Subtle confirmation feedback (checkmark, haptic) is fine. Never celebrate execution itself. Never celebrate opening a position &mdash; only muted response to profitable outcomes.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Simplified Risk Display</span><span class="reg-status pending">CAUTION</span></div>
+            <div class="reg-desc">Showing "Potential payout: $150" without equal visual weight on probability of loss. Framing margin as "buying power" instead of "borrowed money with liquidation risk." <strong>Rule:</strong> Always show upside and downside in the same visual frame. Show liquidation price alongside entry price in order preview.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Lottery-Style Rewards</span><span class="reg-status risk">HIGH RISK</span></div>
+            <div class="reg-desc">Robinhood's scratch-off free stock directly mimicked lottery ticket mechanics. EU regulators now proposing rules targeting gamified investment interfaces. <strong>Rule:</strong> Use deterministic, skill-based milestones for onboarding rewards. Never randomize rewards.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Interface Color Shifts</span><span class="reg-status pending">CAUTION</span></div>
+            <div class="reg-desc">Robinhood's entire UI shifts green when portfolio is up, red when down. Emotionally potent but potentially manipulative. <strong>Rule:</strong> Color-code individual positions, not the entire interface. Ambient emotional pressure through global color temperature is a dark pattern.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         RESPONSIBLE DESIGN FRAMEWORK
+         ========================================== -->
+    <section class="section" id="responsible-design" data-searchable style="background:var(--color-surface)">
+      <div class="container">
+        <span class="section-label reveal">Design Research</span>
+        <h2 class="section-title reveal">Responsible Design Framework</h2>
+        <p class="section-subtitle reveal">Adapting the UK Gambling Commission's RTS 14 standard for trading UX &mdash; the most specific regulatory framework for interface design in probabilistic financial products.</p>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">UKGC RTS 14 &mdash; Adapted for Trading</h3>
+        <div class="product-grid reveal" style="grid-template-columns:1fr">
+          <div class="product-main" style="max-width:100%">
+            <details class="component-item" open>
+              <summary>RTS 14A &mdash; No Loss-Chasing Encouragement</summary>
+              <div class="detail-content">"Products must not actively encourage customers to chase their losses, increase their stake, or continue gambling after they have indicated they wish to stop."<br><br><strong>Trading application:</strong> Never auto-suggest increasing position size after a loss. Never push notifications encouraging trading during a drawdown. Never offer "averaging down" as a prompted action after a losing position.</div>
+            </details>
+            <details class="component-item">
+              <summary>RTS 14B &mdash; Withdrawal Finality</summary>
+              <div class="detail-content">"Consumers must not be given the option to cancel their withdrawal request."<br><br><strong>Trading application:</strong> Once a user initiates a withdrawal, do not present interstitial screens encouraging them to keep funds on platform. Do not show "you could miss these opportunities" messages during withdrawal. No "reverse withdrawal" features.</div>
+            </details>
+            <details class="component-item">
+              <summary>RTS 14F &mdash; Loss Celebration Prohibition</summary>
+              <div class="detail-content">"Systems must not celebrate a return which is less than or equal to the total stake gambled through the use of auditory or visual effects associated with a win."<br><br><strong>Trading application:</strong> Never use green coloring, upbeat sounds, or celebratory animations for breakeven or losing positions. A position closed at -$5 must receive neutral or red visual treatment, never green. This is the single most important rule from gambling regulation for trading UX.</div>
+            </details>
+          </div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Friction-by-Design: The Counter-Pattern</h3>
+        <p class="reveal" style="color:var(--color-text-muted);max-width:800px;margin-bottom:var(--space-md)">The gambling industry is shifting from "frictionless" to "friction-by-design" &mdash; intentional UX friction that protects users. These patterns translate directly to trading.</p>
+
+        <div class="reg-grid reveal">
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Cooldown Timers</span><span class="reg-status compliant">ADOPT</span></div>
+            <div class="reg-desc">Mandatory pause after losses or extended sessions before placing new bets. <strong>For trading:</strong> Mandatory review screen after a series of losing trades. Brief delay between rapid-fire order submissions.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Pre-Commitment</span><span class="reg-status compliant">ADOPT</span></div>
+            <div class="reg-desc">Users set loss limits, deposit limits, and session time limits before starting. Enforced automatically. <strong>For trading:</strong> Daily loss limits, maximum leverage settings, session duration warnings. Set before the trading session begins.</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Reality Checks</span><span class="reg-status compliant">ADOPT</span></div>
+            <div class="reg-desc">Pop-up notifications at regular intervals showing elapsed time and net P&amp;L. <strong>For trading:</strong> Periodic session summaries. "You've been trading for 3 hours. Net P&amp;L: -$240. Take a break?"</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Grayscale Transition</span><span class="reg-status pending">CONSIDER</span></div>
+            <div class="reg-desc">Interface subtly shifts toward grayscale during prolonged sessions, signaling fatigue. <strong>For trading:</strong> Color desaturation after extended screen time. A visual nudge that doesn't block action but signals "you've been at this a while."</div>
+          </div>
+          <div class="reg-card">
+            <div class="reg-card-header"><span class="reg-name">Self-Exclusion</span><span class="reg-status compliant">ADOPT</span></div>
+            <div class="reg-desc">Ability to temporarily or permanently block platform access. <strong>For trading:</strong> Temporary account cooling-off periods (24h, 7d, 30d). Mandatory wait period before reactivation. No "are you sure?" friction on exclusion &mdash; friction on reversal.</div>
+          </div>
+        </div>
+
+        <h3 class="reveal" style="color:var(--color-accent);margin-top:var(--space-lg);margin-bottom:var(--space-sm)">Ethical vs. Predatory: Implementation Guide</h3>
+        <div class="product-grid reveal" style="grid-template-columns:1fr">
+          <div class="product-main" style="max-width:100%">
+            <details class="component-item" open>
+              <summary>Streaks</summary>
+              <div class="detail-content"><strong>Ethical:</strong> Reward learning consistency (daily lesson completion, risk management practice).<br><strong>Predatory:</strong> Reward trading frequency (daily trade streak, volume milestones).</div>
+            </details>
+            <details class="component-item">
+              <summary>Leaderboards</summary>
+              <div class="detail-content"><strong>Ethical:</strong> Rank by risk-adjusted return (Sharpe ratio), max drawdown control, consistency.<br><strong>Predatory:</strong> Rank by raw profit (encourages leverage and survivorship bias).</div>
+            </details>
+            <details class="component-item">
+              <summary>Notifications</summary>
+              <div class="detail-content"><strong>Ethical:</strong> Inform of user-set price alerts ("BTC hit $52,000").<br><strong>Predatory:</strong> Push FOMO messages ("Markets are hot &mdash; trade now!").</div>
+            </details>
+            <details class="component-item">
+              <summary>Celebrations</summary>
+              <div class="detail-content"><strong>Ethical:</strong> Celebrate learning milestones ("You completed the risk management module").<br><strong>Predatory:</strong> Celebrate trade execution ("Your order was filled!" with confetti).</div>
+            </details>
+            <details class="component-item">
+              <summary>Demo Modes</summary>
+              <div class="detail-content"><strong>Ethical:</strong> Genuine skill-building with realistic simulation matching live conditions.<br><strong>Predatory:</strong> Inflated demo returns that don't match live performance, hooking users with false confidence.</div>
+            </details>
+            <details class="component-item">
+              <summary>Progression Systems</summary>
+              <div class="detail-content"><strong>Ethical:</strong> Unlock features via demonstrated competence (pass a quiz to access leverage).<br><strong>Predatory:</strong> Unlock features via deposit amounts ("Deposit $5,000 to unlock advanced trading").</div>
+            </details>
+          </div>
+        </div>
+
+        <div class="importance-card reveal" style="margin-top:var(--space-md)">
+          <p><strong>The Bottom Line:</strong> Perpetuals can build the most engaging trading interface in the market by borrowing gambling's best UX patterns &mdash; sticky order panels, progressive disclosure, one-tap templates, social proof, paper trading onboarding. The line between engagement and exploitation is drawn by one question: <em>does this pattern serve the user's financial outcome, or does it serve the platform's transaction volume?</em> If the answer is volume, don't build it.</p>
         </div>
       </div>
     </section>
