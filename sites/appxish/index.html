@@ -314,6 +314,55 @@
     .audit-list li::before { content:'+ '; color:var(--color-accent-secondary); font-weight:700; }
     .audit-list.weak li::before { content:'- '; color:var(--color-danger); }
 
+    /* Interface Viewer Button */
+    .audit-view-btn { display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:8px 14px; background:rgba(253,136,0,0.1); border:1px solid rgba(253,136,0,0.3); border-radius:8px; color:var(--color-accent); font-family:var(--font-display); font-size:0.75rem; font-weight:600; cursor:pointer; transition:all 0.2s ease; letter-spacing:0.5px; }
+    .audit-view-btn:hover { background:rgba(253,136,0,0.2); border-color:var(--color-accent); transform:translateY(-1px); }
+    .audit-view-btn svg { transition:transform 0.2s ease; }
+    .audit-view-btn:hover svg { transform:translateX(3px); }
+
+    /* Interface Viewer Modal */
+    .iface-modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9500; opacity:0; visibility:hidden; transition:opacity 0.3s ease, visibility 0.3s ease; display:flex; align-items:center; justify-content:center; }
+    .iface-modal-overlay.open { opacity:1; visibility:visible; }
+    .iface-modal { position:relative; width:94vw; max-width:1100px; max-height:90vh; background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:16px; overflow:hidden; transform:translateY(30px) scale(0.95); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1); display:flex; flex-direction:column; }
+    .iface-modal-overlay.open .iface-modal { transform:translateY(0) scale(1); }
+
+    .iface-modal-header { display:flex; align-items:center; justify-content:space-between; padding:20px 24px; border-bottom:1px solid var(--color-border); flex-shrink:0; }
+    .iface-modal-title { font-family:var(--font-display); font-size:1.2rem; font-weight:700; }
+    .iface-modal-subtitle { font-size:0.75rem; color:var(--color-text-muted); margin-top:2px; }
+    .iface-modal-close { width:36px; height:36px; border-radius:50%; border:1px solid var(--color-border); background:transparent; color:var(--color-text); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease; flex-shrink:0; }
+    .iface-modal-close:hover { background:var(--color-danger); border-color:var(--color-danger); }
+
+    .iface-modal-body { flex:1; overflow-y:auto; padding:24px; }
+
+    .iface-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .iface-thumb { position:relative; border-radius:10px; overflow:hidden; border:1px solid var(--color-border); cursor:pointer; transition:all 0.25s ease; background:var(--color-bg); }
+    .iface-thumb:hover { border-color:var(--color-accent); transform:translateY(-3px); box-shadow:0 8px 32px rgba(253,136,0,0.15); }
+    .iface-thumb img { width:100%; height:auto; display:block; transition:transform 0.3s ease; }
+    .iface-thumb:hover img { transform:scale(1.02); }
+    .iface-thumb-caption { padding:10px 14px; font-size:0.72rem; color:var(--color-text-muted); font-family:var(--font-display); border-top:1px solid var(--color-border); background:var(--color-surface-elevated); }
+    .iface-thumb-badge { position:absolute; top:8px; right:8px; padding:3px 8px; background:rgba(0,0,0,0.75); border-radius:4px; font-size:0.6rem; color:var(--color-accent); font-family:var(--font-mono); backdrop-filter:blur(8px); }
+
+    /* Lightbox (full-size image view) */
+    .iface-lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:9600; opacity:0; visibility:hidden; transition:opacity 0.25s ease, visibility 0.25s ease; display:flex; align-items:center; justify-content:center; cursor:zoom-out; }
+    .iface-lightbox.open { opacity:1; visibility:visible; }
+    .iface-lightbox img { max-width:92vw; max-height:90vh; object-fit:contain; border-radius:8px; }
+    .iface-lightbox-caption { position:absolute; bottom:24px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.8); color:#fff; padding:8px 16px; border-radius:8px; font-size:0.8rem; font-family:var(--font-display); backdrop-filter:blur(8px); white-space:nowrap; }
+    .iface-lightbox-close { position:absolute; top:20px; right:20px; width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); background:transparent; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.2rem; transition:all 0.2s; }
+    .iface-lightbox-close:hover { background:var(--color-danger); border-color:var(--color-danger); }
+    .iface-lightbox-nav { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,0.2); background:rgba(0,0,0,0.5); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.2rem; transition:all 0.2s; }
+    .iface-lightbox-nav:hover { background:rgba(253,136,0,0.5); border-color:var(--color-accent); }
+    .iface-lightbox-nav.prev { left:20px; }
+    .iface-lightbox-nav.next { right:20px; }
+    .iface-lightbox-counter { position:absolute; top:24px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:0.75rem; color:rgba(255,255,255,0.6); }
+
+    @media(max-width:768px) {
+      .iface-modal { width:100vw; max-width:100vw; max-height:100vh; border-radius:0; }
+      .iface-gallery { grid-template-columns:1fr; }
+      .iface-lightbox-nav { width:36px; height:36px; }
+      .iface-lightbox-nav.prev { left:8px; }
+      .iface-lightbox-nav.next { right:8px; }
+    }
+
     .empathy-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(480px,1fr)); gap:var(--space-lg); }
     .empathy-card { background:var(--color-surface-elevated); border:1px solid var(--color-border); border-radius:12px; overflow:hidden; }
     .empathy-header { padding:var(--space-sm) var(--space-md); border-bottom:1px solid var(--color-border); display:flex; align-items:center; gap:12px; }
@@ -690,6 +739,7 @@
           <li>Regulatory uncertainty undermines trust</li>
         </ul>
         <div class="design-note"><span class="note-label">Design takeaway</span>Binance proves that power users will tolerate bad UX for good liquidity. But they&rsquo;re hemorrhaging beginners. Our opportunity: match the depth, beat the onboarding.</div>
+        <button class="audit-view-btn" onclick="openIfaceModal('binance')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card has-note reveal">
         <div class="audit-platform">Bybit</div>
@@ -706,6 +756,7 @@
           <li>No Barrier Futures or equivalent</li>
         </ul>
         <div class="design-note"><span class="note-label">Design takeaway</span>Bybit&rsquo;s leverage slider is my anti-pattern. There&rsquo;s no friction between 5x and 100x. That&rsquo;s not user-friendly, it&rsquo;s reckless. APPXISH needs to make high leverage feel heavy.</div>
+        <button class="audit-view-btn" onclick="openIfaceModal('bybit')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card reveal">
         <div class="audit-platform">dYdX</div>
@@ -720,6 +771,7 @@
           <li>No fiat on-ramp &mdash; you need crypto to start</li>
           <li>Limited order types</li>
         </ul>
+        <button class="audit-view-btn" onclick="openIfaceModal('dydx')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card has-note reveal">
         <div class="audit-platform">Robinhood</div>
@@ -736,6 +788,7 @@
           <li>Gamification led to $7.5M settlement, SEC inquiry (confetti, scratch-offs)</li>
         </ul>
         <div class="design-note"><span class="note-label">Design takeaway</span>Robinhood is the gold standard for beginner UX (2015 Apple Design Award, 2016 Google Play Award). Their progressive disclosure model is what I&rsquo;m adapting for APPXISH. But their gamification crossed the line: $7.5M settlement, Massachusetts regulatory action, SEC industry inquiry into gamified investing. UKGC RTS 14F prohibits celebrating returns &le; the stake. We take the simplicity, lose the confetti. Source: SEC, CNBC, Gambling UX Research.</div>
+        <button class="audit-view-btn" onclick="openIfaceModal('robinhood')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card reveal">
         <div class="audit-platform">Coinbase</div>
@@ -751,6 +804,7 @@
           <li>Advanced features feel bolted on</li>
           <li>Fee structure is confusing</li>
         </ul>
+        <button class="audit-view-btn" onclick="openIfaceModal('coinbase')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card reveal">
         <div class="audit-platform">Kraken</div>
@@ -766,6 +820,7 @@
           <li>Two separate apps (Kraken / Kraken Pro)</li>
           <li>Futures UX is clunky</li>
         </ul>
+        <button class="audit-view-btn" onclick="openIfaceModal('kraken')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
     </div>
 
@@ -833,6 +888,7 @@
           <li>3+ promotional notifications/hour causes disengagement (gambling UX research)</li>
         </ul>
         <div class="design-note"><span class="note-label">What sports betting teaches us</span>DraftKings/FanDuel solve the hardest UX problem in betting: hundreds of real-time markets without overwhelming casual users. Their bet slip pattern (sticky, real-time payout calc, preserves state across navigation) maps directly to a persistent order panel. Onboarding converts at 80%+ because the first bet is frictionless. We want that same energy for the first Barrier trade &mdash; without the dark patterns. Source: Gambling &times; Trading UX Research.</div>
+        <button class="audit-view-btn" onclick="openIfaceModal('draftkings')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card has-note reveal">
         <div class="audit-platform">eToro / Plus500</div>
@@ -848,6 +904,7 @@
           <li>Risk warnings feel like legal CYA, not user education</li>
         </ul>
         <div class="design-note"><span class="note-label">The MiFID II lesson</span>eToro and Plus500 live under the same MiFID II regime we&rsquo;ll operate in. Their risk disclosure UX is a preview of what regulators expect &mdash; but their approach is &ldquo;checkbox compliance.&rdquo; We can do better by making risk communication genuinely useful, not just legally sufficient.</div>
+        <button class="audit-view-btn" onclick="openIfaceModal('etoro')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card reveal">
         <div class="audit-platform">Polymarket / Kalshi</div>
@@ -864,6 +921,7 @@
           <li>Liquidity thin on niche markets</li>
           <li>No institutional features (no API, no FIX, no co-location)</li>
         </ul>
+        <button class="audit-view-btn" onclick="openIfaceModal('polymarket')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
       <div class="audit-card has-note reveal">
         <div class="audit-platform">Betfair Exchange</div>
@@ -880,6 +938,7 @@
           <li>UI feels dated compared to consumer apps</li>
         </ul>
         <div class="design-note"><span class="note-label">The most relevant reference</span>Betfair Exchange is functionally a trading platform wearing a betting skin. Their two-color directional system (blue/pink, not green/red) instantly communicates directionality. The price ladder with click-to-populate is the gold standard for active trading &mdash; the exact DOM interface Kronos X needs. Their third-party API ecosystem (Bet Angel, betfairviz) is what our API-first architecture should enable. Source: Gambling &times; Trading UX Research, Betfair API documentation.</div>
+        <button class="audit-view-btn" onclick="openIfaceModal('betfair')">View Interface <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       </div>
     </div>
   </div>
@@ -2289,6 +2348,32 @@
   </div>
 </section>
 
+<!-- INTERFACE VIEWER MODAL -->
+<div class="iface-modal-overlay" id="iface-overlay" onclick="closeIfaceModal(event)">
+  <div class="iface-modal" onclick="event.stopPropagation()">
+    <div class="iface-modal-header">
+      <div>
+        <div class="iface-modal-title" id="iface-title"></div>
+        <div class="iface-modal-subtitle" id="iface-subtitle"></div>
+      </div>
+      <button class="iface-modal-close" onclick="closeIfaceModal()">&times;</button>
+    </div>
+    <div class="iface-modal-body">
+      <div class="iface-gallery" id="iface-gallery"></div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="iface-lightbox" id="iface-lightbox" onclick="closeLightbox()">
+  <button class="iface-lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="iface-lightbox-nav prev" onclick="event.stopPropagation();navLightbox(-1)">&#8249;</button>
+  <button class="iface-lightbox-nav next" onclick="event.stopPropagation();navLightbox(1)">&#8250;</button>
+  <div class="iface-lightbox-counter" id="lb-counter"></div>
+  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+  <div class="iface-lightbox-caption" id="lb-caption"></div>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
@@ -2406,6 +2491,174 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
   }
   draw();
 })();
+
+// INTERFACE VIEWER
+const ifaceData = {
+  binance: {
+    title: 'Binance Futures',
+    subtitle: 'World\'s largest crypto derivatives exchange — desktop-first UI ported to mobile',
+    screens: [
+      { src:'https://assets.bitdegree.org/images/binance-futures-homepage.jpg', caption:'Futures trading interface — full order book, chart, and order form', badge:'Desktop' },
+      { src:'https://assets.bitdegree.org/images/binance-futures-leverage.jpg', caption:'Leverage selector — slider with preset buttons (1x to 125x)', badge:'Leverage UI' },
+      { src:'https://assets.bitdegree.org/images/binance-futures-graph.jpeg', caption:'TradingView chart integration with technical indicators', badge:'Charting' },
+      { src:'https://assets.bitdegree.org/images/binance-futures-types-of-contracts.jpg', caption:'Contract type selector — USD-M, COIN-M, Options', badge:'Order Types' },
+      { src:'https://assets.bitdegree.org/images/binance-futures-contract-information.jpg', caption:'Contract info panel — funding rate, mark price, open interest', badge:'Market Data' }
+    ]
+  },
+  bybit: {
+    title: 'Bybit',
+    subtitle: 'Fast-growing derivatives exchange — cleaner than Binance but dangerous leverage UX',
+    screens: [
+      { src:'https://assets.bitdegree.org/images/bybit-review-futures-trading.jpg', caption:'Futures trading interface — chart, order book, and trading panel', badge:'Desktop' },
+      { src:'https://assets.bitdegree.org/images/bybit-review-perpetual-futures-usdc.jpg', caption:'USDC perpetual futures — simplified contract view', badge:'Perpetuals' },
+      { src:'https://assets.bitdegree.org/images/bybit-review-copy-trading-classic.jpg', caption:'Copy trading — follow top traders with one click', badge:'Social' },
+      { src:'https://image.coinbureau.com/strapi/Bybit_Derivatives_7b1ccf9945.jpg', caption:'Derivatives overview — multiple contract types and markets', badge:'Overview' },
+      { src:'https://image.coinbureau.com/strapi/Bybit_Mobile_App_f4551d5c54.jpg', caption:'Mobile app — portfolio view and quick trading', badge:'Mobile' }
+    ]
+  },
+  dydx: {
+    title: 'dYdX',
+    subtitle: 'Decentralized perpetuals on Cosmos — clean minimalist interface, crypto-native only',
+    screens: [
+      { src:'https://assets.bitdegree.org/images/dydx-review-pro-trading-platform.jpg', caption:'Pro trading platform — full-featured decentralized exchange', badge:'Desktop' },
+      { src:'https://assets.bitdegree.org/images/dydx-review-pro-tooling.jpg', caption:'Professional tooling — advanced charting and order management', badge:'Pro Tools' },
+      { src:'https://assets.bitdegree.org/images/dydx-review-mobile-app.jpg', caption:'Mobile app — simplified view for on-the-go trading', badge:'Mobile' },
+      { src:'https://assets.bitdegree.org/images/dydx-review-choosing-a-trading-pair.jpg', caption:'Trading pair selector — market browser with stats', badge:'Markets' },
+      { src:'https://assets.bitdegree.org/images/dydx-review-picking0order-types.jpg', caption:'Order type picker — market, limit, stop, trailing stop', badge:'Order Entry' }
+    ]
+  },
+  robinhood: {
+    title: 'Robinhood',
+    subtitle: 'Gold standard for beginner UX — mobile-first, progressive disclosure, but controversial gamification',
+    screens: [
+      { src:'https://cdn.minafi.com/uploads/screenshot/image/49/screenshot_2021-01-26_22.20.40.png', caption:'Stock detail screen — price chart, key stats, buy button at bottom', badge:'Stock Detail' },
+      { src:'https://cdn.minafi.com/uploads/screenshot/image/50/screenshot_2021-01-26_22.20.48.png', caption:'Trading screen — clean order entry with minimal fields', badge:'Order Entry' },
+      { src:'https://cdn.minafi.com/uploads/screenshot/image/51/screenshot_2021-01-26_22.21.16.png', caption:'Portfolio view — total value, daily change, positions list', badge:'Portfolio' },
+      { src:'https://cdn.minafi.com/uploads/screenshot/image/53/screenshot_2021-01-26_22.21.27.png', caption:'Options chain — tabbed expiry dates, strike prices with greeks', badge:'Options' }
+    ]
+  },
+  coinbase: {
+    title: 'Coinbase',
+    subtitle: 'Highest trust factor in crypto — clean professional aesthetic, limited derivatives',
+    screens: [
+      { src:'https://assets.bitdegree.org/images/coinbase-review-advanced-market-pairs.jpg', caption:'Advanced trading — market pairs with depth chart and order book', badge:'Advanced' },
+      { src:'https://assets.bitdegree.org/images/coinbase-review-main-page-future-of-money-is-here.jpg', caption:'Homepage — clean consumer-grade onboarding and branding', badge:'Homepage' },
+      { src:'https://assets.bitdegree.org/images/coinbase-review-cryptocurrencies.jpg', caption:'Crypto listing — price, market cap, 24h change at a glance', badge:'Markets' },
+      { src:'https://assets.bitdegree.org/images/coinbase-review-wallet-(1).jpg', caption:'Wallet view — portfolio breakdown and asset allocation', badge:'Wallet' }
+    ]
+  },
+  kraken: {
+    title: 'Kraken Futures',
+    subtitle: 'Strong regulatory standing, good security — but dated mobile UX and split app experience',
+    screens: [
+      { src:'https://assets.bitdegree.org/images/kraken-futures-interface.jpg', caption:'Futures trading interface — order book, chart, position panel', badge:'Desktop' },
+      { src:'https://assets.bitdegree.org/images/kraken-futures-order-form.jpg', caption:'Order form — order type selector with leverage and margin inputs', badge:'Order Entry' },
+      { src:'https://assets.bitdegree.org/images/kraken-futures-btc-perp.jpg', caption:'BTC perpetual contract — live price, funding rate, open interest', badge:'BTC Perp' },
+      { src:'https://assets.bitdegree.org/images/kraken-futures-open-contracts.jpg', caption:'Open contracts — position management with P&L tracking', badge:'Positions' },
+      { src:'https://assets.bitdegree.org/images/kraken-futures-portfolio-futures.jpg', caption:'Portfolio view — futures positions and margin overview', badge:'Portfolio' }
+    ]
+  },
+  draftkings: {
+    title: 'DraftKings Sportsbook',
+    subtitle: 'Best-in-class bet slip UX — progressive information density, persistent order panel pattern',
+    screens: [
+      { src:'https://www.sportsbookscout.com/wp-content/uploads/2019/05/draftkings-sb-home.png', caption:'Sportsbook home — featured events, live games, quick navigation', badge:'Home' },
+      { src:'https://www.sportsbookscout.com/wp-content/uploads/2019/05/dk-sportsbook-home-lines.png', caption:'Live and upcoming lines — odds display with real-time updates', badge:'Live Lines' },
+      { src:'https://www.sportsbookscout.com/wp-content/uploads/2019/04/Screenshot-2019-04-28-at-6.46.49-PM.png', caption:'Featured games with bet types — spread, moneyline, total', badge:'Bet Types' }
+    ]
+  },
+  etoro: {
+    title: 'eToro',
+    subtitle: 'Social + copy trading pioneer — MiFID II compliant, ESMA risk disclosures baked into UI',
+    screens: [
+      { src:'https://assets.bitdegree.org/images/etoro-review-interface.jpg', caption:'Dashboard — portfolio overview with social feed integration', badge:'Dashboard' },
+      { src:'https://assets.bitdegree.org/images/etoro-review-copy-trading.jpg', caption:'CopyTrader — browse and copy top investors with one click', badge:'Copy Trading' },
+      { src:'https://assets.bitdegree.org/images/etoro-review-trade-interface.jpg', caption:'Trade form — BTC order with leverage, stop loss, take profit', badge:'Order Entry' },
+      { src:'https://assets.bitdegree.org/images/etoro-review-investors.jpg', caption:'Popular investors — performance stats, risk score, copier count', badge:'Social' },
+      { src:'https://assets.bitdegree.org/images/etoro-review-trader-chart.jpg', caption:'Trader profile with portfolio chart and allocation breakdown', badge:'Profile' }
+    ]
+  },
+  polymarket: {
+    title: 'Polymarket',
+    subtitle: '$3.5B peak volume — probability-based displays, binary Yes/No simplicity, consumer-web aesthetic',
+    screens: [
+      { src:'https://cdn.prod.website-files.com/668b008ec39b281a2411a5fd/670570af5964dc2f791c1485_Polymarket-Hero.webp', caption:'Platform overview — clean consumer-grade prediction market interface', badge:'Overview' },
+      { src:'https://cdn.prod.website-files.com/668b008ec39b281a2411a5fd/66fe01bed599c154cfb2c86a_Polymarket-A.webp', caption:'Market view — probability percentages, Yes/No buttons, category nav', badge:'Markets' },
+      { src:'https://cdn.prod.website-files.com/668b008ec39b281a2411a5fd/66fe01beb5f3de574e29edd9_Polymarket-B.webp', caption:'Market detail — order book depth, probability chart, trade panel', badge:'Trading' },
+      { src:'https://cdn.prod.website-files.com/668b008ec39b281a2411a5fd/66fe01bed599c154cfb2c83a_Polymarket-D.webp', caption:'Presidential forecast — live probability tracking with historical chart', badge:'Forecast' }
+    ]
+  },
+  betfair: {
+    title: 'Betfair Exchange',
+    subtitle: 'Functionally a trading platform in a betting skin — price ladder, order book, DOM trading',
+    screens: [
+      { src:'https://www.betangel.com/blog/wp-content/uploads/2019/05/Basic-Ladder-1024x627.jpg', caption:'Basic ladder interface — back (blue) / lay (pink) price columns with depth', badge:'Price Ladder' },
+      { src:'https://www.betangel.com/blog/wp-content/uploads/2019/05/Large-Cell-1024x641.jpg', caption:'Large cell view — expanded price ladder for easier click targeting', badge:'Large Cell' },
+      { src:'https://www.betangel.com/blog/wp-content/uploads/2019/05/VWAP-LTP-1024x296.jpg', caption:'VWAP and Last Traded Price indicators — real-time market analytics', badge:'Analytics' },
+      { src:'https://www.betangel.com/blog/wp-content/uploads/2019/05/Tennis.jpg', caption:'Tennis ladder — multi-market grid with simultaneous position tracking', badge:'Multi-Market' }
+    ]
+  }
+};
+
+let currentLbImages = [];
+let currentLbIndex = 0;
+
+function openIfaceModal(platform) {
+  const data = ifaceData[platform];
+  if (!data) return;
+  document.getElementById('iface-title').textContent = data.title;
+  document.getElementById('iface-subtitle').textContent = data.subtitle;
+  const gallery = document.getElementById('iface-gallery');
+  gallery.innerHTML = data.screens.map((s, i) =>
+    '<div class="iface-thumb" onclick="openLightbox(\'' + platform + '\',' + i + ')">' +
+      '<div class="iface-thumb-badge">' + s.badge + '</div>' +
+      '<img src="' + s.src + '" alt="' + s.caption + '" loading="lazy">' +
+      '<div class="iface-thumb-caption">' + s.caption + '</div>' +
+    '</div>'
+  ).join('');
+  document.getElementById('iface-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeIfaceModal(e) {
+  if (e && e.target !== document.getElementById('iface-overlay')) return;
+  document.getElementById('iface-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openLightbox(platform, index) {
+  currentLbImages = ifaceData[platform].screens;
+  currentLbIndex = index;
+  updateLightbox();
+  document.getElementById('iface-lightbox').classList.add('open');
+}
+
+function closeLightbox() {
+  document.getElementById('iface-lightbox').classList.remove('open');
+}
+
+function navLightbox(dir) {
+  currentLbIndex = (currentLbIndex + dir + currentLbImages.length) % currentLbImages.length;
+  updateLightbox();
+}
+
+function updateLightbox() {
+  const s = currentLbImages[currentLbIndex];
+  document.getElementById('lb-img').src = s.src;
+  document.getElementById('lb-img').alt = s.caption;
+  document.getElementById('lb-caption').textContent = s.caption;
+  document.getElementById('lb-counter').textContent = (currentLbIndex + 1) + ' / ' + currentLbImages.length;
+}
+
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('iface-lightbox').classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  } else if (document.getElementById('iface-overlay').classList.contains('open')) {
+    if (e.key === 'Escape') closeIfaceModal();
+  }
+});
 </script>
 </body>
 </html>
